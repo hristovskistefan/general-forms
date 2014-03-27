@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ICOMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ICOMSModelStoreContainer">
+          <EntitySet Name="DivisionLookups" EntityType="ICOMSModel.Store.DivisionLookups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Franchise" EntityType="ICOMSModel.Store.Franchise" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Franchise_DivisionLookups" Association="ICOMSModel.Store.FK_Franchise_DivisionLookups">
+            <End Role="DivisionLookups" EntitySet="DivisionLookups" />
+            <End Role="Franchise" EntitySet="Franchise" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DivisionLookups">
+          <Key>
+            <PropertyRef Name="Division" />
+          </Key>
+          <Property Name="Division" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="UPS_EmailAddress" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Franchise">
+          <Key>
+            <PropertyRef Name="Franchise" />
+          </Key>
+          <Property Name="Franchise" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="FranchiseName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Division" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="DivisionName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Site" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="SYSPRIN" Type="nvarchar" MaxLength="8" />
+          <Property Name="Agent" Type="nvarchar" MaxLength="4" />
+          <Property Name="Timezone" Type="int" />
+          <Property Name="State" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="StateAbbr" Type="varchar" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <Association Name="FK_Franchise_DivisionLookups">
+          <End Role="DivisionLookups" Type="ICOMSModel.Store.DivisionLookups" Multiplicity="1" />
+          <End Role="Franchise" Type="ICOMSModel.Store.Franchise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DivisionLookups">
+              <PropertyRef Name="Division" />
+            </Principal>
+            <Dependent Role="Franchise">
+              <PropertyRef Name="Division" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ICOMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ICOMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Franchises" EntityType="ICOMSModel.Franchise" />
+          <EntitySet Name="DivisionLookups" EntityType="ICOMSModel.DivisionLookup" />
+          <AssociationSet Name="FK_Franchise_DivisionLookups" Association="ICOMSModel.FK_Franchise_DivisionLookups">
+            <End Role="DivisionLookup" EntitySet="DivisionLookups" />
+            <End Role="Franchise" EntitySet="Franchises" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Franchise">
+          <Key>
+            <PropertyRef Name="Franchise1" />
+          </Key>
+          <Property Name="Franchise1" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="FranchiseName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Division" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="DivisionName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Company" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="Site" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="SYSPRIN" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Agent" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Timezone" Type="Int32" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StateAbbr" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DivisionLookup" Relationship="ICOMSModel.FK_Franchise_DivisionLookups" FromRole="Franchise" ToRole="DivisionLookup" />
+        </EntityType>
+        <EntityType Name="DivisionLookup">
+          <Key>
+            <PropertyRef Name="Division" />
+          </Key>
+          <Property Type="String" Name="Division" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UPS_EmailAddress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Franchises" Relationship="ICOMSModel.FK_Franchise_DivisionLookups" FromRole="DivisionLookup" ToRole="Franchise" />
+        </EntityType>
+        <Association Name="FK_Franchise_DivisionLookups">
+          <End Type="ICOMSModel.DivisionLookup" Role="DivisionLookup" Multiplicity="1" />
+          <End Type="ICOMSModel.Franchise" Role="Franchise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DivisionLookup">
+              <PropertyRef Name="Division" />
+            </Principal>
+            <Dependent Role="Franchise">
+              <PropertyRef Name="Division" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ICOMSModelStoreContainer" CdmEntityContainer="ICOMSEntities">
+          <EntitySetMapping Name="Franchises">
+            <EntityTypeMapping TypeName="ICOMSModel.Franchise">
+              <MappingFragment StoreEntitySet="Franchise">
+                <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Franchise1" ColumnName="Franchise" />
+                <ScalarProperty Name="FranchiseName" ColumnName="FranchiseName" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="SYSPRIN" ColumnName="SYSPRIN" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DivisionLookups">
+            <EntityTypeMapping TypeName="ICOMSModel.DivisionLookup">
+              <MappingFragment StoreEntitySet="DivisionLookups">
+                <ScalarProperty Name="UPS_EmailAddress" ColumnName="UPS_EmailAddress" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
