@@ -389,6 +389,7 @@
                     </table>
                 </center>
             </asp:Panel>
+            <asp:Label ID="lblHouseNumber" runat="server" Visible="False"></asp:Label>
         </div>
     <User:MB ID="MB" runat="server" />
     </form></body>

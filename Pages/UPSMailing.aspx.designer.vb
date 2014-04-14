@@ -410,6 +410,15 @@ Partial Public Class UPSMailingForm
     Protected WithEvents btncont As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''lblHouseNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblHouseNumber As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''MB control.
     '''</summary>
     '''<remarks>

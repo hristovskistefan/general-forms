@@ -90,6 +90,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
@@ -112,6 +113,9 @@
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
       <HintPath>..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET AJAX Q1 2014\Bin40\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="WOW.Data">
+      <HintPath>.\WOW.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +259,23 @@
     <None Include="Service References\AddressService\AddressManagement33.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Service References\CreateOrderService\CreateOrder.wsdl" />
+    <None Include="Service References\CreateOrderService\CreateOrder.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CreateOrderService\CreateOrder1.wsdl" />
+    <None Include="Service References\CreateOrderService\CreateOrder1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CreateOrderService\CreateOrder2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CreateOrderService\CreateOrder3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CreateOrderService\GeneralForms.CreateOrderService.CreateOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CryptoSvc\CCCCrypto.wsdl" />
     <None Include="Service References\CryptoSvc\CCCCrypto.xsd">
       <SubType>Designer</SubType>
@@ -269,6 +290,13 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Service References\CustomerService\CustomerManagement1.disco" />
+    <Content Include="Service References\CreateOrderService\CreateOrder.disco" />
+    <Content Include="Service References\CreateOrderService\configuration91.svcinfo" />
+    <Content Include="Service References\CreateOrderService\configuration.svcinfo" />
+    <Content Include="Service References\CreateOrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
     <Content Include="Service References\CustomerService\GeneralForms.CustomerService.Cust.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -381,6 +409,8 @@
     <Compile Include="Classes\Enums.vb" />
     <Compile Include="Classes\GeneralFormsCommon.vb" />
     <Compile Include="Classes\GenFormsData.vb" />
+    <Compile Include="Classes\OrderFunctions.vb" />
+    <Compile Include="Classes\UpsMailingFunctions.vb" />
     <Compile Include="Entities\ICOMS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -506,6 +536,11 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Service References\AddressService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CreateOrderService\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -637,6 +672,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AddressService\" />
+    <WCFMetadataStorage Include="Service References\CreateOrderService\" />
     <WCFMetadataStorage Include="Service References\CryptoSvc\" />
     <WCFMetadataStorage Include="Service References\CustomerService\" />
     <WCFMetadataStorage Include="Service References\EmailService\" />
