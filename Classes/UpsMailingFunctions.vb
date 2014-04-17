@@ -22,9 +22,16 @@ Public Class UpsMailingFunctions
 
             dtChargeOff = baseDb.GetDataTable("Spc_GetAccountChargeOffInformation", sqlParameters)
             If dtChargeOff Is Nothing OrElse dtChargeOff.Rows.Count = 0 Then
-                Throw New Exception
+                Throw New Exception("Account could not be located.")
 
             End If
+
+            If dtChargeOff.Rows(0)("BillTypeCode").ToString() = "S" Then
+                isCommercial = False
+            Else
+                isCommercial = True
+            End If
+
             Dim isActive As Boolean = False
 
             Dim totalWriteOff As Decimal = 0
@@ -63,7 +70,7 @@ Public Class UpsMailingFunctions
                 Next
             End If
 
-            
+
 
         Catch ex As Exception
             Throw New Exception("There was an error retrieving account information.")
@@ -78,6 +85,6 @@ Public Class UpsMailingFunctions
 
     Public Property isChargedOff As Boolean
     Public Property hasSpp As Boolean
-
+    Public Property isCommercial As Boolean
 
 End Class

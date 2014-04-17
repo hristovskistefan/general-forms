@@ -370,6 +370,13 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <Content Include="Service References\EmployeeService\Management.disco" />
+    <Content Include="Service References\OrderUpdateService\OrderUpdate.disco" />
+    <Content Include="Service References\OrderUpdateService\configuration91.svcinfo" />
+    <Content Include="Service References\OrderUpdateService\configuration.svcinfo" />
+    <Content Include="Service References\OrderUpdateService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </Content>
     <Content Include="Unauthorized.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="images\Cancel.gif" />
@@ -401,6 +408,22 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
+    <Content Include="Service References\OrderUpdateService\OrderUpdate.wsdl" />
+    <None Include="Service References\OrderUpdateService\OrderUpdate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\OrderUpdateService\OrderUpdate1.wsdl" />
+    <None Include="Service References\OrderUpdateService\OrderUpdate1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderUpdateService\OrderUpdate2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OrderUpdateService\OrderUpdate3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="web.dev.config" />
+    <None Include="Web.prod.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AD.vb" />
@@ -565,6 +588,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\OrderUpdateService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Settings.vb" />
     <Compile Include="Unauthorized.aspx.designer.vb">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
@@ -677,6 +705,7 @@
     <WCFMetadataStorage Include="Service References\CustomerService\" />
     <WCFMetadataStorage Include="Service References\EmailService\" />
     <WCFMetadataStorage Include="Service References\EmployeeService\" />
+    <WCFMetadataStorage Include="Service References\OrderUpdateService\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.OrderUpdate/OrderUpdate.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfOccurrence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Occurrence" nillable="true" type="tns:Occurrence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOccurrence" nillable="true" type="tns:ArrayOfOccurrence" />
+  <xs:complexType name="Occurrence">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" type="tns:BillingEnum.Action" />
+      <xs:element minOccurs="0" name="OccurenceItems" nillable="true" type="tns:ArrayOfServiceItem" />
+      <xs:element minOccurs="0" name="OccurenceNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="OccurrenceType" type="tns:BillingEnum.OccurrenceType" />
+      <xs:element minOccurs="0" name="TN" nillable="true" type="tns:TelephoneDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Occurrence" nillable="true" type="tns:Occurrence" />
+  <xs:simpleType name="BillingEnum.Action">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Remove">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Update">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AutoAssign">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingEnum.Action" nillable="true" type="tns:BillingEnum.Action" />
+  <xs:complexType name="ArrayOfServiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceItem" nillable="true" type="tns:ServiceItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceItem" nillable="true" type="tns:ArrayOfServiceItem" />
+  <xs:complexType name="ServiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" type="tns:BillingEnum.Action" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="itemType" type="tns:BillingEnum.ServiceCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceItem" nillable="true" type="tns:ServiceItem" />
+  <xs:simpleType name="BillingEnum.ServiceCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Data" />
+      <xs:enumeration value="Telephone" />
+      <xs:enumeration value="Cable" />
+      <xs:enumeration value="OTC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingEnum.ServiceCategory" nillable="true" type="tns:BillingEnum.ServiceCategory" />
+  <xs:simpleType name="BillingEnum.OccurrenceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Data" />
+      <xs:enumeration value="Telephone" />
+      <xs:enumeration value="Cable" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingEnum.OccurrenceType" nillable="true" type="tns:BillingEnum.OccurrenceType" />
+  <xs:complexType name="TelephoneDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" type="tns:BillingEnum.Action" />
+      <xs:element minOccurs="0" name="AreaCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Block900976" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockCollect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockInternational" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BlockLongDistance" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CSRName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DL" nillable="true" type="tns:DirectoryListing" />
+      <xs:element minOccurs="0" name="Exchange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ported" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TelephoneDetail" nillable="true" type="tns:TelephoneDetail" />
+  <xs:complexType name="DirectoryListing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DLInstructions" type="tns:BillingEnum.ListingInstruction" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suffix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DirectoryListing" nillable="true" type="tns:DirectoryListing" />
+  <xs:simpleType name="BillingEnum.ListingInstruction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Listed" />
+      <xs:enumeration value="NonListed" />
+      <xs:enumeration value="NonPublished" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BillingEnum.ListingInstruction" nillable="true" type="tns:BillingEnum.ListingInstruction" />
+</xs:schema>

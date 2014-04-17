@@ -1,4 +1,5 @@
 <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="UPSMailing.aspx.vb" Inherits="GeneralForms.UPSMailingForm" %>
+
 <%@ Register Src="~/Controls/MessageBox.ascx" TagName="MB" TagPrefix="User" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,11 +30,22 @@
         <div id="Container-Content" class="clearfix">
             <!-- FORM PANEL -->
             <asp:Panel ID="pnlmain" runat="server">
-                <table class="input" width="600" cellpadding="2" cellspacing="0">
+                <table class="input" width="700" cellpadding="2" cellspacing="0">
+                    <tr>
+                        <td>Your ICOMS ID:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox ID="txtIcomsId" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvIcomsId" runat="server" ControlToValidate="txtIcomsId"
+                                Display="Dynamic" Text="ICOMS ID Required" Font-Bold="True" Font-Size="Small" ErrorMessage="ICOMS ID Required"
+                                />
+                        </td>
+                    </tr>
                     <tr>
                         <td class="sectionTitle" colspan="4">Customer Information
                         </td>
                     </tr>
+
                     <tr>
                         <td>ICOMS Account:
                         </td>
@@ -74,7 +86,7 @@
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
                     </tr>
-                
+
                     <tr>
                         <td colspan="4" class="sectionTitle">Address Information
                         </td>
@@ -101,7 +113,7 @@
                             </td>
                             <td>
                                 <asp:DropDownList ID="dropstate" runat="server" AutoPostBack="True">
-                                         </asp:DropDownList>
+                                </asp:DropDownList>
                                 <asp:RequiredFieldValidator ControlToValidate="dropstate" runat="server" InitialValue="Select One"
                                     Text="<font size=3><b>X</b></font>" Display="Dynamic" />
                             </td>
@@ -391,6 +403,7 @@
             </asp:Panel>
             <asp:Label ID="lblHouseNumber" runat="server" Visible="False"></asp:Label>
         </div>
-    <User:MB ID="MB" runat="server" />
-    </form></body>
+        <User:MB ID="MB" runat="server" />
+    </form>
+</body>
 </html>

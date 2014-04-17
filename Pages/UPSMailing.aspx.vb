@@ -115,6 +115,16 @@ Partial Class UPSMailingForm
         Me.lblhName.Text = _employee.FullNameFirstLast
         Me.lblhDate.Text = Format(Date.Now, "Short Date")
         Me.lblhIcomsID.Text = _employee.IcomsUserID
+
+        If String.IsNullOrWhiteSpace(_employee.IcomsUserID) Then
+            txtIcomsId.Text = String.Empty
+            txtIcomsId.Enabled = True
+        Else
+            txtIcomsId.Text = _employee.IcomsUserID
+            txtIcomsId.Enabled = False
+
+        End If
+
     End Sub
 
     Public Sub GetCity(ByVal o As System.Object, ByVal e As System.EventArgs) Handles dropstate.SelectedIndexChanged

@@ -59,6 +59,24 @@ Partial Public Class UPSMailingForm
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''txtIcomsId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtIcomsId As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvIcomsId control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvIcomsId As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''txtAcct control.
     '''</summary>
     '''<remarks>
