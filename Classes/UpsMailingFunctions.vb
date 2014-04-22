@@ -60,7 +60,7 @@ Public Class UpsMailingFunctions
                 'Determine if SPP is on the account.
 
                 'Get list of SPP service codes
-                Dim sppCodes() As String = ConfigurationManager.AppSettings("SppCodes").Split
+                Dim sppCodes() As String = ConfigurationManager.AppSettings("SppCodes").Split("|")
 
                 For Each singleRow As DataRow In dtServiceCodes.Rows
                     If sppCodes.Contains(singleRow("ServiceCode")) AndAlso Int32.Parse(singleRow("ServiceCode")) > 0 Then

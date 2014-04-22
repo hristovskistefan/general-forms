@@ -5,6 +5,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GeneralForms", "GeneralForm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{19117363-8C18-4182-BDE1-B210D972F491}"
 	ProjectSection(SolutionItems) = preProject
+		EntityFramework.dll = EntityFramework.dll
 		Microsoft.Practices.EnterpriseLibrary.Common.dll = Microsoft.Practices.EnterpriseLibrary.Common.dll
 		Microsoft.Practices.EnterpriseLibrary.Data.dll = Microsoft.Practices.EnterpriseLibrary.Data.dll
 		Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll = Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
@@ -14,6 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Microsoft.Practices.ServiceLocation.dll = Microsoft.Practices.ServiceLocation.dll
 		Microsoft.Practices.Unity.dll = Microsoft.Practices.Unity.dll
 		Microsoft.Practices.Unity.Interception.dll = Microsoft.Practices.Unity.Interception.dll
+		NetSqlAzMan.dll = NetSqlAzMan.dll
+		Telerik.Web.UI.dll = Telerik.Web.UI.dll
+		Telerik.Web.UI.Skins.dll = Telerik.Web.UI.Skins.dll
 		WOW.Data.dll = WOW.Data.dll
 	EndProjectSection
 EndProject
