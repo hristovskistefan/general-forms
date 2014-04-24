@@ -212,6 +212,7 @@
     <Content Include="App_Themes\WOWMain\_vti_cnf\StyleSheet.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\Winback.css" />
     <Content Include="Controls\WOWAuthCntrl.dll" />
+    <Content Include="images\SearchGo.gif" />
     <Content Include="Pages\AR\NameChange.aspx" />
     <Content Include="Pages\AR\MisappliedOrUnpostedPayment.aspx" />
     <Content Include="Pages\AR\CustomerRefunds.aspx" />
