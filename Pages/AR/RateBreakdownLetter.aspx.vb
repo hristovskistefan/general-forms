@@ -47,8 +47,8 @@ Public Class ARRateBreakdownLetter
                 Dim cmd As DbCommand
 
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments) VALUES " _
-                        & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments,Division) VALUES " _
+                        & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments,@Division)")
 
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
@@ -66,6 +66,7 @@ Public Class ARRateBreakdownLetter
                 db.AddInParameter(cmd, "IssueType", DbType.String, "Breakdown Letter")
                 db.AddInParameter(cmd, "TimeFrame", DbType.String, "Current Month")
                 db.AddInParameter(cmd, "Comments", DbType.String, txtItemLetter.Text)
+                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -135,8 +136,8 @@ Public Class ARRateBreakdownLetter
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        GetForm()
         _division = myCustomer.Address.Division
+        GetForm()
     End Sub
 
     Sub Reset()

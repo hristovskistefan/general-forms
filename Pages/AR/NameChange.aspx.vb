@@ -88,8 +88,8 @@ Public Class ARNameChange
                 Select Case o.ID
 
                     Case "btnNameCorrSubmit"
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone) VALUES " _
-                           & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
+                           & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
                         db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
@@ -108,10 +108,11 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "NName", DbType.String, txtNewNameCorr.Text)
                         db.AddInParameter(cmd, "NewSSN", DbType.String, "")
                         db.AddInParameter(cmd, "NewPhone", DbType.String, "")
+                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                         db.ExecuteNonQuery(cmd)
                     Case "btnNameChangeSubmit"
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason) VALUES " _
-                                                   & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@NameChangeReason)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason,Division) VALUES " _
+                                                   & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@NameChangeReason,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
                         db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
@@ -131,6 +132,7 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "NewSSN", DbType.String, txtNewSSN.Text)
                         db.AddInParameter(cmd, "NewPhone", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "NameChangeReason", DbType.String, rblNameCorrChange.SelectedValue)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                        db.ExecuteNonQuery(cmd)
                 End Select
                 Reset()
@@ -198,8 +200,9 @@ Public Class ARNameChange
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        GetForm()
         _division = myCustomer.Address.Division
+        GetForm()
+
     End Sub
 
     Sub Reset()

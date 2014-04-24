@@ -51,8 +51,8 @@ Public Class ARCustomerRefunds
                 '***************************************
                 ' CUSTOMER REFUND
                 '***************************************
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Amount,RefundReason,Comments) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Amount,@RefundReason,@Comments)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Amount,RefundReason,Comments,Division) VALUES " _
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Amount,@RefundReason,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Customer Refund")
@@ -69,6 +69,7 @@ Public Class ARCustomerRefunds
                 db.AddInParameter(cmd, "Amount", DbType.String, rntRefundAmount.Value)
                 db.AddInParameter(cmd, "RefundReason", DbType.String, txtrefreason.Text)
                 db.AddInParameter(cmd, "Comments", DbType.String, txtrefcomm.Text)
+                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -137,8 +138,9 @@ Public Class ARCustomerRefunds
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        GetForm()
         _division = myCustomer.Address.Division
+        GetForm()
+
     End Sub
 
     Sub Reset()

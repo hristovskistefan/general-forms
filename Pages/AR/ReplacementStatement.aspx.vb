@@ -97,8 +97,8 @@ Public Class ARReplacementStatement
                                 strDelivery = "CD"
                         End Select
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments,Delivery) VALUES " _
-                                                     & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments,@Delivery)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments,Delivery,Division) VALUES " _
+                                                     & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments,@Delivery,@Division)")
 
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
@@ -117,6 +117,7 @@ Public Class ARReplacementStatement
                         db.AddInParameter(cmd, "TimeFrame", DbType.String, dropmonth.SelectedItem.Value)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtreplcomm.Text)
                         db.AddInParameter(cmd, "Delivery", DbType.String, strDelivery)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                         Try
                             db.ExecuteNonQuery(cmd)
                         Catch ex As Exception
@@ -125,8 +126,8 @@ Public Class ARReplacementStatement
 
                     Case "btnItemLetter"
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments) VALUES " _
-                                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,IssueType,TimeFrame,Comments,Division) VALUES " _
+                                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@IssueType,@TimeFrame,@Comments,@Division)")
 
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
@@ -144,6 +145,7 @@ Public Class ARReplacementStatement
                         db.AddInParameter(cmd, "IssueType", DbType.String, "Breakdown Letter")
                         db.AddInParameter(cmd, "TimeFrame", DbType.String, "Current Month")
                         db.AddInParameter(cmd, "Comments", DbType.String, txtreplcomm.Text)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                         db.ExecuteNonQuery(cmd)
 
 
@@ -216,8 +218,9 @@ Public Class ARReplacementStatement
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        GetForm()
         _division = myCustomer.Address.Division
+        GetForm()
+
     End Sub
 
     Sub Reset()

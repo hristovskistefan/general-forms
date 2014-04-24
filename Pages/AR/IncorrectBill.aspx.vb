@@ -65,8 +65,8 @@ Public Class ARIncorrectBill
                 Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
                 Dim cmd As DbCommand
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Month,Reason,Comments) VALUES " _
-                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Month,@Reason,@Comments)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Month,Reason,Comments,Division) VALUES " _
+                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Month,@Reason,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Incorrect Bill")
@@ -83,6 +83,7 @@ Public Class ARIncorrectBill
                 db.AddInParameter(cmd, "Month", DbType.String, dropincbillmonth.SelectedItem.Value)
                 db.AddInParameter(cmd, "Reason", DbType.String, txtspecs.Text)
                 db.AddInParameter(cmd, "Comments", DbType.String, txtincbillcomm.Text)
+                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception

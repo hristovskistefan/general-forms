@@ -50,8 +50,8 @@ Public Class ARDueDateChange
                 ' Due Date Change
                 '***************************************
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,ODueDate,NDueDate,IssueType) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@IssueType)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,ODueDate,NDueDate,IssueType,Division) VALUES " _
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@IssueType,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
@@ -68,10 +68,7 @@ Public Class ARDueDateChange
                 db.AddInParameter(cmd, "Comments", DbType.String, txtDDChangeComm.Text)
                 db.AddInParameter(cmd, "ODueDate", DbType.String, New Date(Now.Year, Now.Month, Me.txtCurrDate.Text))
                 db.AddInParameter(cmd, "NDueDate", DbType.String, New Date(Now.Year, Now.Month, Me.txtNewDate.Text))
-                db.AddInParameter(cmd, "IssueType", DbType.String, "Due Date Change")
-                db.ExecuteNonQuery(cmd)
-
-
+                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                 Reset()
             Catch mailex As Exception
                 lblerror.Visible = True

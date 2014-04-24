@@ -102,8 +102,8 @@ Public Class ARCreditReferenceLetter
         If Page.IsValid Then
             Try
                 Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
-                Dim cmd As DbCommand = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments) VALUES " _
-                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments)")
+                Dim cmd As DbCommand = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,Division) VALUES " _
+                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Credit Reference Letter")
@@ -118,6 +118,7 @@ Public Class ARCreditReferenceLetter
                 db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                 db.AddInParameter(cmd, "Comments", DbType.String, txtcredrefcomm.Text)
+                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
