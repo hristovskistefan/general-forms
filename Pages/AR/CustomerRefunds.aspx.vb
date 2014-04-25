@@ -3,7 +3,7 @@ Public Class ARCustomerRefunds
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -33,7 +33,7 @@ Public Class ARCustomerRefunds
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
             pnlrefund.Visible = True
         End If
@@ -69,7 +69,7 @@ Public Class ARCustomerRefunds
                 db.AddInParameter(cmd, "Amount", DbType.String, rntRefundAmount.Value)
                 db.AddInParameter(cmd, "RefundReason", DbType.String, txtrefreason.Text)
                 db.AddInParameter(cmd, "Comments", DbType.String, txtrefcomm.Text)
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -138,7 +138,7 @@ Public Class ARCustomerRefunds
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
 
     End Sub

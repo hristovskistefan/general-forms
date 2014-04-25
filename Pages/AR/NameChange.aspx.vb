@@ -3,7 +3,7 @@ Public Class ARNameChange
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -70,7 +70,7 @@ Public Class ARNameChange
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
             pnlNameChangeMain.Visible = True
         End If
@@ -108,7 +108,7 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "NName", DbType.String, txtNewNameCorr.Text)
                         db.AddInParameter(cmd, "NewSSN", DbType.String, "")
                         db.AddInParameter(cmd, "NewPhone", DbType.String, "")
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
                     Case "btnNameChangeSubmit"
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason,Division) VALUES " _
@@ -132,7 +132,7 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "NewSSN", DbType.String, txtNewSSN.Text)
                         db.AddInParameter(cmd, "NewPhone", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "NameChangeReason", DbType.String, rblNameCorrChange.SelectedValue)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                        db.ExecuteNonQuery(cmd)
                 End Select
                 Reset()
@@ -200,7 +200,7 @@ Public Class ARNameChange
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
 
     End Sub

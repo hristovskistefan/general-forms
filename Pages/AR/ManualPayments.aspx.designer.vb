@@ -131,6 +131,15 @@ Partial Public Class ARManualPayments
     Protected WithEvents txtstate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''lblDivision control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtcfname control.
     '''</summary>
     '''<remarks>

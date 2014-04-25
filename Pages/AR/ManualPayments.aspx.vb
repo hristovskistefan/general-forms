@@ -5,7 +5,7 @@ Public Class ARManualPayments
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Function IsLocal() As Boolean
         If Request.ServerVariables("HTTP_REFERER") Is Nothing Then
@@ -54,7 +54,7 @@ Public Class ARManualPayments
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlmanual.Visible = True
             pnlAltPhone.Visible = True
         End If
@@ -70,8 +70,8 @@ Public Class ARManualPayments
                 Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
                 Dim cmd As DbCommand
 
-                cmd = db.GetSqlStringCommand("INSERT INTO BILLING (DateSub,RequestType,Reason,Username,CCRName,SalesID,CSGOpCode,Supervisor,CFName,CLName,State,AcctNum,PhoneNum,Amount,CardType,CardNum,ExpireDate,Kickback, EFTType, EFTAcctNum, RoutingNum, Division)" _
-                      & "  VALUES (@DateSub,@RequestType,@Reason,@Username,@CCRName,@SalesID,@CSGOpCode,@Supervisor,@CFName,@CLName,@State,@AcctNum,@PhoneNum,@Amount,@CardType,@CardNum,@ExpireDate,@Kickback,@EFTType,@EFTAcctNum,@RoutingNum,@Division)")
+                cmd = db.GetSqlStringCommand("INSERT INTO BILLING (DateSub,RequestType,Reason,Username,CCRName,SalesID,CSGOpCode,Supervisor,CFName,CLName,State,AcctNum,PhoneNum,Amount,CardType,CardNum,ExpireDate,Kickback, EFTType, EFTAcctNum, RoutingNum, Division, IssueType)" _
+                      & "  VALUES (@DateSub,@RequestType,@Reason,@Username,@CCRName,@SalesID,@CSGOpCode,@Supervisor,@CFName,@CLName,@State,@AcctNum,@PhoneNum,@Amount,@CardType,@CardNum,@ExpireDate,@Kickback,@EFTType,@EFTAcctNum,@RoutingNum,@Division,@IssueType)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Manual Payment")
@@ -100,8 +100,8 @@ Public Class ARManualPayments
                 db.AddInParameter(cmd, "EFTType", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, rblCheckCredit.SelectedValue))
                 db.AddInParameter(cmd, "EFTAcctNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, txtBank.Text))
                 db.AddInParameter(cmd, "RoutingNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, txtRTN2.Text))
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
-
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                db.AddInParameter(cmd, "IssueType", DbType.String, "Manual Payment")
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -190,7 +190,7 @@ Public Class ARManualPayments
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
 
     End Sub

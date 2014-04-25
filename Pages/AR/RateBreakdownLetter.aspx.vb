@@ -3,7 +3,7 @@ Public Class ARRateBreakdownLetter
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -33,7 +33,7 @@ Public Class ARRateBreakdownLetter
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlItemLetter.Visible = True
         End If
     End Sub
@@ -66,7 +66,7 @@ Public Class ARRateBreakdownLetter
                 db.AddInParameter(cmd, "IssueType", DbType.String, "Breakdown Letter")
                 db.AddInParameter(cmd, "TimeFrame", DbType.String, "Current Month")
                 db.AddInParameter(cmd, "Comments", DbType.String, txtItemLetter.Text)
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -136,7 +136,7 @@ Public Class ARRateBreakdownLetter
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
     End Sub
 

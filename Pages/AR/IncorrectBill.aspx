@@ -62,6 +62,7 @@
                             ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                             ID="cvAccount" Display="None" />
                         <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                        <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
                 <tr>

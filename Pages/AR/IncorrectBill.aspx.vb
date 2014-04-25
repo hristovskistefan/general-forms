@@ -3,7 +3,7 @@ Public Class ARIncorrectBill
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -51,7 +51,7 @@ Public Class ARIncorrectBill
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
             pnlincbill.Visible = True
         End If
@@ -83,7 +83,7 @@ Public Class ARIncorrectBill
                 db.AddInParameter(cmd, "Month", DbType.String, dropincbillmonth.SelectedItem.Value)
                 db.AddInParameter(cmd, "Reason", DbType.String, txtspecs.Text)
                 db.AddInParameter(cmd, "Comments", DbType.String, txtincbillcomm.Text)
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -151,7 +151,7 @@ Public Class ARIncorrectBill
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
     End Sub
 

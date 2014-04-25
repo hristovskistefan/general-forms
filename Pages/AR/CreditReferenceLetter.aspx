@@ -69,6 +69,7 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False"></asp:TextBox>
+                         <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
                 <tr>

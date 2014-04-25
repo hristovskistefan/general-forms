@@ -3,7 +3,7 @@ Public Class ARReplacementStatement
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -65,7 +65,7 @@ Public Class ARReplacementStatement
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlrepl.Visible = True
         End If
     End Sub
@@ -117,7 +117,7 @@ Public Class ARReplacementStatement
                         db.AddInParameter(cmd, "TimeFrame", DbType.String, dropmonth.SelectedItem.Value)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtreplcomm.Text)
                         db.AddInParameter(cmd, "Delivery", DbType.String, strDelivery)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         Try
                             db.ExecuteNonQuery(cmd)
                         Catch ex As Exception
@@ -145,7 +145,7 @@ Public Class ARReplacementStatement
                         db.AddInParameter(cmd, "IssueType", DbType.String, "Breakdown Letter")
                         db.AddInParameter(cmd, "TimeFrame", DbType.String, "Current Month")
                         db.AddInParameter(cmd, "Comments", DbType.String, txtreplcomm.Text)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
 
@@ -218,7 +218,7 @@ Public Class ARReplacementStatement
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
 
     End Sub

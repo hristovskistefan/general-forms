@@ -3,7 +3,7 @@ Public Class ARDueDateChange
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -32,7 +32,7 @@ Public Class ARDueDateChange
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
             pnlDDChange.Visible = True
         End If
@@ -50,8 +50,8 @@ Public Class ARDueDateChange
                 ' Due Date Change
                 '***************************************
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,ODueDate,NDueDate,IssueType,Division) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@IssueType,@Division)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,ODueDate,NDueDate,Division,IssueType) VALUES " _
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@Division,@IssueType)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
@@ -68,7 +68,9 @@ Public Class ARDueDateChange
                 db.AddInParameter(cmd, "Comments", DbType.String, txtDDChangeComm.Text)
                 db.AddInParameter(cmd, "ODueDate", DbType.String, New Date(Now.Year, Now.Month, Me.txtCurrDate.Text))
                 db.AddInParameter(cmd, "NDueDate", DbType.String, New Date(Now.Year, Now.Month, Me.txtNewDate.Text))
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                db.AddInParameter(cmd, "IssueType", DbType.String, "Due Date Change")
+                db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
                 lblerror.Visible = True
@@ -138,7 +140,7 @@ Public Class ARDueDateChange
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
     End Sub
 

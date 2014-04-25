@@ -3,7 +3,7 @@ Public Class ARCreditReferenceLetter
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    'Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -32,7 +32,7 @@ Public Class ARCreditReferenceLetter
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlcredref.Visible = True
         End If
     End Sub
@@ -69,8 +69,9 @@ Public Class ARCreditReferenceLetter
         End If
         txtclname.Text = _customer.LName
         txtcfname.Text = _customer.FName
+        lblDivision.Text = _customer.Address.Division
         GetForm()
-        _division = _customer.Address.Division
+
     End Sub
 
     Protected Sub cvAccount_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles cvAccount.ServerValidate
@@ -118,7 +119,7 @@ Public Class ARCreditReferenceLetter
                 db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                 db.AddInParameter(cmd, "Comments", DbType.String, txtcredrefcomm.Text)
-                db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception

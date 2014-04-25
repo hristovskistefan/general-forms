@@ -3,7 +3,7 @@ Public Class ARMisappliedOrUnpostedPayment
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
-    Private _division As Integer
+    ' Private _division As Integer
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
@@ -56,7 +56,7 @@ Public Class ARMisappliedOrUnpostedPayment
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
-            txtstate.Text = GeneralFormsCommon.getStateFromDivision(_division)
+            txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlmisapp.Visible = True
         End If
     End Sub
@@ -125,7 +125,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Amount", DbType.String, rntPersonalCheckAmount.Value)
                         db.AddInParameter(cmd, "DateCleared", DbType.String, rdpPersonalCheckDateCleared.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                     Case "1" 'MONEY ORDER
@@ -154,7 +154,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Amount", DbType.String, rntMonord2.Value)
                         db.AddInParameter(cmd, "DateMailed", DbType.String, rdpmonord3.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                     Case "2" 'PAYMENT CENTER
@@ -184,7 +184,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Amount", DbType.String, rntPctr3.Value)
                         db.AddInParameter(cmd, "PaymentDate", DbType.String, rdppctr4.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                     Case "3" 'CREDIT/DEBIT CARD
@@ -219,7 +219,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateCleared", DbType.String, rdpcred4.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "BatchNum", DbType.String, If(txtcredauth.Text.Length > 0, txtcredauth.Text, "*****"))
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                     Case "4" 'EFT PAYMENT
@@ -249,7 +249,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateCleared", DbType.String, rdpeft4.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "BatchNum", DbType.String, If(txteftAuth.Text.Length > 0, txteftAuth.Text, "*****"))
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                     Case "5" 'CASH PAYMENT
@@ -277,7 +277,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "PaymentDate", DbType.String, rdpcash2.SelectedDate)
                         db.AddInParameter(cmd, "PaymentLoc", DbType.String, dropcash.SelectedItem.Value)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
-                        db.AddInParameter(cmd, "Division", DbType.Int32, _division)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
                 End Select
@@ -373,7 +373,7 @@ Public Class ARMisappliedOrUnpostedPayment
         End If
         txtclname.Text = myCustomer.LName
         txtcfname.Text = myCustomer.FName
-        _division = myCustomer.Address.Division
+        lblDivision.Text = myCustomer.Address.Division
         GetForm()
 
     End Sub
