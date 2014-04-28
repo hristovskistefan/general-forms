@@ -171,12 +171,14 @@ Public Class ARReplacementStatement
             args.IsValid = True
         Else
             Dim requestType As String = "Replacement/Itemized Letter"
+            Dim issueType As String = "Replacement Letter"
 
             Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
             Dim cmd As DbCommand
 
-            cmd = db.GetSqlStringCommand("SELECT count(*) FROM Billing WHERE (RequestType = @RequestType AND AcctNum = @AcctNum AND Kickback in (0,3))")
+            cmd = db.GetSqlStringCommand("SELECT count(*) FROM Billing WHERE (RequestType = @RequestType AND IssueType = @IssueType AND AcctNum = @AcctNum AND Kickback in (0,3))")
             db.AddInParameter(cmd, "RequestType", DbType.String, requestType)
+            db.AddInParameter(cmd, "IssueType", DbType.String, issueType)
             db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
 
             If CBool(db.ExecuteScalar(cmd)) Then
