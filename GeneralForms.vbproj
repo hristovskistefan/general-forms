@@ -436,7 +436,7 @@
     <Compile Include="Classes\GeneralFormsCommon.vb" />
     <Compile Include="Classes\GenFormsData.vb" />
     <Compile Include="Classes\OrderFunctions.vb" />
-    <Compile Include="Classes\UpsMailingFunctions.vb" />
+    <Compile Include="Classes\UpsMailingAccount.vb" />
     <Compile Include="Entities\ICOMS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

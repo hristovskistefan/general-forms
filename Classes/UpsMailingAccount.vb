@@ -1,7 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class UpsMailingFunctions
+Public Class UpsMailingAccount
     Private _accountNumber As String
+    Private _houseNumber As String
+    Private _isCommercial As Boolean
+    Private _hasSpp As Boolean
+
+
     Private _connectionString As String = ConfigurationManager.ConnectionStrings("HA").ConnectionString
 
 
@@ -27,10 +32,12 @@ Public Class UpsMailingFunctions
             End If
 
             If dtChargeOff.Rows(0)("BillTypeCode").ToString() = "S" Then
-                isCommercial = False
+                _isCommercial = False
             Else
-                isCommercial = True
+                _isCommercial = True
             End If
+
+            _houseNumber = dtChargeOff.Rows(0)("HouseNumber").ToString()
 
             Dim isActive As Boolean = False
 
@@ -41,17 +48,17 @@ Public Class UpsMailingFunctions
                 End If
                 totalWriteOff += Decimal.Parse(singleRow("WriteOffDollars"))
             Next
-            hasSpp = False
+
 
             'If everything is labeled former (isActive variable) and the amount is > 0 then the account is considered charged off
             If Not isActive AndAlso totalWriteOff > 0 Then
-                isChargedOff = True
+                _hasSpp = False
                 'hasSpp will remain false.  if the account is charged off then we treat the account as if spp is not on it
             Else
-                isChargedOff = False
+
                 ReDim sqlParameters(2)
                 sqlParameters(0) = New SqlParameter("@accountNumber", _accountNumber)
-                sqlParameters(1) = New SqlParameter("@houseNumber", dtChargeOff.Rows(0)("HouseNumber").ToString)
+                sqlParameters(1) = New SqlParameter("@houseNumber", _houseNumber)
 
                 Dim dtServiceCodes As New DataTable
 
@@ -64,12 +71,11 @@ Public Class UpsMailingFunctions
 
                 For Each singleRow As DataRow In dtServiceCodes.Rows
                     If sppCodes.Contains(singleRow("ServiceCode")) AndAlso Int32.Parse(singleRow("ServiceCode")) > 0 Then
-                        hasSpp = True
+                        _hasSpp = True
                         Exit For
                     End If
                 Next
             End If
-
 
 
         Catch ex As Exception
@@ -83,8 +89,20 @@ Public Class UpsMailingFunctions
 
     End Sub
 
-    Public Property isChargedOff As Boolean
-    Public Property hasSpp As Boolean
-    Public Property isCommercial As Boolean
+    Public Sub CreateOrder(ByVal icomsUsername As String)
+        Try
+            If Not _hasSpp Then
+                Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, _isCommercial, icomsUsername)
+                OrderFunctions.CheckInOrder(orderNumber, icomsUsername)
+
+            End If
+
+
+        Catch ex As Exception
+            Throw New Exception("There was an error adding the on-time UPS charge to the account.  Please check the account for errors and resubmit your request. " + ex.Message)
+
+        End Try
+       
+    End Sub
 
 End Class
