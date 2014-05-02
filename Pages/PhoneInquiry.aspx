@@ -38,7 +38,7 @@ p.MsoPlainText
                 Select Inquiry Type
             </div>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
-                <asp:ListItem Value="0" Text="General Phone Inquiry" />
+                <asp:ListItem Value="0" Text="Phone INP/NPA NXX Out of Range" />
                 <asp:ListItem Value="1" Text="3PV Passwords/New Requests/Reset" />
                 <asp:ListItem Value="2" Text="WOW! Phone Customer Voicemail Password Reset" />
                 <asp:ListItem Value="3" Text="Scheduled/Installed at Incorrect Address" />
@@ -47,7 +47,7 @@ p.MsoPlainText
             <!-- FORM PANEL -->
             <asp:Panel ID="pnlform" runat="server" Visible="false">
                 <div class="sectionTitle">
-                    Customer Information
+                    Phone INP/NPA NXX Out of Range
                 </div>
                 <table class="input" cellpadding="2" cellspacing="0">
                    <tr>
@@ -66,60 +66,22 @@ p.MsoPlainText
                         </td>
                     </tr>
                     <tr>
-                        <td>Customer Name:
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtcustname" runat="server" Width="180" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtcustname" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
-                                ID="valcustname" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>City:
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtcity" runat="server" Width="180" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtcity" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
-                                ID="valcity" />
-                        </td>
-                    </tr>
-                  <tr>
-                        <td>State:
-                        </td>
-                        <td>
-                            <asp:TextBox ID="txtState" runat="server" Width="180" MaxLength="2" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtState" runat="server" ID="rfvState"
-                                Text="<font size=3 face=arial><b>X</b></font>" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Zip Code:
-                        </td>
-                        <td>
-                            <asp:TextBox MaxLength="5" ID="txtzip" runat="server" Width="180" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtzip" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
-                                ID="valzip" />
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtphone" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox ID="txtphone" runat="server" MaxLength="13" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtphone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valphone" />
+                            <asp:RegularExpressionValidator ID="valphone2" runat="server" Text="X" ControlToValidate="txtphone"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
+                                ErrorMessage="The phone number entered is not valid" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>Question/ Issue:
+                        <td>Comments:
                         </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtquest" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtquest"
-                                runat="server" Text="<font size=3 face=arial><b>X</b></font>" />
+                        <td>
+                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
                         </td>
                     </tr>
                 </table>
@@ -133,12 +95,9 @@ p.MsoPlainText
                     3PV/CSR Passwords/New Requests/Reset
                 </div>
                 <asp:Panel ID="pnl3PVlink" runat="server">
-                    <span style="color: Red;">
-                    <p class="MsoPlainText">
-                        For immediate attention and password reset, please contact your local RM/Qhawk teams, otherwise submit the following request form.<p>
-                        </p>
+                    <p class="MsoPlainText" style="color: red;">
+                        For immediate attention and password reset, please contact your local RM/Qhawk teams, otherwise submit the following request form.<br />
                     </p>
-                    </span>
                 </asp:Panel>
                 <table cellpadding="3" cellspacing="0" class="input" width="450">
                     <tr>
@@ -463,7 +422,7 @@ p.MsoPlainText
                 <div class="sectionTitle">
                     Thank You
                 </div>
-                Thank you for submitting your inquiry. A Resource Management Specialist will address your issue as quickly as possible.
+                Thank you for submitting your inquiry. A Specialist will address your issue as quickly as possible.
             </asp:Panel>
             <asp:ListBox ID="lstexport" runat="server" Visible="False" />
         </div>

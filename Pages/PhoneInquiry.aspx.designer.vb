@@ -113,78 +113,6 @@ Partial Public Class PhoneInquiry
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''txtcustname control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtcustname As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''valcustname control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents valcustname As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtcity control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtcity As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''valcity control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents valcity As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtState control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtState As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''rfvState control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvState As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtzip control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtzip As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''valzip control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents valzip As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
     '''txtphone control.
     '''</summary>
     '''<remarks>
@@ -203,22 +131,22 @@ Partial Public Class PhoneInquiry
     Protected WithEvents valphone As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''txtquest control.
+    '''valphone2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtquest As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents valphone2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''RequiredFieldValidator3 control.
+    '''txtComments control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents txtComments As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnsubmit control.

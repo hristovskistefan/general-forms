@@ -79,8 +79,8 @@ Partial Public Class PhoneInquiry
             Case "0"
                 makeAllInvisible()
                 Me.pnlform.Visible = True
-                Me.valcity.Enabled = True : Me.valcustname.Enabled = True : Me.valphone.Enabled = True
-                Me.rfvState.Enabled = True : Me.valzip.Enabled = True
+                Me.valphone.Enabled = True
+
             Case "1"
                 makeAllInvisible()
                 Me.pnl3pv.Visible = True
@@ -95,69 +95,32 @@ Partial Public Class PhoneInquiry
 
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsubmit.Click
-        If Page.IsValid Then
-            Dim mydate As String
-            Dim i As Integer
-            Dim path1 As String
-            mydate = Format(Now(), "Long Date")
-            path1 = "e:\Telephony Reports\Inquiry_Forms\INQUIRY_FORM_REPORT_" & mydate & "_" & ".csv"
-            Try
-                If Not File.Exists(path1) Then
-                    Me._ostream = File.CreateText(path1)
-                    CreateHeaders()
-                    Me.lstexport.Items.Add(Me.lblhDate.Text & "," & Me.lblhName.Text & "," & Me.lblhIcomsID.Text & "," & _
-                        Me.rblType.SelectedItem.Value & "," & Me.txtcustname.Text & "," & Me.txtcity.Text & "," & _
-                        Me.txtState.Text.Trim & "," & Me.txtzip.Text & "," & Me.txtphone.Text & "," & _
-                        Me.txtquest.Text & "," & Date.Now)
-                    For i = 0 To Me.lstexport.Items.Count - 1
-                        Me._ostream.WriteLine(Me.lstexport.Items.Item(i))
-                    Next
-                    Me._ostream.Close()
-                    Me.lstexport.Items.Clear()
-                Else
-                    Me._ostream = File.AppendText(path1)
-                    Me.lstexport.Items.Add(Me.lblhDate.Text & "," & Me.lblhName.Text & "," & Me.lblhIcomsID.Text & "," & _
-                        Me.rblType.SelectedItem.Value & "," & Me.txtcustname.Text & "," & Me.txtcity.Text & "," & _
-                        Me.txtState.Text.Trim & "," & Me.txtzip.Text & "," & Me.txtphone.Text & "," & _
-                        Me.txtquest.Text & "," & Date.Now)
-                    For i = 0 To Me.lstexport.Items.Count - 1
-                        Me._ostream.WriteLine(Me.lstexport.Items.Item(i))
-                    Next
-                    Me._ostream.Close()
-                    Me.lstexport.Items.Clear()
-                End If
+        Try
 
-                '  Dim MailClient As New SmtpClient
-                Dim mailMsg As MailMessage = New MailMessage()
-                mailMsg.IsBodyHtml = False
-                mailMsg.From = New MailAddress(_employee.Email)
-                mailMsg.To.Add("ccctelespec@wideopenwest.com")
-                mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
-                mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
-                    "     Date:           " & Me.lblhDate.Text & vbCrLf & _
-                    "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                    "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
-                    "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
-                    "     Customer:       " & Me.txtcustname.Text & vbCrLf & _
-                    "     City:           " & Me.txtcity.Text & vbCrLf & _
-                    "     State:          " & Me.txtState.Text.Trim & vbCrLf & _
-                    "     Zip:            " & Me.txtzip.Text & vbCrLf & _
-                    "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
-                    "     Question/Issue: " & vbCrLf & _
-                    "     " & Me.txtquest.Text
-                EmailProxy.Send(mailMsg)
+            '  Dim MailClient As New SmtpClient
+            Dim mailMsg As MailMessage = New MailMessage()
+            mailMsg.IsBodyHtml = False
+            mailMsg.From = New MailAddress(_employee.Email)
+            mailMsg.To.Add("Systems_Support@wideopenwest.com")
+            mailMsg.Subject = "Phone INP/NPA NXX Out of Range | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Body = "Phone INP/NPA NXX Out of Range" & vbCrLf & vbCrLf & _
+                            "     Date:           " & Me.lblhDate.Text & vbCrLf & _
+                            "     CCR:            " & Me.lblhName.Text & vbCrLf & _
+                            "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
+                            "     Account #:      " & Me.txtAcctNum.Text & vbCrLf & _
+                            "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
+                            "     Comments:       " & Me.txtComments.Text
+            EmailProxy.Send(mailMsg)
 
-                ResetPage()
-                Me.pnlThanks.Visible = True
+            ResetPage()
+            Me.pnlThanks.Visible = True
 
-            Catch ex As Exception
-                Response.Write("<b>An error has occured and your request cannot be processsed.</b><br />")
-                Response.Write("<b>Please click the back button on your browser and try again.</b><br />")
-                Response.Write("<b>Possible Cause: Insufficient File Permissions.</b><br />")
-                Response.Write("<b>If you feel this is incorrect, please contact.</b><br />")
-                Response.Write("<b>Dean Castro at 719-388-1194.</b><br />")
-            End Try
-        End If
+        Catch ex As Exception
+            Response.Write("<b>An error has occured and your request cannot be processsed.<br />")
+            Response.Write(ex.Message)
+        End Try
+
     End Sub
 
     Public Sub Send3PV(ByVal o As Object, ByVal e As EventArgs) Handles btn3pv.Click
@@ -413,10 +376,6 @@ Partial Public Class PhoneInquiry
             Exit Sub
         End If
         txtphone.Text = _customer.PrimaryPhone.FormattedPhone
-        txtcustname.Text = _customer.FullNameFirstLast
-        txtcity.Text = _customer.Address.City
-        txtState.Text = _customer.Address.State
-        txtzip.Text = _customer.Address.Zip
     End Sub
 
     Protected Sub txtAcctNum2_TextChanged(sender As Object, e As EventArgs) Handles txtAcctNum2.TextChanged
