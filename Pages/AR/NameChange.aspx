@@ -96,6 +96,7 @@
                             <asp:ListItem Value="Divorce">Divorce (A change in the ownership of an account due to Divorce)</asp:ListItem>
                             <asp:ListItem Value="Death">Death (A change in the ownership of an account due to Death)</asp:ListItem>
                             <asp:ListItem Value="Correction">Correction (A change of up to 3 letters in the spelling of a name.  Ex.: Smithe to Smith)</asp:ListItem>
+                            <asp:ListItem Value="Legal">Legal Name Change (The customer can provide legal documentation for their name changing. Ex.: John Smith to Joe Smith)</asp:ListItem>
                         </asp:RadioButtonList>
                         <hr />
                     </td>
@@ -216,7 +217,7 @@
                         <td>
                             Current Customer Name:<br />
                             <asp:TextBox ID="txtCurrNameCorr" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfv1" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
+                            <asp:RequiredFieldValidator ID="rfvCurrNameCorr" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
                                 ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameCorr" />
                         </td>
                     </tr>
@@ -224,7 +225,7 @@
                         <td>
                             Correct Spelling:<br />
                             <asp:TextBox ID="txtNewNameCorr" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="Requiredfieldvalidator4" runat="server" Text="X"
+                            <asp:RequiredFieldValidator ID="rfvNewNameCorr" runat="server" Text="X"
                                 ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
                                 Display="Dynamic" ControlToValidate="txtNewNameCorr" />
                         </td>
@@ -239,6 +240,43 @@
                     <tr>
                         <td colspan="2">
                             <asp:Button ID="btnNameCorrSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit">
+                            </asp:Button>
+                        </td>
+                    </tr>
+                </asp:Panel>
+                <asp:Panel ID="pnlLegal" runat="server" Visible="False">
+                    <tr>
+                        <td>
+                            Current Customer Name:<br />
+                            <asp:TextBox ID="txtCurrNameLegal" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvCurrNameLegal" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
+                                ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameLegal" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            New Customer Name:<br />
+                            <asp:TextBox ID="txtNewNameLegal" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvNewNameLegal" runat="server" Text="X"
+                                ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
+                                Display="Dynamic" ControlToValidate="txtNewNameLegal" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Comments:<br />
+                            <asp:TextBox ID="txtNameLegalComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                                MaxLength="500"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblLegal" Font-Bold="True" ForeColor="Red" runat="server"><br />Advise the customer to fax a copy of the legal documentation showing their name change, with the WOW! Account Number, to 1-888-268-5859.<br /></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Button ID="btnNameLegalSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit">
                             </asp:Button>
                         </td>
                     </tr>

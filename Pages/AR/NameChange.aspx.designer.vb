@@ -410,13 +410,13 @@ Partial Public Class ARNameChange
     Protected WithEvents txtCurrNameCorr As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''rfv1 control.
+    '''rfvCurrNameCorr control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfv1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvCurrNameCorr As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtNewNameCorr control.
@@ -428,13 +428,13 @@ Partial Public Class ARNameChange
     Protected WithEvents txtNewNameCorr As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Requiredfieldvalidator4 control.
+    '''rfvNewNameCorr control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Requiredfieldvalidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvNewNameCorr As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtNameCorrComm control.
@@ -453,6 +453,78 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnNameCorrSubmit As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''pnlLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlLegal As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''txtCurrNameLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCurrNameLegal As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvCurrNameLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvCurrNameLegal As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''txtNewNameLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNewNameLegal As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvNewNameLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvNewNameLegal As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''txtNameLegalComm control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNameLegalComm As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblLegal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblLegal As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''btnNameLegalSubmit control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnNameLegalSubmit As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''pnlerror control.

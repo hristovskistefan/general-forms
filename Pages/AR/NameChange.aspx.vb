@@ -47,6 +47,10 @@ Public Class ARNameChange
             Case "Correction"
                 pnlNameChange.Visible = False
                 pnlNameCorr.Visible = True
+            Case "Legal"
+                pnlNameChange.Visible = False
+                pnlLegal.Visible = True
+                lblLegal.Text = "<br />Advise the customer to fax a copy of the legal documentation showing their name change, with the WOW! Account Number, to 1-888-268-5859.<br />"
         End Select
     End Sub
 
@@ -110,9 +114,32 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "NewPhone", DbType.String, "")
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
+                    Case "btnNameLegalSubmit"
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
+                           & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@Division)")
+                        db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
+                        db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
+                        db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
+                        db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstLast)
+                        db.AddInParameter(cmd, "CSGOpCode", DbType.String, _employee.IcomsUserID)
+                        db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
+                        db.AddInParameter(cmd, "Supervisor", DbType.String, _employee.SupNameFirstLast)
+                        db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
+                        db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
+                        db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
+                        db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
+                        db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
+                        db.AddInParameter(cmd, "Comments", DbType.String, txtNameLegalComm.Text)
+                        db.AddInParameter(cmd, "IssueType", DbType.String, "Legal Name Change")
+                        db.AddInParameter(cmd, "OName", DbType.String, txtCurrNameLegal.Text)
+                        db.AddInParameter(cmd, "NName", DbType.String, txtNewNameLegal.Text)
+                        db.AddInParameter(cmd, "NewSSN", DbType.String, "")
+                        db.AddInParameter(cmd, "NewPhone", DbType.String, "")
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.ExecuteNonQuery(cmd)
                     Case "btnNameChangeSubmit"
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason,Division) VALUES " _
-                                                   & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@NameChangeReason,@Division)")
+                            & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@NameChangeReason,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
                         db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
