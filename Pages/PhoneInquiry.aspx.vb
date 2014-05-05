@@ -106,7 +106,9 @@ Partial Public Class PhoneInquiry
             mailMsg.Body = "Phone INP/NPA NXX Out of Range" & vbCrLf & vbCrLf & _
                             "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                             "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                            "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     ICOMS ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
+                            "     E-Mail:         " & _employee.Email & vbCrLf & _
                             "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
                             "     Account #:      " & Me.txtAcctNum.Text & vbCrLf & _
                             "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
@@ -135,7 +137,7 @@ Partial Public Class PhoneInquiry
             mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                "     Icoms ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
                 "     E-Mail:         " & _employee.Email & vbCrLf & _
                 "     SSN:            " & Me.txtssn.Text & vbCrLf & _
@@ -163,7 +165,7 @@ Partial Public Class PhoneInquiry
             mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                "     Icoms ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
                 "     E-Mail:         " & _employee.Email & vbCrLf & _
                 "     Phone #:        " & Me.txtccrphone.Text & vbCrLf & _
@@ -225,7 +227,7 @@ Partial Public Class PhoneInquiry
             mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                "     Icoms ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Account #:      " & Me.txtfraudacct.Text & vbCrLf & _
                 "     Phone #:        " & Me.txtfraudphone.Text & vbCrLf & _
                 "     Comments:       " & Me.txtfraudcomm.Text
