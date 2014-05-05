@@ -102,17 +102,18 @@ Partial Public Class PhoneInquiry
             mailMsg.IsBodyHtml = False
             mailMsg.From = New MailAddress(_employee.Email)
             mailMsg.To.Add("Systems_Support@wideopenwest.com")
+            mailMsg.To.Add(_employee.SupEmail)
             mailMsg.Subject = "Phone INP/NPA NXX Out of Range | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
             mailMsg.Body = "Phone INP/NPA NXX Out of Range" & vbCrLf & vbCrLf & _
-                            "     Date:           " & Me.lblhDate.Text & vbCrLf & _
-                            "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                            "     ICOMS ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
-                            "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
-                            "     E-Mail:         " & _employee.Email & vbCrLf & _
-                            "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
-                            "     Account #:      " & Me.txtAcctNum.Text & vbCrLf & _
-                            "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
-                            "     Comments:       " & Me.txtComments.Text
+                            "     Date:              " & Me.lblhDate.Text & vbCrLf & _
+                            "     CCR:               " & Me.lblhName.Text & vbCrLf & _
+                            "     ICOMS ID:          " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     Supervisor:        " & _employee.SupNameFirstLast & vbCrLf & _
+                            "     Supervisor E-Mail: " & _employee.SupEmail & vbCrLf & _
+                            "     Inquiry Type:      " & Me.rblType.SelectedItem.Value & vbCrLf & _
+                            "     Account #:         " & Me.txtAcctNum.Text & vbCrLf & _
+                            "     Phone #:           " & Me.txtphone.Text & vbCrLf & _
+                            "     Comments:          " & Me.txtComments.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
