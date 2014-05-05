@@ -374,8 +374,9 @@ Partial Public Class PhoneInquiry
         If IsNothing(_customer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             Exit Sub
-        End If
-        txtphone.Text = _customer.PrimaryPhone.FormattedPhone
+		End If
+		'Removed auto-fill of phone number per Dan Cisneros
+		'txtphone.Text = _customer.PrimaryPhone.FormattedPhone
     End Sub
 
     Protected Sub txtAcctNum2_TextChanged(sender As Object, e As EventArgs) Handles txtAcctNum2.TextChanged

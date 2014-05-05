@@ -54,7 +54,8 @@ p.MsoPlainText
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcctNum" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox ID="txtAcctNum" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+							<asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcctNum"
