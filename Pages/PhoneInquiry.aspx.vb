@@ -103,8 +103,8 @@ Partial Public Class PhoneInquiry
             mailMsg.From = New MailAddress(_employee.Email)
             mailMsg.To.Add("Systems_Support@wideopenwest.com")
             mailMsg.To.Add(_employee.SupEmail)
-            mailMsg.Subject = "Phone INP/NPA NXX Out of Range | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
-            mailMsg.Body = "Phone INP/NPA NXX Out of Range" & vbCrLf & vbCrLf & _
+            mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Body = "Phone INP Error" & vbCrLf & vbCrLf & _
                             "     Date:              " & Me.lblhDate.Text & vbCrLf & _
                             "     CCR:               " & Me.lblhName.Text & vbCrLf & _
                             "     ICOMS ID:          " & Me.lblhIcomsID.Text & vbCrLf & _

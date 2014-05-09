@@ -38,7 +38,7 @@ p.MsoPlainText
                 Select Inquiry Type
             </div>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
-                <asp:ListItem Value="0" Text="Phone INP/NPA NXX Out of Range" />
+                <asp:ListItem Value="0" Text="Phone INP Error" />
                 <asp:ListItem Value="1" Text="3PV Passwords/New Requests/Reset" />
                 <asp:ListItem Value="2" Text="WOW! Phone Customer Voicemail Password Reset" />
                 <asp:ListItem Value="3" Text="Scheduled/Installed at Incorrect Address" />
@@ -47,7 +47,7 @@ p.MsoPlainText
             <!-- FORM PANEL -->
             <asp:Panel ID="pnlform" runat="server" Visible="false">
                 <div class="sectionTitle">
-                    Phone INP/NPA NXX Out of Range
+                    Phone INP Error
                 </div>
                 <table class="input" cellpadding="2" cellspacing="0">
                    <tr>
