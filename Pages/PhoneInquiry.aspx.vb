@@ -105,15 +105,14 @@ Partial Public Class PhoneInquiry
             mailMsg.To.Add(_employee.SupEmail)
             mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
             mailMsg.Body = "Phone INP Error" & vbCrLf & vbCrLf & _
-                            "     Date:              " & Me.lblhDate.Text & vbCrLf & _
-                            "     CCR:               " & Me.lblhName.Text & vbCrLf & _
-                            "     ICOMS ID:          " & Me.lblhIcomsID.Text & vbCrLf & _
-                            "     Supervisor:        " & _employee.SupNameFirstLast & vbCrLf & _
-                            "     Supervisor E-Mail: " & _employee.SupEmail & vbCrLf & _
-                            "     Inquiry Type:      " & Me.rblType.SelectedItem.Value & vbCrLf & _
-                            "     Account #:         " & Me.txtAcctNum.Text & vbCrLf & _
-                            "     Phone #:           " & Me.txtphone.Text & vbCrLf & _
-                            "     Comments:          " & Me.txtComments.Text
+                            "     Date Submitted:      " & Me.lblhDate.Text & vbCrLf & _
+                            "     Submitted By:               " & Me.lblhName.Text & vbCrLf & _
+                            "     ICOMS ID:                       " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     Supervisor:                   " & _employee.SupNameFirstLast & vbCrLf & _
+                            "     Supervisor E-Mail:    " & _employee.SupEmail & vbCrLf & _
+                            "     Account #:                   " & Me.txtAcctNum.Text & vbCrLf & _
+                            "     Phone #:                   " & Me.txtphone.Text & vbCrLf & _
+                            "     Comments:                   " & Me.txtComments.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
