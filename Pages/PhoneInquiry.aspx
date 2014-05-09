@@ -49,45 +49,66 @@ p.MsoPlainText
                 <div class="sectionTitle">
                     Phone INP Error
                 </div>
+                Account number and Phone number are both required.
                 <table class="input" cellpadding="2" cellspacing="0">
                    <tr>
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcctNum" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox>
-							<asp:ImageButton
+                            <asp:TextBox ID="txtAcctNum" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+							<!-- Carl Rhoades - 09May14 - Removed validation button and replaced with auto-validation and validation upon Submit -->
+                            <!--<asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
-                                ImageUrl="~/images/SearchGo.gif" />
-                            <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcctNum"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
-                                ErrorMessage="The account number entered is not valid" ValidationGroup="vgAcctInfo" />
-                            <asp:RequiredFieldValidator ID="rfvAccount" runat="server" ControlToValidate="txtAcctNum"
-                                Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer Account Required"
-                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                                ImageUrl="~/images/SearchGo.gif" /> -->
+                            <asp:RegularExpressionValidator ID="revAccount"
+                                ControlToValidate="txtAcctNum"
+                                SetFocusOnError="true"
+                                runat="server" 
+                                ValidationGroup="vgPhoneINP"
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"  
+                                ErrorMessage="Invalid Account Number" />
+                            <asp:RequiredFieldValidator ID="rfvAccount"
+                                ControlToValidate="txtAcctNum"
+                                SetFocusOnError="true"
+                                runat="server"                                
+                                ValidationGroup="vgPhoneINP"
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
+                                ErrorMessage="Account Number Required" />
                         </td>
                     </tr>
                     <tr>
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtphone" runat="server" MaxLength="13" Width="180" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtphone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
-                                ID="valphone" />
-                            <asp:RegularExpressionValidator ID="valphone2" runat="server" Text="X" ControlToValidate="txtphone"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
-                                ErrorMessage="The phone number entered is not valid" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"/>
+                            <asp:TextBox ID="txtPhoneINP" runat="server" MaxLength="13" Width="115" />
+                            <asp:RegularExpressionValidator ID="revPhoneINP"
+                                ControlToValidate="txtPhoneINP"
+                                SetFocusOnError="true"
+                                runat="server" 
+                                ValidationGroup="vgPhoneINP"
+                                Display="Dynamic" Font-Bold="True" Font-Size="small"
+                                ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" />
+                             <asp:RequiredFieldValidator ID="rfvPhoneINP"
+                                ControlToValidate="txtPhoneINP"
+                                SetFocusOnError="true"
+                                runat="server"                                
+                                ValidationGroup="vgPhoneINP"
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
+                                ErrorMessage="Phone Number Required" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Comments:
+                        <td>Comments:<br />
                         </td>
                         <td>
-                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="4" Columns="40" MaxLength="150" />
+
                         </td>
                     </tr>
                 </table>
                 <div class="SubmitButton">
-                    <asp:Button ID="btnsubmit" runat="server" Text="Submit" Width="150" />
+                    <asp:Button ID="btnsubmit" runat="server" CausesValidation="true" ValidationGroup="vgPhoneINP" Text="Submit" Width="150" />
                 </div>
             </asp:Panel>
             <!-- 3PV PANEL -->

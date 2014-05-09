@@ -15,9 +15,12 @@ Partial Public Class PhoneInquiry
 
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Load
         LoadEmployeeInfo()
+
         If Not Page.IsPostBack Then
             revAccount.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccount2.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
+            'txtAcctNum.Attributes.Add("onblur", "ValidatorOnChange(event)")
+            'txtPhoneINP.Attributes.Add("onblur", "ValidatorOnChange(event)")
         End If
     End Sub
 
@@ -79,7 +82,7 @@ Partial Public Class PhoneInquiry
             Case "0"
                 makeAllInvisible()
                 Me.pnlform.Visible = True
-                Me.valphone.Enabled = True
+                'Me.rfvPhoneINP.Enabled = True
 
             Case "1"
                 makeAllInvisible()
@@ -105,13 +108,13 @@ Partial Public Class PhoneInquiry
             mailMsg.To.Add(_employee.SupEmail)
             mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
             mailMsg.Body = "Phone INP Error" & vbCrLf & vbCrLf & _
-                            "     Date Submitted:      " & Me.lblhDate.Text & vbCrLf & _
-                            "     Submitted By:               " & Me.lblhName.Text & vbCrLf & _
-                            "     ICOMS ID:                       " & Me.lblhIcomsID.Text & vbCrLf & _
+                            "     Date Submitted:        " & Me.lblhDate.Text & vbCrLf & _
+                            "     Submitted By:             " & Me.lblhName.Text & vbCrLf & _
+                            "     ICOMS ID:                     " & Me.lblhIcomsID.Text & vbCrLf & _
                             "     Supervisor:                   " & _employee.SupNameFirstLast & vbCrLf & _
-                            "     Supervisor E-Mail:    " & _employee.SupEmail & vbCrLf & _
+                            "     Supervisor E-Mail:     " & _employee.SupEmail & vbCrLf & _
                             "     Account #:                   " & Me.txtAcctNum.Text & vbCrLf & _
-                            "     Phone #:                   " & Me.txtphone.Text & vbCrLf & _
+                            "     Phone #:                      " & Me.txtPhoneINP.Text & vbCrLf & _
                             "     Comments:                   " & Me.txtComments.Text
             EmailProxy.Send(mailMsg)
 
@@ -362,7 +365,7 @@ Partial Public Class PhoneInquiry
         Me.revAccount.Validate()
         Me.rfvAccount.Validate()
         If Not (Me.revAccount.IsValid And Me.rfvAccount.IsValid) Then
-            Me.MB.ShowMessage("Invalid account number format or account number missing.")
+            'Me.MB.ShowMessage("Invalid account number format or account number missing.")
             Exit Sub
         End If
 
@@ -376,9 +379,8 @@ Partial Public Class PhoneInquiry
         If IsNothing(_customer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             Exit Sub
-		End If
-		'Removed auto-fill of phone number per Dan Cisneros
-		'txtphone.Text = _customer.PrimaryPhone.FormattedPhone
+        End If
+
     End Sub
 
     Protected Sub txtAcctNum2_TextChanged(sender As Object, e As EventArgs) Handles txtAcctNum2.TextChanged

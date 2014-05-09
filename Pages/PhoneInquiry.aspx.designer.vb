@@ -113,31 +113,31 @@ Partial Public Class PhoneInquiry
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''txtphone control.
+    '''txtPhoneINP control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtphone As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPhoneINP As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''valphone control.
+    '''revPhoneINP control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents valphone As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents revPhoneINP As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''valphone2 control.
+    '''rfvPhoneINP control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents valphone2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents rfvPhoneINP As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtComments control.
