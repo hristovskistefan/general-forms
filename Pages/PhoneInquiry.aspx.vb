@@ -1,6 +1,7 @@
 'Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Drawing
+Imports System.ServiceModel
 
 'Imports WOW.Data.DataAccess
 'Imports System.Net
@@ -19,8 +20,6 @@ Partial Public Class PhoneInquiry
         If Not Page.IsPostBack Then
             revAccount.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccount2.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
-            'txtAcctNum.Attributes.Add("onblur", "ValidatorOnChange(event)")
-            'txtPhoneINP.Attributes.Add("onblur", "ValidatorOnChange(event)")
         End If
     End Sub
 
@@ -106,7 +105,7 @@ Partial Public Class PhoneInquiry
             mailMsg.From = New MailAddress(_employee.Email)
             mailMsg.To.Add("Systems_Support@wideopenwest.com")
             mailMsg.To.Add(_employee.SupEmail)
-            mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & ""
             mailMsg.Body = "Phone INP Error" & vbCrLf & vbCrLf & _
                             "     Date Submitted:        " & Me.lblhDate.Text & vbCrLf & _
                             "     Submitted By:             " & Me.lblhName.Text & vbCrLf & _
@@ -365,13 +364,25 @@ Partial Public Class PhoneInquiry
         Me.revAccount.Validate()
         Me.rfvAccount.Validate()
         If Not (Me.revAccount.IsValid And Me.rfvAccount.IsValid) Then
-            'Me.MB.ShowMessage("Invalid account number format or account number missing.")
+            Me.MB.ShowMessage("Invalid account number format or account number missing.")
             Exit Sub
         End If
 
-        Using customerClient As New CustomerService.CustomerManagementClient
-            _customer = customerClient.getByCustomerID(tempAccount)
-        End Using
+
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _customer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcctNum.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+
         If _customer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
@@ -399,9 +410,19 @@ Partial Public Class PhoneInquiry
             Exit Sub
         End If
 
-        Using customerClient As New CustomerService.CustomerManagementClient
-            _customer = customerClient.getByCustomerID(tempAccount)
-        End Using
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _customer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcctNum.Text = ""
+                Exit Sub
+            End If
+        End Try
+
         If _customer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
