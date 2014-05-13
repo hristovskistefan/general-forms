@@ -9,8 +9,8 @@ Partial Public Class SeasonalEntry
 
 #Region "Email Settings"
 
-    Private _sEmailTo As String = "ccctelespec@wideopenwest.com"
-    Private _sEmailFrom As String = "SeasonalRequest@wideopenwest.com"
+    Private _sEmailTo As String = "c_rhoades@wideopenwest.com"
+    Private _sEmailFrom As String = "c_rhoades@wideopenwest.com"
     Private _sEmailSubject As String = "Seasonal Request"
 
 #End Region
@@ -249,12 +249,13 @@ Partial Public Class SeasonalEntry
     Private Sub rblExistingCampaign_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rblExistingCampaign.SelectedIndexChanged
         If (rblExistingCampaign.SelectedValue = 0) Then
             labelExistingCampaigns.Text = "'No existing Campaigns'"
+            MB.ShowMessage("By continuing, you confirm that there are no existing Campaigns applied ot the customer's account. ")
         ElseIf (rblExistingCampaign.SelectedValue = 1) Then
             labelExistingCampaigns.Text = "'Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends.' "
             MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
         ElseIf (rblExistingCampaign.SelectedValue = 2) Then
             labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end other the seasonal period.' "
-            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end other the seasonal period. ")
+            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the the seasonal period. By continuing, you confirm that you have verified existing Campaigns were applied within the past 30 days.")
         End If
     End Sub
 
