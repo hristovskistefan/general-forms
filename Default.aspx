@@ -60,7 +60,6 @@
                                         <telerik:RadPanelItem runat="server" Text="Paper Fulfillment Request" Value="Paper Fulfillment Request" />
                                         <telerik:RadPanelItem runat="server" Text="Paper Fulfillment Search" Value="Paper Fulfillment Search" />
                                         <telerik:RadPanelItem runat="server" Text="Payment Arrangements" Value="Collections PA" />
-                                        <telerik:RadPanelItem runat="server" Text="Portal Feedback" Value="Portal Feedback Form" />
                                         <telerik:RadPanelItem runat="server" Text="Project Support Opps" Value="Project Support Opps" />
                                         <telerik:RadPanelItem runat="server" Text="Rate Guarantee Finder" Value="Rate Guarantee Finder" />
                                         <telerik:RadPanelItem runat="server" Text="Seasonal Request" Value="Seasonal Request" />

@@ -47,7 +47,7 @@
                         Account Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAcct" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"

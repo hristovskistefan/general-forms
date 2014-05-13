@@ -5,6 +5,7 @@ Public Class ARManualPayments
 
     Private _employee As EmployeeService.EmpInstance
     Private _customer As CustomerService.Cust
+    Private _myCustomer As CustomerService.Cust
     'Private _division As Integer
 
     Private Function IsLocal() As Boolean
@@ -173,24 +174,33 @@ Public Class ARManualPayments
             Exit Sub
         End If
 
-        Dim myCustomer As CustomerService.Cust
-        Using customerClient As New CustomerService.CustomerManagementClient
-            myCustomer = customerClient.getByCustomerID(tempAccount)
-        End Using
-        If myCustomer Is Nothing Then
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _myCustomer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcct.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+        If _myCustomer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
         End If
-        If IsNothing(myCustomer.IcomsCustomerID) Then
+        If IsNothing(_myCustomer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             ResetMain()
             txtclname.Text = String.Empty
             txtcfname.Text = String.Empty
             Exit Sub
         End If
-        txtclname.Text = myCustomer.LName
-        txtcfname.Text = myCustomer.FName
-        lblDivision.Text = myCustomer.Address.Division
+        txtclname.Text = _myCustomer.LName
+        txtcfname.Text = _myCustomer.FName
+        lblDivision.Text = _myCustomer.Address.Division
         GetForm()
 
     End Sub

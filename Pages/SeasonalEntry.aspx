@@ -27,7 +27,7 @@
         <div id="Container-Content" style="font-size: .9em;">
             <!-- FORM PANEL -->
             <asp:Panel ID="pnlform" runat="server">
-                <table class="input" cellpadding="2" cellspacing="0" width="100%">
+                <table class="input" cellpadding="2" cellspacing="0" width="100%" border="0">
                     <tr>
                         <td class="sectionTitle" colspan="5">Customer Information
                         </td>
@@ -36,7 +36,7 @@
                         <td>Account #:
                         </td>
                         <td colspan="4">
-                            <asp:TextBox ID="txtAcct" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -246,13 +246,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="5">
                             <asp:RadioButtonList runat="server" ID="rblExistingCampaign" AutoPostBack="true">
+                                <asp:ListItem Text="Customer Has Existing Campaigns from a WOW! Save within the past 30 days." Value="2" />
                                 <asp:ListItem Text="Customer Has Existing Campaigns" Value="1" />
                                 <asp:ListItem Text="No existing Campaigns" Value="0" />
                             </asp:RadioButtonList>
-                        </td>
-                        <td colspan="3">&nbsp;
+                            <!-- Holds value for email to indicate the option the CCR selected when submitting the above Campaign option -->
+                            <asp:Label runat="server" ID="labelExistingCampaigns" Visible="false"></asp:Label>
                         </td>
                     </tr>
                     
@@ -261,11 +262,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Width="100%" Height="50px"
+                        <td colspan="5">
+                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Width="98%" Height="50px"
                                 MaxLength="500"></asp:TextBox>
-                        </td>
-                        <td colspan="3">&nbsp;
                         </td>
                     </tr>
                 </table>

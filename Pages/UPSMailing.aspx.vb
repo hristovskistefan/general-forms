@@ -7,7 +7,7 @@ Imports System.Linq
 Partial Class UPSMailingForm
     Inherits System.Web.UI.Page
     Private _employee As EmployeeService.EmpInstance
-    Private _customer As CustomerService.Cust
+    Private _customer As CustomerService.Cust '''' Not used??
     Private _division As Integer
 
     Private _suplist As ArrayList
@@ -16,6 +16,7 @@ Partial Class UPSMailingForm
     Private _mSubject, _mBody, _mRecipient As String
     Private _prin As String
     Private _sqlrdr As SqlDataReader
+    Private _myCustomer As CustomerService.Cust
 
 #Region " Web Form Designer Generated Code "
 
@@ -36,7 +37,6 @@ Partial Class UPSMailingForm
 
 #End Region
 
-
     Protected Sub ibGo_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibGo.Click
         Dim tempAccount As String = txtAcct.Text.Trim
         If String.IsNullOrWhiteSpace(tempAccount) Then
@@ -49,29 +49,38 @@ Partial Class UPSMailingForm
             Exit Sub
         End If
 
-        Dim myCustomer As CustomerService.Cust
-        Using customerClient As New CustomerService.CustomerManagementClient
-            myCustomer = customerClient.getByCustomerID(tempAccount)
-        End Using
-        If myCustomer Is Nothing Then
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _myCustomer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcct.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+        If _myCustomer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
         End If
-        If IsNothing(myCustomer.IcomsCustomerID) Then
+        If IsNothing(_myCustomer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             txtLName.Text = String.Empty
             txtFName.Text = String.Empty
             Exit Sub
         End If
-        txtLName.Text = myCustomer.LName
-        txtFName.Text = myCustomer.FName
-        txtaddy.Text = myCustomer.Address.Addr1 & " " & myCustomer.Address.Addr2
-        dropstate.SelectedIndex = dropstate.Items.IndexOf(dropstate.Items.FindByValue(myCustomer.Address.State))
+        txtLName.Text = _myCustomer.LName
+        txtFName.Text = _myCustomer.FName
+        txtaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        dropstate.SelectedIndex = dropstate.Items.IndexOf(dropstate.Items.FindByValue(_myCustomer.Address.State))
         GetCity(New Object, New System.EventArgs)
-        dropcity.SelectedIndex = dropcity.Items.IndexOf(dropcity.Items.FindByValue(myCustomer.Address.City.ToUpper))
+        dropcity.SelectedIndex = dropcity.Items.IndexOf(dropcity.Items.FindByValue(_myCustomer.Address.City.ToUpper))
         If dropcity.SelectedIndex = 0 Then
             Dim matchedcity As String = String.Empty
-            Dim matchCity As String = myCustomer.Address.City.ToUpper.Trim
+            Dim matchCity As String = _myCustomer.Address.City.ToUpper.Trim
             For x As Integer = matchCity.Length To 6 Step -1
                 For Each city As ListItem In dropcity.Items
                     If city.Value.Length >= x AndAlso city.Value.Substring(0, x) = matchCity.Substring(0, x) Then
@@ -86,8 +95,8 @@ Partial Class UPSMailingForm
             End If
         End If
         GetZip(New Object, New System.EventArgs)
-        dropzip.SelectedIndex = dropzip.Items.IndexOf(dropzip.Items.FindByValue(myCustomer.Address.Zip))
-        _division = myCustomer.Address.Division
+        dropzip.SelectedIndex = dropzip.Items.IndexOf(dropzip.Items.FindByValue(_myCustomer.Address.Zip))
+        _division = _myCustomer.Address.Division
     End Sub
 
     Protected Sub txtAcct_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtAcct.TextChanged

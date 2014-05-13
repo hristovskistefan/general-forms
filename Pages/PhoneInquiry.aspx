@@ -198,7 +198,7 @@ p.MsoPlainText
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtvmacct" runat="server" MaxLength="16" />
+                            <asp:TextBox ID="txtvmacct" runat="server" MaxLength="8" />
                             <asp:RequiredFieldValidator ControlToValidate="txtvmAcct" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="rfvAcctNumVM" />
                         </td>
@@ -326,7 +326,7 @@ p.MsoPlainText
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcctNum2" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox ID="txtAcctNum2" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo2" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount2" runat="server" Text="X" ControlToValidate="txtAcctNum2"

@@ -338,6 +338,15 @@ Partial Public Class SeasonalEntry
     Protected WithEvents rblExistingCampaign As Global.System.Web.UI.WebControls.RadioButtonList
 
     '''<summary>
+    '''labelExistingCampaigns control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents labelExistingCampaigns As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtComments control.
     '''</summary>
     '''<remarks>

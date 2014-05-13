@@ -61,7 +61,7 @@
                         <td>Account Number:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcct" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -220,12 +220,12 @@
                                         <td width="150">WOW! Acct Number from receipt:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtpctr1" runat="server" Width="160" MaxLength="16"></asp:TextBox>
+                                            <asp:TextBox ID="txtpctr1" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtpctr1" /><asp:RegularExpressionValidator
                                                     ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtpctr1"
-                                                    Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" ValidationExpression="^\d{16}$|^\d{8}$"
-                                                    ErrorMessage="Account Number must be an 8 or 16 digit number." />
+                                                    Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" ValidationExpression="^\d{8}$"
+                                                    ErrorMessage="Account Number must be an 8 digit number." />
                                         </td>
                                     </tr>
                                     <tr>

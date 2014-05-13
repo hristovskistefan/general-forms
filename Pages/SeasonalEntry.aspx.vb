@@ -4,8 +4,8 @@ Imports System.Net.Mail
 
 Partial Public Class SeasonalEntry
     Inherits System.Web.UI.Page
-
     Private _employee As EmployeeService.EmpInstance
+    Private _myCustomer As CustomerService.Cust
 
 #Region "Email Settings"
 
@@ -79,22 +79,33 @@ Partial Public Class SeasonalEntry
             Exit Sub
         End If
 
-        Dim myCustomer As CustomerService.Cust
-        Using customerClient As New CustomerService.CustomerManagementClient
-            myCustomer = customerClient.getByCustomerID(tempAccount)
-        End Using
-        If myCustomer Is Nothing Then
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _myCustomer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcct.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+
+
+        If _myCustomer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
         End If
-        If IsNothing(myCustomer.IcomsCustomerID) Then
+        If IsNothing(_myCustomer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             txtLastName.Text = String.Empty
             txtFirstName.Text = String.Empty
             Exit Sub
         End If
-        txtLastName.Text = myCustomer.LName
-        txtFirstName.Text = myCustomer.FName
+        txtLastName.Text = _myCustomer.LName
+        txtFirstName.Text = _myCustomer.FName
     End Sub
 
     Protected Sub txtAcctNum_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtAcct.TextChanged
@@ -114,7 +125,7 @@ Partial Public Class SeasonalEntry
             End If
 
             Dim db As Database = DatabaseFactory.CreateDatabase("SeasonalAudit")
-            Dim cmd As DBCommand = db.GetStoredProcCommand("procInsertSeasonalWO")
+            Dim cmd As DbCommand = db.GetStoredProcCommand("procInsertSeasonalWO")
 
             db.AddInParameter(cmd, "@OrderStatus", DbType.Int32, 1)
             db.AddInParameter(cmd, "@CustFirstName", DbType.String, txtFirstName.Text.Trim)
@@ -169,12 +180,12 @@ Partial Public Class SeasonalEntry
             sBody.Append("Customer First Name:" & vbTab & txtFirstName.Text.Trim & vbCrLf)
             sBody.Append("Customer Last Name:" & vbTab & txtLastName.Text.Trim & vbCrLf)
             sBody.Append("Customer Acct Num: " & vbTab & txtAcct.Text.Trim & vbCrLf)
-            sBody.Append("Begin Date:" & vbTab & vbTab & vbTab & rdpBegin.DbSelectedDate & vbCrLf)
-            sBody.Append("End Date:" & vbTab & vbTab & vbTab & rdpEnd.DbSelectedDate & vbCrLf)
+            sBody.Append("Begin Date:" & vbTab & vbTab & rdpBegin.DbSelectedDate & vbCrLf)
+            sBody.Append("End Date:" & vbTab & vbTab & rdpEnd.DbSelectedDate & vbCrLf)
 
             sBody.Append(vbCrLf & "----------------------------------------" & vbCrLf)
             If rdoBTEPCSG.Checked = True Then
-                sBody.Append("Pay Type:" & vbTab & vbTab & vbTab & "Bill-To or Ezpay is already in CSG" & vbCrLf)
+                sBody.Append("Pay Type:" & vbTab & vbTab & "Bill-To or Ezpay is already in CSG" & vbCrLf)
             ElseIf rdoBT.Checked = True Then
                 sBody.Append("Pay Type:" & vbTab & vbTab & vbTab & "Bill-To" & vbCrLf)
                 sBody.Append("Bill-To First Name:" & vbTab & txtBTFirstName.Text.Trim & vbCrLf)
@@ -191,9 +202,13 @@ Partial Public Class SeasonalEntry
 
             sBody.Append("Comments:" & vbCrLf & vbTab & txtComments.Text.Trim & vbCrLf & vbCrLf)
 
-            sBody.Append("CSR Name:" & vbTab & vbTab & vbTab & _employee.FullNameFirstLast & vbCrLf)
-            sBody.Append("CSR ICOMS ID:" & vbTab & vbTab & vbTab & _employee.IcomsUserID & vbCrLf)
-            sBody.Append("CSR Username:" & vbTab & vbTab & _employee.NTLogin & vbCrLf)
+            sBody.Append("CSR Name:" & vbTab & vbTab & _employee.FullNameFirstLast & vbCrLf)
+            sBody.Append("CSR ICOMS ID:" & vbTab & vbTab & _employee.IcomsUserID & vbCrLf)
+            sBody.Append("CSR Username:" & vbTab & vbTab & _employee.NTLogin & vbCrLf & vbCrLf)
+
+            sBody.Append("----------------------------------------" & vbCrLf & vbCrLf)
+            sBody.Append("Existing Campaigns:" & vbTab & "Verify the status of existing Campaigns" & vbCrLf)
+            sBody.Append("Employee acknowledged message:" & vbCrLf & labelExistingCampaigns.Text & vbCrLf)
 
             mailMsg.Body = sBody.ToString
 
@@ -230,7 +245,17 @@ Partial Public Class SeasonalEntry
         End Try
     End Sub
 
+    'Displays pop-ups depending on option selected for existing Campaigns, addes message to email advising which option was selected.
     Private Sub rblExistingCampaign_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rblExistingCampaign.SelectedIndexChanged
-        If CBool(rblExistingCampaign.SelectedValue) Then MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
+        If (rblExistingCampaign.SelectedValue = 0) Then
+            labelExistingCampaigns.Text = "'No existing Campaigns'"
+        ElseIf (rblExistingCampaign.SelectedValue = 1) Then
+            labelExistingCampaigns.Text = "'Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends.' "
+            MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
+        ElseIf (rblExistingCampaign.SelectedValue = 2) Then
+            labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end other the seasonal period.' "
+            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end other the seasonal period. ")
+        End If
     End Sub
+
 End Class

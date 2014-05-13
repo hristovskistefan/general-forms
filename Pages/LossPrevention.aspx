@@ -232,7 +232,7 @@
                         <td>Account Number:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtresacct" runat="server" Width="160" MaxLength="16"></asp:TextBox>
+                            <asp:TextBox ID="txtresacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                             <asp:ImageButton ID="ibResGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revresacct" runat="server" Text="X" ControlToValidate="txtresacct"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
@@ -379,7 +379,7 @@
                         <td>Account Number:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsusacct" runat="server" Width="160" MaxLength="16"></asp:TextBox>
+                            <asp:TextBox ID="txtsusacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                             <asp:ImageButton ID="ibSFGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revsusacct" runat="server" Text="X" ControlToValidate="txtsusacct"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"

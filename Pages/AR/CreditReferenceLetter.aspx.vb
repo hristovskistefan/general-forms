@@ -53,9 +53,18 @@ Public Class ARCreditReferenceLetter
             Exit Sub
         End If
 
-       Using customerClient As New CustomerService.CustomerManagementClient
-            _customer = customerClient.getByCustomerID(tempAccount)
-        End Using
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _customer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcct.Text = ""
+                Exit Sub
+            End If
+        End Try
         If _customer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub

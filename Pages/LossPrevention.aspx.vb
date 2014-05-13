@@ -10,6 +10,7 @@ Public Class LossPrevention
     Private _sqlstr, _suser, _sdomain, _mRecipient, _mBody, _mSubject As String
     Private _stracct, _stracct1 As String
     Private _employee As EmployeeService.EmpInstance
+    Private _myCustomer As CustomerService.Cust
 
     Private Sub LoadEmployeeInfo()
         ' load employee
@@ -277,7 +278,7 @@ Public Class LossPrevention
                             Me.lblsuperr.Text = "Comments must be less than 500 characters."
                             Exit Sub
                         End If
-                        'VERIFY House number is exactly 14 digits
+                        'VERIFY House number is exactly 8 digits
                         If Me.txtLocationID.Text.Trim.Length <> 8 Then
                             Me.lblsuperr.Visible = True
                             Me.lblsuperr.Text = "The Location ID must be 8 digits."
@@ -794,29 +795,38 @@ Public Class LossPrevention
             Exit Sub
         End If
 
-        Dim myCustomer As CustomerService.Cust
-        Using customerClient As New CustomerService.CustomerManagementClient
-            myCustomer = customerClient.getByCustomerID(tempAccount)
-        End Using
-        If myCustomer Is Nothing Then
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _myCustomer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtsusacct.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+        If _myCustomer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
         End If
-        If IsNothing(myCustomer.IcomsCustomerID) Then
+        If IsNothing(_myCustomer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             txtsuslast.Text = String.Empty
             txtsusfirst.Text = String.Empty
             Exit Sub
         End If
 
-        txtsuslast.Text = myCustomer.LName
-        txtsusfirst.Text = myCustomer.FName
-        txtsusaddy.Text = myCustomer.Address.Addr1 & " " & myCustomer.Address.Addr2
-        txtsuscity.Text = myCustomer.Address.City
-        txtsuszip.Text = myCustomer.Address.Zip
+        txtsuslast.Text = _myCustomer.LName
+        txtsusfirst.Text = _myCustomer.FName
+        txtsusaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        txtsuscity.Text = _myCustomer.Address.City
+        txtsuszip.Text = _myCustomer.Address.Zip
         dropsusstate.ClearSelection()
-        dropsusstate.Items.FindByValue(myCustomer.Address.State).Selected = True
-        txtsusphone.Text = myCustomer.PrimaryPhone.PhoneOnly
+        dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
+        txtsusphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
     End Sub
     Protected Sub ibResGo_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibResGo.Click
         Dim tempAccount As String = txtresacct.Text.Trim
@@ -830,29 +840,38 @@ Public Class LossPrevention
             Exit Sub
         End If
 
-        Dim myCustomer As CustomerService.Cust
-        Using customerClient As New CustomerService.CustomerManagementClient
-            myCustomer = customerClient.getByCustomerID(tempAccount)
-        End Using
-        If myCustomer Is Nothing Then
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _myCustomer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtresacct.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+        If _myCustomer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
             Exit Sub
         End If
-        If IsNothing(myCustomer.IcomsCustomerID) Then
+        If IsNothing(_myCustomer.IcomsCustomerID) Then
             Me.MB.ShowMessage("Lookup returned nothing.")
             txtreslast.Text = String.Empty
             txtresfirst.Text = String.Empty
             Exit Sub
         End If
 
-        txtreslast.Text = myCustomer.LName
-        txtresfirst.Text = myCustomer.FName
-        txtresaddy.Text = myCustomer.Address.Addr1 & " " & myCustomer.Address.Addr2
-        txtrescity.Text = myCustomer.Address.City
-        txtreszip.Text = myCustomer.Address.Zip
+        txtreslast.Text = _myCustomer.LName
+        txtresfirst.Text = _myCustomer.FName
+        txtresaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        txtrescity.Text = _myCustomer.Address.City
+        txtreszip.Text = _myCustomer.Address.Zip
         dropresstate.ClearSelection()
-        dropresstate.Items.FindByValue(myCustomer.Address.State).Selected = True
-        txtresphone.Text = myCustomer.PrimaryPhone.PhoneOnly
+        dropresstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
+        txtresphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
     End Sub
     Protected Sub txtresacct_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtresacct.TextChanged
         ibResGo_Click(sender, New ImageClickEventArgs(0, 0))
