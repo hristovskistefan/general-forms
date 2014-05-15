@@ -15,6 +15,7 @@
 </head>
 <body style="overflow: hidden; height: 100%; border: 0px; padding: 0px; margin: 0px;">
     <form id="form1" runat="server" style="height: 100%; border: 0px; padding: 0px; margin: 0px;">
+        <telerik:RadGrid ID="RadGrid1" runat="server"></telerik:RadGrid>
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server" />
         <telerik:RadSplitter ID="rsPage" Orientation="Horizontal" runat="server" Width="100%"
             Height="100%" SplitBarsSize="0" ResizeWithBrowserWindow="true">
