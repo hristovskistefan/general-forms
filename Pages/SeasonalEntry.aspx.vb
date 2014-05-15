@@ -248,7 +248,8 @@ Partial Public Class SeasonalEntry
     'Displays pop-ups depending on option selected for existing Campaigns, addes message to email advising which option was selected.
     Private Sub rblExistingCampaign_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rblExistingCampaign.SelectedIndexChanged
         If (rblExistingCampaign.SelectedValue = 0) Then
-            labelExistingCampaigns.Text = "'No existing Campaigns'"
+            labelExistingCampaigns.Text = "'No existing Campaigns. By continuing, you confirm that you have verified there are no existing Campaigns on the customer's account.'"
+            MB.ShowMessage("No existing Campaigns. By continuing, you confirm that you have verified there are no existing Campaigns on the customer's account. ")
         ElseIf (rblExistingCampaign.SelectedValue = 1) Then
             labelExistingCampaigns.Text = "'Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends.' "
             MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
