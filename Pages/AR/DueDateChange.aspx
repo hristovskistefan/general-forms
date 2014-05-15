@@ -118,7 +118,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnDDChangeSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit" OnClientClick="confirm ('By submitting this form you confirm that all issues and concerns relating to Due Date Changes have been addressed with the customer.');">
+                            <asp:Button ID="btnDDChangeSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit" OnClientClick="return  confirm ('By submitting this form you confirm that all issues and concerns relating to Due Date Changes have been addressed with the customer.');">
                             </asp:Button>
                         </td>
                     </tr>
