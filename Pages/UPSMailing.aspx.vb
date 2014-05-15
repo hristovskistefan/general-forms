@@ -186,13 +186,9 @@ Partial Class UPSMailingForm
         End Select
     End Sub
 
-    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
+   Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
         If Page.IsValid Then
             Try
-                Dim upsMailingAcct As New UpsMailingAccount(txtAcct.Text.Trim())
-                upsMailingAcct.CreateOrder(txtIcomsId.Text)
-
-
                 Dim myCustomer As CustomerService.Cust
                 Using customerClient As New CustomerService.CustomerManagementClient
                     myCustomer = customerClient.getByCustomerID(txtAcct.Text)
@@ -280,7 +276,7 @@ Partial Class UPSMailingForm
                 Me.pnlthx.Visible = True
                 Me.pnlmain.Visible = False
             Catch ex As Exception
-                Response.Write(ex.Message)
+                Response.Write(ex.Message & "<br />" & ex.StackTrace)
             End Try
         End If
     End Sub
