@@ -34,20 +34,24 @@ Public Class ARNameChange
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the divorce certificate with the WOW! Account Number to 1-888-268-5859.<br />"
+                pnlLegal.Visible = False
             Case "Marriage"
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the marriage certificate with the WOW! Account Number to 1-888-268-5859.<br />"
+                pnlLegal.Visible = False
             Case "Death"
                 pnlNameChange.Visible = True
                 rblfamilyRelation.Visible = True
                 pnlFamilyRelation.Visible = True
                 rblfamilyRelation.SelectedIndex = -1
                 pnlNameChangeData.Visible = False
+                pnlLegal.Visible = False
             Case "Correction"
                 pnlNameChange.Visible = False
                 pnlNameCorr.Visible = True
+                pnlLegal.Visible = False
             Case "Legal"
                 pnlNameChange.Visible = False
                 pnlLegal.Visible = True

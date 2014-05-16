@@ -77,13 +77,13 @@ Partial Public Class PhoneInquiry
     Protected WithEvents pnlGeneralInquiry As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''txtGeneralInquiry control.
+    '''txtAccountGeneralInquiry control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtGeneralInquiry As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtAccountGeneralInquiry As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ibGo control.
@@ -95,22 +95,22 @@ Partial Public Class PhoneInquiry
     Protected WithEvents ibGo As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''RegularExpressionValidator2 control.
+    '''revGeneralInquiry control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents revGeneralInquiry As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''RequiredFieldValidator1 control.
+    '''rfvGeneralInquiry control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvGeneralInquiry As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtcustname control.
@@ -212,13 +212,13 @@ Partial Public Class PhoneInquiry
     Protected WithEvents txtquest As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''RequiredFieldValidator3 control.
+    '''rfvtextquest control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvtextquest As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''btnGeneralInquiry control.
@@ -239,31 +239,40 @@ Partial Public Class PhoneInquiry
     Protected WithEvents pnlInpError As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''txtAcctNum control.
+    '''txtAccountNumberPhoneInpError control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtAcctNum As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtAccountNumberPhoneInpError As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''revAccount control.
+    '''ibGo3 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revAccount As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents ibGo3 As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''rfvAccount control.
+    '''revAccountNumberPhoneInpError control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents revAccountNumberPhoneInpError As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''rfvAccountNumberPhoneInpError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvAccountNumberPhoneInpError As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''txtPhoneINP control.

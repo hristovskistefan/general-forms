@@ -18,7 +18,8 @@ Partial Public Class PhoneInquiry
         LoadEmployeeInfo()
 
         If Not Page.IsPostBack Then
-            revAccount.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
+            revGeneralInquiry.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
+            revAccountNumberPhoneInpError.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccount2.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
         End If
     End Sub
@@ -106,6 +107,7 @@ Partial Public Class PhoneInquiry
             mailMsg.IsBodyHtml = False
             mailMsg.From = New MailAddress(_employee.Email)
             mailMsg.To.Add("ccctelespec@wideopenwest.com")
+            'mailMsg.To.Add("c_rhoades@wideopenwest.com")
             mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
             mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
@@ -138,6 +140,7 @@ Partial Public Class PhoneInquiry
             Dim mailMsg As MailMessage = New MailMessage()
             mailMsg.IsBodyHtml = False
             mailMsg.From = New MailAddress(_employee.Email)
+            'mailMsg.To.Add("c_rhoades@wideopenwest.com")
             mailMsg.To.Add("Systems_Support@wideopenwest.com")
             mailMsg.To.Add(_employee.SupEmail)
             mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & ""
@@ -147,7 +150,7 @@ Partial Public Class PhoneInquiry
                             "     ICOMS ID:                     " & Me.lblhIcomsID.Text & vbCrLf & _
                             "     Supervisor:                   " & _employee.SupNameFirstLast & vbCrLf & _
                             "     Supervisor E-Mail:     " & _employee.SupEmail & vbCrLf & _
-                            "     Account #:                   " & Me.txtAcctNum.Text & vbCrLf & _
+                            "     Account #:                   " & Me.txtAccountNumberPhoneInpError.Text & vbCrLf & _
                             "     Phone #:                      " & Me.txtPhoneINP.Text & vbCrLf & _
                             "     Comments:                   " & Me.txtComments.Text
             EmailProxy.Send(mailMsg)
@@ -388,22 +391,26 @@ Partial Public Class PhoneInquiry
         End Select
     End Sub
 
-    Protected Sub txtAcctNum_TextChanged(sender As Object, e As EventArgs) Handles txtAcctNum.TextChanged
+
+
+
+
+    ''' ''''''''''''''''''''''''''''
+    ''' General Phone Inquiry
+    Protected Sub txtAccountGeneralInquiry_TextChanged(sender As Object, e As EventArgs) Handles txtAccountGeneralInquiry.TextChanged
         ibGo_Click(Nothing, New ImageClickEventArgs(0, 0))
     End Sub
-
     Protected Sub ibGo_Click(sender As Object, e As ImageClickEventArgs) Handles ibGo.Click
-        Dim tempAccount As String = txtAcctNum.Text.Trim
+        Dim tempAccount As String = txtAccountGeneralInquiry.Text.Trim
         If String.IsNullOrWhiteSpace(tempAccount) Then
             Exit Sub
         End If
-        Me.revAccount.Validate()
-        Me.rfvAccount.Validate()
-        If Not (Me.revAccount.IsValid And Me.rfvAccount.IsValid) Then
+        Me.revGeneralInquiry.Validate()
+        Me.rfvGeneralInquiry.Validate()
+        If Not (Me.revGeneralInquiry.IsValid And Me.rfvGeneralInquiry.IsValid) Then
             Me.MB.ShowMessage("Invalid account number format or account number missing.")
             Exit Sub
         End If
-
 
         Try
             Using customerClient As New CustomerService.CustomerManagementClient
@@ -413,11 +420,58 @@ Partial Public Class PhoneInquiry
             Dim errorAccount = ex.Message
             If errorAccount = "Customer Database Object is nothing." Then
                 Me.MB.ShowMessage("Account number does not exist. Please try again.")
-                txtAcctNum.Text = ""
+                txtAccountGeneralInquiry.Text = ""
                 Exit Sub
             End If
         End Try
 
+        If _customer Is Nothing Then
+            Me.MB.ShowMessage("Lookup timed out.")
+            Exit Sub
+        End If
+        If IsNothing(_customer.IcomsCustomerID) Then
+            Me.MB.ShowMessage("Lookup returned nothing.")
+            Exit Sub
+        End If
+
+        txtphone.Text = _customer.PrimaryPhone.FormattedPhone
+        txtcustname.Text = _customer.FullNameFirstLast
+        txtcity.Text = _customer.Address.City
+        txtState.Text = _customer.Address.State
+        txtzip.Text = _customer.Address.Zip
+
+    End Sub
+
+    ''' '''''''''''''''''''''''''
+    ''' Phone INP Error
+    Protected Sub txtAccountNumberPhoneInpError_TextChanged(sender As Object, e As EventArgs) Handles txtAccountNumberPhoneInpError.TextChanged
+        ibGo3_Click(Nothing, New ImageClickEventArgs(0, 0))
+    End Sub
+
+    Protected Sub ibGo3_Click(sender As Object, e As ImageClickEventArgs) Handles ibGo3.Click
+        Dim tempAccount As String = txtAccountNumberPhoneInpError.Text.Trim
+        If String.IsNullOrWhiteSpace(tempAccount) Then
+            Exit Sub
+        End If
+        Me.revAccountNumberPhoneInpError.Validate()
+        Me.rfvAccountNumberPhoneInpError.Validate()
+        If Not (Me.revAccountNumberPhoneInpError.IsValid And Me.rfvAccountNumberPhoneInpError.IsValid) Then
+            Me.MB.ShowMessage("Invalid account number format or account number missing.")
+            Exit Sub
+        End If
+
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _customer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAccountNumberPhoneInpError.Text = ""
+                Exit Sub
+            End If
+        End Try
 
         If _customer Is Nothing Then
             Me.MB.ShowMessage("Lookup timed out.")
@@ -430,6 +484,9 @@ Partial Public Class PhoneInquiry
 
     End Sub
 
+
+    ''' '''''''''''''''''''''''''''''''''''
+    ''' Scheduled/Installed at Incorrect Address Panel
     Protected Sub txtAcctNum2_TextChanged(sender As Object, e As EventArgs) Handles txtAcctNum2.TextChanged
         ibGo2_Click(Nothing, New ImageClickEventArgs(0, 0))
     End Sub
@@ -454,7 +511,7 @@ Partial Public Class PhoneInquiry
             Dim errorAccount = ex.Message
             If errorAccount = "Customer Database Object is nothing." Then
                 Me.MB.ShowMessage("Account number does not exist. Please try again.")
-                txtAcctNum.Text = ""
+                txtAcctNum2.Text = ""
                 Exit Sub
             End If
         End Try
