@@ -62,7 +62,8 @@ Partial Public Class PhoneInquiry
     Private Sub makeAllInvisible()
         Me.pnl3pv.Visible = False
         Me.pnlccr.Visible = False
-        Me.pnlform.Visible = False
+        Me.pnlGeneralInquiry.Visible = False
+        Me.pnlInpError.Visible = False
         Me.pnlfraud.Visible = False
         Me.pnlIncAddress.Visible = False
         Me.pnlvm.Visible = False
@@ -80,23 +81,57 @@ Partial Public Class PhoneInquiry
         Select Case Me.rblType.SelectedItem.Value
             Case "0"
                 makeAllInvisible()
-                Me.pnlform.Visible = True
-                'Me.rfvPhoneINP.Enabled = True
-
+                Me.pnlGeneralInquiry.Visible = True
             Case "1"
                 makeAllInvisible()
-                Me.pnl3pv.Visible = True
+                Me.pnlInpError.Visible = True
             Case "2"
                 makeAllInvisible()
-                Me.pnlVMCheck1.Visible = True
+                Me.pnl3pv.Visible = True
             Case "3"
+                makeAllInvisible()
+                Me.pnlVMCheck1.Visible = True
+            Case "4"
                 makeAllInvisible()
                 Me.pnlIncAddress.Visible = True
         End Select
     End Sub
 
 
-    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsubmit.Click
+    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnGeneralInquiry.Click
+        Try
+
+            '  Dim MailClient As New SmtpClient
+            Dim mailMsg As MailMessage = New MailMessage()
+            mailMsg.IsBodyHtml = False
+            mailMsg.From = New MailAddress(_employee.Email)
+            mailMsg.To.Add("ccctelespec@wideopenwest.com")
+            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
+                "     Date:           " & Me.lblhDate.Text & vbCrLf & _
+                "     CCR:            " & Me.lblhName.Text & vbCrLf & _
+                "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
+                "     Customer:       " & Me.txtcustname.Text & vbCrLf & _
+                "     City:           " & Me.txtcity.Text & vbCrLf & _
+                "     State:          " & Me.txtState.Text.Trim & vbCrLf & _
+                "     Zip:            " & Me.txtzip.Text & vbCrLf & _
+                "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
+                "     Question/Issue: " & vbCrLf & _
+                "     " & Me.txtquest.Text
+            EmailProxy.Send(mailMsg)
+
+            ResetPage()
+            Me.pnlThanks.Visible = True
+
+        Catch ex As Exception
+            Response.Write("<b>An error has occured and your request cannot be processsed.<br />")
+            Response.Write(ex.Message)
+        End Try
+
+    End Sub
+
+    Public Sub SendInpError(ByVal o As Object, ByVal e As EventArgs) Handles btnInpError.Click
         Try
 
             '  Dim MailClient As New SmtpClient
@@ -126,6 +161,7 @@ Partial Public Class PhoneInquiry
         End Try
 
     End Sub
+
 
     Public Sub Send3PV(ByVal o As Object, ByVal e As EventArgs) Handles btn3pv.Click
         Try

@@ -38,15 +38,100 @@ p.MsoPlainText
                 Select Inquiry Type
             </div>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
-                <asp:ListItem Value="0" Text="Phone INP Error" />
-                <asp:ListItem Value="1" Text="3PV Passwords/New Requests/Reset" />
-                <asp:ListItem Value="2" Text="WOW! Phone Customer Voicemail Password Reset" />
-                <asp:ListItem Value="3" Text="Scheduled/Installed at Incorrect Address" />
+                <asp:ListItem Value="0" Text="General Phone Inquiry" />
+                <asp:ListItem Value="1" Text="Phone INP Error" />
+                <asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />
+                <asp:ListItem Value="3" Text="WOW! Phone Customer Voicemail Password Reset" />
+                <asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />
             </asp:RadioButtonList>
             <br />
-            <!-- FORM PANEL -->
-            <asp:Panel ID="pnlform" runat="server" Visible="false">
+            <!-- General Phone Inquiry PANEL -->
+            <asp:Panel ID="pnlGeneralInquiry" runat="server" Visible="false">
                 <div class="sectionTitle">
+                    Customer Information
+                </div>
+                <table class="input" cellpadding="2" cellspacing="0">
+                   <tr>
+                        <td>Account #:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtGeneralInquiry" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+                            <asp:ImageButton
+                                ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
+                                ImageUrl="~/images/SearchGo.gif" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" Text="X" ControlToValidate="txtGeneralInquiry"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
+                                ErrorMessage="The account number entered is not valid" ValidationGroup="vgAcctInfo" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtGeneralInquiry"
+                                Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer Account Required"
+                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Customer Name:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtcustname" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtcustname" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="valcustname" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtcity" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtcity" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="valcity" />
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>State:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtState" runat="server" Width="180" MaxLength="2" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtState" runat="server" ID="rfvState"
+                                Text="<font size=3 face=arial><b>X</b></font>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code:
+                        </td>
+                        <td>
+                            <asp:TextBox MaxLength="5" ID="txtzip" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtzip" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="valzip" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone #:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtphone" runat="server" MaxLength="10" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtphone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="valphone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Question/ Issue:
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:TextBox ID="txtquest" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtquest"
+                                runat="server" Text="<font size=3 face=arial><b>X</b></font>" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="SubmitButton">
+                    <asp:Button ID="btnGeneralInquiry" runat="server" Text="Submit" Width="150" />
+                </div>
+            </asp:Panel>
+            <!-- INP Error PANEL -->
+            <asp:Panel ID="pnlInpError" runat="server">
+               <div class="sectionTitle">
                     Phone INP Error
                 </div>
                 Account number and Phone number are both required.
@@ -57,9 +142,6 @@ p.MsoPlainText
                         <td>
                             <asp:TextBox ID="txtAcctNum" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
 							<!-- Carl Rhoades - 09May14 - Removed validation button and replaced with auto-validation and validation upon Submit -->
-                            <!--<asp:ImageButton
-                                ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
-                                ImageUrl="~/images/SearchGo.gif" /> -->
                             <asp:RegularExpressionValidator ID="revAccount"
                                 ControlToValidate="txtAcctNum"
                                 SetFocusOnError="true"
@@ -108,7 +190,7 @@ p.MsoPlainText
                     </tr>
                 </table>
                 <div class="SubmitButton">
-                    <asp:Button ID="btnsubmit" runat="server" CausesValidation="true" ValidationGroup="vgPhoneINP" Text="Submit" Width="150" />
+                    <asp:Button ID="btnInpError" runat="server" CausesValidation="true" ValidationGroup="vgPhoneINP" Text="Submit" Width="150" />
                 </div>
             </asp:Panel>
             <!-- 3PV PANEL -->
