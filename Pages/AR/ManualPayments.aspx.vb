@@ -93,7 +93,7 @@ Public Class ARManualPayments
                 Dim encryptedCCNum = String.Empty
                 If rblCheckCredit.SelectedValue = "Credit Card" Then
                     Using cryptoClient As New CryptoSvc.CCCCryptoClient
-                        encryptedCCNum = cryptoClient.encrypt(txtCCardNum.Text, Request.Url.AbsoluteUri, _employee.EmpID)
+                        encryptedCCNum = cryptoClient.encrypt(txtCCardNum.TextWithLiterals, Request.Url.AbsoluteUri, _employee.EmpID)
                     End Using
                 End If
                 db.AddInParameter(cmd, "CardNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", encryptedCCNum, Nothing))
@@ -121,6 +121,14 @@ Public Class ARManualPayments
         Else
             pnlCCard.Visible = False
             pnlBnkAcct.Visible = True
+        End If
+    End Sub
+
+    Protected Sub cvCreditCard_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles cvCreditCard.ServerValidate
+        If GeneralFormsCommon.ValidateMaskedCC(args.Value) = GeneralFormsCommon.CreditCardTypes.Invalid Then
+            args.IsValid = False
+        Else
+            args.IsValid = True
         End If
     End Sub
 

@@ -263,7 +263,7 @@ Partial Public Class ARManualPayments
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtCCardNum As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtCCardNum As Global.Telerik.Web.UI.RadMaskedTextBox
 
     '''<summary>
     '''Requiredfieldvalidator36 control.
@@ -275,13 +275,13 @@ Partial Public Class ARManualPayments
     Protected WithEvents Requiredfieldvalidator36 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''cvCCardNum control.
+    '''cvCreditCard control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cvCCardNum As Global.System.Web.UI.WebControls.CustomValidator
+    Protected WithEvents cvCreditCard As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''txtExpDate control.
