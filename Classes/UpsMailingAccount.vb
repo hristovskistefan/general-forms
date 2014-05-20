@@ -1,14 +1,18 @@
 ﻿Imports System.Data.SqlClient
+Imports WOW.Data
 
 Public Class UpsMailingAccount
     Private _accountNumber As String
     Private _houseNumber As String
     Private _isCommercial As Boolean
     Private _hasSpp As Boolean
+    Private _hasVideo As Boolean
+    Private _hasHsd As Boolean
+    Private _hasTelephony As Boolean
 
 
     Private _connectionString As String = ConfigurationManager.ConnectionStrings("HA").ConnectionString
-
+    Private _upsConnString As String = ConfigurationManager.ConnectionStrings("UPS").ConnectionString
 
     Public Sub New(ByVal accountNumber As String)
         _accountNumber = accountNumber
@@ -25,7 +29,7 @@ Public Class UpsMailingAccount
             sqlParameters(0) = New SqlParameter("@accountNumber", _accountNumber)
 
 
-            dtChargeOff = baseDb.GetDataTable("Spc_GetAccountChargeOffInformation", sqlParameters)
+            dtChargeOff = baseDb.GetDataTable("SpcAccountLookup", sqlParameters)
             If dtChargeOff Is Nothing OrElse dtChargeOff.Rows.Count = 0 Then
                 Throw New Exception("Account could not be located.")
 
@@ -37,7 +41,7 @@ Public Class UpsMailingAccount
                 _isCommercial = True
             End If
 
-            _houseNumber = dtChargeOff.Rows(0)("HouseNumber").ToString()
+            _houseNumber = dtChargeOff.Rows(0)("houseKey").ToString()
 
             Dim isActive As Boolean = False
 
@@ -48,6 +52,24 @@ Public Class UpsMailingAccount
                 End If
                 totalWriteOff += Decimal.Parse(singleRow("WriteOffDollars"))
             Next
+
+            If dtChargeOff.Rows(0)("videoFlag").ToString = "Y" Then
+                _hasVideo = True
+            Else
+                _hasVideo = False
+            End If
+
+            If dtChargeOff.Rows(0)("hasHsd").ToString = "Y" Then
+                _hasHsd = True
+            Else
+                _hasHsd = False
+            End If
+
+            If dtChargeOff.Rows(0)("telephonyFlag").ToString = "Y" Then
+                _hasTelephony = True
+            Else
+                _hasTelephony = False
+            End If
 
 
             'If everything is labeled former (isActive variable) and the amount is > 0 then the account is considered charged off
@@ -89,20 +111,80 @@ Public Class UpsMailingAccount
 
     End Sub
 
-    Public Sub CreateOrder(ByVal icomsUsername As String)
+    Public Function CreateOrder(ByVal icomsUsername As String) As String
         Try
-            If Not _hasSpp Then
-                Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, _isCommercial, icomsUsername)
-                OrderFunctions.CheckInOrder(orderNumber, icomsUsername)
+            Dim serviceCodes() As String
+            'Determine which service code should be on account
+            If _isCommercial Then
+                serviceCodes = ConfigurationManager.AppSettings("CommercialChargeCDT").Split("|")
+            Else
+                serviceCodes = ConfigurationManager.AppSettings("ResidentialChargeCDT").Split("|")
+            End If
+
+            Dim serviceCode As String = String.Empty
+
+            If _hasVideo Then
+                serviceCode = serviceCodes(0)
+            ElseIf _hasHsd Then
+                serviceCode = serviceCodes(1)
+            ElseIf _hasTelephony Then
+                serviceCode = serviceCodes(2)
+
+            End If
+
+            If String.IsNullOrWhiteSpace(serviceCode) Then
+                Throw New Exception("Account has no LOBs.")
 
             End If
 
 
+            Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, "", icomsUsername, _hasSpp)
+            OrderFunctions.CheckInOrder(orderNumber, icomsUsername)
+
+            Return orderNumber
         Catch ex As Exception
             Throw New Exception("There was an error adding the on-time UPS charge to the account.  Please check the account for errors and resubmit your request. " + ex.Message)
 
         End Try
-       
+
+    End Function
+
+    Public Sub AddInformationToDatabase(ByVal username As String, ByVal orderNumber As String, ByVal customerName As String, _
+                                           ByVal accountNumber As String, ByVal phoneNumber As String, ByVal address As String, _
+                                           ByVal city As String, ByVal state As String, ByVal zip As String, _
+                                           ByVal digitalReceivers As Integer, ByVal dvrReceivers As Integer, _
+                                           ByVal hdReceivers As Integer, hdDvrReceivers As Integer, ByVal dtaReceivers As Integer, _
+                                           ByVal cableModems As Integer, ByVal phoneModems As Integer, ByVal cableCards As Integer, _
+                                           ByVal ultraTvGateways As Integer, ByVal ultraTvMediaPlayer As Integer)
+        Dim total As Integer = digitalReceivers + hdReceivers + hdDvrReceivers + dtaReceivers + cableModems + phoneModems + cableCards + ultraTvGateways + ultraTvMediaPlayer
+
+        Dim baseDb = New BaseDB(_upsConnString)
+        Dim parameters(19) As SqlParameter
+        parameters(0) = New SqlParameter("@ENTERED_BY", username)
+        parameters(1) = New SqlParameter("@ORDER_NUMBER", orderNumber)
+        parameters(2) = New SqlParameter("@CUSTOMER_NAME", customerName)
+        parameters(3) = New SqlParameter("@ACCOUNT_NUMBER", accountNumber)
+        parameters(4) = New SqlParameter("@PHONE_NUMBER", phoneNumber)
+        parameters(5) = New SqlParameter("@ADDRESS", address)
+        parameters(6) = New SqlParameter("@CITY", city)
+        parameters(7) = New SqlParameter("@STATE", state)
+        parameters(8) = New SqlParameter("@ZIP", zip)
+        parameters(9) = New SqlParameter("@DIGITAL_RECEIVERS", digitalReceivers)
+        parameters(10) = New SqlParameter("@DVR_RECEIVERS", dvrReceivers)
+        parameters(11) = New SqlParameter("@HD_DVR_RECEIVERS", hdDvrReceivers)
+        parameters(12) = New SqlParameter("@DTA_RECEIVERS", dtaReceivers)
+        parameters(13) = New SqlParameter("@CABLE_MODEMS", cableModems)
+        parameters(14) = New SqlParameter("@PHONE_MODEMS", phoneModems)
+        parameters(15) = New SqlParameter("@CABLE_CARDS", cableCards)
+        parameters(16) = New SqlParameter("@ULTRA_TV_GATEWAYS", hdDvrReceivers)
+        parameters(17) = New SqlParameter("@HD_RECEIVERS", hdReceivers)
+        parameters(18) = New SqlParameter("@ULTRA_TV_MEDIA_PLAYER", ultraTvMediaPlayer)
+        parameters(19) = New SqlParameter("@TOLTAL_BOXES_NEEDED", total)
+
+        baseDb.ExecuteProcedure("Warehouse.UPS_BOX_SEND", parameters)
+
+
+
     End Sub
 
 End Class

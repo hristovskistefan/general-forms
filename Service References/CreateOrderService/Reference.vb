@@ -1230,6 +1230,9 @@ Namespace CreateOrderService
         Private HouseNumberField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private NoChargeField As Boolean
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private SalesIdField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
@@ -1314,6 +1317,19 @@ Namespace CreateOrderService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property NoCharge() As Boolean
+            Get
+                Return Me.NoChargeField
+            End Get
+            Set
+                If (Me.NoChargeField.Equals(value) <> true) Then
+                    Me.NoChargeField = value
+                    Me.RaisePropertyChanged("NoCharge")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
         Public Property SalesId() As String
             Get
                 Return Me.SalesIdField
@@ -1384,10 +1400,10 @@ Namespace CreateOrderService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnly", ReplyAction:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyRespo"& _ 
             "nse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.ValidationException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValid"& _ 
-            "ationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/"),  _
          System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyBilli"& _ 
-            "ngSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/")>  _
+            "ngSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/"),  _
+         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.ValidationException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValid"& _ 
+            "ationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/")>  _
         Function OfficeOnly(ByVal request As CreateOrderService.OfficeOnlyRequest) As CreateOrderService.CreateOrderResponse
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequest", ReplyAction:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequestR"& _ 

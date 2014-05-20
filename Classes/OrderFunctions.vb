@@ -1,10 +1,13 @@
 ﻿Imports GeneralForms.CreateOrderService
 Imports GeneralForms.OrderUpdateService
+Imports WOW.Data
+Imports System.Data.SqlClient
 
 
 Public Class OrderFunctions
 
-    Public Shared Function CreateOrder(ByVal accountNumber As String, ByVal houseNumber As String, isCommercial As Boolean, ByVal icomsUsername As String) As String
+    Public Shared Function CreateOrder(ByVal accountNumber As String, ByVal houseNumber As String, serviceCode As String, ByVal icomsUsername As String, _
+                                       ByVal hasSpp As Boolean) As String
         Dim createOrderClient As New CreateOrderService.CreateOrderClient
         Try
 
@@ -13,15 +16,14 @@ Public Class OrderFunctions
             specialRequestRequest.HouseNumber = houseNumber
             specialRequestRequest.ExternalUsername = icomsUsername
             specialRequestRequest.SiteId = ConfigurationManager.AppSettings("SiteId")
-            If isCommercial Then
-                specialRequestRequest.ServiceCode = ConfigurationManager.AppSettings("CommercialCharge")
-            Else
-                specialRequestRequest.ServiceCode = ConfigurationManager.AppSettings("ResidentialCharge")
-            End If
+
+
+            specialRequestRequest.NoCharge = hasSpp
+
 
             Dim createOrderResponse As New CreateOrderResponse
 
-            createOrderResponse = CreateOrderClient.SpecialRequest(specialRequestRequest)
+            createOrderResponse = createOrderClient.SpecialRequest(specialRequestRequest)
 
 
             Return createOrderResponse.OrderNumber
@@ -53,7 +55,7 @@ Public Class OrderFunctions
             scheduleRequest.SiteId = ConfigurationManager.AppSettings("SiteId")
             scheduleRequest.TimeSlot = ConfigurationManager.AppSettings("TimeSlot")
 
-            OrderUpdateClient.Schedule(scheduleRequest)
+            orderUpdateClient.Schedule(scheduleRequest)
         Catch ex As Exception
             orderUpdateClient.Abort()
             Throw
@@ -65,11 +67,6 @@ Public Class OrderFunctions
 
     End Sub
 
-    'Public Shared Sub AddInformationToDatabase(ByVal username As String, ByVal orderNumber As String, ByVal customerName As String, _
-    '                                           ByVal accountNumber As String, ByVal phoneNumber As String, ByVal address As String, _
-    '                                           ByVal city As String, ByVal state As String,)
 
-
-    'End Sub
 
 End Class

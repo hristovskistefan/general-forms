@@ -189,17 +189,32 @@ Partial Class UPSMailingForm
    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
         If Page.IsValid Then
             Try
-                Dim myCustomer As CustomerService.Cust
-                Using customerClient As New CustomerService.CustomerManagementClient
-                    myCustomer = customerClient.getByCustomerID(txtAcct.Text)
-                End Using
-                _division = myCustomer.Address.Division
 
                 Dim address, city, state, zip As String
                 address = If(Me.chkmoved.Checked, Me.txtaddyout.Text, Me.txtaddy.Text)
                 city = If(Me.chkmoved.Checked, Me.txtcity.Text, Me.dropcity.SelectedItem.Value)
                 state = If(Me.chkmoved.Checked, Me.txtstate.Text, Me.dropstate.SelectedItem.Value)
                 zip = If(Me.chkmoved.Checked, Me.txtzip.Text, Me.dropzip.SelectedItem.Value)
+
+                Dim upsMailingAccount As New UpsMailingAccount(txtAcct.Text)
+                Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
+                upsMailingAccount.AddInformationToDatabase(txtIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
+                                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
+                                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
+                                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
+                                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
+                                                           ddlUTVGateway.SelectedValue)
+
+
+
+
+                'Dim myCustomer As CustomerService.Cust
+                'Using customerClient As New CustomerService.CustomerManagementClient
+                '    myCustomer = customerClient.getByCustomerID(txtAcct.Text)
+                'End Using
+                '_division = myCustomer.Address.Division
+
+
 
                 Dim dbFormCollection As Database = DatabaseFactory.CreateDatabase("Form_Collection")
                 Me._sql = "INSERT INTO UPS (DateSub,CCRUser,CName,AcctNum,PhoneNum,Address,State,City,Zip,"
@@ -228,50 +243,50 @@ Partial Class UPSMailingForm
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVG", DbType.Int32, CInt(Me.ddlUTVGateway.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVM", DbType.Int32, CInt(Me.ddlUTVMedia.SelectedItem.Value))
 
-                Me._mBody = "New UPS Mailing Request" & vbCrLf & _
-                            "************ CUSTOMER INFORMATION ************" & vbCrLf & _
-                            "**********************************************" & vbCrLf & _
-                            "**    Name:" & vbTab & vbTab & vbTab & vbTab & Me.txtFName.Text.ToUpper & " " & Me.txtLName.Text.ToUpper & vbCrLf & _
-                            "**    Account #:" & vbTab & vbTab & vbTab & Me.txtAcct.Text & vbCrLf & _
-                            "**    Phone #:" & vbTab & vbTab & vbTab & Me.txtphone.Text & vbCrLf & _
-                            "**    Address:" & vbTab & vbTab & vbTab & address.ToUpper & vbCrLf & _
-                            "**    City:" & vbTab & vbTab & vbTab & vbTab & city.ToUpper & vbCrLf & _
-                            "**    State:" & vbTab & vbTab & vbTab & state.ToUpper & vbCrLf & _
-                            "**    Zip:" & vbTab & vbTab & vbTab & vbTab & zip & vbCrLf & _
-                            "**********************************************" & vbCrLf & _
-                            "************ EQUIPMENT INFORMATION ***********" & vbCrLf & _
-                            "**********************************************" & vbCrLf & _
-                            "**    Analog Receivers:" & vbTab & vbTab & Me.dropana.SelectedItem.Value & vbCrLf & _
-                            "**    Digital Receivers:" & vbTab & Me.dropdigi.SelectedItem.Value & vbCrLf & _
-                            "**    DVR Receivers:" & vbTab & vbTab & Me.dropdvr.SelectedItem.Value & vbCrLf & _
-                            "**    HD Receivers:" & vbTab & vbTab & Me.drophd.SelectedItem.Value & vbCrLf & _
-                            "**    HD DVR Receivers:" & vbTab & vbTab & Me.drophddvr.SelectedItem.Value & vbCrLf & _
-                            "**    DTA Receivers:" & vbTab & vbTab & Me.ddlDTA.SelectedItem.Value & vbCrLf & _
-                            "**    Cable Modems:" & vbTab & vbTab & Me.dropcable.SelectedItem.Value & vbCrLf & _
-                            "**    Phone Modems:" & vbTab & vbTab & Me.dropphone.SelectedItem.Value & vbCrLf & _
-                            "**    Cable Cards:" & vbTab & vbTab & Me.dropccard.SelectedItem.Value & vbCrLf & _
-                            "**    Ultra TV Gateways:" & vbTab & vbTab & Me.ddlUTVGateway.SelectedItem.Value & vbCrLf & _
-                            "**    Ultra TV Media Players:" & vbTab & vbTab & Me.ddlUTVMedia.SelectedItem.Value & vbCrLf & _
-                            "**********************************************" & vbCrLf & _
-                            "**********************************************"
+                'Me._mBody = "New UPS Mailing Request" & vbCrLf & _
+                '            "************ CUSTOMER INFORMATION ************" & vbCrLf & _
+                '            "**********************************************" & vbCrLf & _
+                '            "**    Name:" & vbTab & vbTab & vbTab & vbTab & Me.txtFName.Text.ToUpper & " " & Me.txtLName.Text.ToUpper & vbCrLf & _
+                '            "**    Account #:" & vbTab & vbTab & vbTab & Me.txtAcct.Text & vbCrLf & _
+                '            "**    Phone #:" & vbTab & vbTab & vbTab & Me.txtphone.Text & vbCrLf & _
+                '            "**    Address:" & vbTab & vbTab & vbTab & address.ToUpper & vbCrLf & _
+                '            "**    City:" & vbTab & vbTab & vbTab & vbTab & city.ToUpper & vbCrLf & _
+                '            "**    State:" & vbTab & vbTab & vbTab & state.ToUpper & vbCrLf & _
+                '            "**    Zip:" & vbTab & vbTab & vbTab & vbTab & zip & vbCrLf & _
+                '            "**********************************************" & vbCrLf & _
+                '            "************ EQUIPMENT INFORMATION ***********" & vbCrLf & _
+                '            "**********************************************" & vbCrLf & _
+                '            "**    Analog Receivers:" & vbTab & vbTab & Me.dropana.SelectedItem.Value & vbCrLf & _
+                '            "**    Digital Receivers:" & vbTab & Me.dropdigi.SelectedItem.Value & vbCrLf & _
+                '            "**    DVR Receivers:" & vbTab & vbTab & Me.dropdvr.SelectedItem.Value & vbCrLf & _
+                '            "**    HD Receivers:" & vbTab & vbTab & Me.drophd.SelectedItem.Value & vbCrLf & _
+                '            "**    HD DVR Receivers:" & vbTab & vbTab & Me.drophddvr.SelectedItem.Value & vbCrLf & _
+                '            "**    DTA Receivers:" & vbTab & vbTab & Me.ddlDTA.SelectedItem.Value & vbCrLf & _
+                '            "**    Cable Modems:" & vbTab & vbTab & Me.dropcable.SelectedItem.Value & vbCrLf & _
+                '            "**    Phone Modems:" & vbTab & vbTab & Me.dropphone.SelectedItem.Value & vbCrLf & _
+                '            "**    Cable Cards:" & vbTab & vbTab & Me.dropccard.SelectedItem.Value & vbCrLf & _
+                '            "**    Ultra TV Gateways:" & vbTab & vbTab & Me.ddlUTVGateway.SelectedItem.Value & vbCrLf & _
+                '            "**    Ultra TV Media Players:" & vbTab & vbTab & Me.ddlUTVMedia.SelectedItem.Value & vbCrLf & _
+                '            "**********************************************" & vbCrLf & _
+                '            "**********************************************"
                 dbFormCollection.ExecuteNonQuery(cmdInsert)
 
-                'GET E-MAIL STUFF PREPARED
+                ''GET E-MAIL STUFF PREPARED
 
-                Dim mailMsg As New MailMessage()
-                mailMsg.IsBodyHtml = False
-                mailMsg.From = New MailAddress(_employee.Email)
-                mailMsg.Subject = "UPS Mailing Request"
-                mailMsg.Body = _mBody
+                'Dim mailMsg As New MailMessage()
+                'mailMsg.IsBodyHtml = False
+                'mailMsg.From = New MailAddress(_employee.Email)
+                'mailMsg.Subject = "UPS Mailing Request"
+                'mailMsg.Body = _mBody
 
-                mailMsg.To.Clear()
+                'mailMsg.To.Clear()
 
-                Dim icomsContext As ICOMSEntities = New ICOMSEntities
-                Dim emailAddress As String = (From dl As DivisionLookup In icomsContext.DivisionLookups Where dl.Division = _division Select dl.UPS_EmailAddress).FirstOrDefault
-                mailMsg.To.Add(emailAddress)
+                'Dim icomsContext As ICOMSEntities = New ICOMSEntities
+                'Dim emailAddress As String = (From dl As DivisionLookup In icomsContext.DivisionLookups Where dl.Division = _division Select dl.UPS_EmailAddress).FirstOrDefault
+                'mailMsg.To.Add(emailAddress)
 
-                ' Dim smtp As SmtpClient = New SmtpClient
-                EmailProxy.Send(mailMsg)
+                '' Dim smtp As SmtpClient = New SmtpClient
+                'EmailProxy.Send(mailMsg)
 
                 Me.pnlthx.Visible = True
                 Me.pnlmain.Visible = False

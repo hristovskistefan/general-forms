@@ -38,11 +38,11 @@
   <wsdl:message name="ICreateOrder_OfficeOnly_OutputMessage">
     <wsdl:part name="parameters" element="tns:OfficeOnlyResponse" />
   </wsdl:message>
-  <wsdl:message name="ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://wowway.com/services/" name="detail" element="q5:ValidationException" />
-  </wsdl:message>
   <wsdl:message name="ICreateOrder_OfficeOnly_BillingSystemExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://wowway.com/services/" name="detail" element="q6:BillingSystemException" />
+    <wsdl:part xmlns:q5="http://wowway.com/services/" name="detail" element="q5:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://wowway.com/services/" name="detail" element="q6:ValidationException" />
   </wsdl:message>
   <wsdl:message name="ICreateOrder_SpecialRequest_InputMessage">
     <wsdl:part name="parameters" element="tns:SpecialRequest" />
@@ -72,8 +72,8 @@
     <wsdl:operation name="OfficeOnly">
       <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnly" message="tns:ICreateOrder_OfficeOnly_InputMessage" />
       <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyResponse" message="tns:ICreateOrder_OfficeOnly_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:ICreateOrder_OfficeOnly_BillingSystemExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="SpecialRequest">
       <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequest" message="tns:ICreateOrder_SpecialRequest_InputMessage" />

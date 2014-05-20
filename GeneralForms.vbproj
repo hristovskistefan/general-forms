@@ -262,11 +262,11 @@
     <None Include="Service References\AddressService\AddressManagement33.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\CreateOrderService\CreateOrder.wsdl" />
+    <None Include="Service References\CreateOrderService\CreateOrder.wsdl" />
     <None Include="Service References\CreateOrderService\CreateOrder.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\CreateOrderService\CreateOrder1.wsdl" />
+    <None Include="Service References\CreateOrderService\CreateOrder1.wsdl" />
     <None Include="Service References\CreateOrderService\CreateOrder1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -293,13 +293,13 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Service References\CustomerService\CustomerManagement1.disco" />
-    <Content Include="Service References\CreateOrderService\CreateOrder.disco" />
-    <Content Include="Service References\CreateOrderService\configuration91.svcinfo" />
-    <Content Include="Service References\CreateOrderService\configuration.svcinfo" />
-    <Content Include="Service References\CreateOrderService\Reference.svcmap">
+    <None Include="Service References\CreateOrderService\CreateOrder.disco" />
+    <None Include="Service References\CreateOrderService\configuration91.svcinfo" />
+    <None Include="Service References\CreateOrderService\configuration.svcinfo" />
+    <None Include="Service References\CreateOrderService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Service References\CustomerService\GeneralForms.CustomerService.Cust.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -425,7 +425,9 @@
     <None Include="Service References\OrderUpdateService\OrderUpdate3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="web.dev.config" />
+    <None Include="web.dev.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.prod.config" />
   </ItemGroup>
   <ItemGroup>
