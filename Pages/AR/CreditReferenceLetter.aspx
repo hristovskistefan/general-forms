@@ -23,6 +23,10 @@
             <asp:Label ID="lblhIcomsID" runat="server" CssClass="Data" />
         </div>
     </div>
+    <div>The Account Research - Credit Reference Letter form is no longer in use.<br/>
+        See Gooroo or a Supervisor for more information.
+    </div>
+    <asp:Panel runat="server" Visible="false">
     <div id="Container-Content" style="font-size: .9em;">
         <asp:Panel ID="pnlmain" runat="server">
             <table class="input" cellspacing="0" cellpadding="0" width="100%">
@@ -144,6 +148,7 @@
         <asp:ValidationSummary ID="ValidationSummary1" HeaderText="Please correct the following:"
             runat="server" ValidationGroup="vgAcctInfo" />
     </div>
+    </asp:Panel>
     <User:MB ID="MB" runat="server" />
     </form>
 </body>

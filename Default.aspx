@@ -38,7 +38,7 @@
                             <Items>
                                 <telerik:RadPanelItem runat="server" Value="General Forms" Text="General Forms" Expanded="True">
                                     <Items>
-                                        <telerik:RadPanelItem runat="server" Text="Credit Reference Letter" Value="CreditReferenceLetter" />
+                                        
                                         <telerik:RadPanelItem runat="server" Text="Customer Refunds" Value="CustomerRefunds" />
                                         <telerik:RadPanelItem runat="server" Text="DueDate Change" Value="DueDateChange" />
                                         <telerik:RadPanelItem runat="server" Text="Incorrect Bill" Value="IncorrectBill" />
