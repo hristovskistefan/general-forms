@@ -113,6 +113,7 @@
                             </asp:RadioButtonList>
                         </td>
                     </tr>
+                    <!--
                     <asp:Panel runat="server" ID="pnlCCard" Visible="False">
                         <tr>
                             <td>Credit Card Type:
@@ -126,14 +127,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 200px;">Credit Card Number:<br/>
-                                                           
-                                <span style="color: red;">Please ask for only the first 6 and last 4 digits to ensure the security of the customer’s credit card number.</span>
-                            
+                            <td style="width: 200px;">Credit Card Number:
                             </td>
-
                             <td style="vertical-align: top;">
-                                <telerik:RadMaskedTextBox ID="txtCCardNum" runat="server" Mask="#### ##XX XXXX ####"></telerik:RadMaskedTextBox>
+                                <telerik:RadMaskedTextBox ID="txtCCardNum" runat="server" Mask="#### #### #### ####"></telerik:RadMaskedTextBox>
                                 <%--<asp:TextBox ID="txtCCardNum" runat="server" Width="160" MaxLength="16"></asp:TextBox>
                                 --%><asp:RequiredFieldValidator ID="Requiredfieldvalidator36" runat="server"
                                     ErrorMessage="Credit Card Number is required." Text="X"
@@ -184,8 +181,9 @@
                             </td>
                         </tr>
                     </asp:Panel>
+                -->
                     <tr>
-                        <td>Payment Amount:
+                        <td>Payment Amount Requested:
                         </td>
                         <td>
                             <telerik:RadNumericTextBox ID="payamount" Width="100" runat="server" Type="Currency"
