@@ -34,6 +34,8 @@
                                 Use this form <span style="color: Red; font-size: larger; font-style: italic;">ONLY</span>
                                 when advised by RM or a Supervisor.
                             </div>
+                            <div style="font-weight: bold;">Do NOT ask the customer for a credit card, checking, or savings account number.</div>
+                            <div>See Gooroo for more information on how to use this form.</div>
                         </td>
                     </tr>
                     <tr>
@@ -44,10 +46,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td>Account Number:&nbsp;
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox>&nbsp;<asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -57,14 +59,14 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer Account Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                             <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
-                                ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
+                                ControlToValidate="txtAcct" ErrorMessage="Advise the customer that a Manual Payment request has already been submitted for this WOW! account number.<br />See Gooroo for information about Manual Payments."
                                 ID="cvAccount" Display="None" />
                             <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td>First Name:
+                        <td>First Name:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
@@ -72,7 +74,7 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td>Last Name:
+                        <td>&nbsp;Last Name:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
@@ -83,118 +85,35 @@
                     </tr>
                     <asp:Panel runat="server" ID="pnlAltPhone" Visible="false">
                         <tr>
-                            <td>Alternate Phone Number:
+                            <td>Best Contact Phone Number:&nbsp;
                             </td>
                             <td>
-                                <asp:TextBox ID="txtmanpayphone" runat="server" Width="160" MaxLength="10"></asp:TextBox>
+                                <asp:TextBox ID="txtmanpayphone" runat="server" Width="100" MaxLength="13"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvManPayPhone" runat="server" Text="X" Font-Bold="true"
                                     Font-Size="Medium" Display="Dynamic" ErrorMessage="Alternate Phone Number is Required"
                                     ControlToValidate="txtmanpayphone" />
                                 <asp:RegularExpressionValidator ID="revManPayPhone" runat="server" Text="X" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number" ValidationExpression="^\d{10}$"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"
                                     ControlToValidate="txtmanpayphone" />
                                 <asp:CustomValidator runat="server" Text="X" EnableClientScript="false" Font-Bold="true"
                                     Font-Size="Medium" Display="Dynamic" ControlToValidate="txtmanpayphone" ErrorMessage="Invalid Phone Number"
                                     ID="cvPhone" />
                             </td>
                         </tr>
-                    </asp:Panel>
-                </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlmanual" runat="server">
-                <table>
-                    <tr>
-                        <td colspan="2">
-                            <asp:RadioButtonList ID="rblCheckCredit" runat="server" RepeatDirection="Horizontal"
-                                AutoPostBack="True">
-                                <asp:ListItem Value="Checking" Selected="True"></asp:ListItem>
-                                <asp:ListItem Value="Savings"></asp:ListItem>
-                                <asp:ListItem Value="Credit Card"></asp:ListItem>
-                            </asp:RadioButtonList>
-                        </td>
-                    </tr>
-                    <!--
-                    <asp:Panel runat="server" ID="pnlCCard" Visible="False">
                         <tr>
-                            <td>Credit Card Type:
+                            <td>Payment Amount Requested:&nbsp;
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlCCard" runat="server">
-                                    <asp:ListItem Value="MasterCard"></asp:ListItem>
-                                    <asp:ListItem Value="Visa"></asp:ListItem>
-                                    <asp:ListItem Value="Discover"></asp:ListItem>
-                                </asp:DropDownList>
+                                <telerik:RadNumericTextBox ID="payamount" Width="110" MaxLength="8" runat="server" Type="Currency"
+                                    EmptyMessage="Payment Amount" MinValue="0.01" MaxValue="9999.99" />
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 200px;">Credit Card Number:
-                            </td>
-                            <td style="vertical-align: top;">
-                                <telerik:RadMaskedTextBox ID="txtCCardNum" runat="server" Mask="#### #### #### ####"></telerik:RadMaskedTextBox>
-                                <%--<asp:TextBox ID="txtCCardNum" runat="server" Width="160" MaxLength="16"></asp:TextBox>
-                                --%><asp:RequiredFieldValidator ID="Requiredfieldvalidator36" runat="server"
-                                    ErrorMessage="Credit Card Number is required." Text="X"
-                                    Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCCardNum" />
-                                <asp:CustomValidator runat="server" Text="X" EnableClientScript="false" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCCardNum" ErrorMessage="Invalid Credit Card Number"
-                                    ID="cvCreditCard" />
-                                
-                                
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>Expiration Date (MM/YYYY):
-                            </td>
                             <td>
-                                <asp:TextBox ID="txtExpDate" Width="100" runat="server" />
-                                <asp:RequiredFieldValidator runat="server" ID="Requiredfieldvalidator37" ControlToValidate="txtExpDate"
-                                    ErrorMessage="Expiration Date is required." Text="X" Font-Bold="true" Font-Size="Medium"
-                                    Display="Dynamic" />
-                                <asp:RegularExpressionValidator runat="server" ID="Regularexpressionvalidator4" ControlToValidate="txtExpDate"
-                                    ValidationExpression="\d{2}/\d{4}" ErrorMessage="Expiration Date must be in MM/YYYY format."
-                                    Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" />
+                                <asp:Button ID="btnmanpay" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
                             </td>
                         </tr>
                     </asp:Panel>
-                    <asp:Panel runat="server" ID="pnlBnkAcct" Visible="True">
-                        <tr>
-                            <td>Bank Account Number:
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtBank" />
-                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBank" ControlToValidate="txtBank"
-                                    ErrorMessage="Bank Account Number is required." Text="X" Font-Bold="true" Font-Size="Medium"
-                                    Display="Dynamic" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Routing Number:
-                            </td>
-                            <td>
-                                <asp:TextBox runat="server" ID="txtRTN2" MaxLength="9"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvRTN2" runat="server" Text="X" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Routing Number Required" ControlToValidate="txtRTN2" />
-                                <asp:RegularExpressionValidator ID="revRTN2" runat="server" Text="X" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Routing Number" ValidationExpression="^((0[0-9])|(1[0-2])|(2[1-9])|(3[0-2])|(6[1-9])|(7[0-2])|80)([0-9]{7})$"
-                                    ControlToValidate="txtRTN2" />
-                            </td>
-                        </tr>
-                    </asp:Panel>
-                -->
-                    <tr>
-                        <td>Payment Amount Requested:
-                        </td>
-                        <td>
-                            <telerik:RadNumericTextBox ID="payamount" Width="100" runat="server" Type="Currency"
-                                EmptyMessage="Payment Amount" MinValue="0.01" MaxValue="9999.99" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Button ID="btnmanpay" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
-                        </td>
-                    </tr>
                 </table>
             </asp:Panel>
             <asp:Panel ID="pnlerror" runat="server">
@@ -222,9 +141,9 @@
                     </table>
                 </center>
             </asp:Panel>
-            <asp:ValidationSummary ID="ValidationSummary" HeaderText="Please correct the following:"
+            <asp:ValidationSummary ID="ValidationSummary" HeaderText="Important:"
                 runat="server" />
-            <asp:ValidationSummary ID="ValidationSummary1" HeaderText="Please correct the following:"
+            <asp:ValidationSummary ID="ValidationSummary1" HeaderText="Important:"
                 runat="server" ValidationGroup="vgAcctInfo" />
         </div>
         <User:MB ID="MB" runat="server" />

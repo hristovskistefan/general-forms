@@ -50,13 +50,11 @@ Public Class ARManualPayments
         revAccount.Validate()
         cvAccount.Validate()
         If Not (rfvAccount.IsValid AndAlso revAccount.IsValid AndAlso cvAccount.IsValid) Then
-            pnlmanual.Visible = False
             pnlAltPhone.Visible = False
         Else
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
-            pnlmanual.Visible = True
             pnlAltPhone.Visible = True
         End If
     End Sub
@@ -76,7 +74,7 @@ Public Class ARManualPayments
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Manual Payment")
-                db.AddInParameter(cmd, "Reason", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", "Credit Card", "EFT"))
+                db.AddInParameter(cmd, "Reason", DbType.String, "Manual Payment")
                 db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
                 db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstlast)
                 db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
@@ -89,18 +87,12 @@ Public Class ARManualPayments
                 db.AddInParameter(cmd, "PhoneNum", DbType.String, txtmanpayphone.Text)
                 db.AddInParameter(cmd, "Amount", DbType.String, payamount.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
-                db.AddInParameter(cmd, "CardType", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", ddlCCard.SelectedValue, Nothing))
-                Dim encryptedCCNum = String.Empty
-                If rblCheckCredit.SelectedValue = "Credit Card" Then
-                    Using cryptoClient As New CryptoSvc.CCCCryptoClient
-                        encryptedCCNum = cryptoClient.encrypt(txtCCardNum.TextWithLiterals, Request.Url.AbsoluteUri, _employee.EmpID)
-                    End Using
-                End If
-                db.AddInParameter(cmd, "CardNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", encryptedCCNum, Nothing))
-                db.AddInParameter(cmd, "ExpireDate", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", txtExpDate.Text, Nothing))
-                db.AddInParameter(cmd, "EFTType", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, rblCheckCredit.SelectedValue))
-                db.AddInParameter(cmd, "EFTAcctNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, txtBank.Text))
-                db.AddInParameter(cmd, "RoutingNum", DbType.String, If(rblCheckCredit.SelectedValue = "Credit Card", Nothing, txtRTN2.Text))
+                db.AddInParameter(cmd, "CardType", DbType.String, "NULL")
+                db.AddInParameter(cmd, "CardNum", DbType.String, "NULL")
+                db.AddInParameter(cmd, "ExpireDate", DbType.String, "NULL")
+                db.AddInParameter(cmd, "EFTType", DbType.String, "NULL")
+                db.AddInParameter(cmd, "EFTAcctNum", DbType.String, "NULL")
+                db.AddInParameter(cmd, "RoutingNum", DbType.String, "NULL")
                 db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.AddInParameter(cmd, "IssueType", DbType.String, "Manual Payment")
                 db.ExecuteNonQuery(cmd)
@@ -111,24 +103,6 @@ Public Class ARManualPayments
                             "<b>Error Source:</b> " & mailex.Source & "<br />" & _
                             "<b>Stack Trace:</b> " & mailex.StackTrace & "<br />"
             End Try
-        End If
-    End Sub
-
-    Protected Sub rblCheckCredit_OnSelectedIndexChanged(ByVal o As Object, ByVal e As EventArgs) Handles rblCheckCredit.SelectedIndexChanged
-        If rblCheckCredit.SelectedValue = "Credit Card" Then
-            pnlCCard.Visible = True
-            pnlBnkAcct.Visible = False
-        Else
-            pnlCCard.Visible = False
-            pnlBnkAcct.Visible = True
-        End If
-    End Sub
-
-    Protected Sub cvCreditCard_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles cvCreditCard.ServerValidate
-        If GeneralFormsCommon.ValidateMaskedCC(args.Value) = GeneralFormsCommon.CreditCardTypes.Invalid Then
-            args.IsValid = False
-        Else
-            args.IsValid = True
         End If
     End Sub
 
@@ -216,7 +190,6 @@ Public Class ARManualPayments
     Sub Reset()
         pnlthx.Visible = True
         pnlmain.Visible = False
-        pnlmanual.Visible = False
         pnlerror.Visible = False
     End Sub
 
@@ -224,7 +197,6 @@ Public Class ARManualPayments
         pnlthx.Visible = False
         pnlmain.Visible = True
         pnlerror.Visible = False
-        pnlmanual.Visible = False
         pnlAltPhone.Visible = False
     End Sub
 
