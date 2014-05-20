@@ -16,6 +16,7 @@ Public Class OrderFunctions
             specialRequestRequest.HouseNumber = houseNumber
             specialRequestRequest.ExternalUsername = icomsUsername
             specialRequestRequest.SiteId = ConfigurationManager.AppSettings("SiteId")
+            specialRequestRequest.ServiceCode = serviceCode
 
 
             specialRequestRequest.NoCharge = hasSpp

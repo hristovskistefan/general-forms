@@ -24,12 +24,12 @@ Public Class UpsMailingAccount
 
             'Determine if the account is charged off
             Dim dtChargeOff As New DataTable
-            Dim sqlParameters(1) As SqlParameter
+            Dim sqlParameters(0) As SqlParameter
 
-            sqlParameters(0) = New SqlParameter("@accountNumber", _accountNumber)
+            sqlParameters(0) = New SqlParameter("@inAccountNumber", _accountNumber)
 
 
-            dtChargeOff = baseDb.GetDataTable("SpcAccountLookup", sqlParameters)
+            dtChargeOff = baseDb.GetDataTable("ccc.SpcAccountLookup", sqlParameters)
             If dtChargeOff Is Nothing OrElse dtChargeOff.Rows.Count = 0 Then
                 Throw New Exception("Account could not be located.")
 
@@ -59,7 +59,7 @@ Public Class UpsMailingAccount
                 _hasVideo = False
             End If
 
-            If dtChargeOff.Rows(0)("hasHsd").ToString = "Y" Then
+            If dtChargeOff.Rows(0)("hsdFlag").ToString = "Y" Then
                 _hasHsd = True
             Else
                 _hasHsd = False
@@ -78,7 +78,7 @@ Public Class UpsMailingAccount
                 'hasSpp will remain false.  if the account is charged off then we treat the account as if spp is not on it
             Else
 
-                ReDim sqlParameters(2)
+                ReDim sqlParameters(1)
                 sqlParameters(0) = New SqlParameter("@accountNumber", _accountNumber)
                 sqlParameters(1) = New SqlParameter("@houseNumber", _houseNumber)
 
@@ -91,8 +91,19 @@ Public Class UpsMailingAccount
                 'Get list of SPP service codes
                 Dim sppCodes() As String = ConfigurationManager.AppSettings("SppCodes").Split("|")
 
+                'For i As Integer = 0 To dtServiceCodes.Rows.Count - 1
+                '    Dim serviceCode As String = dtServiceCodes.Rows(i)("ServiceCode").ToString.Trim
+                '    Dim serviceCodeCount As Integer = Int32.Parse(dtServiceCodes.Rows(i)("ServiceQuantity").ToString().Trim())
+                '    If sppCodes.Contains(serviceCode) AndAlso serviceCodeCount > 0 Then
+
+                '        _hasSpp = True
+                '    End If
+
+                ' Next
+
+
                 For Each singleRow As DataRow In dtServiceCodes.Rows
-                    If sppCodes.Contains(singleRow("ServiceCode")) AndAlso Int32.Parse(singleRow("ServiceCode")) > 0 Then
+                    If sppCodes.Contains(singleRow("ServiceCode").ToString().Trim()) AndAlso Int32.Parse(singleRow("ServiceQuantity").ToString().Trim()) > 0 Then
                         _hasSpp = True
                         Exit For
                     End If

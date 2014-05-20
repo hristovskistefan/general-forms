@@ -355,7 +355,7 @@
     <Content Include="Service References\EmployeeService\GeneralForms.EmployeeService.EmpInstance.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\EmployeeService\Management.wsdl" />
+    <None Include="Service References\EmployeeService\Management.wsdl" />
     <None Include="Service References\EmployeeService\Management.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -372,7 +372,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <Content Include="Service References\EmployeeService\Management.disco" />
+    <None Include="Service References\EmployeeService\Management.disco" />
     <Content Include="Service References\OrderUpdateService\OrderUpdate.disco" />
     <Content Include="Service References\OrderUpdateService\configuration91.svcinfo" />
     <Content Include="Service References\OrderUpdateService\configuration.svcinfo" />

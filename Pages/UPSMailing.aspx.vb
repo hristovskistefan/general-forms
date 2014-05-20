@@ -197,13 +197,13 @@ Partial Class UPSMailingForm
                 zip = If(Me.chkmoved.Checked, Me.txtzip.Text, Me.dropzip.SelectedItem.Value)
 
                 Dim upsMailingAccount As New UpsMailingAccount(txtAcct.Text)
-                Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
-                upsMailingAccount.AddInformationToDatabase(txtIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
-                                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
-                                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
-                                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
-                                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
-                                                           ddlUTVGateway.SelectedValue)
+                'Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
+                'upsMailingAccount.AddInformationToDatabase(txtIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
+                '                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
+                '                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
+                '                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
+                '                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
+                '                                           ddlUTVGateway.SelectedValue)
 
 
 
@@ -243,6 +243,11 @@ Partial Class UPSMailingForm
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVG", DbType.Int32, CInt(Me.ddlUTVGateway.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVM", DbType.Int32, CInt(Me.ddlUTVMedia.SelectedItem.Value))
 
+
+                'dbFormCollection.ExecuteNonQuery(cmdInsert)
+
+
+
                 'Me._mBody = "New UPS Mailing Request" & vbCrLf & _
                 '            "************ CUSTOMER INFORMATION ************" & vbCrLf & _
                 '            "**********************************************" & vbCrLf & _
@@ -269,7 +274,7 @@ Partial Class UPSMailingForm
                 '            "**    Ultra TV Media Players:" & vbTab & vbTab & Me.ddlUTVMedia.SelectedItem.Value & vbCrLf & _
                 '            "**********************************************" & vbCrLf & _
                 '            "**********************************************"
-                dbFormCollection.ExecuteNonQuery(cmdInsert)
+
 
                 ''GET E-MAIL STUFF PREPARED
 
