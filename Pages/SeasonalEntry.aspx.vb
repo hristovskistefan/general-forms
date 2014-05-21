@@ -185,7 +185,7 @@ Partial Public Class SeasonalEntry
 
             sBody.Append(vbCrLf & "----------------------------------------" & vbCrLf)
             If rdoBTEPCSG.Checked = True Then
-                sBody.Append("Pay Type:" & vbTab & vbTab & "Bill-To or Ezpay is already in CSG" & vbCrLf)
+                sBody.Append("Pay Type:" & vbTab & vbTab & "Bill-To or Ezpay is already in ICOMS" & vbCrLf)
             ElseIf rdoBT.Checked = True Then
                 sBody.Append("Pay Type:" & vbTab & vbTab & vbTab & "Bill-To" & vbCrLf)
                 sBody.Append("Bill-To First Name:" & vbTab & txtBTFirstName.Text.Trim & vbCrLf)

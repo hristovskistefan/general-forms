@@ -69,8 +69,14 @@ Public Class ARManualPayments
                 Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
                 Dim cmd As DbCommand
 
-                cmd = db.GetSqlStringCommand("INSERT INTO BILLING (DateSub,RequestType,Reason,Username,CCRName,SalesID,CSGOpCode,Supervisor,CFName,CLName,State,AcctNum,PhoneNum,Amount,CardType,CardNum,ExpireDate,Kickback, EFTType, EFTAcctNum, RoutingNum, Division, IssueType)" _
-                      & "  VALUES (@DateSub,@RequestType,@Reason,@Username,@CCRName,@SalesID,@CSGOpCode,@Supervisor,@CFName,@CLName,@State,@AcctNum,@PhoneNum,@Amount,@CardType,@CardNum,@ExpireDate,@Kickback,@EFTType,@EFTAcctNum,@RoutingNum,@Division,@IssueType)")
+                'Original Insert with payment account information
+                'cmd = db.GetSqlStringCommand("INSERT INTO BILLING (DateSub,RequestType,Reason,Username,CCRName,SalesID,CSGOpCode,Supervisor,CFName,CLName,State,AcctNum,PhoneNum,Amount,CardType,CardNum,ExpireDate,Kickback, EFTType, EFTAcctNum, RoutingNum, Division, IssueType)" _
+                '      & "  VALUES (@DateSub,@RequestType,@Reason,@Username,@CCRName,@SalesID,@CSGOpCode,@Supervisor,@CFName,@CLName,@State,@AcctNum,@PhoneNum,@Amount,@CardType,@CardNum,@ExpireDate,@Kickback,@EFTType,@EFTAcctNum,@RoutingNum,@Division,@IssueType)")
+
+                'New Insert w/o payment account information
+                cmd = db.GetSqlStringCommand("INSERT INTO BILLING (DateSub,RequestType,Reason,Username,CCRName,SalesID,CSGOpCode,Supervisor,CFName,CLName,State,AcctNum,PhoneNum,Amount,Kickback,Division,IssueType)" _
+                         & "  VALUES (@DateSub,@RequestType,@Reason,@Username,@CCRName,@SalesID,@CSGOpCode,@Supervisor,@CFName,@CLName,@State,@AcctNum,@PhoneNum,@Amount,@Kickback,@Division,@IssueType)")
+
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Manual Payment")
@@ -87,12 +93,13 @@ Public Class ARManualPayments
                 db.AddInParameter(cmd, "PhoneNum", DbType.String, txtmanpayphone.Text)
                 db.AddInParameter(cmd, "Amount", DbType.String, payamount.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
-                db.AddInParameter(cmd, "CardType", DbType.String, "NULL")
-                db.AddInParameter(cmd, "CardNum", DbType.String, "NULL")
-                db.AddInParameter(cmd, "ExpireDate", DbType.String, "NULL")
-                db.AddInParameter(cmd, "EFTType", DbType.String, "NULL")
-                db.AddInParameter(cmd, "EFTAcctNum", DbType.String, "NULL")
-                db.AddInParameter(cmd, "RoutingNum", DbType.String, "NULL")
+                'Removed payment account information
+                'db.AddInParameter(cmd, "CardType", DbType.String, "NULL")
+                'db.AddInParameter(cmd, "CardNum", DbType.String, "0")
+                'db.AddInParameter(cmd, "ExpireDate", DbType.String, "0")
+                'db.AddInParameter(cmd, "EFTType", DbType.String, "NULL")
+                'db.AddInParameter(cmd, "EFTAcctNum", DbType.String, "0")
+                'db.AddInParameter(cmd, "RoutingNum", DbType.String, "0")
                 db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                 db.AddInParameter(cmd, "IssueType", DbType.String, "Manual Payment")
                 db.ExecuteNonQuery(cmd)
