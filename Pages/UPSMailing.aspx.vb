@@ -197,7 +197,7 @@ Partial Class UPSMailingForm
                 zip = If(Me.chkmoved.Checked, Me.txtzip.Text, Me.dropzip.SelectedItem.Value)
 
                 Dim upsMailingAccount As New UpsMailingAccount(txtAcct.Text)
-                'Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
+                Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
                 'upsMailingAccount.AddInformationToDatabase(txtIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
                 '                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
                 '                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _

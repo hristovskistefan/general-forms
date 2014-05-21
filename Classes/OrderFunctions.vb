@@ -19,7 +19,9 @@ Public Class OrderFunctions
             specialRequestRequest.ServiceCode = serviceCode
 
 
-            specialRequestRequest.NoCharge = hasSpp
+            If hasSpp Then
+                specialRequestRequest.PriceOverride = 0
+            End If
 
 
             Dim createOrderResponse As New CreateOrderResponse

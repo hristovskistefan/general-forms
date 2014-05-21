@@ -373,13 +373,13 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Service References\EmployeeService\Management.disco" />
-    <Content Include="Service References\OrderUpdateService\OrderUpdate.disco" />
-    <Content Include="Service References\OrderUpdateService\configuration91.svcinfo" />
-    <Content Include="Service References\OrderUpdateService\configuration.svcinfo" />
-    <Content Include="Service References\OrderUpdateService\Reference.svcmap">
+    <None Include="Service References\OrderUpdateService\OrderUpdate.disco" />
+    <None Include="Service References\OrderUpdateService\configuration91.svcinfo" />
+    <None Include="Service References\OrderUpdateService\configuration.svcinfo" />
+    <None Include="Service References\OrderUpdateService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Unauthorized.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="images\Cancel.gif" />
@@ -411,11 +411,11 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </Content>
-    <Content Include="Service References\OrderUpdateService\OrderUpdate.wsdl" />
+    <None Include="Service References\OrderUpdateService\OrderUpdate.wsdl" />
     <None Include="Service References\OrderUpdateService\OrderUpdate.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\OrderUpdateService\OrderUpdate1.wsdl" />
+    <None Include="Service References\OrderUpdateService\OrderUpdate1.wsdl" />
     <None Include="Service References\OrderUpdateService\OrderUpdate1.xsd">
       <SubType>Designer</SubType>
     </None>

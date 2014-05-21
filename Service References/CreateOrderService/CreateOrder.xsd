@@ -202,7 +202,8 @@
       <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ExternalUsername" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NoCharge" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PriceOverride" type="xs:long" />
+      <xs:element minOccurs="0" name="PriceOverrideSpecified" type="xs:boolean" />
       <xs:element minOccurs="0" name="SalesId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ServiceCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string" />

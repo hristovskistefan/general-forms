@@ -149,7 +149,7 @@ Public Class UpsMailingAccount
             End If
 
 
-            Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, "", icomsUsername, _hasSpp)
+            Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, serviceCode, icomsUsername, _hasSpp)
             OrderFunctions.CheckInOrder(orderNumber, icomsUsername)
 
             Return orderNumber

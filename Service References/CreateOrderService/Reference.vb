@@ -1230,7 +1230,10 @@ Namespace CreateOrderService
         Private HouseNumberField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private NoChargeField As Boolean
+        Private PriceOverrideField As Long
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private PriceOverrideSpecifiedField As Boolean
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private SalesIdField As String
@@ -1317,14 +1320,27 @@ Namespace CreateOrderService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property NoCharge() As Boolean
+        Public Property PriceOverride() As Long
             Get
-                Return Me.NoChargeField
+                Return Me.PriceOverrideField
             End Get
             Set
-                If (Me.NoChargeField.Equals(value) <> true) Then
-                    Me.NoChargeField = value
-                    Me.RaisePropertyChanged("NoCharge")
+                If (Me.PriceOverrideField.Equals(value) <> true) Then
+                    Me.PriceOverrideField = value
+                    Me.RaisePropertyChanged("PriceOverride")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property PriceOverrideSpecified() As Boolean
+            Get
+                Return Me.PriceOverrideSpecifiedField
+            End Get
+            Set
+                If (Me.PriceOverrideSpecifiedField.Equals(value) <> true) Then
+                    Me.PriceOverrideSpecifiedField = value
+                    Me.RaisePropertyChanged("PriceOverrideSpecified")
                 End If
             End Set
         End Property
@@ -1392,18 +1408,18 @@ Namespace CreateOrderService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrder", ReplyAction:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderResp"& _ 
             "onse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.ValidationException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderVali"& _ 
-            "dationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/"),  _
          System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderBill"& _ 
-            "ingSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/")>  _
+            "ingSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/"),  _
+         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.ValidationException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderVali"& _ 
+            "dationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/")>  _
         Function ChangeOrder(ByVal request As CreateOrderService.ChangeOrderRequest) As CreateOrderService.CreateOrderResponse
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnly", ReplyAction:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyRespo"& _ 
             "nse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyBilli"& _ 
-            "ngSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/"),  _
          System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.ValidationException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValid"& _ 
-            "ationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/")>  _
+            "ationExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/"),  _
+         System.ServiceModel.FaultContractAttribute(GetType(CreateOrderService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyBilli"& _ 
+            "ngSystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/")>  _
         Function OfficeOnly(ByVal request As CreateOrderService.OfficeOnlyRequest) As CreateOrderService.CreateOrderResponse
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequest", ReplyAction:="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequestR"& _ 
