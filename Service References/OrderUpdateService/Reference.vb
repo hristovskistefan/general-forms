@@ -870,16 +870,25 @@ Namespace OrderUpdateService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private AccountNumberField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ExternalPasswordField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ExternalUsernameField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private HouseNumberField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private OrderNumberField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ReasonCodeField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private SalesRepField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ScheduleDateField As String
@@ -890,6 +899,9 @@ Namespace OrderUpdateService
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private TimeSlotField As String
         
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private WorkOrderTypeField As String
+        
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
             Get
@@ -897,6 +909,19 @@ Namespace OrderUpdateService
             End Get
             Set
                 Me.extensionDataField = value
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property AccountNumber() As String
+            Get
+                Return Me.AccountNumberField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.AccountNumberField, value) <> true) Then
+                    Me.AccountNumberField = value
+                    Me.RaisePropertyChanged("AccountNumber")
+                End If
             End Set
         End Property
         
@@ -927,6 +952,19 @@ Namespace OrderUpdateService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property HouseNumber() As String
+            Get
+                Return Me.HouseNumberField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.HouseNumberField, value) <> true) Then
+                    Me.HouseNumberField = value
+                    Me.RaisePropertyChanged("HouseNumber")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
         Public Property OrderNumber() As String
             Get
                 Return Me.OrderNumberField
@@ -948,6 +986,19 @@ Namespace OrderUpdateService
                 If (Object.ReferenceEquals(Me.ReasonCodeField, value) <> true) Then
                     Me.ReasonCodeField = value
                     Me.RaisePropertyChanged("ReasonCode")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property SalesRep() As String
+            Get
+                Return Me.SalesRepField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.SalesRepField, value) <> true) Then
+                    Me.SalesRepField = value
+                    Me.RaisePropertyChanged("SalesRep")
                 End If
             End Set
         End Property
@@ -987,6 +1038,19 @@ Namespace OrderUpdateService
                 If (Object.ReferenceEquals(Me.TimeSlotField, value) <> true) Then
                     Me.TimeSlotField = value
                     Me.RaisePropertyChanged("TimeSlot")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property WorkOrderType() As String
+            Get
+                Return Me.WorkOrderTypeField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.WorkOrderTypeField, value) <> true) Then
+                    Me.WorkOrderTypeField = value
+                    Me.RaisePropertyChanged("WorkOrderType")
                 End If
             End Set
         End Property
@@ -1094,17 +1158,17 @@ Namespace OrderUpdateService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/Schedule", ReplyAction:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleRespons"& _ 
             "e"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.ValidationException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleValidat"& _ 
-            "ionExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/"),  _
          System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleBilling"& _ 
-            "SystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/")>  _
+            "SystemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/"),  _
+         System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.ValidationException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleValidat"& _ 
+            "ionExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/")>  _
         Sub Schedule(ByVal request As OrderUpdateService.ScheduleRequest)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/Unlock", ReplyAction:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.ValidationException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockValidatio"& _ 
-            "nExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/"),  _
          System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.BillingSystemException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockBillingSy"& _ 
-            "stemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/")>  _
+            "stemExceptionFault", Name:="BillingSystemException", [Namespace]:="http://wowway.com/services/"),  _
+         System.ServiceModel.FaultContractAttribute(GetType(OrderUpdateService.ValidationException), Action:="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockValidatio"& _ 
+            "nExceptionFault", Name:="ValidationException", [Namespace]:="http://wowway.com/services/")>  _
         Sub Unlock(ByVal request As OrderUpdateService.UnlockRequest)
     End Interface
     

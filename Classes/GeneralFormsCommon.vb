@@ -7,8 +7,11 @@ Public Class GeneralFormsCommon
             employee = CType(System.Web.HttpContext.Current.Session("EmployeeGF"), EmployeeService.EmpInstance)
         Else
             Using es As New EmployeeService.ManagementClient
-                'Dim emplogin As String = "c_rhoades" 'HACK below line is correct
+
                 Dim emplogin As String = System.Web.HttpContext.Current.Request.ServerVariables("AUTH_USER").Split("\"c)(1)
+                'If emplogin.ToLower = "a_gulbranson" Then
+                '    emplogin = "c_rhoades"
+                'End If
                 employee = es.GetBasicInfoByNTLogin(emplogin)
                 System.Web.HttpContext.Current.Session("EmployeeGF") = employee
             End Using

@@ -31,13 +31,17 @@
   </xs:element>
   <xs:complexType name="ScheduleRequest">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ExternalPassword" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ExternalUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ReasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesRep" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ScheduleDate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeSlot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrderType" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ScheduleRequest" nillable="true" type="tns:ScheduleRequest" />

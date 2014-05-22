@@ -26,11 +26,11 @@
   <wsdl:message name="IOrderUpdate_Schedule_OutputMessage">
     <wsdl:part name="parameters" element="tns:ScheduleResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrderUpdate_Schedule_ValidationExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://wowway.com/services/" name="detail" element="q3:ValidationException" />
-  </wsdl:message>
   <wsdl:message name="IOrderUpdate_Schedule_BillingSystemExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://wowway.com/services/" name="detail" element="q4:BillingSystemException" />
+    <wsdl:part xmlns:q3="http://wowway.com/services/" name="detail" element="q3:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="IOrderUpdate_Schedule_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://wowway.com/services/" name="detail" element="q4:ValidationException" />
   </wsdl:message>
   <wsdl:message name="IOrderUpdate_Unlock_InputMessage">
     <wsdl:part name="parameters" element="tns:Unlock" />
@@ -38,11 +38,11 @@
   <wsdl:message name="IOrderUpdate_Unlock_OutputMessage">
     <wsdl:part name="parameters" element="tns:UnlockResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrderUpdate_Unlock_ValidationExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://wowway.com/services/" name="detail" element="q5:ValidationException" />
-  </wsdl:message>
   <wsdl:message name="IOrderUpdate_Unlock_BillingSystemExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://wowway.com/services/" name="detail" element="q6:BillingSystemException" />
+    <wsdl:part xmlns:q5="http://wowway.com/services/" name="detail" element="q5:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="IOrderUpdate_Unlock_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://wowway.com/services/" name="detail" element="q6:ValidationException" />
   </wsdl:message>
   <wsdl:portType name="IOrderUpdate">
     <wsdl:operation name="AddServiceCode">
@@ -54,14 +54,14 @@
     <wsdl:operation name="Schedule">
       <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/Schedule" message="tns:IOrderUpdate_Schedule_InputMessage" />
       <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleResponse" message="tns:IOrderUpdate_Schedule_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleValidationExceptionFault" name="ValidationExceptionFault" message="tns:IOrderUpdate_Schedule_ValidationExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:IOrderUpdate_Schedule_BillingSystemExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/ScheduleValidationExceptionFault" name="ValidationExceptionFault" message="tns:IOrderUpdate_Schedule_ValidationExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Unlock">
       <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/Unlock" message="tns:IOrderUpdate_Unlock_InputMessage" />
       <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockResponse" message="tns:IOrderUpdate_Unlock_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockValidationExceptionFault" name="ValidationExceptionFault" message="tns:IOrderUpdate_Unlock_ValidationExceptionFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:IOrderUpdate_Unlock_BillingSystemExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/OrderUpdate/IOrderUpdate/UnlockValidationExceptionFault" name="ValidationExceptionFault" message="tns:IOrderUpdate_Unlock_ValidationExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

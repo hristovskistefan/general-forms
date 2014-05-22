@@ -36,6 +36,18 @@ Partial Class UPSMailingForm
     End Sub
 
 #End Region
+    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadEmployeeInfo()
+        'Put user code to initialize the page here
+        If Not Page.IsPostBack Then
+            revAccount.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
+            Me.lblerr.Visible = False
+            Me.pnlout.Visible = False
+            Me.pnlthx.Visible = False
+            bindStates()
+        End If
+    End Sub
+
 
     Protected Sub ibGo_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibGo.Click
         Dim tempAccount As String = txtAcct.Text.Trim
@@ -103,17 +115,7 @@ Partial Class UPSMailingForm
         ibGo_Click(sender, New ImageClickEventArgs(0, 0))
     End Sub
 
-    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        LoadEmployeeInfo()
-        'Put user code to initialize the page here
-        If Not Page.IsPostBack Then
-            revAccount.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
-            Me.lblerr.Visible = False
-            Me.pnlout.Visible = False
-            Me.pnlthx.Visible = False
-            bindStates()
-        End If
-    End Sub
+
 
     Private Sub LoadEmployeeInfo()
         ' load employee
@@ -125,14 +127,22 @@ Partial Class UPSMailingForm
         Me.lblhDate.Text = Format(Date.Now, "Short Date")
         Me.lblhIcomsID.Text = _employee.IcomsUserID
 
-        If String.IsNullOrWhiteSpace(_employee.IcomsUserID) Then
-            txtIcomsId.Text = String.Empty
-            txtIcomsId.Enabled = True
+        If String.IsNullOrWhiteSpace(_employee.IcomsID) OrElse String.IsNullOrWhiteSpace(_employee.IcomsUserID) Then
+            lblIcomsId.Text = "Please have your supervisor verify that your ICOMS ID is properly entered in Employee Master."
+            lblIcomsId.ForeColor = Drawing.Color.Red
+            lblSalesId.Text = "Please have your supervisor verify that your Sales ID is properly entered in Employee Master."
+            lblSalesId.ForeColor = Drawing.Color.Red
+            btnsend.Enabled = False
         Else
-            txtIcomsId.Text = _employee.IcomsUserID
-            txtIcomsId.Enabled = False
-
+            lblIcomsId.Text = _employee.IcomsUserID
+            lblSalesId.Text = _employee.IcomsID
+            btnsend.Enabled = True
+            lblIcomsId.ForeColor = Drawing.Color.Black
+            lblSalesId.ForeColor = Drawing.Color.Black
         End If
+
+
+
 
     End Sub
 
@@ -186,7 +196,7 @@ Partial Class UPSMailingForm
         End Select
     End Sub
 
-   Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
+    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
         If Page.IsValid Then
             Try
 
@@ -197,13 +207,14 @@ Partial Class UPSMailingForm
                 zip = If(Me.chkmoved.Checked, Me.txtzip.Text, Me.dropzip.SelectedItem.Value)
 
                 Dim upsMailingAccount As New UpsMailingAccount(txtAcct.Text)
-                Dim orderNumber As String = upsMailingAccount.CreateOrder(txtIcomsId.Text)
-                'upsMailingAccount.AddInformationToDatabase(txtIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
-                '                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
-                '                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
-                '                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
-                '                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
-                '                                           ddlUTVGateway.SelectedValue)
+                Dim orderNumber As String = upsMailingAccount.CreateOrder(ConfigurationManager.AppSettings("ExternalUsername"), lblSalesId.Text)
+
+                upsMailingAccount.AddInformationToDatabase(lblIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
+                                                           txtAcct.Text, txtphone.Text, address, city, state, zip,
+                                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
+                                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
+                                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
+                                                           ddlUTVMedia.SelectedValue)
 
 
 
@@ -213,7 +224,6 @@ Partial Class UPSMailingForm
                 '    myCustomer = customerClient.getByCustomerID(txtAcct.Text)
                 'End Using
                 '_division = myCustomer.Address.Division
-
 
 
                 Dim dbFormCollection As Database = DatabaseFactory.CreateDatabase("Form_Collection")

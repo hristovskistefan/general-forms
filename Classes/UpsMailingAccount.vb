@@ -50,7 +50,10 @@ Public Class UpsMailingAccount
                 If singleRow("CustomerStatusCode") <> "F" Then
                     isActive = True
                 End If
-                totalWriteOff += Decimal.Parse(singleRow("WriteOffDollars"))
+                If Not IsDBNull(singleRow("WriteOffDollars")) <> Nothing AndAlso String.IsNullOrWhiteSpace(singleRow("WriteOffDollars")) = False Then
+                    totalWriteOff += Decimal.Parse(singleRow("WriteOffDollars"))
+                End If
+
             Next
 
             If dtChargeOff.Rows(0)("videoFlag").ToString = "Y" Then
@@ -87,20 +90,8 @@ Public Class UpsMailingAccount
                 dtServiceCodes = baseDb.GetDataTable("SpcGetCustomerServices", sqlParameters)
 
                 'Determine if SPP is on the account.
-
                 'Get list of SPP service codes
                 Dim sppCodes() As String = ConfigurationManager.AppSettings("SppCodes").Split("|")
-
-                'For i As Integer = 0 To dtServiceCodes.Rows.Count - 1
-                '    Dim serviceCode As String = dtServiceCodes.Rows(i)("ServiceCode").ToString.Trim
-                '    Dim serviceCodeCount As Integer = Int32.Parse(dtServiceCodes.Rows(i)("ServiceQuantity").ToString().Trim())
-                '    If sppCodes.Contains(serviceCode) AndAlso serviceCodeCount > 0 Then
-
-                '        _hasSpp = True
-                '    End If
-
-                ' Next
-
 
                 For Each singleRow As DataRow In dtServiceCodes.Rows
                     If sppCodes.Contains(singleRow("ServiceCode").ToString().Trim()) AndAlso Int32.Parse(singleRow("ServiceQuantity").ToString().Trim()) > 0 Then
@@ -122,7 +113,7 @@ Public Class UpsMailingAccount
 
     End Sub
 
-    Public Function CreateOrder(ByVal icomsUsername As String) As String
+    Public Function CreateOrder(ByVal icomsUsername As String, ByVal salesId As String) As String
         Try
             Dim serviceCodes() As String
             'Determine which service code should be on account
@@ -149,8 +140,9 @@ Public Class UpsMailingAccount
             End If
 
 
-            Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, serviceCode, icomsUsername, _hasSpp)
-            OrderFunctions.CheckInOrder(orderNumber, icomsUsername)
+            Dim orderNumber As String = OrderFunctions.CreateOrder(_accountNumber, _houseNumber, serviceCode, icomsUsername, salesId, _hasSpp)
+
+            OrderFunctions.ScheduleOrder(orderNumber, _accountNumber, _houseNumber, icomsUsername, salesId)
 
             Return orderNumber
         Catch ex As Exception
@@ -190,9 +182,9 @@ Public Class UpsMailingAccount
         parameters(16) = New SqlParameter("@ULTRA_TV_GATEWAYS", hdDvrReceivers)
         parameters(17) = New SqlParameter("@HD_RECEIVERS", hdReceivers)
         parameters(18) = New SqlParameter("@ULTRA_TV_MEDIA_PLAYER", ultraTvMediaPlayer)
-        parameters(19) = New SqlParameter("@TOLTAL_BOXES_NEEDED", total)
+        parameters(19) = New SqlParameter("@TOTAL_BOXES_NEEDED", total)
 
-        baseDb.ExecuteProcedure("Warehouse.UPS_BOX_SEND", parameters)
+        baseDb.ExecuteProcedure("Warehouse.Insert_Into_UPS_BOX_SEND", parameters)
 
 
 

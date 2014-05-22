@@ -35,10 +35,14 @@
                         <td>Your ICOMS ID:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtIcomsId" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvIcomsId" runat="server" ControlToValidate="txtIcomsId"
-                                Display="Dynamic" Text="ICOMS ID Required" Font-Bold="True" Font-Size="Small" ErrorMessage="ICOMS ID Required"
-                                />
+                            <asp:Label ID="lblIcomsId" runat="server" Text="Label"></asp:Label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>Your Sales ID:
+                        </td>
+                        <td colspan="3">
+                            <asp:Label ID="lblSalesId" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>

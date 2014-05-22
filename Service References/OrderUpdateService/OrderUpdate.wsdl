@@ -27,11 +27,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="ValidationExceptionFault">
-        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="BillingSystemExceptionFault">
         <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Unlock">
@@ -42,11 +42,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="ValidationExceptionFault">
-        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="BillingSystemExceptionFault">
         <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
