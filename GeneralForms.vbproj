@@ -425,10 +425,10 @@
     <None Include="Service References\OrderUpdateService\OrderUpdate3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="web.dev.config">
+    <Content Include="web.dev.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.prod.config" />
+    </Content>
+    <Content Include="Web.prod.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AD.vb" />
