@@ -89,7 +89,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="sectionTitle" colspan="5">Bill-To or AutoPay Information
+                        <td class="sectionTitle" colspan="5">Bill-To or Autopay Information
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@
                                 runat="server" TextAlign="Right" Text="Bill-To:" />
                             <br />
                             <asp:RadioButton ID="rdoEP" GroupName="rgPay" OnClick="javascript:PayShow('rdoEP')"
-                                runat="server" TextAlign="Right" Text="Ezpay:" />
+                                runat="server" TextAlign="Right" Text="Autopay:" />
                         </td>
                     </tr>
                     <tr>
@@ -183,15 +183,14 @@
                         <td colspan="5" style="border-style: none; border-width: 0px; padding: 0px; margin: 0px">
                             <table id="tEP" style="display: none; width: 100%">
                                 <tr>
-                                    <td style="border-style: none; border-width: 0px; padding: 0px; margin: 0px; width: 100%; height: 75px">You must enter valid Credit Card or EFT information into the Pymt Method tab on
-                                    the Account Info screen.
-                                    <br />
-                                        The Status must be set to active.
-                                    <br />
-                                        Inform the customer that if a credit card is entered then EZpay will be active on
-                                    their next billing cycle.
-                                    <br />
-                                        EFT could take up to a full billing cycle to be active.<br />
+                                    <td style="border-style: none; border-width: 0px; padding: 0px; margin: 0px; width: 100%; height: 75px">
+                                        <span style="color: red">A valid credit card, checking, or savings account must be set up in ICOMS for Autopay.</span>
+                                        <ul>
+                                            <li>The Status must be set to active.</li>
+                                            <li>If a credit card is used, Autopay will be active on the next billing cycle.</li>
+                                            <li>If a Checking or Savings account is used, Autopay can take up to a full additional billing cycle to be active.</li>
+                                            <li>See Gooroo for more information about Autopay.</li>
+                                        </ul>
                                     </td>
                                 </tr>
                             </table>
@@ -247,10 +246,8 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <!-- move line below into RadioButtonList when needed by Morena -->
-                            <!--  <asp:ListItem Text="Customer Has Existing Campaigns from a WOW! Save within the past 30 days." Value="2" /> -->
                             <asp:RadioButtonList runat="server" ID="rblExistingCampaign" AutoPostBack="true">
-                               
+                                <asp:ListItem Text="Customer Has Existing Campaigns from a WOW! Save within the past 30 days." Value="2" />
                                 <asp:ListItem Text="Customer Has Existing Campaigns" Value="1" />
                                 <asp:ListItem Text="No existing Campaigns" Value="0" />
                             </asp:RadioButtonList>
@@ -258,7 +255,7 @@
                             <asp:Label runat="server" ID="labelExistingCampaigns" Visible="false"></asp:Label>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td class="sectionTitle" colspan="5">Comments
                         </td>
