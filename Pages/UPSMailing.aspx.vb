@@ -241,7 +241,7 @@ Partial Class UPSMailingForm
                 dbFormCollection.AddInParameter(cmdInsert, "@state", DbType.String, state)
                 dbFormCollection.AddInParameter(cmdInsert, "@city", DbType.String, city)
                 dbFormCollection.AddInParameter(cmdInsert, "@zip", DbType.String, zip)
-                dbFormCollection.AddInParameter(cmdInsert, "@ar", DbType.Int32, CInt(Me.dropana.SelectedItem.Value))
+                dbFormCollection.AddInParameter(cmdInsert, "@ar", DbType.Int32, 0)
                 dbFormCollection.AddInParameter(cmdInsert, "@dr", DbType.Int32, CInt(Me.dropdigi.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@dvrr", DbType.Int32, CInt(Me.dropdvr.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@hdr", DbType.Int32, CInt(Me.drophd.SelectedItem.Value))

@@ -38,7 +38,7 @@
                             <asp:Label ID="lblIcomsId" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td>Your Sales ID:
                         </td>
                         <td colspan="3">
@@ -181,23 +181,7 @@
                         <td colspan="4">
                             <table width="100%">
                                 <tr>
-                                    <td>Analog Receiver:
-                                    </td>
-                                    <td>
-                                        <asp:DropDownList ID="dropana" runat="server">
-                                            <asp:ListItem Value="0" Selected="True" />
-                                            <asp:ListItem Value="1" />
-                                            <asp:ListItem Value="2" />
-                                            <asp:ListItem Value="3" />
-                                            <asp:ListItem Value="4" />
-                                            <asp:ListItem Value="5" />
-                                            <asp:ListItem Value="6" />
-                                            <asp:ListItem Value="7" />
-                                            <asp:ListItem Value="8" />
-                                            <asp:ListItem Value="9" />
-                                            <asp:ListItem Value="10" />
-                                        </asp:DropDownList>
-                                    </td>
+
                                     <td>Digital Receiver:
                                     </td>
                                     <td>
@@ -215,8 +199,6 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td>DVR Receiver:
                                     </td>
                                     <td>
@@ -234,6 +216,9 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
+                                </tr>
+                                <tr>
+
                                     <td>HD Receiver:
                                     </td>
                                     <td>
@@ -251,8 +236,7 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
-                                </tr>
-                                <tr>
+
                                     <td>HD DVR Receiver:
                                     </td>
                                     <td>
@@ -270,6 +254,8 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td>Cable Modem:
                                     </td>
                                     <td>
@@ -287,8 +273,7 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
-                                </tr>
-                                <tr>
+
                                     <td nowrap="nowrap">Phone/Wireless Modem:
                                     </td>
                                     <td>
@@ -306,6 +291,8 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td>Cable Cards:
                                     </td>
                                     <td>
@@ -323,8 +310,7 @@
                                             <asp:ListItem Value="10" />
                                         </asp:DropDownList>
                                     </td>
-                                </tr>
-                                <tr>
+
                                     <td>DTA Receiver:
                                     </td>
                                     <td>
