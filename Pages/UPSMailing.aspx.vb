@@ -199,6 +199,21 @@ Partial Class UPSMailingForm
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnsend.Click
         If Page.IsValid Then
             Try
+                Dim totalBoxes As Integer = 0
+                totalBoxes += Convert.ToInt32(dropdigi.SelectedValue)
+                totalBoxes += Convert.ToInt32(dropdvr.SelectedValue)
+                totalBoxes += Convert.ToInt32(drophd.SelectedValue)
+                totalBoxes += Convert.ToInt32(drophddvr.SelectedValue)
+                totalBoxes += Convert.ToInt32(ddlDTA.SelectedValue)
+                totalBoxes += Convert.ToInt32(dropcable.SelectedValue)
+                totalBoxes += Convert.ToInt32(dropphone.SelectedValue)
+                totalBoxes += Convert.ToInt32(dropccard.SelectedValue)
+                totalBoxes += Convert.ToInt32(ddlUTVGateway.SelectedValue)
+                totalBoxes += Convert.ToInt32(ddlUTVMedia.SelectedValue)
+
+                If totalBoxes = 0 Then
+                    Throw New InvalidOperationException("No items have been selected.")
+                End If
 
                 Dim address, city, state, zip As String
                 address = If(Me.chkmoved.Checked, Me.txtaddyout.Text, Me.txtaddy.Text)
@@ -306,7 +321,7 @@ Partial Class UPSMailingForm
                 Me.pnlthx.Visible = True
                 Me.pnlmain.Visible = False
             Catch ex As Exception
-                Response.Write(ex.Message & "<br />" & ex.StackTrace)
+                Response.Write(ex.Message)
             End Try
         End If
     End Sub
