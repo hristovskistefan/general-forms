@@ -247,7 +247,7 @@
                     <tr>
                         <td colspan="5">
                             <asp:RadioButtonList runat="server" ID="rblExistingCampaign" AutoPostBack="true">
-                                <asp:ListItem Text="Customer Has Existing Campaigns from a WOW! Save within the past 30 days." Value="2" />
+                                <%--<asp:ListItem Text="Customer Has Existing Campaigns from a WOW! Save within the past 30 days." Value="2" />--%>
                                 <asp:ListItem Text="Customer Has Existing Campaigns" Value="1" />
                                 <asp:ListItem Text="No existing Campaigns" Value="0" />
                             </asp:RadioButtonList>
