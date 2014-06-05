@@ -50,7 +50,7 @@ Public Class UpsMailingAccount
                 If singleRow("CustomerStatusCode") <> "F" Then
                     isActive = True
                 End If
-                If Not IsDBNull(singleRow("WriteOffDollars")) <> Nothing AndAlso String.IsNullOrWhiteSpace(singleRow("WriteOffDollars")) = False Then
+                If Not IsDBNull(singleRow("WriteOffDollars")) AndAlso String.IsNullOrWhiteSpace(singleRow("WriteOffDollars")) = False Then
                     totalWriteOff += Decimal.Parse(singleRow("WriteOffDollars"))
                 End If
 
