@@ -19,6 +19,7 @@ Partial Public Class PhoneInquiry
 
         If Not Page.IsPostBack Then
             revGeneralInquiry.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
+            revAccountChangeLdIntl.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccountNumberPhoneInpError.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccount2.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
         End If
@@ -64,6 +65,7 @@ Partial Public Class PhoneInquiry
         Me.pnl3pv.Visible = False
         Me.pnlccr.Visible = False
         Me.pnlGeneralInquiry.Visible = False
+        Me.pnlChangeLdIntl.Visible = False
         Me.pnlInpError.Visible = False
         Me.pnlfraud.Visible = False
         Me.pnlIncAddress.Visible = False
@@ -82,7 +84,7 @@ Partial Public Class PhoneInquiry
         Select Case Me.rblType.SelectedItem.Value
             Case "0"
                 makeAllInvisible()
-                Me.pnlGeneralInquiry.Visible = True
+                Me.pnlChangeLdIntl.Visible = True
             Case "1"
                 makeAllInvisible()
                 Me.pnlInpError.Visible = True
@@ -97,6 +99,46 @@ Partial Public Class PhoneInquiry
                 Me.pnlIncAddress.Visible = True
         End Select
     End Sub
+
+
+    Public Sub SendChangeLdIntl(ByVal o As Object, ByVal e As EventArgs) Handles btnChangeLdIntl.Click
+        Try
+
+            '  Dim MailClient As New SmtpClient
+            Dim mailMsg As MailMessage = New MailMessage()
+            mailMsg.IsBodyHtml = False
+            mailMsg.From = New MailAddress(_employee.Email)
+            'mailMsg.To.Add("ccctelespec@wideopenwest.com")
+            mailMsg.To.Add("c_rhoades@wideopenwest.com")
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
+            mailMsg.Body = "WOW! Phone Inquiry" & vbCrLf & _
+                "Type:     " & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
+                "     Date:            " & Me.lblhDate.Text & vbCrLf & _
+                "     CCR:              " & Me.lblhName.Text & vbCrLf & _
+                "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
+                "     Account #:   " & Me.txtAccountChangeLdIntl.Text & vbCrLf & _
+                "     Customer:      " & Me.txtCustNameChangeLdIntl.Text & vbCrLf & _
+                "     City:              " & Me.txtCityChangeLdIntl.Text & vbCrLf & _
+                "     State:            " & Me.txtStateChangeLdIntl.Text.Trim & vbCrLf & _
+                "     Zip:               " & Me.txtZipChangeLdIntl.Text & vbCrLf & _
+                "     Phone #:       " & Me.txtPhoneChangeLdIntl.Text & vbCrLf & _
+                "     Question/Issue: " & vbCrLf & _
+                "     " & Me.txtCommentsChangeLdIntl.Text
+            EmailProxy.Send(mailMsg)
+
+            ResetPage()
+            Me.pnlThanks.Visible = True
+
+        Catch ex As Exception
+            Response.Write("<b>An error has occurred and your request cannot be processed.</b><br />")
+            Response.Write(ex.Message)
+        End Try
+
+    End Sub
+
+
+
+
 
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnGeneralInquiry.Click
@@ -441,6 +483,56 @@ Partial Public Class PhoneInquiry
         txtzip.Text = _customer.Address.Zip
 
     End Sub
+
+    ''' ''''''''''''''''''''''''''''
+    ''' Change Long Distance/International Provider Back to WOW!
+    Protected Sub txtChangeLdIntl_TextChanged(sender As Object, e As EventArgs) Handles txtAccountChangeLdIntl.TextChanged
+        ibChangeLdIntl_Click(Nothing, New ImageClickEventArgs(0, 0))
+    End Sub
+    Protected Sub ibChangeLdIntl_Click(sender As Object, e As ImageClickEventArgs) Handles ibChangeLdIntl.Click
+        Dim tempAccount As String = txtAccountChangeLdIntl.Text.Trim
+        If String.IsNullOrWhiteSpace(tempAccount) Then
+            Exit Sub
+        End If
+        Me.revAccountChangeLdIntl.Validate()
+        Me.rfvAccountChangeLdIntl.Validate()
+        If Not (Me.revAccountChangeLdIntl.IsValid And Me.rfvAccountChangeLdIntl.IsValid) Then
+            Me.MB.ShowMessage("Invalid account number format or account number missing.")
+            Exit Sub
+        End If
+
+        Try
+            Using customerClient As New CustomerService.CustomerManagementClient
+                _customer = customerClient.getByCustomerID(tempAccount)
+            End Using
+        Catch ex As Exception
+            Dim errorAccount = ex.Message
+            If errorAccount = "Customer Database Object is nothing." Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAccountChangeLdIntl.Text = ""
+                Exit Sub
+            End If
+        End Try
+
+        If _customer Is Nothing Then
+            Me.MB.ShowMessage("Lookup timed out.")
+            Exit Sub
+        End If
+        If IsNothing(_customer.IcomsCustomerID) Then
+            Me.MB.ShowMessage("Lookup returned nothing.")
+            Exit Sub
+        End If
+
+        txtPhoneChangeLdIntl.Text = _customer.PrimaryPhone.FormattedPhone
+        txtCustNameChangeLdIntl.Text = _customer.FullNameFirstLast
+        txtCityChangeLdIntl.Text = _customer.Address.City
+        txtStateChangeLdIntl.Text = _customer.Address.State
+        txtZipChangeLdIntl.Text = _customer.Address.Zip
+
+    End Sub
+
+
+
 
     ''' '''''''''''''''''''''''''
     ''' Phone INP Error

@@ -37,14 +37,114 @@ p.MsoPlainText
             <div class="sectionTitle">
                 Select Inquiry Type
             </div>
+            <%--<asp:ListItem Value="0" Text="General Phone Inquiry" />--%>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
-                <asp:ListItem Value="0" Text="General Phone Inquiry" />
+                <asp:ListItem Value="0" Text="Change Long Distance/International Provider Back to WOW!" />
                 <asp:ListItem Value="1" Text="Phone INP Error" />
                 <asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />
                 <asp:ListItem Value="3" Text="WOW! Phone Customer Voicemail Password Reset" />
                 <asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />
             </asp:RadioButtonList>
             <br />
+
+
+
+            <!-- Change Long Distance/International Provider Back to WOW! PANEL -->
+            <asp:Panel ID="pnlChangeLdIntl" runat="server" Visible="false">
+                <div class="sectionTitle">
+                    Change Long Distance/International Provider Back to WOW!
+                </div>
+                <table class="input" cellpadding="2" cellspacing="0">
+                   <tr>
+                        <td>Account #:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtAccountChangeLdIntl" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+							<asp:ImageButton
+                                ID="ibChangeLdIntl" ValidationGroup="vgChangeLdIntl" CausesValidation="false" runat="server"
+                                ImageUrl="~/images/SearchGo.gif" />
+                            <asp:RegularExpressionValidator ID="revAccountChangeLdIntl"
+                                ControlToValidate="txtAccountChangeLdIntl"
+                                SetFocusOnError="true"
+                                runat="server" 
+                                ValidationGroup="vgChangeLdIntl"
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"  
+                                ErrorMessage="Invalid Account Number??" />
+                            <asp:RequiredFieldValidator ID="rfvAccountChangeLdIntl"
+                                ControlToValidate="txtAccountChangeLdIntl"
+                                SetFocusOnError="true"
+                                runat="server"                                
+                                ValidationGroup="vgChangeLdIntl"
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
+                                ErrorMessage="Account Number Required" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Customer Name:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtCustNameChangeLdIntl" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtCustNameChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="RequiredFieldValidator1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtCityChangeLdIntl" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtCityChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="RequiredFieldValidator2" />
+                        </td>
+                    </tr>
+                  <tr>
+                        <td>State:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtStateChangeLdIntl" runat="server" Width="180" MaxLength="2" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtStateChangeLdIntl" runat="server" ID="RequiredFieldValidator3"
+                                Text="<font size=3 face=arial><b>X</b></font>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code:
+                        </td>
+                        <td>
+                            <asp:TextBox MaxLength="5" ID="txtZipChangeLdIntl" runat="server" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtZipChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="RequiredFieldValidator9" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone #:
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtPhoneChangeLdIntl" runat="server" MaxLength="10" Width="180" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtPhoneChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
+                                ID="RequiredFieldValidator10" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comments:
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:TextBox ID="txtCommentsChangeLdIntl" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+       
+                        </td>
+                    </tr>
+                </table>
+                <div class="SubmitButton">
+                    <asp:Button ID="btnChangeLdIntl" runat="server" Text="Submit" Width="150" />
+                </div>
+            </asp:Panel>
+
+
+
+
+
             <!-- General Phone Inquiry PANEL -->
             <asp:Panel ID="pnlGeneralInquiry" runat="server" Visible="false">
                 <div class="sectionTitle">
