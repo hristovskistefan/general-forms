@@ -79,7 +79,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>ICOMS Location ID
+                        <td>ICOMS House Number:
                         </td>
                         <td>
                             <asp:TextBox ID="txtLocationID" runat="server" Width="160" MaxLength="14"></asp:TextBox>
