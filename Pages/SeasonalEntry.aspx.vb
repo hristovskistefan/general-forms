@@ -56,7 +56,7 @@ Partial Public Class SeasonalEntry
                 SendEmail()
                 ClearForm()
             Else
-                lblThankYou.Text = "The form did not submit cortrectly. Please try again and if issue oersists contact IT "
+                lblThankYou.Text = "The form did not submit correctly. Please try again and if issue persists contact IT "
                 lblThankYou.Visible = True
             End If
 
@@ -245,7 +245,7 @@ Partial Public Class SeasonalEntry
         End Try
     End Sub
 
-    'Displays pop-ups depending on option selected for existing Campaigns, addes message to email advising which option was selected.
+    'Displays pop-ups depending on option selected for existing Campaigns, adds message to email advising which option was selected.
     Private Sub rblExistingCampaign_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rblExistingCampaign.SelectedIndexChanged
         If (rblExistingCampaign.SelectedValue = 0) Then
             labelExistingCampaigns.Text = "'No existing Campaigns. By continuing, you confirm that you have verified there are no existing Campaigns on the customer's account.'"
@@ -254,8 +254,8 @@ Partial Public Class SeasonalEntry
             labelExistingCampaigns.Text = "'Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends.' "
             MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
         ElseIf (rblExistingCampaign.SelectedValue = 2) Then
-            labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period.' "
-            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. ")
+            labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. Ny continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days.' "
+            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. Ny continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days. ")
         End If
     End Sub
 
