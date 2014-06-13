@@ -285,8 +285,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
-                        Me._mSubject = "Skip Trace - New Start Request"
-                        Me._mBody = "Skip Trace - New Start Request" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - New Start Request"
+                        Me._mBody = "Loss Prevention - New Start Request" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
@@ -440,8 +440,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
                         'Response.Write("Result: " & stracct)
-                        Me._mSubject = "Skip Trace - Restart Request"
-                        Me._mBody = "Skip Trace - Restart Request" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - Restart Request"
+                        Me._mBody = "Loss Prevention - Restart Request" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
@@ -588,8 +588,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
-                        Me._mSubject = "Skip Trace - Suspected Fraud"
-                        Me._mBody = "Skip Trace - Suspected Fraud" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - Suspected Fraud"
+                        Me._mBody = "Loss Prevention - Suspected Fraud" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
@@ -717,8 +717,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
-                        Me._mSubject = "Skip Trace - Disconnected/Not Serviceable"
-                        Me._mBody = "Skip Trace - Disconnected/Not Serviceable" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - Disconnected/Not Serviceable"
+                        Me._mBody = "Loss Prevention - Disconnected/Not Serviceable" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
