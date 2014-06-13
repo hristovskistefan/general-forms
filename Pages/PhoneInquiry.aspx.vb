@@ -108,8 +108,8 @@ Partial Public Class PhoneInquiry
             Dim mailMsg As MailMessage = New MailMessage()
             mailMsg.IsBodyHtml = False
             mailMsg.From = New MailAddress(_employee.Email)
-            'mailMsg.To.Add("ccctelespec@wideopenwest.com")
-            mailMsg.To.Add("c_rhoades@wideopenwest.com")
+            mailMsg.To.Add("ccctelespec@wideopenwest.com")
+            'mailMsg.To.Add("c_rhoades@wideopenwest.com")
             mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
             mailMsg.Body = "WOW! Phone Inquiry" & vbCrLf & _
                 "Type:     " & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
