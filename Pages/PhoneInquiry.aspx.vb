@@ -111,19 +111,19 @@ Partial Public Class PhoneInquiry
             mailMsg.To.Add("ccctelespec@wideopenwest.com")
             'mailMsg.To.Add("c_rhoades@wideopenwest.com")
             mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
-            mailMsg.Body = "WOW! Phone Inquiry" & vbCrLf & _
-                "Type:     " & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                 "     Date:            " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:              " & Me.lblhName.Text & vbCrLf & _
                 "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Account #:   " & Me.txtAccountChangeLdIntl.Text & vbCrLf & _
-                "     Customer:      " & Me.txtCustNameChangeLdIntl.Text & vbCrLf & _
-                "     City:              " & Me.txtCityChangeLdIntl.Text & vbCrLf & _
+                "     Customer:     " & Me.txtCustNameChangeLdIntl.Text & vbCrLf & _
+                "     City:               " & Me.txtCityChangeLdIntl.Text & vbCrLf & _
                 "     State:            " & Me.txtStateChangeLdIntl.Text.Trim & vbCrLf & _
-                "     Zip:               " & Me.txtZipChangeLdIntl.Text & vbCrLf & _
-                "     Phone #:       " & Me.txtPhoneChangeLdIntl.Text & vbCrLf & _
-                "     Question/Issue: " & vbCrLf & _
-                "     " & Me.txtCommentsChangeLdIntl.Text
+                "     Zip:                " & Me.txtZipChangeLdIntl.Text & vbCrLf & _
+                "     Phone #:      " & Me.txtPhoneChangeLdIntl.Text & vbCrLf & vbCrLf & _
+                "Question/Issue: " & vbCrLf & _
+                "" & Me.txtCommentsChangeLdIntl.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
@@ -150,19 +150,20 @@ Partial Public Class PhoneInquiry
             mailMsg.From = New MailAddress(_employee.Email)
             mailMsg.To.Add("ccctelespec@wideopenwest.com")
             'mailMsg.To.Add("c_rhoades@wideopenwest.com")
-            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
-            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
-                "     Date:           " & Me.lblhDate.Text & vbCrLf & _
-                "     CCR:            " & Me.lblhName.Text & vbCrLf & _
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
+                "     Date:             " & Me.lblhDate.Text & vbCrLf & _
+                "     CCR:             " & Me.lblhName.Text & vbCrLf & _
                 "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
-                "     Customer:       " & Me.txtcustname.Text & vbCrLf & _
-                "     City:           " & Me.txtcity.Text & vbCrLf & _
+                "     Customer:     " & Me.txtcustname.Text & vbCrLf & _
+                "     City:            " & Me.txtcity.Text & vbCrLf & _
                 "     State:          " & Me.txtState.Text.Trim & vbCrLf & _
-                "     Zip:            " & Me.txtzip.Text & vbCrLf & _
-                "     Phone #:        " & Me.txtphone.Text & vbCrLf & _
-                "     Question/Issue: " & vbCrLf & _
-                "     " & Me.txtquest.Text
+                "     Zip:             " & Me.txtzip.Text & vbCrLf & _
+                "     Phone #:       " & Me.txtphone.Text & vbCrLf & vbCrLf & _
+                "Question/Issue: " & vbCrLf & _
+                "" & Me.txtquest.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
@@ -185,16 +186,18 @@ Partial Public Class PhoneInquiry
             'mailMsg.To.Add("c_rhoades@wideopenwest.com")
             mailMsg.To.Add("Systems_Support@wideopenwest.com")
             mailMsg.To.Add(_employee.SupEmail)
-            mailMsg.Subject = "Phone INP Error | Submitted by: " & Me.lblhName.Text & ""
-            mailMsg.Body = "Phone INP Error" & vbCrLf & vbCrLf & _
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                            "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                             "     Date Submitted:        " & Me.lblhDate.Text & vbCrLf & _
                             "     Submitted By:             " & Me.lblhName.Text & vbCrLf & _
                             "     ICOMS ID:                     " & Me.lblhIcomsID.Text & vbCrLf & _
                             "     Supervisor:                   " & _employee.SupNameFirstLast & vbCrLf & _
                             "     Supervisor E-Mail:     " & _employee.SupEmail & vbCrLf & _
                             "     Account #:                   " & Me.txtAccountNumberPhoneInpError.Text & vbCrLf & _
-                            "     Phone #:                      " & Me.txtPhoneINP.Text & vbCrLf & _
-                            "     Comments:                   " & Me.txtComments.Text
+                            "     Phone #:                      " & Me.txtPhoneINP.Text & vbCrLf & vbCrLf & _
+                            "Comments:" & vbCrLf & _
+                            "" & Me.txtComments.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
@@ -216,15 +219,15 @@ Partial Public Class PhoneInquiry
             mailMsg.To.Clear()
             mailMsg.To.Add(New MailAddress("wow_resourcemanage@wideopenwest.com"))
             mailMsg.IsBodyHtml = False
-            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
-            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
                 "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
                 "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
                 "     E-Mail:         " & _employee.Email & vbCrLf & _
-                "     SSN:            " & Me.txtssn.Text & vbCrLf & _
-                "     Issue Type:     " & Me.rad3pviss.SelectedItem.Value
+                "     SSN:            " & Me.txtssn.Text
             EmailProxy.Send(mailMsg)
 
             ResetPage()
@@ -244,8 +247,9 @@ Partial Public Class PhoneInquiry
             mailMsg.To.Clear()
             mailMsg.To.Add(New MailAddress("ccctelespec@wideopenwest.com"))
             mailMsg.IsBodyHtml = False
-            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
-            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
                 "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
@@ -305,9 +309,10 @@ Partial Public Class PhoneInquiry
             Dim mailMsg As MailMessage = New MailMessage()
             mailMsg.From = New MailAddress("ccctelespec@wideopenwest.com")
             mailMsg.IsBodyHtml = False
-            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
             mailMsg.To.Add("ccctelespec@wideopenwest.com")
-            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                 "     Date:           " & Me.lblhDate.Text & vbCrLf & _
                 "     CCR:            " & Me.lblhName.Text & vbCrLf & _
                 "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
@@ -364,14 +369,15 @@ Partial Public Class PhoneInquiry
             mailMsg.IsBodyHtml = False
             mailMsg.From = New MailAddress(_employee.Email)
 
-            mailMsg.Subject = "WOW! Phone Inquiry from: " & Me.lblhName.Text & " - Type = " & Me.rblType.SelectedItem.Text
+            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
             mailMsg.To.Add("ccctelespec@wideopenwest.com")
             mailMsg.To.Add("DispatchLeads@wideopenwest.com")
             mailMsg.To.Add("dispatchsups@wideopenwest.com")
             mailMsg.To.Add("teleopslead@wideopenwest.com")
             mailMsg.To.Add("TelephonyOperationsManagement@wideopenwest.com")
 
-            mailMsg.Body = "WOW! Phone Inquiry Submission" & vbCrLf & vbCrLf & _
+            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
+                    "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
                     "     Date:                    " & Me.lblhDate.Text & vbCrLf & _
                     "     CCR:                     " & Me.lblhName.Text & vbCrLf & _
                     "     Icoms ID:                " & Me.lblhIcomsID.Text & vbCrLf & _

@@ -40,7 +40,7 @@ p.MsoPlainText
             <%--<asp:ListItem Value="0" Text="General Phone Inquiry" />--%>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
                 <asp:ListItem Value="0" Text="Change Long Distance/International Provider Back to WOW!" />
-                <asp:ListItem Value="1" Text="Phone INP Error" />
+                <asp:ListItem Value="1" Text="Phone INP Error/TN is Invalid or Unavailable Error" />
                 <asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />
                 <asp:ListItem Value="3" Text="WOW! Phone Customer Voicemail Password Reset" />
                 <asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />
@@ -238,10 +238,10 @@ p.MsoPlainText
                     <asp:Button ID="btnGeneralInquiry" runat="server" Text="Submit" Width="150" />
                 </div>
             </asp:Panel>
-            <!-- INP Error PANEL -->
+            <!-- Phone INP Error/TN is Invalid or Unavailable Error PANEL -->
             <asp:Panel ID="pnlInpError" runat="server"  Visible="false">
                <div class="sectionTitle">
-                    Phone INP Error
+                    Phone INP Error/TN is Invalid or Unavailable Error
                 </div>
                 Account number and Phone number are both required.
                 <table class="input" cellpadding="2" cellspacing="0">
