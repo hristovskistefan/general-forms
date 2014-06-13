@@ -254,8 +254,8 @@ Partial Public Class SeasonalEntry
             labelExistingCampaigns.Text = "'Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends.' "
             MB.ShowMessage("Campaigns are not restored when seasonal ends. By continuing, you confirm that you have advised the customer of this, and told them what their new monthly rate will be when seasonal ends. ")
         ElseIf (rblExistingCampaign.SelectedValue = 2) Then
-            labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. Ny continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days.' "
-            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. Ny continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days. ")
+            labelExistingCampaigns.Text = "'If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. By continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days.' "
+            MB.ShowMessage("If a Campaign was added as a result of a WOW! Save within the last 30 days, it will be reinstated at the end of the seasonal period. By continuing, you confirm that you have verified WOW! Save Campaigns were applied within the past 30 days. ")
         End If
     End Sub
 
