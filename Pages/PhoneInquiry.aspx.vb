@@ -430,14 +430,14 @@ Partial Public Class PhoneInquiry
         ibGo2_Click(sender, New ImageClickEventArgs(0, 0))
     End Sub
 
-    Protected Sub rad3Pviss_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rad3pviss.SelectedIndexChanged
-        Select Case rad3pviss.SelectedValue
-            Case "3PV Login", "CSR & 3PV Login"
-                pnl3PVlink.Visible = True
-            Case Else
-                pnl3PVlink.Visible = False
-        End Select
-    End Sub
+    'Protected Sub rad3Pviss_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rad3pviss.SelectedIndexChanged
+    '    Select Case rad3pviss.SelectedValue
+    '        Case "3PV Login", "CSR & 3PV Login"
+    '            pnl3PVlink.Visible = True
+    '        Case Else
+    '            pnl3PVlink.Visible = False
+    '    End Select
+    'End Sub
 
 
 

@@ -500,15 +500,6 @@ Partial Public Class PhoneInquiry
     Protected WithEvents txtssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''rad3pviss control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rad3pviss As Global.System.Web.UI.WebControls.RadioButtonList
-
-    '''<summary>
     '''btn3pv control.
     '''</summary>
     '''<remarks>

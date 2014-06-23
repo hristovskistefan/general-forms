@@ -307,7 +307,7 @@ p.MsoPlainText
             <!-- 3PV PANEL -->
             <asp:Panel ID="pnl3pv" runat="server" Visible="false">
                 <div class="sectionTitle">
-                    3PV/CSR Passwords/New Requests/Reset
+                    3PV Password/New Requests/Reset
                 </div>
                 <asp:Panel ID="pnl3PVlink" runat="server">
                     <p class="MsoPlainText" style="color: red;">
@@ -322,17 +322,7 @@ p.MsoPlainText
                             <asp:TextBox ID="txtssn" runat="server" Width="50" MaxLength="4" />
                         </td>
                     </tr>
-                    <tr>
-                        <td valign="top">Issue Type:
-                        </td>
-                        <td>
-                            <asp:RadioButtonList ID="rad3pviss" runat="server" AutoPostBack="true">
-                                <asp:ListItem Value="CSR Login" />
-                                <asp:ListItem Value="3PV Login" />
-                                <asp:ListItem Value="CSR & 3PV Login" />
-                            </asp:RadioButtonList>
-                        </td>
-                    </tr>
+
                 </table>
                 <div class="SubmitButton">
                     <asp:Button runat="server" Width="150" ID="btn3pv" Text="Submit" />
