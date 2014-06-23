@@ -314,12 +314,18 @@ p.MsoPlainText
                         For immediate attention and password reset, please contact your local RM/Qhawk teams, otherwise submit the following request form.<br />
                     </p>
                 </asp:Panel>
-                <table cellpadding="3" cellspacing="0" class="input" width="450">
+                <table cellpadding="3" cellspacing="0" class="input" width="190">
                     <tr>
                         <td>Last 4 of your SSN:
                         </td>
                         <td>
                             <asp:TextBox ID="txtssn" runat="server" Width="50" MaxLength="4" />
+                            <asp:RegularExpressionValidator ID="revSsn" runat="server"
+                                ErrorMessage="The lasy 4 digits of your SSN are required."
+                                ValidationExpression="^\d{4}$"
+                                ControlToValidate="txtssn">
+
+                            </asp:RegularExpressionValidator>
                         </td>
                     </tr>
 

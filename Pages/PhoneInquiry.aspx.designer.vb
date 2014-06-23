@@ -500,6 +500,15 @@ Partial Public Class PhoneInquiry
     Protected WithEvents txtssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revSsn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revSsn As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''btn3pv control.
     '''</summary>
     '''<remarks>
