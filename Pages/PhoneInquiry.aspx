@@ -7,12 +7,11 @@
 <head id="Head1" runat="server">
     <title>General Forms</title>
     <style type="text/css">
-
-p.MsoPlainText
-	{margin-bottom:.0001pt;
-	font-size:11.0pt;
-	font-family:"Calibri","sans-serif";
-	        margin-left: 0in;
+        p.MsoPlainText {
+            margin-bottom: .0001pt;
+            font-size: 11.0pt;
+            font-family: "Calibri","sans-serif";
+            margin-left: 0in;
             margin-right: 0in;
             margin-top: 0in;
         }
@@ -55,25 +54,25 @@ p.MsoPlainText
                     Change Long Distance/International Provider Back to WOW!
                 </div>
                 <table class="input" cellpadding="2" cellspacing="0">
-                   <tr>
+                    <tr>
                         <td>Account #:
                         </td>
                         <td>
                             <asp:TextBox ID="txtAccountChangeLdIntl" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
-							<asp:ImageButton
+                            <asp:ImageButton
                                 ID="ibChangeLdIntl" ValidationGroup="vgChangeLdIntl" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccountChangeLdIntl"
                                 ControlToValidate="txtAccountChangeLdIntl"
                                 SetFocusOnError="true"
-                                runat="server" 
+                                runat="server"
                                 ValidationGroup="vgChangeLdIntl"
-                                Display="Dynamic" Font-Bold="True" Font-Size="Small"  
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Invalid Account Number??" />
                             <asp:RequiredFieldValidator ID="rfvAccountChangeLdIntl"
                                 ControlToValidate="txtAccountChangeLdIntl"
                                 SetFocusOnError="true"
-                                runat="server"                                
+                                runat="server"
                                 ValidationGroup="vgChangeLdIntl"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Account Number Required" />
@@ -97,7 +96,7 @@ p.MsoPlainText
                                 ID="RequiredFieldValidator2" />
                         </td>
                     </tr>
-                  <tr>
+                    <tr>
                         <td>State:
                         </td>
                         <td>
@@ -132,7 +131,7 @@ p.MsoPlainText
                     <tr>
                         <td colspan="2">
                             <asp:TextBox ID="txtCommentsChangeLdIntl" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
-       
+
                         </td>
                     </tr>
                 </table>
@@ -151,29 +150,29 @@ p.MsoPlainText
                     Customer Information
                 </div>
                 <table class="input" cellpadding="2" cellspacing="0">
-                   <tr>
+                    <tr>
                         <td>Account #:
                         </td>
                         <td>
                             <asp:TextBox ID="txtAccountGeneralInquiry" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
-							<asp:ImageButton
+                            <asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgGeneralInquiry" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revGeneralInquiry"
                                 ControlToValidate="txtAccountGeneralInquiry"
                                 SetFocusOnError="true"
-                                runat="server" 
+                                runat="server"
                                 ValidationGroup="vgGeneralInquiry"
-                                Display="Dynamic" Font-Bold="True" Font-Size="Small"  
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Invalid Account Number" />
                             <asp:RequiredFieldValidator ID="rfvGeneralInquiry"
                                 ControlToValidate="txtAccountGeneralInquiry"
                                 SetFocusOnError="true"
-                                runat="server"                                
+                                runat="server"
                                 ValidationGroup="vgGeneralInquiry"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Account Number Required" />
-                        
+
                         </td>
                     </tr>
                     <tr>
@@ -194,7 +193,7 @@ p.MsoPlainText
                                 ID="valcity" />
                         </td>
                     </tr>
-                  <tr>
+                    <tr>
                         <td>State:
                         </td>
                         <td>
@@ -239,31 +238,31 @@ p.MsoPlainText
                 </div>
             </asp:Panel>
             <!-- Phone INP Error/TN is Invalid or Unavailable Error PANEL -->
-            <asp:Panel ID="pnlInpError" runat="server"  Visible="false">
-               <div class="sectionTitle">
+            <asp:Panel ID="pnlInpError" runat="server" Visible="false">
+                <div class="sectionTitle">
                     Phone INP Error/TN is Invalid or Unavailable Error
                 </div>
                 Account number and Phone number are both required.
                 <table class="input" cellpadding="2" cellspacing="0">
-                   <tr>
+                    <tr>
                         <td>Account #:
                         </td>
                         <td>
                             <asp:TextBox ID="txtAccountNumberPhoneInpError" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
-							<!--<asp:ImageButton
+                            <!--<asp:ImageButton
                                 ID="ibGo3" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />-->
                             <asp:RegularExpressionValidator ID="revAccountNumberPhoneInpError"
                                 ControlToValidate="txtAccountNumberPhoneInpError"
                                 SetFocusOnError="true"
-                                runat="server" 
+                                runat="server"
                                 ValidationGroup="vgPhoneINP"
-                                Display="Dynamic" Font-Bold="True" Font-Size="Small"  
+                                Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Invalid Account Number" />
                             <asp:RequiredFieldValidator ID="rfvAccountNumberPhoneInpError"
                                 ControlToValidate="txtAccountNumberPhoneInpError"
                                 SetFocusOnError="true"
-                                runat="server"                                
+                                runat="server"
                                 ValidationGroup="vgPhoneINP"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Account Number Required" />
@@ -277,15 +276,15 @@ p.MsoPlainText
                             <asp:RegularExpressionValidator ID="revPhoneINP"
                                 ControlToValidate="txtPhoneINP"
                                 SetFocusOnError="true"
-                                runat="server" 
+                                runat="server"
                                 ValidationGroup="vgPhoneINP"
                                 Display="Dynamic" Font-Bold="True" Font-Size="small"
                                 ErrorMessage="Invalid Phone Number"
                                 ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" />
-                             <asp:RequiredFieldValidator ID="rfvPhoneINP"
+                            <asp:RequiredFieldValidator ID="rfvPhoneINP"
                                 ControlToValidate="txtPhoneINP"
                                 SetFocusOnError="true"
-                                runat="server"                                
+                                runat="server"
                                 ValidationGroup="vgPhoneINP"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Small"
                                 ErrorMessage="Phone Number Required" />
@@ -314,20 +313,23 @@ p.MsoPlainText
                         For immediate attention and password reset, please contact your local RM/Qhawk teams, otherwise submit the following request form.<br />
                     </p>
                 </asp:Panel>
-                <table cellpadding="3" cellspacing="0" class="input" width="190">
+                <table cellpadding="3" cellspacing="0" class="input" width="500px">
                     <tr>
-                        <td>Last 4 of your SSN:
+                        <td width="120px">Last 4 of your SSN:
                         </td>
                         <td>
                             <asp:TextBox ID="txtssn" runat="server" Width="50" MaxLength="4" />
+
+                        </td>
+                        <td>
                             <asp:RegularExpressionValidator ID="revSsn" runat="server"
-                                ErrorMessage="The lasy 4 digits of your SSN are required."
+                                ErrorMessage="The last 4 digits of your SSN are required."
                                 ValidationExpression="^\d{4}$"
                                 ControlToValidate="txtssn">
-
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
+
 
                 </table>
                 <div class="SubmitButton">
@@ -641,7 +643,7 @@ p.MsoPlainText
             <asp:Label ID="lblerr" runat="server" ForeColor="red" Width="450" BackColor="yellow"
                 Font-Bold="True" Visible="false" />
         </div>
-    <User:MB runat="server" ID="MB" />
+        <User:MB runat="server" ID="MB" />
     </form>
 </body>
 </html>
