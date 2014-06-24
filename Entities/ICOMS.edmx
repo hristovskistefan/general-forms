@@ -148,6 +148,12 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram DiagramId="e0d74d0dee2e4f30bd1f0ce693962cbd" Name="Diagram1">
+        <EntityTypeShape EntityType="ICOMSModel.Franchise" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ICOMSModel.DivisionLookup" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="ICOMSModel.FK_Franchise_DivisionLookups" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>
