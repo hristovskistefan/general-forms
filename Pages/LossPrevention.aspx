@@ -81,7 +81,7 @@
                     <tr>
                         <td>ICOMS House Number:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtLocationID" runat="server" Width="160" MaxLength="14"></asp:TextBox>
                             <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibHseNumber" runat="server" CausesValidation="false" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator38" runat="server" Text="X"
@@ -122,7 +122,7 @@
                     <tr>
                         <td>Zip Code:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtnewzip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewzip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
@@ -160,7 +160,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="4">
                             <asp:CheckBox runat="server" ID="cbD2d" Checked="false" CausesValidation="false"
                                 AutoPostBack="true" Text="Door-To-Door" />
                             <br />
@@ -189,7 +189,7 @@
             </asp:Panel>
             <!--
 ---------------------
-    RESTART PANEL
+    RESTART PANEL - No longer used
 ---------------------
 -->
             <asp:Panel ID="pnlrestart" runat="server">
@@ -378,7 +378,7 @@
                     <tr>
                         <td>Account Number:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtsusacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                             <asp:ImageButton ID="ibSFGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revsusacct" runat="server" Text="X" ControlToValidate="txtsusacct"
@@ -456,7 +456,7 @@
                     <tr>
                         <td>Request Services:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:DropDownList ID="dropsusrequest" runat="server" Width="160">
                                 <asp:ListItem Selected="True" Value="Select One" />
                                 <asp:ListItem Value="Yes" />
@@ -516,9 +516,21 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>ICOMS House Number:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox ID="txtDnHouseNumber" runat="server" Width="160" MaxLength="14"></asp:TextBox>
+                            <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibtxtDnHouseNumber" runat="server" CausesValidation="false" />
+                            <asp:RequiredFieldValidator ID="Requiredfieldvalidator6" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" />
+                        </td>
+                        
+                        
+                    </tr>
+                    <tr>
                         <td>Address:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtdnaddy" runat="server" Width="300" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnaddy" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator2"
@@ -551,7 +563,7 @@
                     <tr>
                         <td>Zip Code:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtdnzip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnzip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ValidationGroup="vgDisconnected" />
@@ -560,7 +572,7 @@
                     <tr>
                         <td>Phone #:
                         </td>
-                        <td>
+                        <td colspan="3">
                             <asp:TextBox ID="txtdnphone" runat="server" Width="160" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator4"

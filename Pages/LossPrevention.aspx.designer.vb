@@ -617,6 +617,33 @@ Partial Public Class LossPrevention
     Protected WithEvents Requiredfieldvalidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''txtDnHouseNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDnHouseNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ibtxtDnHouseNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ibtxtDnHouseNumber As Global.System.Web.UI.WebControls.ImageButton
+
+    '''<summary>
+    '''Requiredfieldvalidator6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Requiredfieldvalidator6 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''txtdnaddy control.
     '''</summary>
     '''<remarks>

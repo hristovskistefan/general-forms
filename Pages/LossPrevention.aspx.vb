@@ -883,9 +883,9 @@ Public Class LossPrevention
                 Try
                     Dim addy As AddressService.AddressIcoms = addressClient.getAddressByLocation(txtLocationID.Text)
                     If Not String.IsNullOrWhiteSpace(addy.Addr2) Then
-                        txtnewaddy.Text = addy.Addr1 & " " & addy.Addr2
+                        txtnewaddy.Text = addy.Addr1.Trim() & " " & addy.Addr2.Trim()
                     Else
-                        txtnewaddy.Text = addy.Addr1
+                        txtnewaddy.Text = addy.Addr1.Trim()
                     End If
                     txtnewcity.Text = addy.City
                     Try
@@ -917,5 +917,41 @@ Public Class LossPrevention
         lblD2D.Visible = cbD2d.Checked
         txtD2DEmail.Visible = cbD2d.Checked
         rfvd2dEmail.Enabled = cbD2d.Checked
+    End Sub
+
+    Protected Sub ibtxtDnHouseNumber_Click(sender As Object, e As ImageClickEventArgs) Handles ibtxtDnHouseNumber.Click
+        Try
+            Using addressClient As New AddressService.AddressManagementClient
+                Try
+                    Dim addy As AddressService.AddressIcoms = addressClient.getAddressByLocation(txtDnHouseNumber.Text)
+                    If Not String.IsNullOrWhiteSpace(addy.Addr2) Then
+                        txtdnaddy.Text = addy.Addr1.Trim() & " " & addy.Addr2.Trim()
+                    Else
+                        txtdnaddy.Text = addy.Addr1.Trim()
+                    End If
+                    txtdncity.Text = addy.City
+                    Try
+                        Dim fullState = String.Empty
+                        Select Case addy.State
+                            Case "OH"
+                                fullState = "Ohio"
+                            Case "IL"
+                                fullState = "Illinois"
+                            Case "IN"
+                                fullState = "Indiana"
+                            Case "MI"
+                                fullState = "Michigan"
+                        End Select
+                        dropdnstate.SelectedValue = Nothing
+                        dropdnstate.Items.FindByValue(fullState).Selected = True
+                    Catch ex As Exception
+                    End Try
+                    txtdnzip.Text = addy.Zip
+                Catch ex As Exception 'TO DISPOSE PROPERLY
+                End Try
+            End Using
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
