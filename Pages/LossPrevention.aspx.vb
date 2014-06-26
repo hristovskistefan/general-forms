@@ -52,8 +52,8 @@ Public Class LossPrevention
         Select Case Me.radformsel.SelectedItem.Value
             Case "0"
                 Me.pnlnew.Visible = True
-            Case "1"
-                Me.pnlrestart.Visible = True
+                'Case "1"
+                '    Me.pnlrestart.Visible = True
             Case "2"
                 Me.pnlfraud.Visible = True
                 'Case "3"
@@ -69,7 +69,7 @@ Public Class LossPrevention
     Public Sub ResetPanels(ByVal mypnl As String)
         Select Case mypnl
             Case "0"
-                Call ResetResPanel()
+                'Call ResetResPanel()
                 Call ResetFraudPanel()
                 'Call ResetLinkPanel()
                 Call ResetDNPanel()
@@ -80,7 +80,7 @@ Public Class LossPrevention
                 Call ResetDNPanel()
             Case "2"
                 Call ResetNewPanel()
-                Call ResetResPanel()
+                'Call ResetResPanel()
                 'Call ResetLinkPanel()
                 Call ResetDNPanel()
                 'Case "3"
@@ -94,7 +94,7 @@ Public Class LossPrevention
                 'Call ResetLinkPanel()
             Case Else
                 Call ResetNewPanel()
-                Call ResetResPanel()
+                'Call ResetResPanel()
                 Call ResetFraudPanel()
                 'Call ResetLinkPanel()
                 Call ResetDNPanel()
@@ -113,18 +113,18 @@ Public Class LossPrevention
         Me.txtnewcomm.Text = ""
     End Sub
 
-    Public Sub ResetResPanel()
-        Me.txtresfirst.Text = ""
-        Me.txtreslast.Text = ""
-        Me.txtresacct.Text = ""
-        Me.txtresaddy.Text = ""
-        Me.txtrescity.Text = ""
-        Me.dropresstate.SelectedIndex = 0
-        Me.txtresphone.Text = ""
-        Me.txtresssn.Text = ""
-        Me.txtresdl.Text = ""
-        Me.txtrescomm.Text = ""
-    End Sub
+    'Public Sub ResetResPanel()
+    '    Me.txtresfirst.Text = ""
+    '    Me.txtreslast.Text = ""
+    '    Me.txtresacct.Text = ""
+    '    Me.txtresaddy.Text = ""
+    '    Me.txtrescity.Text = ""
+    '    Me.dropresstate.SelectedIndex = 0
+    '    Me.txtresphone.Text = ""
+    '    Me.txtresssn.Text = ""
+    '    Me.txtresdl.Text = ""
+    '    Me.txtrescomm.Text = ""
+    'End Sub
 
     Public Sub ResetFraudPanel()
         Me.txtsusfirst.Text = ""
@@ -717,8 +717,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
-                        Me._mSubject = "Loss Prevention - Disconnected/Not Serviceable"
-                        Me._mBody = "Loss Prevention - Disconnected/Not Serviceable" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - Unblock Address"
+                        Me._mBody = "Loss Prevention - Unblock Address" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
@@ -739,7 +739,7 @@ Public Class LossPrevention
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
                         _sqlstr = _sqlstr & "@phnum,@addy,@city,@state,@zip,@ssn,@dlnum,@comm)"
                         _sqlcmd.CommandText = _sqlstr
-                        _sqlcmd.Parameters.AddWithValue("@type", "Disco - Not Serviceable")
+                        _sqlcmd.Parameters.AddWithValue("@type", "Unblock Address")
                         _sqlcmd.Parameters.AddWithValue("@user", _suser)
                         _sqlcmd.Parameters.AddWithValue("@date", Date.Now)
                         _sqlcmd.Parameters.AddWithValue("@ccr", _employee.FullNameFirstLast)

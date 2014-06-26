@@ -29,11 +29,11 @@
                 <table class="input" width="600" cellspacing="0" cellpadding="2">
                     <tr>
                         <td>
+                            <!-- Carl Rhoades 06/26/14 - Removed Restart, renamed Former - Unserviceable to Unblock Address -->
                             <asp:RadioButtonList runat="server" AutoPostBack="True" ID="radformsel" RepeatDirection="Horizontal">
                                 <asp:ListItem Value="0">New Start Request</asp:ListItem>
-                                <asp:ListItem Value="1">Restart Request</asp:ListItem>
                                 <asp:ListItem Value="2">Suspected Fraud</asp:ListItem>
-                                <asp:ListItem Value="4">Former - Unserviceable</asp:ListItem>
+                                <asp:ListItem Value="4">Unblock Address</asp:ListItem>
                             </asp:RadioButtonList>
                         </td>
                     </tr>
@@ -480,20 +480,21 @@
             </asp:Panel>
             <!--
 ---------------------
-    DN PANEL
+    Unblock Address PANEL - was DN Panel
 ---------------------
 -->
             <asp:Panel ID="pnldn" runat="server">
                 <table class="input" width="600" cellspacing="0" cellpadding="2">
                     <tr>
                         <td colspan="2">
-                            <div class="sectionTitle">Former - Unserviceable</div>
+                            <div class="sectionTitle">Unblock Address</div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4" class="green">
                             <div class="infobox">
-                                Use this form if the address is not serviceable due to fraud.
+                                Use this form if the address is blocked due to fraud and the customer paid the bill, the block was not removed by LP, 
+                                or an active customer is attempting to transfer services to a blocked address.
                             </div>
                         </td>
                     </tr>
