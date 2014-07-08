@@ -333,7 +333,6 @@
                                         <td>Authorization Number:
                                         </td>
                                         <td>
-                                            <!-- Carl Rhoades - 03JUN14 - Increased maxlength from 8 to 12 -->
                                             <asp:TextBox ID="txtcredauth" runat="server" Width="160" MaxLength="12"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -390,7 +389,6 @@
                                         <td>Authorization Number:
                                         </td>
                                         <td>
-                                            <!-- Carl Rhoades - 03JUN14 - Increased maxlength from 8 to 12 -->
                                             <asp:TextBox ID="txteftAuth" runat="server" Width="160" MaxLength="12"></asp:TextBox>
 
                                         </td>
