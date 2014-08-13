@@ -33,7 +33,7 @@
                 <li>Cost reduction</li>
                 <li>Culture Customer Experience</li>
             </ul>
-                      <asp:TextBox ID="txtComments" runat="server" TextMode="multiline" MaxLength="500"
+                      <asp:TextBox autocomplete="off" ID="txtComments" runat="server" TextMode="multiline" MaxLength="500"
                 Height="100px" Width="450px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComments"
                 ErrorMessage="X" ValidationGroup="Submit"></asp:RequiredFieldValidator><br />

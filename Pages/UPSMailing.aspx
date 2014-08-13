@@ -54,7 +54,7 @@
                         <td>ICOMS Account:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcct" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="160" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -67,7 +67,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtphone" runat="server" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtphone" runat="server" MaxLength="10" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtphone"
                                 Display="Dynamic" Text="&lt;font size=3&gt;&lt;b&gt;X&lt;/b&gt;&lt;/font&gt;" />
                         </td>
@@ -76,7 +76,7 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtFName" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtFName" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtFName"
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -84,7 +84,7 @@
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtLName" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtLName" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtLName"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -105,7 +105,7 @@
                             <td>Address:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtaddy" runat="server" />
+                                <asp:TextBox autocomplete="off" ID="txtaddy" runat="server" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtaddy" runat="server" Text="<font size=3><b>X</b></font>"
                                     ID="Requiredfieldvalidator1" Display="Dynamic" />
                             </td>
@@ -144,14 +144,14 @@
                             <td>Address:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtaddyout" runat="server" />
+                                <asp:TextBox autocomplete="off" ID="txtaddyout" runat="server" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtaddyout" runat="server" Text="<font size=3><b>X</b></font>"
                                     ID="Requiredfieldvalidator2" Display="Dynamic" />
                             </td>
                             <td>City:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtcity" runat="server" />
+                                <asp:TextBox autocomplete="off" ID="txtcity" runat="server" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtcity" runat="server" Text="<font size=3><b>X</b></font>"
                                     ID="Requiredfieldvalidator3" Display="Dynamic" />
                             </td>
@@ -160,14 +160,14 @@
                             <td>State:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtstate" runat="server" />
+                                <asp:TextBox autocomplete="off" ID="txtstate" runat="server" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtstate" runat="server" Text="<font size=3><b>X</b></font>"
                                     Display="Dynamic" />
                             </td>
                             <td>Zip Code:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtzip" runat="server" MaxLength="5" />
+                                <asp:TextBox autocomplete="off" ID="txtzip" runat="server" MaxLength="5" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtzip" runat="server" Text="<font size=3><b>X</b></font>"
                                     Display="Dynamic" />
                             </td>

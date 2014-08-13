@@ -38,7 +38,7 @@
                         Telephone #:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtPhone" runat="server" MaxLength="10" Width="180" />
+                        <asp:TextBox autocomplete="off" ID="txtPhone" runat="server" MaxLength="10" Width="180" />
                         <asp:RequiredFieldValidator ControlToValidate="txtphone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                             ID="rfvPhone" Display="Dynamic" />
                         <asp:RegularExpressionValidator ID="revPhone" runat="server" ErrorMessage="&lt;font size=3 face=arial&gt;&lt;b&gt;Must be 10 digits&lt;/b&gt;&lt;/font&gt;"
@@ -51,7 +51,7 @@
                         Telephone #:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtPhone2" runat="server" MaxLength="10" Width="180" />
+                        <asp:TextBox autocomplete="off" ID="txtPhone2" runat="server" MaxLength="10" Width="180" />
                         <asp:RequiredFieldValidator ControlToValidate="txtphone2" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                             ID="rfvPhone2" Display="Dynamic" Enabled="false" />
                         <asp:RegularExpressionValidator ID="revPhone2" runat="server" ErrorMessage="&lt;font size=3 face=arial&gt;&lt;b&gt;Must be 10 digits&lt;/b&gt;&lt;/font&gt;"
@@ -64,7 +64,7 @@
                         House #:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtHousekey" runat="server" Width="180" />
+                        <asp:TextBox autocomplete="off" ID="txtHousekey" runat="server" Width="180" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHousekey"
                             Display="Dynamic" ErrorMessage="&lt;font size=3 face=arial&gt;&lt;b&gt;X&lt;/b&gt;&lt;/font&gt;"></asp:RequiredFieldValidator>
                     </td>
@@ -83,11 +83,11 @@
              <div style="width: 100px; text-align: right">
                  <asp:CustomValidator ControlToValidate="txtAccount" runat="server" ID="cvCustAcct" Display="None" ErrorMessage="Invalid Account number. <br />Please do not enter fake Acct#/PIN values.<br />Please do not enter an ICOMS account number.<br />If the customer does not know the account, leave blank.<br />"  />
                  Account:
-                <asp:TextBox ID="txtAccount" runat="server"></asp:TextBox></div>
+                <asp:TextBox autocomplete="off" ID="txtAccount" runat="server"></asp:TextBox></div>
             </asp:Panel>
             <asp:Panel ID="pnlPIN" runat="server" Width="220" Visible="False">
                 <div style="width: 120px; text-align: right">PIN:
-                <asp:TextBox ID="txtPIN" runat="server"></asp:TextBox></div>
+                <asp:TextBox autocomplete="off" ID="txtPIN" runat="server"></asp:TextBox></div>
             </asp:Panel>
             <div class="SubmitButton">
                 <asp:Button ID="btnsubmit" runat="server" Text="Submit" Width="150" />

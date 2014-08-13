@@ -44,7 +44,7 @@
                         Account Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                        <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -56,7 +56,7 @@
                         <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
                             ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                             ID="cvAccount" Display="None" />
-                        <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                        <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                         <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@
                         First Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                             Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -74,7 +74,7 @@
                         Last Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                             Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -88,7 +88,7 @@
                     <tr>
                         <td>
                             Current Due Date (Day of Month - DD):<br />
-                            <asp:TextBox runat="server" ID="txtCurrDate" Width="100"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" runat="server" ID="txtCurrDate" Width="100"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvCurrDate" runat="server" Text="X" ErrorMessage="Current Due Date is required."
                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCurrDate"
                                 InitialValue="Select One" />
@@ -100,7 +100,7 @@
                     <tr>
                         <td>
                             Requested Due Date (Day of Month - DD):<br />
-                            <asp:TextBox runat="server" ID="txtNewDate" Width="100"></asp:TextBox><asp:RequiredFieldValidator
+                            <asp:TextBox autocomplete="off" runat="server" ID="txtNewDate" Width="100"></asp:TextBox><asp:RequiredFieldValidator
                                 ID="rfvNewDate" runat="server" Text="X" ErrorMessage="Requested Due Date is required."
                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtNewDate"
                                 InitialValue="Select One" />
@@ -112,7 +112,7 @@
                     <tr>
                         <td colspan="2">
                             Comments:<br />
-                            <asp:TextBox ID="txtDDChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                            <asp:TextBox autocomplete="off" ID="txtDDChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                         </td>
                     </tr>

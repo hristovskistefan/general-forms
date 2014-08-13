@@ -36,7 +36,7 @@
                         <td>Account #:
                         </td>
                         <td colspan="4">
-                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -52,7 +52,7 @@
                         <td style="width: 150px">Customer's First Name:
                         </td>
                         <td style="width: 180px">
-                            <asp:TextBox ID="txtFirstName" runat="server" Width="130" />
+                            <asp:TextBox autocomplete="off" ID="txtFirstName" runat="server" Width="130" />
                             <asp:RequiredFieldValidator ControlToValidate="txtFirstName" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valFirstName" Display="Dynamic" />
                         </td>
@@ -61,7 +61,7 @@
                         <td style="width: 150px">Customer's Last Name:
                         </td>
                         <td style="width: 180px">
-                            <asp:TextBox ID="txtLastName" runat="server" Width="130" />
+                            <asp:TextBox autocomplete="off" ID="txtLastName" runat="server" Width="130" />
                             <asp:RequiredFieldValidator ControlToValidate="txtLastName" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valLastName" Display="Dynamic" />
                         </td>
@@ -111,7 +111,7 @@
                                     <td>Customer's First Name:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtBTFirstName" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtBTFirstName" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvBTFirstName" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -120,7 +120,7 @@
                                     <td>Customer's Last Name:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtBTLastName" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtBTLastName" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvBTLastName" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -129,7 +129,7 @@
                                     <td>Address 1:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtAddr1" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtAddr1" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvAddr1" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -138,7 +138,7 @@
                                     <td>Address 2:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtAddr2" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtAddr2" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvAddr2" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -147,7 +147,7 @@
                                     <td>City:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtCity" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtCity" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvCity" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -156,7 +156,7 @@
                                     <td>State:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtState" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtState" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvState" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -165,7 +165,7 @@
                                     <td>Zip:
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtZip" runat="server" Width="130" />
+                                        <asp:TextBox autocomplete="off" ID="txtZip" runat="server" Width="130" />
                                         <asp:CustomValidator ID="cvZip" runat="server" ClientValidationFunction="rdoCheck"
                                             ErrorMessage="<font size=3 face=arial><b>X</b></font>"></asp:CustomValidator>
                                     </td>
@@ -203,33 +203,33 @@
                                 <tr>
                                     <td>Method:</td>
                                     <td>
-                                        <asp:TextBox ID="txtMethod" runat="server" Width="180" />
+                                        <asp:TextBox autocomplete="off" ID="txtMethod" runat="server" Width="180" />
                                         <asp:RequiredFieldValidator ControlToValidate="txtBTFirstName" runat="server" Text="<font size=3 face=arial><b>X</b></font>" ID="RequiredFieldValidator10" Display="Dynamic" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>Type:</td>
                                     <td>
-                                        <asp:TextBox ID="txtType" runat="server" Width="180" />
+                                        <asp:TextBox autocomplete="off" ID="txtType" runat="server" Width="180" />
                                         <asp:RequiredFieldValidator ControlToValidate="txtBTLastName" runat="server" Text="<font size=3 face=arial><b>X</b></font>" ID="RequiredFieldValidator11" Display="Dynamic" />
                                     </td>
                                 </tr>                    
                                 <tr>
                                     <td>Acct #:</td>
                                     <td>
-                                        <asp:TextBox ID="txtEPAcctNum" runat="server" Width="180" />
+                                        <asp:TextBox autocomplete="off" ID="txtEPAcctNum" runat="server" Width="180" />
                                         <asp:RequiredFieldValidator ControlToValidate="txtAddr1" runat="server" Text="<font size=3 face=arial><b>X</b></font>" ID="RequiredFieldValidator12" Display="Dynamic" />
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>Exp. Date:</td>
                                     <td>
-                                        <asp:TextBox ID="txtExpDate" runat="server" Width="180" />
+                                        <asp:TextBox autocomplete="off" ID="txtExpDate" runat="server" Width="180" />
                                         <asp:RequiredFieldValidator ControlToValidate="txtAddr2" runat="server" Text="<font size=3 face=arial><b>X</b></font>" ID="RequiredFieldValidator13" Display="Dynamic" />
                                     </td>
                                 </tr>                                 
                                 <tr>
                                     <td>TR #:</td>
                                     <td>
-                                        <asp:TextBox ID="txtTR" runat="server" Width="180" />
+                                        <asp:TextBox autocomplete="off" ID="txtTR" runat="server" Width="180" />
                                         <asp:RequiredFieldValidator ControlToValidate="txtZip" runat="server" Text="<font size=3 face=arial><b>X</b></font>" ID="RequiredFieldValidator16" Display="Dynamic" />
                                     </td>
                                     <td>&nbsp;</td>
@@ -262,7 +262,7 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Width="98%" Height="50px"
+                            <asp:TextBox autocomplete="off" ID="txtComments" runat="server" TextMode="MultiLine" Width="98%" Height="50px"
                                 MaxLength="500"></asp:TextBox>
                         </td>
                     </tr>

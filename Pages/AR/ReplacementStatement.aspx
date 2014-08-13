@@ -48,7 +48,7 @@
                         Account Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                        <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -60,7 +60,7 @@
                         <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
                             ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                             ID="cvAccount" Display="None" />
-                        <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                        <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                         <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
@@ -69,7 +69,7 @@
                         First Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                             Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -78,7 +78,7 @@
                         Last Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                             Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -109,13 +109,13 @@
                             <asp:ListItem Value="CD">CD (PDF Reader included)</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:Panel runat="server" ID="pnlFax" Visible="False">
-                            Fax Number:&nbsp;<asp:TextBox runat="server" ID="txtFaxNum"></asp:TextBox>
+                            Fax Number:&nbsp;<asp:TextBox autocomplete="off" runat="server" ID="txtFaxNum"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ID="rfvtxtFaxNum" ControlToValidate="txtFaxNum"
                                 ErrorMessage="Fax Number is required." Text="X" Font-Bold="true" Font-Size="Medium"
                                 Display="Dynamic" />
                         </asp:Panel>
                         <asp:Panel runat="server" ID="pnlEmail" Visible="False">
-                            <span class="bolder">Email Address:</span>&nbsp;<asp:TextBox runat="server" ID="txtEmailAddy"></asp:TextBox>
+                            <span class="bolder">Email Address:</span>&nbsp;<asp:TextBox autocomplete="off" runat="server" ID="txtEmailAddy"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ID="rfvtxtEmailAddy" ControlToValidate="txtEmailAddy"
                                 ErrorMessage="Email Address is required." Text="X" Font-Bold="true" Font-Size="Medium"
                                 Display="Dynamic" />
@@ -132,7 +132,7 @@
                     <td>
                         <br />
                         <span class="bolder">Comments:</span><br />
-                        <asp:TextBox ID="txtreplcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                        <asp:TextBox autocomplete="off" ID="txtreplcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                             MaxLength="500"></asp:TextBox>
                     </td>
                 </tr>

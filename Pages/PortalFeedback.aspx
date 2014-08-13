@@ -57,7 +57,7 @@
                         Your Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtname" runat="server" Width="175"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtname" runat="server" Width="175"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -65,7 +65,7 @@
                         Your ICOMS ID:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtcsg" runat="server" Width="100" MaxLength="3"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcsg" runat="server" Width="100" MaxLength="3"></asp:TextBox>
                     </td>
                 </tr>
                 <asp:Panel ID="pnlInstruct" runat="server" Visible="False">
@@ -107,7 +107,7 @@
                 <tr>
                     <td colspan="2">
                         Comments: <i>(Max 500 characters)</i><br />
-                        <asp:TextBox ID="txtcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="<font size=3><b>X</b></font>"
                             ControlToValidate="txtcomm"></asp:RequiredFieldValidator>
                     </td>
@@ -137,7 +137,7 @@
             </table>
         </asp:Panel>
         <asp:Label ID="lblerr" runat="server" ForeColor="red" Width="450" />
-        <asp:TextBox ID="txtuser" runat="server" Visible="False" />
+        <asp:TextBox autocomplete="off" ID="txtuser" runat="server" Visible="False" />
     </div>
     <User:MB ID="MB" runat="server" />
     </form>

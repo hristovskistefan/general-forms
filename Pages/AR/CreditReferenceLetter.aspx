@@ -58,7 +58,7 @@
                         Account Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                        <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -72,7 +72,7 @@
                             ID="cvAccount" Display="None" />
                     </td>
                     <td>
-                        <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False"></asp:TextBox>
                          <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
@@ -81,7 +81,7 @@
                         First Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                             Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -90,7 +90,7 @@
                         Last Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                             Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -104,7 +104,7 @@
                     <td>
                         <div class="sectionTitle">
                             Comments:</div>
-                        <asp:TextBox ID="txtcredrefcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                        <asp:TextBox autocomplete="off" ID="txtcredrefcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                             MaxLength="500"></asp:TextBox>
                     </td>
                 </tr>

@@ -1,6 +1,5 @@
 <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="MisappliedOrUnpostedPayment.aspx.vb" MaintainScrollPositionOnPostback="true"
     Inherits="GeneralForms.ARMisappliedOrUnpostedPayment" %>
-
 <%@ Register Src="~/Controls/MessageBox.ascx" TagName="MB" TagPrefix="User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -61,7 +60,7 @@
                         <td>Account Number:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -73,7 +72,7 @@
                             <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
                                 ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                                 ID="cvAccount" Display="None" />
-                            <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                            <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                             <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                         </td>
                     </tr>
@@ -81,7 +80,7 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -89,7 +88,7 @@
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -125,7 +124,7 @@
                                         <td width="150">Check Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtPersonalCheckNumber" runat="server" Width="160" MaxLength="7"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtPersonalCheckNumber" runat="server" Width="160" MaxLength="7"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvPersonalCheckNumber" runat="server" Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" ControlToValidate="txtPersonalCheckNumber"
                                                 ErrorMessage="Check Number is required." />
@@ -138,7 +137,7 @@
                                         <td>Routing Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtPersonalCheckRTN" runat="server" Width="160" MaxLength="9"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtPersonalCheckRTN" runat="server" Width="160" MaxLength="9"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvPersonalCheckRTN" runat="server" Text="X" Font-Bold="true"
                                                 Font-Size="Medium" ControlToValidate="txtPersonalCheckRTN" ErrorMessage="Routing Number is required." />
                                             <asp:RegularExpressionValidator ID="revPersonalCheckRTN" runat="server" Text="X"
@@ -150,7 +149,7 @@
                                         <td>Account Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtPersonalCheckAccount" runat="server" Width="160" MaxLength="16"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtPersonalCheckAccount" runat="server" Width="160" MaxLength="16"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvPersonalCheckAccount" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ErrorMessage="Account Number is required."
                                                 ControlToValidate="txtPersonalCheckAccount" />
@@ -186,7 +185,7 @@
                                         <td width="150">Money Order Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtmonord1" runat="server" Width="160"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtmonord1" runat="server" Width="160"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" Text="X"
                                                 ErrorMessage="Money Order Number is required." Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" ControlToValidate="txtmonord1" />
@@ -220,7 +219,7 @@
                                         <td width="150">WOW! Acct Number from receipt:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtpctr1" runat="server" Width="80" MaxLength="8"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtpctr1" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtpctr1" /><asp:RegularExpressionValidator
                                                     ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtpctr1"
@@ -248,7 +247,7 @@
                                                 <asp:Label ID="lbltermid" runat="server"></asp:Label>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtpctr2" runat="server" Width="160"></asp:TextBox>
+                                                <asp:TextBox autocomplete="off" ID="txtpctr2" runat="server" Width="160"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="rfvpctr2" runat="server" Text="X" Font-Bold="true"
                                                     Font-Size="Medium" Display="Dynamic" ControlToValidate="txtpctr2" />
                                                 <asp:RegularExpressionValidator ID="revpctr2" runat="server" ControlToValidate="txtpctr2"
@@ -287,8 +286,8 @@
                                         <td width="150">Card Number:
                                         </td>
                                         <td>
-                                            <telerik:RadMaskedTextBox ID="txtCCCardNumber" runat="server" Mask="#### ##XX XXXX ####"></telerik:RadMaskedTextBox>
-                                            <%--<asp:TextBox ID="txtCCCardNumber" runat="server" Width="160" MaxLength="16"></asp:TextBox>
+                                            <telerik:RadMaskedTextBox ID="txtCCCardNumber" runat="server" Mask="#### ##XX XXXX ####"  Autocomplete="off"></telerik:RadMaskedTextBox>
+                                            <%--<asp:TextBox autocomplete="off" ID="txtCCCardNumber" runat="server" Width="160" MaxLength="16"></asp:TextBox>
                                             --%><asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCCCardNumber" />
                                             <asp:CustomValidator runat="server" Text="X" EnableClientScript="false" Font-Bold="true"
@@ -300,8 +299,8 @@
                                         <td>Expiration Date (MM/YYYY Format):
                                         </td>
                                         <td>
-                                            <telerik:RadMonthYearPicker ID="rmypCCExp" runat="server"></telerik:RadMonthYearPicker>
-                                           <%-- <asp:TextBox ID="txtcred2" runat="server" Width="160"></asp:TextBox>--%>
+                                            <telerik:RadMonthYearPicker ID="rmypCCExp" runat="server"  Autocomplete="off"></telerik:RadMonthYearPicker>
+                                           <%-- <asp:TextBox autocomplete="off" ID="txtcred2" runat="server" Width="160"></asp:TextBox>--%>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" Text="X"
                                                 ErrorMessage="Expiration Date is required." Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" ControlToValidate="rmypCCExp" />
@@ -333,6 +332,7 @@
                                         <td>Authorization Number:
                                         </td>
                                         <td>
+                                            <!-- Carl Rhoades - 03JUN14 - Increased maxlength from 8 to 12 -->
                                             <asp:TextBox ID="txtcredauth" runat="server" Width="160" MaxLength="12"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -345,7 +345,7 @@
                                         <td width="150">Routing Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txteft1" runat="server" Width="160" MaxLength="9"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txteft1" runat="server" Width="160" MaxLength="9"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="rfvtxteft1" runat="server" Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="Routing Number Required" ControlToValidate="txteft1" />
                                             <asp:RegularExpressionValidator ID="revtxteft1" runat="server" Text="X" Font-Bold="true"
@@ -357,7 +357,7 @@
                                         <td>Account Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txteft2" runat="server" Width="160"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txteft2" runat="server" Width="160"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" Text="X"
                                                 ErrorMessage="Account Number is required." Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" ControlToValidate="txteft2" />
@@ -389,6 +389,7 @@
                                         <td>Authorization Number:
                                         </td>
                                         <td>
+                                            <!-- Carl Rhoades - 03JUN14 - Increased maxlength from 8 to 12 -->
                                             <asp:TextBox ID="txteftAuth" runat="server" Width="160" MaxLength="12"></asp:TextBox>
 
                                         </td>
@@ -438,7 +439,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">Comments: <i>(Max 500 Characters)</i><br />
-                            <asp:TextBox ID="txtmisappcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                            <asp:TextBox autocomplete="off" ID="txtmisappcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                             <asp:CustomValidator runat="server" ClientValidationFunction="NOCCValidate" ID="cvComments"
                                 ErrorMessage="Credit card and bank routing numbers are not allowed in the comments."

@@ -47,7 +47,7 @@
                         Account Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                        <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -59,7 +59,7 @@
                         <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
                             ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                             ID="cvAccount" Display="None" />
-                        <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                        <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                         <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
                         First Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                             Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -77,7 +77,7 @@
                         Last Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                             Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                             EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -124,7 +124,7 @@
                                             Current Customer Name:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtCurrName" runat="server" />
+                                            <asp:TextBox autocomplete="off" ID="txtCurrName" runat="server" />
                                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator32" runat="server" ControlToValidate="txtCurrName"
                                                 ErrorMessage="Current Customer Name is required." Text="X" Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" />
@@ -135,7 +135,7 @@
                                             Requested Name Change:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtNewName" runat="server" />
+                                            <asp:TextBox autocomplete="off" ID="txtNewName" runat="server" />
                                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator33" runat="server" ControlToValidate="txtNewName"
                                                 ErrorMessage="Requested Name Change is required." Text="X" Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" />
@@ -146,7 +146,7 @@
                                             Relationship:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtRelationship" runat="server" /><asp:RequiredFieldValidator ID="rfvRelationship"
+                                            <asp:TextBox autocomplete="off" ID="txtRelationship" runat="server" /><asp:RequiredFieldValidator ID="rfvRelationship"
                                                 runat="server" ControlToValidate="txtRelationship" ErrorMessage="Relationship is required."
                                                 Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" />
                                         </td>
@@ -156,7 +156,7 @@
                                             New Customer SSN:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtNewSSN" runat="server" />
+                                            <asp:TextBox autocomplete="off" ID="txtNewSSN" runat="server" />
                                             <asp:RequiredFieldValidator runat="server" ID="Requiredfieldvalidator34" ControlToValidate="txtNewSSN"
                                                 ErrorMessage="New Customer SSN is required." Text="X" Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" />
@@ -169,7 +169,7 @@
                                             New Customer Phone Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtNewPhone" runat="server" />
+                                            <asp:TextBox autocomplete="off" ID="txtNewPhone" runat="server" />
                                             <asp:RequiredFieldValidator runat="server" ID="Requiredfieldvalidator35" ControlToValidate="txtNewPhone"
                                                 ErrorMessage="New Customer Phone Number is required." Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" />
@@ -182,7 +182,7 @@
                                             Alternate Contact Number:
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtAltNum" runat="server" MaxLength="10"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtAltNum" runat="server" MaxLength="10"></asp:TextBox>
                                             <asp:RequiredFieldValidator runat="server" ID="rfvAltNum" ControlToValidate="txtAltNum"
                                                 ErrorMessage="Alternate Contact Number is required." Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" />
@@ -200,7 +200,7 @@
                         <tr>
                             <td colspan="2">
                                 Comments:<br />
-                                <asp:TextBox ID="txtNameChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                                <asp:TextBox autocomplete="off" ID="txtNameChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                     MaxLength="500"></asp:TextBox>
                             </td>
                         </tr>
@@ -216,7 +216,7 @@
                     <tr>
                         <td>
                             Current Customer Name:<br />
-                            <asp:TextBox ID="txtCurrNameCorr" runat="server"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtCurrNameCorr" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvCurrNameCorr" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
                                 ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameCorr" />
                         </td>
@@ -224,7 +224,7 @@
                     <tr>
                         <td>
                             Correct Spelling:<br />
-                            <asp:TextBox ID="txtNewNameCorr" runat="server"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtNewNameCorr" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNewNameCorr" runat="server" Text="X"
                                 ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
                                 Display="Dynamic" ControlToValidate="txtNewNameCorr" />
@@ -233,7 +233,7 @@
                     <tr>
                         <td colspan="2">
                             Comments:<br />
-                            <asp:TextBox ID="txtNameCorrComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                            <asp:TextBox autocomplete="off" ID="txtNameCorrComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                         </td>
                     </tr>
@@ -248,7 +248,7 @@
                     <tr>
                         <td>
                             Current Customer Name:<br />
-                            <asp:TextBox ID="txtCurrNameLegal" runat="server"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtCurrNameLegal" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvCurrNameLegal" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
                                 ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameLegal" />
                         </td>
@@ -256,7 +256,7 @@
                     <tr>
                         <td>
                             New Customer Name:<br />
-                            <asp:TextBox ID="txtNewNameLegal" runat="server"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtNewNameLegal" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNewNameLegal" runat="server" Text="X"
                                 ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
                                 Display="Dynamic" ControlToValidate="txtNewNameLegal" />
@@ -265,7 +265,7 @@
                     <tr>
                         <td colspan="2">
                             Comments:<br />
-                            <asp:TextBox ID="txtNameLegalComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
+                            <asp:TextBox autocomplete="off" ID="txtNameLegalComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                         </td>
                     </tr>

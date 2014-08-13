@@ -36,7 +36,7 @@
                         Account Number:
                     </td>
                     <td colspan="3">
-                        <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="True"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="True" ></asp:TextBox>
                         <asp:ImageButton ID="ibGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                         <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
                             Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
@@ -51,7 +51,7 @@
                         First Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCFname" runat="server" Width="160" />
+                        <asp:TextBox autocomplete="off" ID="txtCFname" runat="server" Width="160" />
                         <asp:RequiredFieldValidator ControlToValidate="txtCFname" runat="server" Display="Dynamic"
                             Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer first name is required." />
                     </td>
@@ -59,7 +59,7 @@
                         Last Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCLname" runat="server" Width="160" />
+                        <asp:TextBox autocomplete="off" ID="txtCLname" runat="server" Width="160" />
                         <asp:RequiredFieldValidator ControlToValidate="txtCLname" runat="server" Display="Dynamic"
                             Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer last name is required." />
                     </td>
@@ -86,7 +86,7 @@
                         Case Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCaseNumber" runat="server" Width="160" />
+                        <asp:TextBox autocomplete="off" ID="txtCaseNumber" runat="server" Width="160" />
                         <asp:RequiredFieldValidator ControlToValidate="txtCaseNumber" runat="server" Display="Dynamic"
                             Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Case number is required." />
                     </td>
@@ -264,7 +264,7 @@
                         Attorney's Name:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAttorneyName" runat="server" Width="160" />
+                        <asp:TextBox autocomplete="off" ID="txtAttorneyName" runat="server" Width="160" />
                         <asp:RequiredFieldValidator ID="rfvAttorneyName" ControlToValidate="txtAttorneyName"
                             runat="server" Text="X" Font-Size="Medium" Font-Bold="true" Display="Dynamic"
                             ErrorMessage="Attorney name is required." Enabled="false" />
@@ -275,7 +275,7 @@
                         Attorney's Phone Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAttorneyNumber" runat="server" Width="160" MaxLength="10" />
+                        <asp:TextBox autocomplete="off" ID="txtAttorneyNumber" runat="server" Width="160" MaxLength="10" />
                         <asp:RequiredFieldValidator ID="rfvAttorneyNumber" ControlToValidate="txtAttorneyNumber"
                             runat="server" Text="X" Font-Size="Medium" Font-Bold="true" Display="Dynamic"
                             ErrorMessage="Attorney phone number is required." Enabled="false" />
@@ -289,7 +289,7 @@
                 <tr>
                     <td colspan="2">
                         Comments: <i>(Max 500 Characters)</i><br />
-                        <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="100%"
+                        <asp:TextBox autocomplete="off" ID="txtComments" runat="server" TextMode="MultiLine" Rows="5" Width="100%"
                             MaxLength="500" />
                     </td>
                 </tr>

@@ -58,7 +58,7 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAccountChangeLdIntl" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtAccountChangeLdIntl" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
                             <asp:ImageButton
                                 ID="ibChangeLdIntl" ValidationGroup="vgChangeLdIntl" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
@@ -82,7 +82,7 @@
                         <td>Customer Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCustNameChangeLdIntl" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtCustNameChangeLdIntl" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtCustNameChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="RequiredFieldValidator1" />
                         </td>
@@ -91,7 +91,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCityChangeLdIntl" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtCityChangeLdIntl" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtCityChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="RequiredFieldValidator2" />
                         </td>
@@ -100,7 +100,7 @@
                         <td>State:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtStateChangeLdIntl" runat="server" Width="180" MaxLength="2" />
+                            <asp:TextBox autocomplete="off" ID="txtStateChangeLdIntl" runat="server" Width="180" MaxLength="2" />
                             <asp:RequiredFieldValidator ControlToValidate="txtStateChangeLdIntl" runat="server" ID="RequiredFieldValidator3"
                                 Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -109,7 +109,7 @@
                         <td>Zip Code:
                         </td>
                         <td>
-                            <asp:TextBox MaxLength="5" ID="txtZipChangeLdIntl" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" MaxLength="5" ID="txtZipChangeLdIntl" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtZipChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="RequiredFieldValidator9" />
                         </td>
@@ -118,7 +118,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtPhoneChangeLdIntl" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtPhoneChangeLdIntl" runat="server" MaxLength="10" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtPhoneChangeLdIntl" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="RequiredFieldValidator10" />
                         </td>
@@ -130,7 +130,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:TextBox ID="txtCommentsChangeLdIntl" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+                            <asp:TextBox autocomplete="off" ID="txtCommentsChangeLdIntl" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
 
                         </td>
                     </tr>
@@ -154,7 +154,7 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAccountGeneralInquiry" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtAccountGeneralInquiry" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
                             <asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgGeneralInquiry" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
@@ -179,7 +179,7 @@
                         <td>Customer Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtcustname" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtcustname" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtcustname" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valcustname" />
                         </td>
@@ -188,7 +188,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtcity" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtcity" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtcity" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valcity" />
                         </td>
@@ -197,7 +197,7 @@
                         <td>State:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtState" runat="server" Width="180" MaxLength="2" />
+                            <asp:TextBox autocomplete="off" ID="txtState" runat="server" Width="180" MaxLength="2" />
                             <asp:RequiredFieldValidator ControlToValidate="txtState" runat="server" ID="rfvState"
                                 Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -206,7 +206,7 @@
                         <td>Zip Code:
                         </td>
                         <td>
-                            <asp:TextBox MaxLength="5" ID="txtzip" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" MaxLength="5" ID="txtzip" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtzip" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valzip" />
                         </td>
@@ -215,7 +215,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtphone" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtphone" runat="server" MaxLength="10" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtphone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="valphone" />
                         </td>
@@ -227,7 +227,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:TextBox ID="txtquest" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+                            <asp:TextBox autocomplete="off" ID="txtquest" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
                             <asp:RequiredFieldValidator ID="rfvtextquest" ControlToValidate="txtquest"
                                 runat="server" Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -248,7 +248,7 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAccountNumberPhoneInpError" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtAccountNumberPhoneInpError" runat="server" Width="82" MaxLength="8" AutoPostBack="true"></asp:TextBox>
                             <!--<asp:ImageButton
                                 ID="ibGo3" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />-->
@@ -272,7 +272,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtPhoneINP" runat="server" MaxLength="13" Width="115" />
+                            <asp:TextBox autocomplete="off" ID="txtPhoneINP" runat="server" MaxLength="13" Width="115" />
                             <asp:RegularExpressionValidator ID="revPhoneINP"
                                 ControlToValidate="txtPhoneINP"
                                 SetFocusOnError="true"
@@ -294,7 +294,7 @@
                         <td>Comments:<br />
                         </td>
                         <td>
-                            <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="4" Columns="40" MaxLength="150" />
+                            <asp:TextBox autocomplete="off" ID="txtComments" runat="server" TextMode="MultiLine" Rows="4" Columns="40" MaxLength="150" />
 
                         </td>
                     </tr>
@@ -318,7 +318,7 @@
                         <td width="120px">Last 4 of your SSN:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtssn" runat="server" Width="50" MaxLength="4" />
+                            <asp:TextBox autocomplete="off" ID="txtssn" runat="server" Width="50" MaxLength="4" />
 
                         </td>
                         <td>
@@ -389,7 +389,7 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtvmacct" runat="server" MaxLength="8" />
+                            <asp:TextBox autocomplete="off" ID="txtvmacct" runat="server" MaxLength="8" />
                             <asp:RequiredFieldValidator ControlToValidate="txtvmAcct" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="rfvAcctNumVM" />
                         </td>
@@ -398,7 +398,7 @@
                         <td>Telephone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtvm" runat="server" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtvm" runat="server" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtvm" runat="server" ErrorMessage="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator4" />
                             <asp:RegularExpressionValidator runat="server" ID="revvm" ControlToValidate="txtvm"
@@ -410,7 +410,7 @@
                             <td>Telephone 2 #:
                             </td>
                             <td>
-                                <asp:TextBox ID="txtvm2" runat="server" MaxLength="10" />
+                                <asp:TextBox autocomplete="off" ID="txtvm2" runat="server" MaxLength="10" />
                                 <asp:RequiredFieldValidator ControlToValidate="txtvm2" runat="server" ErrorMessage="<font size=3 face=arial><b>X</b></font>"
                                     ID="Requiredfieldvalidator8" />
                                 <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ControlToValidate="txtvm2"
@@ -432,7 +432,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtccrphone" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtccrphone" runat="server" MaxLength="10" Width="180" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtccrphone"
                                 runat="server" Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -456,7 +456,7 @@
                         <td>LEC #:
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtlec" Width="100" ReadOnly="True" />
+                            <asp:TextBox autocomplete="off" runat="server" ID="txtlec" Width="100" ReadOnly="True" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtlec"
                                 runat="server" Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -468,7 +468,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:TextBox ID="txtccriss" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
+                            <asp:TextBox autocomplete="off" ID="txtccriss" runat="server" TextMode="MultiLine" Rows="5" Columns="40" />
                             <asp:RequiredFieldValidator ControlToValidate="txtquest" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="rfvquest" />
                         </td>
@@ -487,19 +487,19 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtfraudacct" runat="server" MaxLength="16" />
+                            <asp:TextBox autocomplete="off" ID="txtfraudacct" runat="server" MaxLength="16" />
                         </td>
                     </tr>
                     <tr>
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtfraudphone" runat="server" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtfraudphone" runat="server" MaxLength="10" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">Comments:<br />
-                            <asp:TextBox ID="txtfraudcomm" runat="server" TextMode="MultiLine" Rows="2" Columns="40" />
+                            <asp:TextBox autocomplete="off" ID="txtfraudcomm" runat="server" TextMode="MultiLine" Rows="2" Columns="40" />
                         </td>
                     </tr>
                 </table>
@@ -517,7 +517,7 @@
                         <td>Account #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcctNum2" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
+                            <asp:TextBox autocomplete="off" ID="txtAcctNum2" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                                 ID="ibGo2" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount2" runat="server" Text="X" ControlToValidate="txtAcctNum2"
@@ -532,7 +532,7 @@
                         <td>Customer Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCustName2" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtCustName2" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtCustName2" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator22" />
                         </td>
@@ -541,7 +541,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCity2" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtCity2" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtCity2" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator23" />
                         </td>
@@ -550,7 +550,7 @@
                         <td>State:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtState2" runat="server" Width="180" MaxLength="2" />
+                            <asp:TextBox autocomplete="off" ID="txtState2" runat="server" Width="180" MaxLength="2" />
                             <asp:RequiredFieldValidator ControlToValidate="txtState2" runat="server" ID="Requiredfieldvalidator24"
                                 Text="<font size=3 face=arial><b>X</b></font>" />
                         </td>
@@ -559,7 +559,7 @@
                         <td>Zip Code:
                         </td>
                         <td>
-                            <asp:TextBox MaxLength="5" ID="txtZip2" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" MaxLength="5" ID="txtZip2" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtZip2" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator25" />
                         </td>
@@ -568,7 +568,7 @@
                         <td>Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtPhone2" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtPhone2" runat="server" MaxLength="10" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtPhone2" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator26" />
                         </td>
@@ -577,7 +577,7 @@
                         <td>Alternate Phone #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAltPhone" runat="server" MaxLength="10" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtAltPhone" runat="server" MaxLength="10" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtAltPhone" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator28" />
                         </td>
@@ -586,7 +586,7 @@
                         <td>Correct Address:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtCorrAddress" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtCorrAddress" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtCorrAddress" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator29" />
                         </td>
@@ -598,7 +598,7 @@
                     <tr>
                         <td></td>
                         <td>
-                            <asp:TextBox ID="txtDateTime" runat="server" Width="180" />
+                            <asp:TextBox autocomplete="off" ID="txtDateTime" runat="server" Width="180" />
                             <asp:RequiredFieldValidator ControlToValidate="txtDateTime" runat="server" Text="<font size=3 face=arial><b>X</b></font>"
                                 ID="Requiredfieldvalidator210" />
                         </td>

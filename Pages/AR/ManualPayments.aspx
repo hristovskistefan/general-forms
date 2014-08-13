@@ -49,7 +49,7 @@
                         <td>Account Number:&nbsp;
                         </td>
                         <td>
-                            <asp:TextBox ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox>&nbsp;<asp:ImageButton
+                            <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox>&nbsp;<asp:ImageButton
                                 ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                                 ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revAccount" runat="server" Text="X" ControlToValidate="txtAcct"
@@ -61,7 +61,7 @@
                             <asp:CustomValidator runat="server" ValidationGroup="vgAcctInfo" EnableClientScript="false"
                                 ControlToValidate="txtAcct" ErrorMessage="Advise the customer that a Manual Payment request has already been submitted for this WOW! account number.<br />See Gooroo for information about Manual Payments."
                                 ID="cvAccount" Display="None" />
-                            <asp:TextBox ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
+                            <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
@@ -69,7 +69,7 @@
                         <td>First Name:&nbsp;
                         </td>
                         <td>
-                            <asp:TextBox ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -77,7 +77,7 @@
                         <td>&nbsp;Last Name:&nbsp;
                         </td>
                         <td>
-                            <asp:TextBox ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
@@ -88,7 +88,7 @@
                             <td>Best Contact Phone Number:&nbsp;
                             </td>
                             <td>
-                                <asp:TextBox ID="txtmanpayphone" runat="server" Width="100" MaxLength="13"></asp:TextBox>
+                                <asp:TextBox autocomplete="off" ID="txtmanpayphone" runat="server" Width="100" MaxLength="13"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvManPayPhone" runat="server" Text="X" Font-Bold="true"
                                     Font-Size="Medium" Display="Dynamic" ErrorMessage="Alternate Phone Number is Required"
                                     ControlToValidate="txtmanpayphone" />

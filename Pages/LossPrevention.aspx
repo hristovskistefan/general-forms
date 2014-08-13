@@ -66,14 +66,14 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtnewfirst" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtnewfirst" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewfirst" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtnewlast" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtnewlast" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewlast" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -82,7 +82,7 @@
                         <td>ICOMS House Number:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtLocationID" runat="server" Width="160" MaxLength="14"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtLocationID" runat="server" Width="160" MaxLength="14"></asp:TextBox>
                             <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibHseNumber" runat="server" CausesValidation="false" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator38" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtLocationID" />
@@ -92,7 +92,7 @@
                         <td>Address:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtnewaddy" runat="server" Width="300" />
+                            <asp:TextBox autocomplete="off" ID="txtnewaddy" runat="server" Width="300" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewaddy" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -101,7 +101,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtnewcity" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtnewcity" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewcity" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -123,7 +123,7 @@
                         <td>Zip Code:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtnewzip" runat="server" Width="160" MaxLength="5" />
+                            <asp:TextBox autocomplete="off" ID="txtnewzip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtnewzip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -131,7 +131,7 @@
                         Location Number/House Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtHouseNum" runat="server" Width="160" MaxLength="14"></asp:TextBox>
+                        <asp:TextBox autocomplete="off" ID="txtHouseNum" runat="server" Width="160" MaxLength="14"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="Requiredfieldvalidator38" runat="server" Text="X"
                             Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtHouseNum" />
                     </td>--%>
@@ -151,12 +151,12 @@
                         <td>SSN:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtnewssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="9" autocomplete="off" />
                         </td>
                         <td>DL #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtnewdl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" autocomplete="off" />
                         </td>
                     </tr>
                     <tr>
@@ -165,14 +165,14 @@
                                 AutoPostBack="true" Text="Door-To-Door" />
                             <br />
                             <asp:Label runat="server" ID="lblD2D" Text="D2D E-Mail  " Visible="false" />
-                            <asp:TextBox runat="server" ID="txtD2DEmail" Visible="false" />
+                            <asp:TextBox autocomplete="off" runat="server" ID="txtD2DEmail" Visible="false" />
                             <asp:RequiredFieldValidator runat="server" ID="rfvd2dEmail" ControlToValidate="txtD2DEmail"
                                 Display="Dynamic" Text="X" Font-Bold="true" Enabled="false" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
-                            <asp:TextBox TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtnewcomm"
+                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtnewcomm"
                                 Font-Size="Medium" MaxLength="500" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator5" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtnewcomm" />
@@ -216,14 +216,14 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtresfirst" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtresfirst" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtresfirst" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtreslast" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtreslast" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtreslast" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -232,7 +232,7 @@
                         <td>Account Number:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtresacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtresacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                             <asp:ImageButton ID="ibResGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revresacct" runat="server" Text="X" ControlToValidate="txtresacct"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
@@ -246,7 +246,7 @@
                         <td>Current Address:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtresaddy" runat="server" Width="300" />
+                            <asp:TextBox autocomplete="off" ID="txtresaddy" runat="server" Width="300" />
                             <asp:RequiredFieldValidator ControlToValidate="txtresaddy" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -255,7 +255,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtrescity" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtrescity" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtrescity" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -277,7 +277,7 @@
                         <td>Zip Code:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtreszip" runat="server" Width="160" MaxLength="5" />
+                            <asp:TextBox autocomplete="off" ID="txtreszip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtreszip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -301,7 +301,7 @@
                         <td>Phone #:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtresphone" runat="server" Width="160" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtresphone" runat="server" Width="160" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtresphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                             <b>Format: 5555555555 - No spaces or special characters</b>
@@ -311,17 +311,17 @@
                         <td>SSN:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtresssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtresssn" runat="server" Width="160" MaxLength="9" />
                         </td>
                         <td>DL #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtresdl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtresdl" runat="server" Width="160" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
-                            <asp:TextBox TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtrescomm" />
+                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtrescomm" />
                         </td>
                     </tr>
                     <tr>
@@ -363,14 +363,14 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsusfirst" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtsusfirst" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsusfirst" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsuslast" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtsuslast" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsuslast" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -379,7 +379,7 @@
                         <td>Account Number:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtsusacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtsusacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
                             <asp:ImageButton ID="ibSFGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
                             <asp:RegularExpressionValidator ID="revsusacct" runat="server" Text="X" ControlToValidate="txtsusacct"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
@@ -393,7 +393,7 @@
                         <td>Address:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtsusaddy" runat="server" Width="300" />
+                            <asp:TextBox autocomplete="off" ID="txtsusaddy" runat="server" Width="300" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsusaddy" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -402,7 +402,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsuscity" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtsuscity" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsuscity" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -424,7 +424,7 @@
                         <td>Zip Code:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsuszip" runat="server" Width="160" MaxLength="5" />
+                            <asp:TextBox autocomplete="off" ID="txtsuszip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsuszip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
@@ -435,7 +435,7 @@
                         <td>Phone #:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtsusphone" runat="server" Width="160" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtsusphone" runat="server" Width="160" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsusphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                             <b>Format: 5555555555 - No spaces or special characters</b>
@@ -445,12 +445,12 @@
                         <td>SSN:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsusssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="9" />
                         </td>
                         <td>DL #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtsusdl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" />
                         </td>
                     </tr>
                     <tr>
@@ -468,7 +468,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
-                            <asp:TextBox TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtsuscomm" />
+                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtsuscomm" />
                         </td>
                     </tr>
                     <tr>
@@ -502,14 +502,14 @@
                         <td>First Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtdnfname" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtdnfname" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnfname" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ValidationGroup="vgDisconnected" />
                         </td>
                         <td>Last Name:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtdnlname" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtdnlname" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnlname" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator1"
                                 ValidationGroup="vgDisconnected" />
@@ -519,7 +519,7 @@
                         <td>ICOMS House Number:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtDnHouseNumber" runat="server" Width="160" MaxLength="14"></asp:TextBox>
+                            <asp:TextBox autocomplete="off" ID="txtDnHouseNumber" runat="server" Width="160" MaxLength="14"></asp:TextBox>
                             <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibtxtDnHouseNumber" runat="server" CausesValidation="false" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator6" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" />
@@ -531,7 +531,7 @@
                         <td>Address:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtdnaddy" runat="server" Width="300" />
+                            <asp:TextBox autocomplete="off" ID="txtdnaddy" runat="server" Width="300" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnaddy" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator2"
                                 ValidationGroup="vgDisconnected" />
@@ -541,7 +541,7 @@
                         <td>City:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtdncity" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtdncity" runat="server" Width="160" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdncity" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ValidationGroup="vgDisconnected" />
                         </td>
@@ -564,7 +564,7 @@
                         <td>Zip Code:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtdnzip" runat="server" Width="160" MaxLength="5" />
+                            <asp:TextBox autocomplete="off" ID="txtdnzip" runat="server" Width="160" MaxLength="5" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnzip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ValidationGroup="vgDisconnected" />
                         </td>
@@ -573,7 +573,7 @@
                         <td>Phone #:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox ID="txtdnphone" runat="server" Width="160" MaxLength="10" />
+                            <asp:TextBox autocomplete="off" ID="txtdnphone" runat="server" Width="160" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtdnphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator4"
                                 ValidationGroup="vgDisconnected" />
@@ -584,17 +584,17 @@
                         <td>SSN:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtdnssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="9" />
                         </td>
                         <td>DL #:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtdndl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" />
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
-                            <asp:TextBox TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtdncomm" />
+                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtdncomm" />
                         </td>
                     </tr>
                     <tr>

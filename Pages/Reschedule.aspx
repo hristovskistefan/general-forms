@@ -46,7 +46,7 @@
                     <td>Work Order Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtWONumber" runat="server" Width="100" MaxLength="7" />
+                        <asp:TextBox autocomplete="off" ID="txtWONumber" runat="server" Width="100" MaxLength="7" />
                         <asp:RequiredFieldValidator ID="rfvWONumber" ControlToValidate="txtWONumber" runat="server"
                             Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Job Number Required" />
                     </td>
@@ -55,7 +55,7 @@
                     <td>Tech Number:
                     </td>
                     <td>
-                        <asp:TextBox ID="txtTechNumber" runat="server" Width="100" MaxLength="4" />
+                        <asp:TextBox autocomplete="off" ID="txtTechNumber" runat="server" Width="100" MaxLength="4" />
                         <asp:RequiredFieldValidator ID="rfvTechNumber" ControlToValidate="txtTechNumber"
                             runat="server" Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium"
                             ErrorMessage="Tech Number Required" />
