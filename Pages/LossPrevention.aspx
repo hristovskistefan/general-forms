@@ -151,12 +151,12 @@
                         <td>SSN:
                         </td>
                         <td>
-                            <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="9" autocomplete="off" />
+                            <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="9" />
                         </td>
                         <td>DL #:
                         </td>
                         <td>
-                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" autocomplete="off" />
+                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" />
                         </td>
                     </tr>
                     <tr>
