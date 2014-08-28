@@ -821,7 +821,11 @@ Public Class LossPrevention
 
         txtsuslast.Text = _myCustomer.LName
         txtsusfirst.Text = _myCustomer.FName
-        txtsusaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        If Not String.IsNullOrWhiteSpace(_myCustomer.Address.Addr2) Then
+            txtsusaddy.Text = _myCustomer.Address.Addr1.Trim() & " " & _myCustomer.Address.Addr2.Trim()
+        Else
+            txtsusaddy.Text = _myCustomer.Address.Addr1.Trim()
+        End If
         txtsuscity.Text = _myCustomer.Address.City
         txtsuszip.Text = _myCustomer.Address.Zip
         dropsusstate.ClearSelection()
@@ -866,7 +870,7 @@ Public Class LossPrevention
 
         txtreslast.Text = _myCustomer.LName
         txtresfirst.Text = _myCustomer.FName
-        txtresaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        txtresaddy.Text = _myCustomer.Address.Addr1.Trim() & " " & _myCustomer.Address.Addr2.Trim()
         txtrescity.Text = _myCustomer.Address.City
         txtreszip.Text = _myCustomer.Address.Zip
         dropresstate.ClearSelection()
@@ -891,6 +895,8 @@ Public Class LossPrevention
                     Try
                         Dim fullState = String.Empty
                         Select Case addy.State
+                            Case "GA"
+                                fullState = "Georgia"
                             Case "OH"
                                 fullState = "Ohio"
                             Case "IL"
@@ -933,6 +939,8 @@ Public Class LossPrevention
                     Try
                         Dim fullState = String.Empty
                         Select Case addy.State
+                            Case "GA"
+                                fullState = "Georgia"
                             Case "OH"
                                 fullState = "Ohio"
                             Case "IL"

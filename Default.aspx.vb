@@ -106,7 +106,7 @@ Partial Public Class _Default
             Case "Customer Survey"
                 Me.RadPane2.ContentUrl = "http://CCCWeb/LegacyApps/survey/"
             Case "Equipment Return"
-                Me.RadPane2.ContentUrl = "/Collections/Pages/EquipmentReturn/InquiryEntry.aspx"
+                Me.RadPane2.ContentUrl = "http://interweb/Collections/Pages/EquipmentReturn/InquiryEntry.aspx"
             Case "Henry Ford E-Mail Form"
                 Me.RadPane2.ContentUrl = "http://cccweb/LegacyApps/Forms/cl_hford.aspx"
             Case "Online Sales / Referral"
@@ -140,7 +140,7 @@ Partial Public Class _Default
             Case "FIT"
                 Me.RadPane2.ContentUrl = "http://wowccc/fits/"
             Case "IVR"
-                Me.RadPane2.ContentUrl = "/IVRReports/IVR_Payment.aspx"
+                Me.RadPane2.ContentUrl = "http://home.wideopenwest.com/WebForms/Pages/ivrpay.aspx"
         End Select
     End Sub
 

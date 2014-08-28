@@ -31,8 +31,8 @@
                         <div class="infobox bolder">
                             Submit a Name Change form to request a change to the name on active WOW! accounts.
                             A name change is defined as a change to the responsible party on the account or
-                            a legal change in the customer’s name due to marriage, divorce or death. Use this
-                            form also for a correction of up to 3 letters to correct the spelling of a name.
+                            a legal change in the customer’s name due to marriage, divorce, or death. Also, use this
+                            form to correct 4 or more letters in the spelling of a customer's name.
                         </div>
                     </td>
                 </tr>
@@ -95,7 +95,7 @@
                             <asp:ListItem Value="Marriage">Marriage (A change in the ownership of an account due to Marriage)</asp:ListItem>
                             <asp:ListItem Value="Divorce">Divorce (A change in the ownership of an account due to Divorce)</asp:ListItem>
                             <asp:ListItem Value="Death">Death (A change in the ownership of an account due to Death)</asp:ListItem>
-                            <asp:ListItem Value="Correction">Correction (A change of up to 3 letters in the spelling of a name.  Ex.: Smithe to Smith)</asp:ListItem>
+                            <asp:ListItem Value="Correction">Correction (This is to correct 4 or more letters in the spelling of the customer's name. Ex.: Caitlin to Kaitlyne)</asp:ListItem>
                             <asp:ListItem Value="Legal">Legal Name Change (The customer can provide legal documentation for their name changing. Ex.: John Smith to Joe Smith)</asp:ListItem>
                         </asp:RadioButtonList>
                         <hr />

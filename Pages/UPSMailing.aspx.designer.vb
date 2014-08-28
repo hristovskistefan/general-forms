@@ -365,6 +365,15 @@ Partial Public Class UPSMailingForm
     Protected WithEvents ddlDTA As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''pnlUltraTV control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlUltraTV As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''ddlUTVGateway control.
     '''</summary>
     '''<remarks>

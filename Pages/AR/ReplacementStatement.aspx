@@ -30,9 +30,9 @@
                     <td align="center" colspan="4">
                         <div class="infobox bolder">
                             Use this form if a customer calls in requesting a replacement copy of a current
-                            statement or one from the previous 6 months. Only AR Representatives are permitted
+                            statement or one from the previous 6 months. Only Account Research Representatives are permitted
                             to send replacement statements.<br />
-                            <span style="color: Red; font-size: larger; font-style: italic;">A/R cannot fax replacement
+                            <span style="color: Red; font-size: larger; font-style: italic;">Account Research cannot fax replacement
                                 statements to a customer.</span>
                         </div>
                     </td>

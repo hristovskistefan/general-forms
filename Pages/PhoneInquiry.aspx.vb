@@ -1,10 +1,6 @@
-'Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Drawing
 Imports System.ServiceModel
-
-'Imports WOW.Data.DataAccess
-'Imports System.Net
 
 Partial Public Class PhoneInquiry
     Inherits System.Web.UI.Page
@@ -18,7 +14,6 @@ Partial Public Class PhoneInquiry
         LoadEmployeeInfo()
 
         If Not Page.IsPostBack Then
-            revGeneralInquiry.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccountChangeLdIntl.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccountNumberPhoneInpError.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revAccount2.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
@@ -63,11 +58,8 @@ Partial Public Class PhoneInquiry
 
     Private Sub makeAllInvisible()
         Me.pnl3pv.Visible = False
-        Me.pnlccr.Visible = False
-        Me.pnlGeneralInquiry.Visible = False
         Me.pnlChangeLdIntl.Visible = False
         Me.pnlInpError.Visible = False
-        Me.pnlfraud.Visible = False
         Me.pnlIncAddress.Visible = False
         Me.pnlvm.Visible = False
         Me.pnlVMCheck1.Visible = False
@@ -137,45 +129,6 @@ Partial Public Class PhoneInquiry
     End Sub
 
 
-
-
-
-
-    Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnGeneralInquiry.Click
-        Try
-
-            '  Dim MailClient As New SmtpClient
-            Dim mailMsg As MailMessage = New MailMessage()
-            mailMsg.IsBodyHtml = False
-            mailMsg.From = New MailAddress(_employee.Email)
-            mailMsg.To.Add("ccctelespec@wideopenwest.com")
-            'mailMsg.To.Add("c_rhoades@wideopenwest.com")
-            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
-            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
-                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
-                "     Date:             " & Me.lblhDate.Text & vbCrLf & _
-                "     CCR:             " & Me.lblhName.Text & vbCrLf & _
-                "     ICOMS ID:    " & Me.lblhIcomsID.Text & vbCrLf & _
-                "     Inquiry Type:   " & Me.rblType.SelectedItem.Value & vbCrLf & _
-                "     Customer:     " & Me.txtcustname.Text & vbCrLf & _
-                "     City:            " & Me.txtcity.Text & vbCrLf & _
-                "     State:          " & Me.txtState.Text.Trim & vbCrLf & _
-                "     Zip:             " & Me.txtzip.Text & vbCrLf & _
-                "     Phone #:       " & Me.txtphone.Text & vbCrLf & vbCrLf & _
-                "Question/Issue: " & vbCrLf & _
-                "" & Me.txtquest.Text
-            EmailProxy.Send(mailMsg)
-
-            ResetPage()
-            Me.pnlThanks.Visible = True
-
-        Catch ex As Exception
-            Response.Write("<b>An error has occured and your request cannot be processsed.<br />")
-            Response.Write(ex.Message)
-        End Try
-
-    End Sub
-
     Public Sub SendInpError(ByVal o As Object, ByVal e As EventArgs) Handles btnInpError.Click
         Try
 
@@ -239,36 +192,7 @@ Partial Public Class PhoneInquiry
         End Try
     End Sub
 
-    Public Sub sendCcrError(ByVal o As Object, ByVal e As EventArgs) Handles btnccr.Click
-        Try
-            ' Dim MailClient As New SmtpClient
-            Dim mailMsg As New MailMessage
-            mailMsg.From = New MailAddress(_employee.Email)
-            mailMsg.To.Clear()
-            mailMsg.To.Add(New MailAddress("ccctelespec@wideopenwest.com"))
-            mailMsg.IsBodyHtml = False
-            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
-            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
-                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
-                "     Date:           " & Me.lblhDate.Text & vbCrLf & _
-                "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
-                "     Supervisor:     " & _employee.SupNameFirstLast & vbCrLf & _
-                "     E-Mail:         " & _employee.Email & vbCrLf & _
-                "     Phone #:        " & Me.txtccrphone.Text & vbCrLf & _
-                "     State:          " & Me.dropccrstate.SelectedItem.Value & vbCrLf & _
-                "     LEC #:          " & Me.txtlec.Text & vbCrLf & _
-                "     CCR Error:      " & vbCrLf & "     " & Me.txtccriss.Text
-            EmailProxy.Send(mailMsg)
-
-            ResetPage()
-            Me.pnlThanks.Visible = True
-
-        Catch ex As Exception
-            Response.Write("<b>An error has occured and your request cannot be processsed.<br />")
-            Response.Write(ex.Message)
-        End Try
-    End Sub
+ 
 
     Public Sub SendVM(ByVal o As Object, ByVal e As EventArgs) Handles btnvm.Click
         Try
@@ -300,65 +224,6 @@ Partial Public Class PhoneInquiry
             Response.Write("<b>An error has occured and your request cannot be processsed. Please try again.</b><br />")
             Response.Write(ex.Message)
             Response.Write(ex.StackTrace)
-        End Try
-    End Sub
-
-    Public Sub SendFraudReport(ByVal o As Object, ByVal e As EventArgs) Handles btnfraud.Click
-        Try
-            '  Dim MailClient As New SmtpClient
-            Dim mailMsg As MailMessage = New MailMessage()
-            mailMsg.From = New MailAddress("ccctelespec@wideopenwest.com")
-            mailMsg.IsBodyHtml = False
-            mailMsg.Subject = "WOW! Phone Inquiry | " & Me.rblType.SelectedItem.Text & " | Submitted by: " & Me.lblhName.Text
-            mailMsg.To.Add("ccctelespec@wideopenwest.com")
-            mailMsg.Body = "WOW! Phone Inquiry:" & vbCrLf & _
-                "" & Me.rblType.SelectedItem.Text & vbCrLf & vbCrLf & _
-                "     Date:           " & Me.lblhDate.Text & vbCrLf & _
-                "     CCR:            " & Me.lblhName.Text & vbCrLf & _
-                "     Icoms ID:       " & Me.lblhIcomsID.Text & vbCrLf & _
-                "     Account #:      " & Me.txtfraudacct.Text & vbCrLf & _
-                "     Phone #:        " & Me.txtfraudphone.Text & vbCrLf & _
-                "     Comments:       " & Me.txtfraudcomm.Text
-            EmailProxy.Send(mailMsg)
-            ResetPage()
-            Me.pnlThanks.Visible = True
-        Catch ex As Exception
-            Response.Write("<b>An error has occured and your request cannot be processsed. Please try again.<br />")
-            Response.Write(ex.Message)
-            Response.Write(ex.StackTrace)
-        End Try
-    End Sub
-
-    Public Sub getLec(ByVal o As Object, ByVal e As EventArgs) Handles dropccrstate.SelectedIndexChanged
-        Select Case Me.dropccrstate.SelectedItem.Value
-            Case "IL"
-                Me.txtlec.Text = "9239"
-            Case "IN"
-                Me.txtlec.Text = "9325"
-            Case "MI"
-                Me.txtlec.Text = "9323"
-            Case "OH"
-                Me.txtlec.Text = "9321"
-            Case Else
-                Me.txtlec.Text = ""
-        End Select
-    End Sub
-
-    Sub CreateHeaders()
-        Dim i As Integer
-        Try
-            Me.lstexport.Items.Add("Date,Submitted By,ICOMS ID,Inquiry Type,Customer,City,State,Zip,Phone," & _
-                                      "Question/Issue,Date/Time")
-            For i = 0 To Me.lstexport.Items.Count - 1
-                Me._ostream.WriteLine(Me.lstexport.Items.Item(i))
-            Next
-            Me.lstexport.Items.Clear()
-        Catch ex As Exception
-            Response.Write("<b>An error has occured in creating files.</b><Br>")
-            Response.Write("<b>Column headers could not be written.</b><Br>")
-            Response.Write("<b>Possible Cause: Insufficient permissions</b>.<Br>")
-            Response.Write("<b>If you feel this is incorrect, please contact.</b><Br>")
-            Response.Write("<b>Dean Castro at 719=388-1194.</b><Br>")
         End Try
     End Sub
 
@@ -439,56 +304,6 @@ Partial Public Class PhoneInquiry
     '    End Select
     'End Sub
 
-
-
-
-
-    ''' ''''''''''''''''''''''''''''
-    ''' General Phone Inquiry
-    Protected Sub txtAccountGeneralInquiry_TextChanged(sender As Object, e As EventArgs) Handles txtAccountGeneralInquiry.TextChanged
-        ibGo_Click(Nothing, New ImageClickEventArgs(0, 0))
-    End Sub
-    Protected Sub ibGo_Click(sender As Object, e As ImageClickEventArgs) Handles ibGo.Click
-        Dim tempAccount As String = txtAccountGeneralInquiry.Text.Trim
-        If String.IsNullOrWhiteSpace(tempAccount) Then
-            Exit Sub
-        End If
-        Me.revGeneralInquiry.Validate()
-        Me.rfvGeneralInquiry.Validate()
-        If Not (Me.revGeneralInquiry.IsValid And Me.rfvGeneralInquiry.IsValid) Then
-            Me.MB.ShowMessage("Invalid account number format or account number missing.")
-            Exit Sub
-        End If
-
-        Try
-            Using customerClient As New CustomerService.CustomerManagementClient
-                _customer = customerClient.getByCustomerID(tempAccount)
-            End Using
-        Catch ex As Exception
-            Dim errorAccount = ex.Message
-            If errorAccount = "Customer Database Object is nothing." Then
-                Me.MB.ShowMessage("Account number does not exist. Please try again.")
-                txtAccountGeneralInquiry.Text = ""
-                Exit Sub
-            End If
-        End Try
-
-        If _customer Is Nothing Then
-            Me.MB.ShowMessage("Lookup timed out.")
-            Exit Sub
-        End If
-        If IsNothing(_customer.IcomsCustomerID) Then
-            Me.MB.ShowMessage("Lookup returned nothing.")
-            Exit Sub
-        End If
-
-        txtphone.Text = _customer.PrimaryPhone.FormattedPhone
-        txtcustname.Text = _customer.FullNameFirstLast
-        txtcity.Text = _customer.Address.City
-        txtState.Text = _customer.Address.State
-        txtzip.Text = _customer.Address.Zip
-
-    End Sub
 
     ''' ''''''''''''''''''''''''''''
     ''' Change Long Distance/International Provider Back to WOW!

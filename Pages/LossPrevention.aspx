@@ -1,6 +1,6 @@
 <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="LossPrevention.aspx.vb"
     Inherits="GeneralForms.LossPrevention" %>
-
+<%-- Carl Rhoades - 26AUG14 - Added Georgia to drop down lists --%>
 <%@ Register Src="~/Controls/MessageBox.ascx" TagName="MB" TagPrefix="User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden;">
@@ -114,6 +114,7 @@
                                 <asp:ListItem Value="Indiana" />
                                 <asp:ListItem Value="Michigan" />
                                 <asp:ListItem Value="Ohio" />
+                                <asp:ListItem Value="Georgia" />
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ControlToValidate="dropnewstate" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One" />
@@ -268,6 +269,7 @@
                                 <asp:ListItem Text="Indiana" Value="IN" />
                                 <asp:ListItem Text="Michigan" Value="MI" />
                                 <asp:ListItem Text="Ohio" Value="OH" />
+                                <asp:ListItem Text="Georgia" Value="GA" />
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ControlToValidate="dropresstate" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One" />
@@ -415,6 +417,7 @@
                                 <asp:ListItem Text="Indiana" Value="IN" />
                                 <asp:ListItem Text="Michigan" Value="MI" />
                                 <asp:ListItem Text="Ohio" Value="OH" />
+                                <asp:ListItem Text="Georgia" Value="GA" />
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ControlToValidate="dropsusstate" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One" />
@@ -554,6 +557,7 @@
                                 <asp:ListItem Value="Indiana" />
                                 <asp:ListItem Value="Michigan" />
                                 <asp:ListItem Value="Ohio" />
+                                <asp:ListItem Value="Georgia" />
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ControlToValidate="dropdnstate" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One"

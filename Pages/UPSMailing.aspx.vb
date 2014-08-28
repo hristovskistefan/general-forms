@@ -87,6 +87,10 @@ Partial Class UPSMailingForm
         txtLName.Text = _myCustomer.LName
         txtFName.Text = _myCustomer.FName
         txtaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
+        'Block Ultra TV equipment by Division if Ft Gordon 58 or MidMichigan 28
+        If _myCustomer.Address.Division = 58 Or _myCustomer.Address.Division = 28 Then
+            Me.pnlUltraTV.Visible = False
+        End If
         dropstate.SelectedIndex = dropstate.Items.IndexOf(dropstate.Items.FindByValue(_myCustomer.Address.State))
         GetCity(New Object, New System.EventArgs)
         dropcity.SelectedIndex = dropcity.Items.IndexOf(dropcity.Items.FindByValue(_myCustomer.Address.City.ToUpper))

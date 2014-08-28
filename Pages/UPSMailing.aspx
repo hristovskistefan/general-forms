@@ -331,6 +331,7 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
+                                <asp:Panel id="pnlUltraTV" runat="server">
                                 <tr>
                                     <td>Ultra TV Gateway:
                                     </td>
@@ -358,6 +359,7 @@
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
+                                </asp:Panel>
                             </table>
                         </td>
                     </tr>
