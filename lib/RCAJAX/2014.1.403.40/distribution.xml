@@ -2,7 +2,5 @@
 <Distribution xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Version>2014.1.403.40</Version>
   <Trial>false</Trial>
-  <Dependencies>
-    <Project>c2367e76-db91-4ea0-bad8-47f964b51135</Project>
-  </Dependencies>
+  <Dependencies />
 </Distribution>
