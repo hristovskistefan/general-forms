@@ -228,7 +228,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Customer has Terminal ID Number:
+                                        <td>Customer has Terminal ID Number?:
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="droptermid" runat="server" Width="160" AutoPostBack="True">
@@ -251,7 +251,7 @@
                                                 <asp:RequiredFieldValidator ID="rfvpctr2" runat="server" Text="X" Font-Bold="true"
                                                     Font-Size="Medium" Display="Dynamic" ControlToValidate="txtpctr2" />
                                                 <asp:RegularExpressionValidator ID="revpctr2" runat="server" ControlToValidate="txtpctr2"
-                                                    Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" ValidationExpression="^(IL|MI|IN|OH).{4}$"
+                                                    Text="X" Font-Bold="true" Font-Size="Medium" Display="Dynamic" ValidationExpression="^(IL|MI|IN|OH|GA).{4}$"
                                                     ErrorMessage="Invalid Terminal ID" />
                                             </td>
                                         </tr>

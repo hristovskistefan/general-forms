@@ -86,6 +86,12 @@ Partial Class UPSMailingForm
         End If
         txtLName.Text = _myCustomer.LName
         txtFName.Text = _myCustomer.FName
+        'Check Division to exclude Ultra TV
+        If ((_myCustomer.Address.Division = 58) Or (_myCustomer.Address.Division = 28)) Then
+            Me.pnlUltraTV.Visible = False
+        Else
+            Me.pnlUltraTV.Visible = True
+        End If
         txtaddy.Text = _myCustomer.Address.Addr1 & " " & _myCustomer.Address.Addr2
         'Block Ultra TV equipment by Division if Ft Gordon 58 or MidMichigan 28
         If _myCustomer.Address.Division = 58 Or _myCustomer.Address.Division = 28 Then

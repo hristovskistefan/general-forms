@@ -55,7 +55,7 @@ Public Class ARNameChange
             Case "Legal"
                 pnlNameChange.Visible = False
                 pnlLegal.Visible = True
-                lblLegal.Text = "<br />Advise the customer to fax a copy of the legal documentation showing their name change, with the WOW! Account Number, to 1-888-268-5859.<br />"
+                lblLegal.Text = "<br />Advise the customer to fax a copy of the court approved Petition to Change Name form showing the name change, with the WOW! Account number, to 1-888-268-5859.<br />"
         End Select
     End Sub
 

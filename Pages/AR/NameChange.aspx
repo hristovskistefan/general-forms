@@ -96,7 +96,7 @@
                             <asp:ListItem Value="Divorce">Divorce (A change in the ownership of an account due to Divorce)</asp:ListItem>
                             <asp:ListItem Value="Death">Death (A change in the ownership of an account due to Death)</asp:ListItem>
                             <asp:ListItem Value="Correction">Correction (This is to correct 4 or more letters in the spelling of the customer's name. Ex.: Caitlin to Kaitlyne)</asp:ListItem>
-                            <asp:ListItem Value="Legal">Legal Name Change (The customer can provide legal documentation for their name changing. Ex.: John Smith to Joe Smith)</asp:ListItem>
+                            <asp:ListItem Value="Legal">Legal Name Change (The customer can provide a court approved Petition to Change Name form. Ex.:John Smith to Mary Smith)</asp:ListItem>
                         </asp:RadioButtonList>
                         <hr />
                     </td>
