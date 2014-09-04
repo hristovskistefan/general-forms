@@ -48,12 +48,18 @@
         </div>
         <div id="Container-Content">
             <div class="messageInfo" style="width: auto">
-                Single LOB services, premium channels, and equipment<br />
-                are never rate guaranteed regardless of CAT Code.<br />
-                Any applied Campaigns will only be available for the <br />
-                length selected and expire off the package accordingly. <br />
-                If applicable, the <i>Broadcast TV Surcharge</i> and/or <br />
-                <i>Network Line Fee</i> will need to be calculated separately.
+                <ul>
+                    <li>Single LOB services, premium channels, and equipment<br />
+                        are never rate guaranteed regardless of CAT Code.</li>
+                    <li>Any applied Campaigns will only be available for the
+                    <br />
+                        length selected and expire off the package accordingly.
+                    </li>
+                    <li>If applicable, the <i>Broadcast TV Fee</i>, <i>Sports Surcharge</i>, and/or
+                    <br />
+                        <i>Network Line Fee</i> will need to be calculated separately.
+                    </li>
+                </ul>
             </div>
             <div class="sectionTitle">
                 Select Package Code
@@ -106,7 +112,9 @@
                     <HeaderTemplate>
                         <table class="RateInfo">
                             <tr>
-                                <th colspan="3">Mid-Michagan <br /> Rate Information:
+                                <th colspan="3">Mid-Michagan
+                                    <br />
+                                    Rate Information:
                                 </th>
                             </tr>
                             <tr>
