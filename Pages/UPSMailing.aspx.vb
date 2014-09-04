@@ -342,7 +342,7 @@ Partial Class UPSMailingForm
 
     Private Sub bindStates()
         Using x As New ICOMSEntities
-            Dim bla As List(Of MyLookup) = (From f In x.Franchises Select New MyLookup With {.Name = f.State, .Value = f.StateAbbr}).Distinct().OrderBy(Function(o) o.Name).ToList
+            Dim bla As List(Of MyLookup) = (From f In x.Franchise_UPS Select New MyLookup With {.Name = f.State, .Value = f.StateAbbr}).Distinct().OrderBy(Function(o) o.Name).ToList
             dropstate.DataSource = bla
             dropstate.DataTextField = "name"
             dropstate.DataValueField = "value"

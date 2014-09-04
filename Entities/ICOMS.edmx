@@ -6,27 +6,35 @@
     <edmx:StorageModels>
     <Schema Namespace="ICOMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ICOMSModelStoreContainer">
-          <EntitySet Name="DivisionLookups" EntityType="ICOMSModel.Store.DivisionLookups" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Franchise" EntityType="ICOMSModel.Store.Franchise" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Franchise_DivisionLookups" Association="ICOMSModel.Store.FK_Franchise_DivisionLookups">
-            <End Role="DivisionLookups" EntitySet="DivisionLookups" />
-            <End Role="Franchise" EntitySet="Franchise" />
+          <EntitySet Name="DivisionLookups_UPS" EntityType="ICOMSModel.Store.DivisionLookups_UPS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Franchise_UPS" EntityType="ICOMSModel.Store.Franchise_UPS" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Franchise_UPS_DivisionLookups_UPS" Association="ICOMSModel.Store.FK_Franchise_UPS_DivisionLookups_UPS">
+            <End Role="DivisionLookups_UPS" EntitySet="DivisionLookups_UPS" />
+            <End Role="Franchise_UPS" EntitySet="Franchise_UPS" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="DivisionLookups">
+        <EntityType Name="DivisionLookups_UPS">
           <Key>
             <PropertyRef Name="Division" />
           </Key>
-          <Property Name="Division" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Division" Type="decimal" Nullable="false" Precision="2" />
           <Property Name="UPS_EmailAddress" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TimeZone" Type="int" Nullable="false" />
+          <Property Name="State" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="StateAbbr" Type="varchar" Nullable="false" MaxLength="4" />
+          <Property Name="DivisionName" Type="nvarchar" MaxLength="255" />
+          <Property Name="SYSPRIN" Type="nvarchar" MaxLength="8" />
+          <Property Name="Agent" Type="nvarchar" MaxLength="4" />
+          <Property Name="Site" Type="nvarchar" MaxLength="3" />
         </EntityType>
-        <EntityType Name="Franchise">
+        <EntityType Name="Franchise_UPS">
           <Key>
-            <PropertyRef Name="Franchise" />
+            <PropertyRef Name="DBID" />
           </Key>
+          <Property Name="DBID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Franchise" Type="nvarchar" Nullable="false" MaxLength="5" />
           <Property Name="FranchiseName" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="Division" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Division" Type="decimal" Nullable="false" Precision="2" />
           <Property Name="DivisionName" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Company" Type="nvarchar" Nullable="false" MaxLength="2" />
           <Property Name="Site" Type="nvarchar" Nullable="false" MaxLength="3" />
@@ -36,14 +44,14 @@
           <Property Name="State" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="StateAbbr" Type="varchar" Nullable="false" MaxLength="4" />
         </EntityType>
-        <Association Name="FK_Franchise_DivisionLookups">
-          <End Role="DivisionLookups" Type="ICOMSModel.Store.DivisionLookups" Multiplicity="1" />
-          <End Role="Franchise" Type="ICOMSModel.Store.Franchise" Multiplicity="*" />
+        <Association Name="FK_Franchise_UPS_DivisionLookups_UPS">
+          <End Role="DivisionLookups_UPS" Type="ICOMSModel.Store.DivisionLookups_UPS" Multiplicity="1" />
+          <End Role="Franchise_UPS" Type="ICOMSModel.Store.Franchise_UPS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DivisionLookups">
+            <Principal Role="DivisionLookups_UPS">
               <PropertyRef Name="Division" />
             </Principal>
-            <Dependent Role="Franchise">
+            <Dependent Role="Franchise_UPS">
               <PropertyRef Name="Division" />
             </Dependent>
           </ReferentialConstraint>
@@ -53,46 +61,54 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ICOMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="ICOMSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Franchises" EntityType="ICOMSModel.Franchise" />
-          <EntitySet Name="DivisionLookups" EntityType="ICOMSModel.DivisionLookup" />
-          <AssociationSet Name="FK_Franchise_DivisionLookups" Association="ICOMSModel.FK_Franchise_DivisionLookups">
-            <End Role="DivisionLookup" EntitySet="DivisionLookups" />
-            <End Role="Franchise" EntitySet="Franchises" />
+          <EntitySet Name="DivisionLookups_UPS" EntityType="ICOMSModel.DivisionLookups_UPS" />
+          <EntitySet Name="Franchise_UPS" EntityType="ICOMSModel.Franchise_UPS" />
+          <AssociationSet Name="FK_Franchise_UPS_DivisionLookups_UPS" Association="ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS">
+            <End Role="DivisionLookups_UPS" EntitySet="DivisionLookups_UPS" />
+            <End Role="Franchise_UPS" EntitySet="Franchise_UPS" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Franchise">
-          <Key>
-            <PropertyRef Name="Franchise1" />
-          </Key>
-          <Property Name="Franchise1" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
-          <Property Name="FranchiseName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Division" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
-          <Property Name="DivisionName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Company" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
-          <Property Name="Site" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
-          <Property Name="SYSPRIN" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
-          <Property Name="Agent" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
-          <Property Name="Timezone" Type="Int32" />
-          <Property Type="String" Name="State" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="StateAbbr" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DivisionLookup" Relationship="ICOMSModel.FK_Franchise_DivisionLookups" FromRole="Franchise" ToRole="DivisionLookup" />
-        </EntityType>
-        <EntityType Name="DivisionLookup">
+        <EntityType Name="DivisionLookups_UPS">
           <Key>
             <PropertyRef Name="Division" />
           </Key>
-          <Property Type="String" Name="Division" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Division" Nullable="false" Precision="2" Scale="0" />
           <Property Type="String" Name="UPS_EmailAddress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Franchises" Relationship="ICOMSModel.FK_Franchise_DivisionLookups" FromRole="DivisionLookup" ToRole="Franchise" />
+          <Property Type="Int32" Name="TimeZone" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StateAbbr" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DivisionName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SYSPRIN" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Agent" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Site" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Franchise_UPS" Relationship="ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS" FromRole="DivisionLookups_UPS" ToRole="Franchise_UPS" />
         </EntityType>
-        <Association Name="FK_Franchise_DivisionLookups">
-          <End Type="ICOMSModel.DivisionLookup" Role="DivisionLookup" Multiplicity="1" />
-          <End Type="ICOMSModel.Franchise" Role="Franchise" Multiplicity="*" />
+        <EntityType Name="Franchise_UPS">
+          <Key>
+            <PropertyRef Name="DBID" />
+          </Key>
+          <Property Type="Int32" Name="DBID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Franchise" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FranchiseName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Division" Nullable="false" Precision="2" Scale="0" />
+          <Property Type="String" Name="DivisionName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Company" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Site" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SYSPRIN" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Agent" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Timezone" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StateAbbr" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DivisionLookups_UPS" Relationship="ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS" FromRole="Franchise_UPS" ToRole="DivisionLookups_UPS" />
+        </EntityType>
+        <Association Name="FK_Franchise_UPS_DivisionLookups_UPS">
+          <End Type="ICOMSModel.DivisionLookups_UPS" Role="DivisionLookups_UPS" Multiplicity="1" />
+          <End Type="ICOMSModel.Franchise_UPS" Role="Franchise_UPS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DivisionLookup">
+            <Principal Role="DivisionLookups_UPS">
               <PropertyRef Name="Division" />
             </Principal>
-            <Dependent Role="Franchise">
+            <Dependent Role="Franchise_UPS">
               <PropertyRef Name="Division" />
             </Dependent>
           </ReferentialConstraint>
@@ -103,28 +119,36 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ICOMSModelStoreContainer" CdmEntityContainer="ICOMSEntities">
-          <EntitySetMapping Name="Franchises">
-            <EntityTypeMapping TypeName="ICOMSModel.Franchise">
-              <MappingFragment StoreEntitySet="Franchise">
+          <EntitySetMapping Name="DivisionLookups_UPS">
+            <EntityTypeMapping TypeName="ICOMSModel.DivisionLookups_UPS">
+              <MappingFragment StoreEntitySet="DivisionLookups_UPS">
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="SYSPRIN" ColumnName="SYSPRIN" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
                 <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
                 <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Franchise1" ColumnName="Franchise" />
-                <ScalarProperty Name="FranchiseName" ColumnName="FranchiseName" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="UPS_EmailAddress" ColumnName="UPS_EmailAddress" />
                 <ScalarProperty Name="Division" ColumnName="Division" />
-                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-                <ScalarProperty Name="Site" ColumnName="Site" />
-                <ScalarProperty Name="SYSPRIN" ColumnName="SYSPRIN" />
-                <ScalarProperty Name="Agent" ColumnName="Agent" />
-                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DivisionLookups">
-            <EntityTypeMapping TypeName="ICOMSModel.DivisionLookup">
-              <MappingFragment StoreEntitySet="DivisionLookups">
-                <ScalarProperty Name="UPS_EmailAddress" ColumnName="UPS_EmailAddress" />
+          <EntitySetMapping Name="Franchise_UPS">
+            <EntityTypeMapping TypeName="ICOMSModel.Franchise_UPS">
+              <MappingFragment StoreEntitySet="Franchise_UPS">
+                <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="SYSPRIN" ColumnName="SYSPRIN" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
                 <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="FranchiseName" ColumnName="FranchiseName" />
+                <ScalarProperty Name="Franchise" ColumnName="Franchise" />
+                <ScalarProperty Name="DBID" ColumnName="DBID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -149,10 +173,10 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram DiagramId="e0d74d0dee2e4f30bd1f0ce693962cbd" Name="Diagram1">
-        <EntityTypeShape EntityType="ICOMSModel.Franchise" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ICOMSModel.DivisionLookup" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <AssociationConnector Association="ICOMSModel.FK_Franchise_DivisionLookups" ManuallyRouted="false" />
+      <Diagram DiagramId="e0d74d0dee2e4f30bd1f0ce693962cbd" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="ICOMSModel.DivisionLookups_UPS" Width="1.5" PointX="14.625" PointY="8" />
+        <EntityTypeShape EntityType="ICOMSModel.Franchise_UPS" Width="1.5" PointX="17.5" PointY="8" />
+        <AssociationConnector Association="ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS" />
       </Diagram>
     </Diagrams>
   </Designer>

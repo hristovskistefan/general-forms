@@ -18,9 +18,9 @@ Imports System.Runtime.Serialization
 Imports System.Xml.Serialization
 
 
-<Assembly: EdmSchemaAttribute("d4646607-40b4-416a-b06f-337ac43ccc7c")>
+<Assembly: EdmSchemaAttribute("ed3472b5-6c3e-498f-b2df-6843dabf6018")>
 #Region "EDM Relationship Metadata"
-<Assembly: EdmRelationshipAttribute("ICOMSModel", "FK_Franchise_DivisionLookups", "DivisionLookup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(DivisionLookup), "Franchise", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Franchise), True)>
+<Assembly: EdmRelationshipAttribute("ICOMSModel", "FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, GetType(DivisionLookups_UPS), "Franchise_UPS", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, GetType(Franchise_UPS), True)>
 
 #End Region
 
@@ -75,47 +75,47 @@ Public Partial Class ICOMSEntities
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    Public ReadOnly Property Franchises() As ObjectSet(Of Franchise)
+    Public ReadOnly Property DivisionLookups_UPS() As ObjectSet(Of DivisionLookups_UPS)
         Get
-            If (_Franchises Is Nothing) Then
-                _Franchises = MyBase.CreateObjectSet(Of Franchise)("Franchises")
+            If (_DivisionLookups_UPS Is Nothing) Then
+                _DivisionLookups_UPS = MyBase.CreateObjectSet(Of DivisionLookups_UPS)("DivisionLookups_UPS")
             End If
-            Return _Franchises
+            Return _DivisionLookups_UPS
         End Get
     End Property
 
-    Private _Franchises As ObjectSet(Of Franchise)
+    Private _DivisionLookups_UPS As ObjectSet(Of DivisionLookups_UPS)
 
     ''' <summary>
     ''' No Metadata Documentation available.
     ''' </summary>
-    Public ReadOnly Property DivisionLookups() As ObjectSet(Of DivisionLookup)
+    Public ReadOnly Property Franchise_UPS() As ObjectSet(Of Franchise_UPS)
         Get
-            If (_DivisionLookups Is Nothing) Then
-                _DivisionLookups = MyBase.CreateObjectSet(Of DivisionLookup)("DivisionLookups")
+            If (_Franchise_UPS Is Nothing) Then
+                _Franchise_UPS = MyBase.CreateObjectSet(Of Franchise_UPS)("Franchise_UPS")
             End If
-            Return _DivisionLookups
+            Return _Franchise_UPS
         End Get
     End Property
 
-    Private _DivisionLookups As ObjectSet(Of DivisionLookup)
+    Private _Franchise_UPS As ObjectSet(Of Franchise_UPS)
 
     #End Region
 
     #Region "AddTo Methods"
 
     ''' <summary>
-    ''' Deprecated Method for adding a new object to the Franchises EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' Deprecated Method for adding a new object to the DivisionLookups_UPS EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
     ''' </summary>
-    Public Sub AddToFranchises(ByVal franchise As Franchise)
-        MyBase.AddObject("Franchises", franchise)
+    Public Sub AddToDivisionLookups_UPS(ByVal divisionLookups_UPS As DivisionLookups_UPS)
+        MyBase.AddObject("DivisionLookups_UPS", divisionLookups_UPS)
     End Sub
 
     ''' <summary>
-    ''' Deprecated Method for adding a new object to the DivisionLookups EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
+    ''' Deprecated Method for adding a new object to the Franchise_UPS EntitySet. Consider using the .Add method of the associated ObjectSet(Of T) property instead.
     ''' </summary>
-    Public Sub AddToDivisionLookups(ByVal divisionLookup As DivisionLookup)
-        MyBase.AddObject("DivisionLookups", divisionLookup)
+    Public Sub AddToFranchise_UPS(ByVal franchise_UPS As Franchise_UPS)
+        MyBase.AddObject("Franchise_UPS", franchise_UPS)
     End Sub
 
     #End Region
@@ -129,23 +129,29 @@ End Class
 ''' <summary>
 ''' No Metadata Documentation available.
 ''' </summary>
-<EdmEntityTypeAttribute(NamespaceName:="ICOMSModel", Name:="DivisionLookup")>
+<EdmEntityTypeAttribute(NamespaceName:="ICOMSModel", Name:="DivisionLookups_UPS")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
-Public Partial Class DivisionLookup
+Public Partial Class DivisionLookups_UPS
     Inherits EntityObject
     #Region "Factory Method"
 
     ''' <summary>
-    ''' Create a new DivisionLookup object.
+    ''' Create a new DivisionLookups_UPS object.
     ''' </summary>
     ''' <param name="division">Initial value of the Division property.</param>
     ''' <param name="uPS_EmailAddress">Initial value of the UPS_EmailAddress property.</param>
-    Public Shared Function CreateDivisionLookup(division As Global.System.String, uPS_EmailAddress As Global.System.String) As DivisionLookup
-        Dim divisionLookup as DivisionLookup = New DivisionLookup
-        divisionLookup.Division = division
-        divisionLookup.UPS_EmailAddress = uPS_EmailAddress
-        Return divisionLookup
+    ''' <param name="timeZone">Initial value of the TimeZone property.</param>
+    ''' <param name="state">Initial value of the State property.</param>
+    ''' <param name="stateAbbr">Initial value of the StateAbbr property.</param>
+    Public Shared Function CreateDivisionLookups_UPS(division As Global.System.Decimal, uPS_EmailAddress As Global.System.String, timeZone As Global.System.Int32, state As Global.System.String, stateAbbr As Global.System.String) As DivisionLookups_UPS
+        Dim divisionLookups_UPS as DivisionLookups_UPS = New DivisionLookups_UPS
+        divisionLookups_UPS.Division = division
+        divisionLookups_UPS.UPS_EmailAddress = uPS_EmailAddress
+        divisionLookups_UPS.TimeZone = timeZone
+        divisionLookups_UPS.State = state
+        divisionLookups_UPS.StateAbbr = stateAbbr
+        Return divisionLookups_UPS
     End Function
 
     #End Region
@@ -157,7 +163,7 @@ Public Partial Class DivisionLookup
     ''' </summary>
     <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property Division() As Global.System.String
+    Public Property Division() As Global.System.Decimal
         Get
             Return _Division
         End Get
@@ -165,15 +171,15 @@ Public Partial Class DivisionLookup
             If (_Division <> Value) Then
                 OnDivisionChanging(value)
                 ReportPropertyChanging("Division")
-                _Division = StructuralObject.SetValidValue(value, false)
+                _Division = StructuralObject.SetValidValue(value)
                 ReportPropertyChanged("Division")
                 OnDivisionChanged()
             End If
         End Set
     End Property
 
-    Private _Division As Global.System.String
-    Private Partial Sub OnDivisionChanging(value As Global.System.String)
+    Private _Division As Global.System.Decimal
+    Private Partial Sub OnDivisionChanging(value As Global.System.Decimal)
     End Sub
 
     Private Partial Sub OnDivisionChanged()
@@ -204,6 +210,181 @@ Public Partial Class DivisionLookup
     Private Partial Sub OnUPS_EmailAddressChanged()
     End Sub
 
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property TimeZone() As Global.System.Int32
+        Get
+            Return _TimeZone
+        End Get
+        Set
+            OnTimeZoneChanging(value)
+            ReportPropertyChanging("TimeZone")
+            _TimeZone = StructuralObject.SetValidValue(value)
+            ReportPropertyChanged("TimeZone")
+            OnTimeZoneChanged()
+        End Set
+    End Property
+
+    Private _TimeZone As Global.System.Int32
+    Private Partial Sub OnTimeZoneChanging(value As Global.System.Int32)
+    End Sub
+
+    Private Partial Sub OnTimeZoneChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property State() As Global.System.String
+        Get
+            Return _State
+        End Get
+        Set
+            OnStateChanging(value)
+            ReportPropertyChanging("State")
+            _State = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("State")
+            OnStateChanged()
+        End Set
+    End Property
+
+    Private _State As Global.System.String
+    Private Partial Sub OnStateChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnStateChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property StateAbbr() As Global.System.String
+        Get
+            Return _StateAbbr
+        End Get
+        Set
+            OnStateAbbrChanging(value)
+            ReportPropertyChanging("StateAbbr")
+            _StateAbbr = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("StateAbbr")
+            OnStateAbbrChanged()
+        End Set
+    End Property
+
+    Private _StateAbbr As Global.System.String
+    Private Partial Sub OnStateAbbrChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnStateAbbrChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property DivisionName() As Global.System.String
+        Get
+            Return _DivisionName
+        End Get
+        Set
+            OnDivisionNameChanging(value)
+            ReportPropertyChanging("DivisionName")
+            _DivisionName = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("DivisionName")
+            OnDivisionNameChanged()
+        End Set
+    End Property
+
+    Private _DivisionName As Global.System.String
+    Private Partial Sub OnDivisionNameChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnDivisionNameChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property SYSPRIN() As Global.System.String
+        Get
+            Return _SYSPRIN
+        End Get
+        Set
+            OnSYSPRINChanging(value)
+            ReportPropertyChanging("SYSPRIN")
+            _SYSPRIN = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("SYSPRIN")
+            OnSYSPRINChanged()
+        End Set
+    End Property
+
+    Private _SYSPRIN As Global.System.String
+    Private Partial Sub OnSYSPRINChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnSYSPRINChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Agent() As Global.System.String
+        Get
+            Return _Agent
+        End Get
+        Set
+            OnAgentChanging(value)
+            ReportPropertyChanging("Agent")
+            _Agent = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("Agent")
+            OnAgentChanged()
+        End Set
+    End Property
+
+    Private _Agent As Global.System.String
+    Private Partial Sub OnAgentChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnAgentChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=true)>
+    <DataMemberAttribute()>
+    Public Property Site() As Global.System.String
+        Get
+            Return _Site
+        End Get
+        Set
+            OnSiteChanging(value)
+            ReportPropertyChanging("Site")
+            _Site = StructuralObject.SetValidValue(value, true)
+            ReportPropertyChanged("Site")
+            OnSiteChanged()
+        End Set
+    End Property
+
+    Private _Site As Global.System.String
+    Private Partial Sub OnSiteChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnSiteChanged()
+    End Sub
+
     #End Region
 
     #Region "Navigation Properties"
@@ -214,14 +395,14 @@ Public Partial Class DivisionLookup
     <XmlIgnoreAttribute()>
     <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    <EdmRelationshipNavigationPropertyAttribute("ICOMSModel", "FK_Franchise_DivisionLookups", "Franchise")>
-     Public Property Franchises() As EntityCollection(Of Franchise)
+    <EdmRelationshipNavigationPropertyAttribute("ICOMSModel", "FK_Franchise_UPS_DivisionLookups_UPS", "Franchise_UPS")>
+     Public Property Franchise_UPS() As EntityCollection(Of Franchise_UPS)
         Get
-            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Franchise)("ICOMSModel.FK_Franchise_DivisionLookups", "Franchise")
+            Return CType(Me,IEntityWithRelationships).RelationshipManager.GetRelatedCollection(Of Franchise_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "Franchise_UPS")
         End Get
         Set
             If (Not value Is Nothing)
-                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Franchise)("ICOMSModel.FK_Franchise_DivisionLookups", "Franchise", value)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedCollection(Of Franchise_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "Franchise_UPS", value)
             End If
         End Set
     End Property
@@ -233,17 +414,18 @@ End Class
 ''' <summary>
 ''' No Metadata Documentation available.
 ''' </summary>
-<EdmEntityTypeAttribute(NamespaceName:="ICOMSModel", Name:="Franchise")>
+<EdmEntityTypeAttribute(NamespaceName:="ICOMSModel", Name:="Franchise_UPS")>
 <Serializable()>
 <DataContractAttribute(IsReference:=True)>
-Public Partial Class Franchise
+Public Partial Class Franchise_UPS
     Inherits EntityObject
     #Region "Factory Method"
 
     ''' <summary>
-    ''' Create a new Franchise object.
+    ''' Create a new Franchise_UPS object.
     ''' </summary>
-    ''' <param name="franchise1">Initial value of the Franchise1 property.</param>
+    ''' <param name="dBID">Initial value of the DBID property.</param>
+    ''' <param name="franchise">Initial value of the Franchise property.</param>
     ''' <param name="franchiseName">Initial value of the FranchiseName property.</param>
     ''' <param name="division">Initial value of the Division property.</param>
     ''' <param name="divisionName">Initial value of the DivisionName property.</param>
@@ -251,17 +433,18 @@ Public Partial Class Franchise
     ''' <param name="site">Initial value of the Site property.</param>
     ''' <param name="state">Initial value of the State property.</param>
     ''' <param name="stateAbbr">Initial value of the StateAbbr property.</param>
-    Public Shared Function CreateFranchise(franchise1 As Global.System.String, franchiseName As Global.System.String, division As Global.System.String, divisionName As Global.System.String, company As Global.System.String, site As Global.System.String, state As Global.System.String, stateAbbr As Global.System.String) As Franchise
-        Dim franchise as Franchise = New Franchise
-        franchise.Franchise1 = franchise1
-        franchise.FranchiseName = franchiseName
-        franchise.Division = division
-        franchise.DivisionName = divisionName
-        franchise.Company = company
-        franchise.Site = site
-        franchise.State = state
-        franchise.StateAbbr = stateAbbr
-        Return franchise
+    Public Shared Function CreateFranchise_UPS(dBID As Global.System.Int32, franchise As Global.System.String, franchiseName As Global.System.String, division As Global.System.Decimal, divisionName As Global.System.String, company As Global.System.String, site As Global.System.String, state As Global.System.String, stateAbbr As Global.System.String) As Franchise_UPS
+        Dim franchise_UPS as Franchise_UPS = New Franchise_UPS
+        franchise_UPS.DBID = dBID
+        franchise_UPS.Franchise = franchise
+        franchise_UPS.FranchiseName = franchiseName
+        franchise_UPS.Division = division
+        franchise_UPS.DivisionName = divisionName
+        franchise_UPS.Company = company
+        franchise_UPS.Site = site
+        franchise_UPS.State = state
+        franchise_UPS.StateAbbr = stateAbbr
+        Return franchise_UPS
     End Function
 
     #End Region
@@ -273,26 +456,51 @@ Public Partial Class Franchise
     ''' </summary>
     <EdmScalarPropertyAttribute(EntityKeyProperty:=true, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property Franchise1() As Global.System.String
+    Public Property DBID() As Global.System.Int32
         Get
-            Return _Franchise1
+            Return _DBID
         End Get
         Set
-            If (_Franchise1 <> Value) Then
-                OnFranchise1Changing(value)
-                ReportPropertyChanging("Franchise1")
-                _Franchise1 = StructuralObject.SetValidValue(value, false)
-                ReportPropertyChanged("Franchise1")
-                OnFranchise1Changed()
+            If (_DBID <> Value) Then
+                OnDBIDChanging(value)
+                ReportPropertyChanging("DBID")
+                _DBID = StructuralObject.SetValidValue(value)
+                ReportPropertyChanged("DBID")
+                OnDBIDChanged()
             End If
         End Set
     End Property
 
-    Private _Franchise1 As Global.System.String
-    Private Partial Sub OnFranchise1Changing(value As Global.System.String)
+    Private _DBID As Global.System.Int32
+    Private Partial Sub OnDBIDChanging(value As Global.System.Int32)
     End Sub
 
-    Private Partial Sub OnFranchise1Changed()
+    Private Partial Sub OnDBIDChanged()
+    End Sub
+
+    ''' <summary>
+    ''' No Metadata Documentation available.
+    ''' </summary>
+    <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
+    <DataMemberAttribute()>
+    Public Property Franchise() As Global.System.String
+        Get
+            Return _Franchise
+        End Get
+        Set
+            OnFranchiseChanging(value)
+            ReportPropertyChanging("Franchise")
+            _Franchise = StructuralObject.SetValidValue(value, false)
+            ReportPropertyChanged("Franchise")
+            OnFranchiseChanged()
+        End Set
+    End Property
+
+    Private _Franchise As Global.System.String
+    Private Partial Sub OnFranchiseChanging(value As Global.System.String)
+    End Sub
+
+    Private Partial Sub OnFranchiseChanged()
     End Sub
 
     ''' <summary>
@@ -325,21 +533,21 @@ Public Partial Class Franchise
     ''' </summary>
     <EdmScalarPropertyAttribute(EntityKeyProperty:=false, IsNullable:=false)>
     <DataMemberAttribute()>
-    Public Property Division() As Global.System.String
+    Public Property Division() As Global.System.Decimal
         Get
             Return _Division
         End Get
         Set
             OnDivisionChanging(value)
             ReportPropertyChanging("Division")
-            _Division = StructuralObject.SetValidValue(value, false)
+            _Division = StructuralObject.SetValidValue(value)
             ReportPropertyChanged("Division")
             OnDivisionChanged()
         End Set
     End Property
 
-    Private _Division As Global.System.String
-    Private Partial Sub OnDivisionChanging(value As Global.System.String)
+    Private _Division As Global.System.Decimal
+    Private Partial Sub OnDivisionChanging(value As Global.System.Decimal)
     End Sub
 
     Private Partial Sub OnDivisionChanged()
@@ -555,13 +763,13 @@ Public Partial Class Franchise
     <XmlIgnoreAttribute()>
     <SoapIgnoreAttribute()>
     <DataMemberAttribute()>
-    <EdmRelationshipNavigationPropertyAttribute("ICOMSModel", "FK_Franchise_DivisionLookups", "DivisionLookup")>
-    Public Property DivisionLookup() As DivisionLookup
+    <EdmRelationshipNavigationPropertyAttribute("ICOMSModel", "FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS")>
+    Public Property DivisionLookups_UPS() As DivisionLookups_UPS
         Get
-            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookup)("ICOMSModel.FK_Franchise_DivisionLookups", "DivisionLookup").Value
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookups_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS").Value
         End Get
         Set
-            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookup)("ICOMSModel.FK_Franchise_DivisionLookups", "DivisionLookup").Value = value
+            CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookups_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS").Value = value
         End Set
     End Property
     ''' <summary>
@@ -569,13 +777,13 @@ Public Partial Class Franchise
     ''' </summary>
     <BrowsableAttribute(False)>
     <DataMemberAttribute()>
-    Public Property DivisionLookupReference() As EntityReference(Of DivisionLookup)
+    Public Property DivisionLookups_UPSReference() As EntityReference(Of DivisionLookups_UPS)
         Get
-            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookup)("ICOMSModel.FK_Franchise_DivisionLookups", "DivisionLookup")
+            Return CType(Me, IEntityWithRelationships).RelationshipManager.GetRelatedReference(Of DivisionLookups_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS")
         End Get
         Set
             If (Not value Is Nothing)
-                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of DivisionLookup)("ICOMSModel.FK_Franchise_DivisionLookups", "DivisionLookup", value)
+                CType(Me, IEntityWithRelationships).RelationshipManager.InitializeRelatedReference(Of DivisionLookups_UPS)("ICOMSModel.FK_Franchise_UPS_DivisionLookups_UPS", "DivisionLookups_UPS", value)
             End If
         End Set
     End Property

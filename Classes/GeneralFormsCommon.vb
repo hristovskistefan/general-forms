@@ -21,7 +21,7 @@ Public Class GeneralFormsCommon
 
     Friend Shared Function getStateFromDivision(division As Integer) As String
         Dim icomsContext As ICOMSEntities = New ICOMSEntities
-        Return (From f As Franchise In icomsContext.Franchises Where f.Division = division Select f.State).FirstOrDefault
+        Return (From f As Franchise_UPS In icomsContext.Franchise_UPS Where f.Division = division Select f.State).FirstOrDefault
     End Function
 
     Friend Shared Function buildAccountValidatorExpression() As String
