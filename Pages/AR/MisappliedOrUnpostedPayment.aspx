@@ -219,7 +219,7 @@
                                         <td width="150">WOW! Acct Number from receipt:
                                         </td>
                                         <td>
-                                            <asp:TextBox autocomplete="off" ID="txtpctr1" runat="server" Width="80" MaxLength="8"></asp:TextBox>
+                                            <asp:TextBox autocomplete="off" ID="txtpctr1" runat="server" Width="156" MaxLength="16"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtpctr1" /><asp:RegularExpressionValidator
                                                     ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtpctr1"
