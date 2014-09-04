@@ -55,7 +55,7 @@
                                         <telerik:RadPanelItem runat="server" Text="Customer Survey" Value="Customer Survey" />
                                         <telerik:RadPanelItem runat="server" Text="Equipment Return" Value="Equipment Return" />
                                         <telerik:RadPanelItem runat="server" Text="FIT" Value="FIT" NavigateUrl="http://wowccc/fits/" Target="_blank" />
-                                        <telerik:RadPanelItem runat="server" Text="IVR Payment Report" Value="http://cccweb/IVRReports/IVR_Payment.aspx" />
+                                        <telerik:RadPanelItem runat="server" Text="IVR Payment Report" Value="IVR" />
                                         <telerik:RadPanelItem runat="server" Text="Loss Prevention" Value="Loss Prevention Form" />
                                         <telerik:RadPanelItem runat="server" Text="Online Sales / Referral" Value="Online Sales / Referral" />
                                         <telerik:RadPanelItem runat="server" Text="Paper Fulfillment Request" Value="Paper Fulfillment Request" />
