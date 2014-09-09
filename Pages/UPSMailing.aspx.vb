@@ -279,7 +279,7 @@ Partial Class UPSMailingForm
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVM", DbType.Int32, CInt(Me.ddlUTVMedia.SelectedItem.Value))
 
 
-                'dbFormCollection.ExecuteNonQuery(cmdInsert)
+                dbFormCollection.ExecuteNonQuery(cmdInsert)
 
 
 
