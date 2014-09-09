@@ -179,7 +179,7 @@ Public Class UpsMailingAccount
         parameters(13) = New SqlParameter("@CABLE_MODEMS", cableModems)
         parameters(14) = New SqlParameter("@PHONE_MODEMS", phoneModems)
         parameters(15) = New SqlParameter("@CABLE_CARDS", cableCards)
-        parameters(16) = New SqlParameter("@ULTRA_TV_GATEWAYS", hdDvrReceivers)
+        parameters(16) = New SqlParameter("@ULTRA_TV_GATEWAYS", ultraTvGateways)
         parameters(17) = New SqlParameter("@HD_RECEIVERS", hdReceivers)
         parameters(18) = New SqlParameter("@ULTRA_TV_MEDIA_PLAYER", ultraTvMediaPlayer)
         parameters(19) = New SqlParameter("@TOTAL_BOXES_NEEDED", total)
