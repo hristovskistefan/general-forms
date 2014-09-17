@@ -717,8 +717,8 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
-                        Me._mSubject = "Loss Prevention - Unblock Address"
-                        Me._mBody = "Loss Prevention - Unblock Address" & vbCrLf & _
+                        Me._mSubject = "Loss Prevention - Update Address"
+                        Me._mBody = "Loss Prevention - Update Address" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
                             "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
                             "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
@@ -739,7 +739,7 @@ Public Class LossPrevention
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
                         _sqlstr = _sqlstr & "@phnum,@addy,@city,@state,@zip,@ssn,@dlnum,@comm)"
                         _sqlcmd.CommandText = _sqlstr
-                        _sqlcmd.Parameters.AddWithValue("@type", "Unblock Address")
+                        _sqlcmd.Parameters.AddWithValue("@type", "Update Address")
                         _sqlcmd.Parameters.AddWithValue("@user", _suser)
                         _sqlcmd.Parameters.AddWithValue("@date", Date.Now)
                         _sqlcmd.Parameters.AddWithValue("@ccr", _employee.FullNameFirstLast)
