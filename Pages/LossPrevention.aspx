@@ -190,7 +190,7 @@
             </asp:Panel>
             <!--
 ---------------------
-    RESTART PANEL - No longer used
+    RESTART PANEL - No longer used, but left in case someone wants to use it in the future
 ---------------------
 -->
             <asp:Panel ID="pnlrestart" runat="server">
@@ -487,7 +487,7 @@
 ---------------------
 -->
             <asp:Panel ID="pnldn" runat="server">
-                <table class="input" width="600" cellspacing="0" cellpadding="2">
+                <table class="input" width="660px" cellspacing="0" cellpadding="2">
                     <tr>
                         <td colspan="2">
                             <div class="sectionTitle">Unblock Address</div>
@@ -497,7 +497,9 @@
                         <td colspan="4" class="green">
                             <div class="infobox">
                                 Use this form if the address is blocked due to fraud and the customer paid the bill, the block was not removed by LP, 
-                                or an active customer is attempting to transfer services to a blocked address.
+                                or an active customer is attempting to transfer services to a blocked address. 
+                                <br />
+                                <strong>An ICOMS House Number is required.</strong>
                             </div>
                         </td>
                     </tr>
@@ -525,7 +527,7 @@
                             <asp:TextBox autocomplete="off" ID="txtDnHouseNumber" runat="server" Width="160" MaxLength="14"></asp:TextBox>
                             <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibtxtDnHouseNumber" runat="server" CausesValidation="false" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator6" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" />
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" ValidationGroup="vgDisconnected" />
                         </td>
                         
                         
@@ -603,7 +605,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button OnClick="SendIt" ID="btndnsend" runat="server" Text="Submit" Width="150" />
+                            <asp:Button OnClick="SendIt" ID="btndnsend" runat="server" Text="Submit" Width="150" ValidationGroup="vgDisconnected" />
                         </td>
                     </tr>
                 </table>
