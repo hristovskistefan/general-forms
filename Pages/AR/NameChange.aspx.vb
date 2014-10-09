@@ -30,18 +30,31 @@ Public Class ARNameChange
         pnlNameCorr.Visible = False
         Select Case rblNameCorrChange.SelectedValue
             Case "Divorce"
+                'Check if Ft. Gordon 30905/Harlem 30814/Grovetown 30813 (Division 58) account and if so, block submission of form
+                If Me.hfAccountDivision.Value = "58" Then
+                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Divorce.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+                    Exit Sub
+                End If
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the divorce certificate with the WOW! Account Number to 1-888-268-5859.<br />"
                 pnlLegal.Visible = False
             Case "Marriage"
+                If Me.hfAccountDivision.Value = "58" Then
+                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Marriage.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+                    Exit Sub
+                End If
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the marriage certificate with the WOW! Account Number to 1-888-268-5859.<br />"
                 pnlLegal.Visible = False
             Case "Death"
+                If Me.hfAccountDivision.Value = "58" Then
+                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Death.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+                    Exit Sub
+                End If
                 pnlNameChange.Visible = True
                 rblfamilyRelation.Visible = True
                 pnlFamilyRelation.Visible = True
@@ -53,6 +66,10 @@ Public Class ARNameChange
                 pnlNameCorr.Visible = True
                 pnlLegal.Visible = False
             Case "Legal"
+                If Me.hfAccountDivision.Value = "58" Then
+                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a Legal Name Change.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+                    Exit Sub
+                End If
                 pnlNameChange.Visible = False
                 pnlLegal.Visible = True
                 lblLegal.Text = "<br />Advise the customer to fax a copy of the court approved Petition to Change Name form showing the name change, with the WOW! Account number, to 1-888-268-5859.<br />"
@@ -241,8 +258,9 @@ Public Class ARNameChange
         End If
         'Check if Ft. Gordon 30905/Harlem 30814/Grovetown 30813 (Division 58) account and if so, block submission of form
         If _myCustomer.Address.Division = "58" Then
-            Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The Name Change form cannot be submitted for Fort Gordon accounts requesting a name change or correction.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-            Exit Sub
+            Me.hfAccountDivision.Value = "58"
+            'Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The Name Change form cannot be submitted for Fort Gordon accounts requesting a name change or correction.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+            'Exit Sub
         End If
         txtclname.Text = _myCustomer.LName
         txtcfname.Text = _myCustomer.FName

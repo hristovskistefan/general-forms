@@ -77,6 +77,15 @@ Partial Public Class ARNameChange
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''hfAccountDivision control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hfAccountDivision As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''txtAcct control.
     '''</summary>
     '''<remarks>

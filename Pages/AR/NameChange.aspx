@@ -47,6 +47,7 @@
                         Account Number:
                     </td>
                     <td>
+                        <asp:HiddenField ID="hfAccountDivision" runat="server" />
                         <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
                             ID="ibGo" ValidationGroup="vgAcctInfo" CausesValidation="false" runat="server"
                             ImageUrl="~/images/SearchGo.gif" />
