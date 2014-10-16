@@ -50,7 +50,8 @@
             <div class="messageInfo" style="width: auto">
                 <ul>
                     <li>Single LOB services, premium channels, and equipment<br />
-                        are never rate guaranteed regardless of CAT Code.</li>
+                        are never rate guaranteed regardless of 
+                         Code.</li>
                     <li>Any applied Campaigns will only be available for the
                     <br />
                         length selected and expire off the package accordingly.
@@ -84,9 +85,9 @@
                                 </th>
                             </tr>
                             <tr>
-                                <td>2013
-                                </td>
                                 <td>2014
+                                </td>
+                                <td>2015
                                 </td>
                                 <td>Increase
                                 </td>
@@ -118,9 +119,9 @@
                                 </th>
                             </tr>
                             <tr>
-                                <td>2013
-                                </td>
                                 <td>2014
+                                </td>
+                                <td>2015
                                 </td>
                                 <td>Increase
                                 </td>
