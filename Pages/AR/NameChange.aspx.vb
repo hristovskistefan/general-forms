@@ -98,6 +98,7 @@ Public Class ARNameChange
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
+            txtAcct.ReadOnly = True
             pnlNameChangeMain.Visible = True
         End If
     End Sub

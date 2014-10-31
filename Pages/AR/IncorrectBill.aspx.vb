@@ -54,6 +54,7 @@ Public Class ARIncorrectBill
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
+            txtAcct.ReadOnly = True
             pnlincbill.Visible = True
         End If
     End Sub

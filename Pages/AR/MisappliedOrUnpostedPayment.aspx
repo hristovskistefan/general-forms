@@ -1,5 +1,6 @@
 <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="MisappliedOrUnpostedPayment.aspx.vb" MaintainScrollPositionOnPostback="true"
     Inherits="GeneralForms.ARMisappliedOrUnpostedPayment" %>
+
 <%@ Register Src="~/Controls/MessageBox.ascx" TagName="MB" TagPrefix="User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +11,11 @@
             arguments.IsValid = !(pattern.test(arguments.Value));
         }
     </script>
+    <style type="text/css">
+        input[readonly] {
+            cursor: not-allowed;
+        }
+    </style>
     <title>General Forms</title>
 </head>
 <body>
@@ -73,7 +79,7 @@
                                 ControlToValidate="txtAcct" ErrorMessage="This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved."
                                 ID="cvAccount" Display="None" />
                             <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
-                            <asp:label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:label>
+                            <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -281,12 +287,14 @@
                             <!-- Debit/Credit Card -->
                             <asp:Panel ID="pnlcred" runat="server">
                                 <table>
-                                    <tr><td colspan="2" style="color:red;">Please ask for only the first 6 and last 4 digits to ensure the security of the customer’s credit card number.</td></tr>
+                                    <tr>
+                                        <td colspan="2" style="color: red;">Please ask for only the first 6 and last 4 digits to ensure the security of the customer’s credit card number.</td>
+                                    </tr>
                                     <tr>
                                         <td width="150">Card Number:
                                         </td>
                                         <td>
-                                            <telerik:RadMaskedTextBox ID="txtCCCardNumber" runat="server" Mask="#### ##XX XXXX ####"  Autocomplete="off"></telerik:RadMaskedTextBox>
+                                            <telerik:RadMaskedTextBox ID="txtCCCardNumber" runat="server" Mask="#### ##XX XXXX ####" Autocomplete="off"></telerik:RadMaskedTextBox>
                                             <%--<asp:TextBox autocomplete="off" ID="txtCCCardNumber" runat="server" Width="160" MaxLength="16"></asp:TextBox>
                                             --%><asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCCCardNumber" />
@@ -299,12 +307,12 @@
                                         <td>Expiration Date (MM/YYYY Format):
                                         </td>
                                         <td>
-                                            <telerik:RadMonthYearPicker ID="rmypCCExp" runat="server"  Autocomplete="off"></telerik:RadMonthYearPicker>
-                                           <%-- <asp:TextBox autocomplete="off" ID="txtcred2" runat="server" Width="160"></asp:TextBox>--%>
+                                            <telerik:RadMonthYearPicker ID="rmypCCExp" runat="server" Autocomplete="off"></telerik:RadMonthYearPicker>
+                                            <%-- <asp:TextBox autocomplete="off" ID="txtcred2" runat="server" Width="160"></asp:TextBox>--%>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" Text="X"
                                                 ErrorMessage="Expiration Date is required." Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" ControlToValidate="rmypCCExp" />
-                                       <%--     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="X"
+                                            <%--     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="X"
                                                 ErrorMessage="Invalid Date." Font-Bold="true" Font-Size="Medium" Display="Dynamic"
                                                 ControlToValidate="txtcred2" ValidationExpression="\d{1,2}/\d{4}" />--%>
                                         </td>

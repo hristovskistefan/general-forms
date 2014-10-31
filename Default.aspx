@@ -6,9 +6,12 @@
     <%--       <link href="/stylesheets/StyleSheet.css" rel="stylesheet" type="text/css" />
     <link href="/report_style.css" rel="stylesheet" type="text/css" />--%>
     <style type="text/css">
-        .VisibleScrollbar
-        {
+        .VisibleScrollbar {
             overflow: scroll !important;
+        }
+
+        input[readonly] {
+            cursor: not-allowed;
         }
     </style>
     <title>WOW! General Forms</title>
@@ -38,7 +41,7 @@
                             <Items>
                                 <telerik:RadPanelItem runat="server" Value="General Forms" Text="General Forms" Expanded="True">
                                     <Items>
-                                        
+
                                         <telerik:RadPanelItem runat="server" Text="Customer Refunds" Value="CustomerRefunds" />
                                         <telerik:RadPanelItem runat="server" Text="DueDate Change" Value="DueDateChange" />
                                         <telerik:RadPanelItem runat="server" Text="Incorrect Bill" Value="IncorrectBill" />

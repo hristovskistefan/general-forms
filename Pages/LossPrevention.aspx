@@ -1,11 +1,17 @@
 <%@ Page Language="vb" AutoEventWireup="false" CodeBehind="LossPrevention.aspx.vb"
     Inherits="GeneralForms.LossPrevention" %>
+
 <%-- Carl Rhoades - 26AUG14 - Added Georgia to drop down lists --%>
 <%@ Register Src="~/Controls/MessageBox.ascx" TagName="MB" TagPrefix="User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden;">
 <head id="Head1" runat="server">
     <title>General Forms</title>
+    <style type="text/css">
+        input[readonly] {
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body style="overflow: hidden;">
     <form id="Form1" runat="server">
@@ -529,8 +535,8 @@
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator6" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" ValidationGroup="vgDisconnected" />
                         </td>
-                        
-                        
+
+
                     </tr>
                     <tr>
                         <td>Address:

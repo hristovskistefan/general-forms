@@ -35,6 +35,7 @@ Public Class ARDueDateChange
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
+            txtAcct.ReadOnly = True
             pnlDDChange.Visible = True
         End If
     End Sub

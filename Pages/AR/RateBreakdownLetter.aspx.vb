@@ -35,6 +35,7 @@ Public Class ARRateBreakdownLetter
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
+            txtAcct.ReadOnly = True
             pnlItemLetter.Visible = True
         End If
     End Sub

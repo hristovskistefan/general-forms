@@ -10,6 +10,9 @@
         .style1 {
             height: 23px;
         }
+        input[readonly] {
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>

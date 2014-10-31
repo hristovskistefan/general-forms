@@ -15,7 +15,12 @@
             margin-right: 0in;
             margin-top: 0in;
         }
+
+        input[readonly] {
+            cursor: not-allowed;
+        }
     </style>
+
 </head>
 <body style="overflow: hidden;">
     <form id="form1" runat="server">
@@ -139,7 +144,7 @@
                     <asp:Button ID="btnChangeLdIntl" runat="server" Text="Submit" Width="150" />
                 </div>
             </asp:Panel>
-         
+
             <!-- Phone INP Error/TN is Invalid or Unavailable Error PANEL -->
             <asp:Panel ID="pnlInpError" runat="server" Visible="false">
                 <div class="sectionTitle">
@@ -325,7 +330,7 @@
                 <div class="SubmitButton">
                     <asp:Button runat="server" Width="150" ID="btnvm" Text="Submit" />
                 </div>
-            </asp:Panel>           
+            </asp:Panel>
 
             <!-- Scheduled/Installed at Incorrect Address Panel -->
             <asp:Panel ID="pnlIncAddress" runat="server" Visible="false">

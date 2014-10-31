@@ -6,6 +6,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>General Forms</title>
+    <style type="text/css">
+        input[readonly] {
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <form id="Form1" runat="server">

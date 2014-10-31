@@ -55,6 +55,7 @@ Public Class ARManualPayments
             txtcfname.Text = Replace(txtcfname.Text.Trim.ToUpper, " ", "")
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
+            txtAcct.ReadOnly = True
             pnlAltPhone.Visible = True
         End If
     End Sub

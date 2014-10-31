@@ -394,6 +394,9 @@ Partial Public Class PhoneInquiry
             Me.MB.ShowMessage("Lookup returned nothing.")
             Exit Sub
         End If
+        txtAccountChangeLdIntl.ReadOnly = True
+        txtAccountNumberPhoneInpError.ReadOnly = True
+        txtAcctNum2.ReadOnly = True
 
     End Sub
 

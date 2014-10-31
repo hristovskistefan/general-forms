@@ -225,5 +225,6 @@ Partial Public Class PhonePort
         If myRegex.IsMatch(txtAccount.Text.Trim) Then
             args.IsValid = False
         End If
+        txtAccount.ReadOnly = True
     End Sub
 End Class

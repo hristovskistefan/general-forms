@@ -36,6 +36,7 @@ Public Class ARCustomerRefunds
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
+            txtAcct.ReadOnly = True
             pnlrefund.Visible = True
         End If
     End Sub

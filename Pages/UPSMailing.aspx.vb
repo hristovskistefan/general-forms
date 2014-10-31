@@ -50,8 +50,8 @@ Partial Class UPSMailingForm
 
 
     Protected Sub ibGo_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibGo.Click
-        Dim tempAccount As String = txtAcct.Text.Trim
-        If String.IsNullOrWhiteSpace(tempAccount) Then
+        Dim accountNumber As String = txtAcct.Text.Trim
+        If String.IsNullOrWhiteSpace(accountNumber) Then
             Exit Sub
         End If
         Me.revAccount.Validate()
@@ -63,7 +63,7 @@ Partial Class UPSMailingForm
 
         Try
             Using customerClient As New CustomerService.CustomerManagementClient
-                _myCustomer = customerClient.getByCustomerID(tempAccount)
+                _myCustomer = customerClient.getByCustomerID(accountNumber)
             End Using
         Catch ex As Exception
             Dim errorAccount = ex.Message
@@ -86,6 +86,9 @@ Partial Class UPSMailingForm
         End If
         txtLName.Text = _myCustomer.LName
         txtFName.Text = _myCustomer.FName
+        txtLName.ReadOnly = True
+        txtFName.ReadOnly = True
+        txtAcct.ReadOnly = True
         'Check Division to exclude Ultra TV
         If ((_myCustomer.Address.Division = 58) Or (_myCustomer.Address.Division = 28)) Then
             Me.pnlUltraTV.Visible = False
