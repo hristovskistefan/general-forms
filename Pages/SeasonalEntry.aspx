@@ -35,9 +35,9 @@
         <iframe src="http://interweb/Seasonal" width="100%" height="100%"></iframe>
 
         <ul>
-            <li>To access this form through Gooroo, please update bookmarks to: <a href="http://home.wideopenwest.com/WebForms/Pages/Seasonal.aspx" alt="http://home.wideopenwest.com/WebForms/Pages/Seasonal.aspx">http://home.wideopenwest.com/WebForms/Pages/Seasonal.aspx</a>
+            <li>To access this form through Gooroo, please update bookmarks to: <a href="http://home.wideopenwest.com/WebForms/Pages/Seasonal.aspx" target="_blank">http://home.wideopenwest.com/WebForms/Pages/Seasonal.aspx</a>
             </li>
-            <li>To directly access this form, please update bookmarks to: <a href="http://interweb/Seasonal" alt="http://interweb/Seasonal">http://interweb/Seasonal</a>
+            <li>To directly access this form, please update bookmarks to: <a href="http://interweb/Seasonal" target="_blank">http://interweb/Seasonal</a>
             </li>
         </ul>
 
