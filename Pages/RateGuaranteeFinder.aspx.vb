@@ -58,20 +58,38 @@ Partial Public Class RateGuaranteeFinder
             reRates.DataSource = ds
             reRates.DataBind()
             reRates.Visible = True
+            lblGuaranteeDate.Visible = True
+            lblGuarantee.Visible = True
         Else
             reRates.Visible = False
+            lblGuaranteeDate.Visible = False
+            lblGuarantee.Visible = False
         End If
 
         If reMIRatesDisp = True Then
             reMIrates.DataSource = ds
             reMIrates.DataBind()
             reMIrates.Visible = True
+            lblGuaranteeDateMidMich.Visible = True
+            lblGuaranteeMidMich.Visible = True
         Else
             reMIrates.Visible = False
+            lblGuaranteeDateMidMich.Visible = False
+            lblGuaranteeMidMich.Visible = False
         End If
 
         lblPackageCode.Text = rcbRateCodes.SelectedItem.Text
-        lblGuaranteeDate.Text = ds.Rows(0)("GuaranteeDate")
+
+
+        For Each Row As DataRow In ds.Rows
+            If Row("GuaranteeDate").ToString.Contains("Michigan") Then
+                lblGuaranteeDateMidMich.Text = Row("GuaranteeDate").ToString
+            Else
+                lblGuaranteeDate.Text = Row("GuaranteeDate").ToString
+            End If
+        Next
+
+
         pnlPkgCode.Visible = True
         pnlInfo.Visible = True
     End Sub

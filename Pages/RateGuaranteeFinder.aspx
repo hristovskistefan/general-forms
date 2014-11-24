@@ -72,9 +72,9 @@
                     Package Code
                 <asp:Label runat="server" ID="lblPackageCode" />
                 </div>
-                <span style="font-weight: bold;">Guarantee Date:</span>
-                <asp:Label runat="server" ID="lblGuaranteeDate" /><br />
                 <br />
+                <asp:Label ID="lblGuarantee" runat="server" style="font-weight: bold;">Guarantee Date:</asp:Label>
+                <asp:Label runat="server" ID="lblGuaranteeDate" /><br />
             </asp:Panel>
             <asp:Panel runat="server" ID="pnlInfo" Visible="False" Height="314px">
                 <asp:Repeater runat="server" ID="reRates">
@@ -82,7 +82,7 @@
                         <table class="RateInfo">
                             <tr>
                                 <th colspan="3">Rate Information:
-                                </th>
+                                </th>                
                             </tr>
                             <tr>
                                 <td>2014
@@ -109,12 +109,13 @@
                     <FooterTemplate></table></FooterTemplate>
                 </asp:Repeater>
                 <br />
+                <asp:Label ID="lblGuaranteeMidMich" runat="server" style="font-weight: bold;">Guarantee Date Mid-Michigan:</asp:Label>
+                <asp:Label runat="server" ID="lblGuaranteeDateMidMich" /><br />
                 <asp:Repeater ID="reMIrates" runat="server">
                     <HeaderTemplate>
                         <table class="RateInfo">
                             <tr>
-                                <th colspan="3">Mid-Michagan
-                                    <br />
+                                <th colspan="3">
                                     Rate Information:
                                 </th>
                             </tr>

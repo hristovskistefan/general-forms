@@ -86,6 +86,15 @@ Partial Public Class RateGuaranteeFinder
     Protected WithEvents lblPackageCode As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblGuarantee control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGuarantee As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblGuaranteeDate control.
     '''</summary>
     '''<remarks>
@@ -111,6 +120,24 @@ Partial Public Class RateGuaranteeFinder
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents reRates As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
+    '''lblGuaranteeMidMich control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGuaranteeMidMich As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblGuaranteeDateMidMich control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGuaranteeDateMidMich As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''reMIrates control.
