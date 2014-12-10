@@ -279,11 +279,11 @@ Public Class LossPrevention
                             Exit Sub
                         End If
                         'VERIFY House number is exactly 8 digits
-                        If Me.txtLocationID.Text.Trim.Length <> 8 Then
-                            Me.lblsuperr.Visible = True
-                            Me.lblsuperr.Text = "The Location ID must be 8 digits."
-                            Exit Sub
-                        End If
+                        'If Me.txtLocationID.Text.Trim.Length <> 8 Then
+                        '    Me.lblsuperr.Visible = True
+                        '    Me.lblsuperr.Text = "The Location ID must be 8 digits."
+                        '    Exit Sub
+                        'End If
 
                         Me._mSubject = "Loss Prevention - New Start Request"
                         Me._mBody = "Loss Prevention - New Start Request" & vbCrLf & _
