@@ -55,7 +55,7 @@
                     <td>Tech Number:
                     </td>
                     <td>
-                        <asp:TextBox autocomplete="off" ID="txtTechNumber" runat="server" Width="100" MaxLength="4" />
+                        <asp:TextBox autocomplete="off" ID="txtTechNumber" runat="server" Width="100" MaxLength="5" />
                         <asp:RequiredFieldValidator ID="rfvTechNumber" ControlToValidate="txtTechNumber"
                             runat="server" Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium"
                             ErrorMessage="Tech Number Required" />
