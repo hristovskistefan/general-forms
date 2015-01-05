@@ -235,6 +235,8 @@ Partial Class UPSMailingForm
                 zip = If(Me.chkmoved.Checked, Me.txtzip.Text, Me.dropzip.SelectedItem.Value)
 
                 Dim upsMailingAccount As New UpsMailingAccount(txtAcct.Text)
+                Exit Sub
+
                 Dim orderNumber As String = upsMailingAccount.CreateOrder(ConfigurationManager.AppSettings("ExternalUsername"), lblSalesId.Text)
 
                 upsMailingAccount.AddInformationToDatabase(lblIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _

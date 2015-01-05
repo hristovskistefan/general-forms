@@ -31,7 +31,7 @@ Public Class UpsMailingAccount
             sqlParameters(0) = New SqlParameter("@inAccountNumber", _accountNumber)
             sqlParameters2(0) = New SqlParameter("@inAccountNumber", _accountNumber)
 
-            dtChargeOff = baseDb.GetDataTable("ccc.SpcAccountLookup", sqlParameters)
+            dtChargeOff = baseDb.GetDataTable("ccc.SpcAccountLookup_Primary", sqlParameters)
 
             Dim dtOccurrences As New DataTable
 
