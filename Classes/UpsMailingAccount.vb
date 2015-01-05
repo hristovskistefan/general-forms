@@ -25,11 +25,18 @@ Public Class UpsMailingAccount
             'Determine if the account is charged off
             Dim dtChargeOff As New DataTable
             Dim sqlParameters(0) As SqlParameter
+            Dim sqlParameters2(0) As SqlParameter
+
 
             sqlParameters(0) = New SqlParameter("@inAccountNumber", _accountNumber)
-
+            sqlParameters2(0) = New SqlParameter("@inAccountNumber", _accountNumber)
 
             dtChargeOff = baseDb.GetDataTable("ccc.SpcAccountLookup", sqlParameters)
+
+            Dim dtOccurrences As New DataTable
+
+            dtOccurrences = baseDb.GetDataTable("SpcCustomerOccurrence_PastPresent", sqlParameters2)
+
             If dtChargeOff Is Nothing OrElse dtChargeOff.Rows.Count = 0 Then
                 Throw New Exception("Account could not be located.")
 
@@ -56,22 +63,22 @@ Public Class UpsMailingAccount
 
             Next
 
-            If dtChargeOff.Rows(0)("videoFlag").ToString = "Y" Then
-                _hasVideo = True
-            Else
-                _hasVideo = False
-            End If
+            _hasVideo = False
+            _hasHsd = False
+            _hasTelephony = False
 
-            If dtChargeOff.Rows(0)("hsdFlag").ToString = "Y" Then
-                _hasHsd = True
-            Else
-                _hasHsd = False
-            End If
-
-            If dtChargeOff.Rows(0)("telephonyFlag").ToString = "Y" Then
-                _hasTelephony = True
-            Else
-                _hasTelephony = False
+            If dtOccurrences.Rows.Count > 0 Then
+                For Each singleRow As DataRow In dtOccurrences.Rows
+                    If singleRow("ServiceCategoryCode") = "C" Then
+                        _hasVideo = True
+                    End If
+                    If singleRow("ServiceCategoryCode") = "D" Then
+                        _hasHsd = True
+                    End If
+                    If singleRow("ServiceCategoryCode") = "T" Then
+                        _hasTelephony = True
+                    End If
+                Next
             End If
 
 
