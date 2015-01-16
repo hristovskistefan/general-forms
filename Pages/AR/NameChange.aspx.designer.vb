@@ -149,6 +149,15 @@ Partial Public Class ARNameChange
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnlNameChangeMain control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlNameChangeMain As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtcfname control.
     '''</summary>
     '''<remarks>
@@ -183,15 +192,6 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''pnlNameChangeMain control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlNameChangeMain As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''rblNameCorrChange control.
@@ -338,22 +338,22 @@ Partial Public Class ARNameChange
     Protected WithEvents txtNewPhone As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Requiredfieldvalidator35 control.
+    '''rfvNewPhone control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Requiredfieldvalidator35 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvNewPhone As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''revPhone control.
+    '''revNewPhone control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents revNewPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''txtAltNum control.
@@ -372,6 +372,15 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvAltNum As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revAltNum control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revAltNum As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''lblCertificate control.

@@ -60,6 +60,11 @@ Public Class ARIncorrectBill
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnincbillsend.Click
+        'Removed dashes, spaces, and periods from phone number fields
+        Dim pattern As String = "[- .]"
+        Dim replacement As String = ""
+        Dim rgx As New Regex(pattern)
+        txtPhoneNumber.Text = rgx.Replace(txtPhoneNumber.Text, replacement)
         If Page.IsValid Then
             Try
                 'GET DB STUFF PREPARED
@@ -67,7 +72,7 @@ Public Class ARIncorrectBill
                 Dim db As Database = DatabaseFactory.CreateDatabase("Billing")
                 Dim cmd As DbCommand
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Month,Reason,Comments,Division) VALUES " _
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Month,Reason,Comments,Division) VALUES " _
                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Month,@Reason,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
@@ -80,6 +85,7 @@ Public Class ARIncorrectBill
                 db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
                 db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
                 db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
+                db.AddInParameter(cmd, "PhoneNum", DbType.String, txtPhoneNumber.Text)
                 db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                 db.AddInParameter(cmd, "Month", DbType.String, dropincbillmonth.SelectedItem.Value)

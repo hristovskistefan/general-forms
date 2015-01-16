@@ -51,7 +51,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:&nbsp;
+                        <td style="width: 168px;">Account Number:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox>&nbsp;<asp:ImageButton
@@ -70,27 +70,28 @@
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>First Name:&nbsp;
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
-                                Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
-                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
-                        </td>
-                        <td>&nbsp;Last Name:&nbsp;
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
-                                Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
-                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
-                        </td>
-                    </tr>
+
                     <asp:Panel runat="server" ID="pnlAltPhone" Visible="false">
                         <tr>
-                            <td>Best Contact Phone Number:&nbsp;
+                            <td>First Name:&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
+                                    Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
+                                    EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                            </td>
+                            <td>&nbsp;Last Name:&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
+                                    Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
+                                    EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bolder">Best Contact Phone Number:&nbsp;
                             </td>
                             <td>
                                 <asp:TextBox autocomplete="off" ID="txtmanpayphone" runat="server" Width="100" MaxLength="13"></asp:TextBox>
@@ -98,7 +99,8 @@
                                     Font-Size="Medium" Display="Dynamic" ErrorMessage="Alternate Phone Number is Required"
                                     ControlToValidate="txtmanpayphone" />
                                 <asp:RegularExpressionValidator ID="revManPayPhone" runat="server" Text="X" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                    ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
                                     ControlToValidate="txtmanpayphone" />
                                 <asp:CustomValidator runat="server" Text="X" EnableClientScript="false" Font-Bold="true"
                                     Font-Size="Medium" Display="Dynamic" ControlToValidate="txtmanpayphone" ErrorMessage="Invalid Phone Number"
@@ -106,7 +108,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Payment Amount Requested:&nbsp;
+                            <td class="bolder">Payment Amount Requested:&nbsp;
                             </td>
                             <td>
                                 <telerik:RadNumericTextBox ID="payamount" Width="110" MaxLength="8" runat="server" Type="Currency"

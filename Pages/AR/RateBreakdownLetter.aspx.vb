@@ -56,7 +56,7 @@ Public Class ARRateBreakdownLetter
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Replacement/Itemized Letter")
                 db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
-                db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstlast)
+                db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstLast)
                 db.AddInParameter(cmd, "CSGOpCode", DbType.String, _employee.IcomsUserID)
                 db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
                 db.AddInParameter(cmd, "Supervisor", DbType.String, _employee.SupNameFirstLast)

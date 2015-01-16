@@ -140,6 +140,15 @@ Partial Public Class ARIncorrectBill
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnlincbill control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlincbill As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtcfname control.
     '''</summary>
     '''<remarks>
@@ -176,15 +185,6 @@ Partial Public Class ARIncorrectBill
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''pnlincbill control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlincbill As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
     '''dropincbillmonth control.
     '''</summary>
     '''<remarks>
@@ -201,6 +201,33 @@ Partial Public Class ARIncorrectBill
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator31 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''txtPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPhoneNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''RequiredFieldValidator2 control.

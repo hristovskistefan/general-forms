@@ -38,7 +38,7 @@
                                 Submit a Name Change form to request a change to the name on active WOW! accounts.
                             A name change is defined as a change to the responsible party on the account or
                             a legal change in the customer’s name due to marriage, divorce, or death. Also, use this
-                            form to correct 4 or more letters in the spelling of a customer's name.
+                            form to correct up to 4 letters in the spelling of a customer's name.
                             </div>
                         </td>
                     </tr>
@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td style="width: 168px;">Account Number:&nbsp;
                         </td>
                         <td>
                             <asp:HiddenField ID="hfAccountDivision" runat="server" />
@@ -70,8 +70,12 @@
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel ID="pnlNameChangeMain" runat="server">
+                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>First Name:
+                        <td style="width: 168px;">First Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
@@ -79,7 +83,7 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td>Last Name:
+                        <td>Last Name:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
@@ -88,12 +92,8 @@
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
                     </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlNameChangeMain" runat="server">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>
+                        <td colspan="4">
                             <div class="sectionTitle">
                                 Name Change Type
                             </div>
@@ -101,7 +101,7 @@
                                 <asp:ListItem Value="Marriage">Marriage (A change in the ownership of an account due to Marriage)</asp:ListItem>
                                 <asp:ListItem Value="Divorce">Divorce (A change in the ownership of an account due to Divorce)</asp:ListItem>
                                 <asp:ListItem Value="Death">Death (A change in the ownership of an account due to Death)</asp:ListItem>
-                                <asp:ListItem Value="Correction">Correction (This is to correct 4 or more letters in the spelling of the customer's name. Ex.: Caitlin to Kaitlyne)</asp:ListItem>
+                                <asp:ListItem Value="Correction">Correction (This is to correct up to 4 letters in the spelling of the customer's name. Ex.: Caitlin to Kaitlyne)</asp:ListItem>
                                 <asp:ListItem Value="Legal">Legal Name Change (The customer can provide a court approved Petition to Change Name form. Ex.:John Smith to Mary Smith)</asp:ListItem>
                             </asp:RadioButtonList>
                             <hr />
@@ -110,7 +110,7 @@
                     <asp:Panel ID="pnlNameChange" runat="server" Visible="False">
                         <asp:Panel ID="pnlFamilyRelation" runat="server" Visible="false">
                             <tr>
-                                <td>Is the new customer a Spouse or Direct Family member?<br />
+                                <td colspan="4">Is the new customer a Spouse or Direct Family member?<br />
                                     <asp:RadioButtonList runat="server" ID="rblfamilyRelation" RepeatDirection="Horizontal"
                                         AutoPostBack="true">
                                         <asp:ListItem Text="Yes" Value="Yes" />
@@ -122,7 +122,7 @@
                         </asp:Panel>
                         <asp:Panel ID="pnlNameChangeData" runat="server" Visible="False">
                             <tr>
-                                <td>
+                                <td colspan="4">
                                     <table>
                                         <tr>
                                             <td>Current Customer Name:
@@ -170,11 +170,13 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox autocomplete="off" ID="txtNewPhone" runat="server" />
-                                                <asp:RequiredFieldValidator runat="server" ID="Requiredfieldvalidator35" ControlToValidate="txtNewPhone"
-                                                    ErrorMessage="New Customer Phone Number is required." Text="X" Font-Bold="true"
-                                                    Font-Size="Medium" Display="Dynamic" />
-                                                <asp:RegularExpressionValidator runat="server" ID="revPhone" ControlToValidate="txtNewPhone"
-                                                    ValidationExpression="\d{10}">Phone Number must be 10 digits.</asp:RegularExpressionValidator>
+                                                <asp:RequiredFieldValidator ID="rfvNewPhone" ErrorMessage="A valid New Customer Phone Number is required."
+                                                    ControlToValidate="txtNewPhone" runat="server" Text="X"
+                                                    Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                                                <asp:RegularExpressionValidator ID="revNewPhone" runat="server" Text="X" Font-Bold="true"
+                                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                                    ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                                    ControlToValidate="txtNewPhone" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -182,28 +184,32 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox autocomplete="off" ID="txtAltNum" runat="server" MaxLength="10"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvAltNum" ControlToValidate="txtAltNum"
-                                                    ErrorMessage="Alternate Contact Number is required." Text="X" Font-Bold="true"
-                                                    Font-Size="Medium" Display="Dynamic" />
+                                                <asp:RequiredFieldValidator ID="rfvAltNum" ErrorMessage="A valid alternate contact number is required."
+                                                    ControlToValidate="txtAltNum" runat="server" Text="X"
+                                                    Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                                                <asp:RegularExpressionValidator ID="revAltNum" runat="server" Text="X" Font-Bold="true"
+                                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                                    ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                                    ControlToValidate="txtAltNum" />
                                             </td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td colspan="4">
                                     <asp:Label ID="lblCertificate" Font-Bold="True" ForeColor="Red" runat="server"><br />Advise the customer to fax a copy of the death certificate with the WOW! Account Number to 1-888-268-5859.<br /></asp:Label>
                                     <br />
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">Comments:<br />
+                                <td colspan="4">Comments:<br />
                                     <asp:TextBox autocomplete="off" ID="txtNameChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                         MaxLength="500"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="4">
                                     <asp:Button ID="btnNameChangeSubmit" OnClick="SendIt" runat="server" Width="150"
                                         Text="Submit"></asp:Button>
                                 </td>
@@ -227,13 +233,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">Comments:<br />
+                            <td colspan="4">Comments:<br />
                                 <asp:TextBox autocomplete="off" ID="txtNameCorrComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                     MaxLength="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="4">
                                 <asp:Button ID="btnNameCorrSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
                             </td>
                         </tr>

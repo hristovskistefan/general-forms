@@ -140,6 +140,15 @@ Partial Public Class ARManualPayments
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnlAltPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlAltPhone As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtcfname control.
     '''</summary>
     '''<remarks>
@@ -174,15 +183,6 @@ Partial Public Class ARManualPayments
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''pnlAltPhone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlAltPhone As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtmanpayphone control.

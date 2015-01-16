@@ -62,6 +62,11 @@ Public Class ARManualPayments
 
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnmanpay.Click
+        'Removed dashes, spaces, and periods from phone number fields
+        Dim pattern As String = "[- .]"
+        Dim replacement As String = ""
+        Dim rgx As New Regex(pattern)
+        txtmanpayphone.Text = rgx.Replace(txtmanpayphone.Text, replacement)
         If Page.IsValid Then
             Try
 
@@ -83,7 +88,7 @@ Public Class ARManualPayments
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Manual Payment")
                 db.AddInParameter(cmd, "Reason", DbType.String, "Manual Payment")
                 db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
-                db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstlast)
+                db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstLast)
                 db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
                 db.AddInParameter(cmd, "CSGOpCode", DbType.String, _employee.IcomsUserID)
                 db.AddInParameter(cmd, "Supervisor", DbType.String, _employee.SupNameFirstLast)

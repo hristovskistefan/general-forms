@@ -38,10 +38,11 @@
                                 Use when a ledger appears to have incorrect charges or debits on the account. This
                             may also be used for billing disputes involving credits and debits.<br />
                                 <br />
-                                Inquiries that are within the CCRs scope of customer assistance will be returned
-                            to the Supervisor for resolution.<br />
                                 <span style="color: Red; font-size: larger; font-style: italic;">All inquiries must
                                 be approved by your Supervisor prior to submission.</span>
+                                <br />
+                                Inquiries that are within the CCRs scope of customer assistance will be returned
+                            to the Supervisor for resolution.
                             </div>
                         </td>
                     </tr>
@@ -53,7 +54,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td style="width: 120px;">Account Number:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
@@ -72,8 +73,12 @@
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel ID="pnlincbill" runat="server">
+                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>First Name:
+                        <td style="width: 120px;">First Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
@@ -81,7 +86,7 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td>Last Name:
+                        <td style="width: 164px;">Last Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
@@ -90,12 +95,8 @@
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
                     </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlincbill" runat="server">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td class="bolder">Which Month:
+                        <td style="width: 120px;" class="bolder">Which Month:
                         </td>
                         <td>
                             <asp:DropDownList ID="dropincbillmonth" runat="server" Width="160">
@@ -105,9 +106,19 @@
                                 ErrorMessage="Month is required." Font-Bold="true" Font-Size="Medium" Display="Dynamic"
                                 ControlToValidate="dropincbillmonth" InitialValue="Select One" />
                         </td>
+                        <td style="width: 164px;" class="bolder">Best Contact Phone Number:</td>
+                        <td>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPhoneNumber" ErrorMessage="A valid phone number is required." ControlToValidate="txtPhoneNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtPhoneNumber" />
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="bolder">What specifically is wrong with the bill:
+                        <td colspan="4" class="bolder">What specifically is wrong with the bill:
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="X"
                             ErrorMessage="Reason required." Font-Bold="true" Font-Size="Medium" Display="Dynamic"
                             ControlToValidate="txtspecs" /><br />
@@ -116,13 +127,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="bolder">Comments:<br />
+                        <td colspan="4" class="bolder">Comments:<br />
                             <asp:TextBox autocomplete="off" ID="txtincbillcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="4">
                             <asp:Button ID="btnincbillsend" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
                         </td>
                     </tr>

@@ -41,6 +41,11 @@ Public Class ARDueDateChange
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnDDChangeSubmit.Click
+        'Removed dashes, spaces, and periods from phone number fields
+        Dim pattern As String = "[- .]"
+        Dim replacement As String = ""
+        Dim rgx As New Regex(pattern)
+        txtPhoneNumber.Text = rgx.Replace(txtPhoneNumber.Text, replacement)
         If Page.IsValid Then
             Try
                 'GET DB STUFF PREPARED
@@ -52,7 +57,7 @@ Public Class ARDueDateChange
                 ' Due Date Change
                 '***************************************
 
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,ODueDate,NDueDate,Division,IssueType) VALUES " _
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Comments,ODueDate,NDueDate,Division,IssueType) VALUES " _
                  & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@Division,@IssueType)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
@@ -65,6 +70,7 @@ Public Class ARDueDateChange
                 db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
                 db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
                 db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
+                db.AddInParameter(cmd, "PhoneNum", DbType.String, txtPhoneNumber.Text)
                 db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                 db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                 db.AddInParameter(cmd, "Comments", DbType.String, txtDDChangeComm.Text)

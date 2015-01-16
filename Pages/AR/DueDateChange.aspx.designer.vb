@@ -140,6 +140,24 @@ Partial Public Class ARDueDateChange
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''pnlDDChange control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlDDChange As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''pnlDateChangePhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlDateChangePhone As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtcfname control.
     '''</summary>
     '''<remarks>
@@ -176,22 +194,31 @@ Partial Public Class ARDueDateChange
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''pnlDDChange control.
+    '''txtPhoneNumber control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlDDChange As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents txtPhoneNumber As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''pnlDateChangePhone control.
+    '''rfvPhoneNumber control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlDateChangePhone As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents rfvPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''txtCurrDate control.

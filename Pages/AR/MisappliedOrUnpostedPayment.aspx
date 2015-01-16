@@ -63,7 +63,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td style="width: 168px;">Account Number:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
@@ -82,8 +82,12 @@
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel ID="pnlmisapp" runat="server" Visible="false">
+                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>First Name:
+                        <td style="width: 168px;">First Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
@@ -91,7 +95,7 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td>Last Name:
+                        <td>Last Name:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
@@ -100,19 +104,30 @@
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
                     </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlmisapp" runat="server" Visible="false">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td colspan="2">
+                        <td style="width: 168px;" class="bolder">Best Contact Phone Number:</td>
+                        <td>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPhoneNumber" ErrorMessage="A valid phone number is required." ControlToValidate="txtPhoneNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtPhoneNumber" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
                             <b>Type of Payment</b>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" Text="X"
                                 Font-Size="Medium" Font-Bold="true" ControlToValidate="radmisapp" ErrorMessage="Type of Payment is required." />
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" width="200">
+                        <td valign="top" style="width: 168px;" >
                             <asp:RadioButtonList ID="radmisapp" runat="server" AutoPostBack="True" RepeatDirection="Vertical">
                                 <asp:ListItem Value="0" Text="Personal Check" />
                                 <asp:ListItem Value="1" Text="Money Order" />
@@ -122,12 +137,12 @@
                                 <asp:ListItem Value="5" Text="Cash Payment" />
                             </asp:RadioButtonList>
                         </td>
-                        <td valign="top">
+                        <td valign="top" colspan="3">
                             <!--Personal Check -->
                             <asp:Panel ID="pnlchk" runat="server">
                                 <table>
                                     <tr>
-                                        <td width="150">Check Number:
+                                        <td width="150" class="bolder">Check Number:
                                         </td>
                                         <td>
                                             <asp:TextBox autocomplete="off" ID="txtPersonalCheckNumber" runat="server" Width="160" MaxLength="7"></asp:TextBox>
@@ -288,7 +303,11 @@
                             <asp:Panel ID="pnlcred" runat="server">
                                 <table>
                                     <tr>
-                                        <td colspan="2" style="color: red;">Please ask for only the first 6 and last 4 digits to ensure the security of the customer’s credit card number.</td>
+                                        <td colspan="2" style="color: red;" class="bolder">Please ask for only the first 6 and last 4 digits to ensure
+                                            <br />
+                                            the security of the customer’s credit card number.
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td width="150">Card Number:
@@ -446,7 +465,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">Comments: <i>(Max 500 Characters)</i><br />
+                        <td colspan="2"><span class="bolder">Comments:</span> <i>(Max 500 Characters)</i><br />
                             <asp:TextBox autocomplete="off" ID="txtmisappcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="500"></asp:TextBox>
                             <asp:CustomValidator runat="server" ClientValidationFunction="NOCCValidate" ID="cvComments"

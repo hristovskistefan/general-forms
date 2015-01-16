@@ -35,7 +35,7 @@
                     <tr>
                         <td align="center" colspan="4">
                             <div class="infobox bolder">
-                                Use this form if the customer is requesting a change to their statement due date.
+                                Use this form if the customer is requesting a change to their statement due date.                                
                             </div>
                         </td>
                     </tr>
@@ -47,7 +47,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td style="width: 168px;">Account Number:&nbsp;
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
@@ -66,31 +66,46 @@
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
                     </tr>
-                    <tr>
-                        <td>First Name:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
-                                Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
-                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
-                        </td>
-                        <td>Last Name:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
-                                Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
-                                EnableClientScript="false" ValidationGroup="vgAcctInfo" />
-                        </td>
-                    </tr>
+
                 </table>
             </asp:Panel>
             <asp:Panel ID="pnlDDChange" runat="server">
                 <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <asp:Panel ID="pnlDateChangePhone" runat="server">
                         <tr>
-                            <td>Current Due Date (Day of Month - DD):<br />
+                            <td style="width: 168px;">First Name:
+                            </td>
+                            <td>
+                                <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
+                                    Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
+                                    EnableClientScript="false" ValidationGroup="vgAcctInfo" />&nbsp;
+                            </td>
+                            <td>Last Name:&nbsp;
+                            </td>
+                            <td>
+                                <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
+                                    Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
+                                    EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                            </td>
+                        </tr>
+                        <tr>
+                           <td style="width: 168px;" class="bolder">Best Contact Phone Number:&nbsp;</td>
+                        <td>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPhoneNumber" ErrorMessage="A valid phone number is required." ControlToValidate="txtPhoneNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtPhoneNumber" />
+                        </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><span class="bolder">Current Due Date (Day of Month - DD):</span><br />
                                 <asp:TextBox autocomplete="off" runat="server" ID="txtCurrDate" Width="100"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvCurrDate" runat="server" Text="X" ErrorMessage="Current Due Date is required."
                                     Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCurrDate"
@@ -101,7 +116,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Requested Due Date (Day of Month - DD):<br />
+                            <td colspan="4"><span class="bolder">Requested Due Date (Day of Month - DD):</span><br />
                                 <asp:TextBox autocomplete="off" runat="server" ID="txtNewDate" Width="100"></asp:TextBox><asp:RequiredFieldValidator
                                     ID="rfvNewDate" runat="server" Text="X" ErrorMessage="Requested Due Date is required."
                                     Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtNewDate"
@@ -112,13 +127,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">Comments:<br />
+                            <td colspan="4"><span class="bolder">Comments:</span><br />
                                 <asp:TextBox autocomplete="off" ID="txtDDChangeComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                     MaxLength="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="4">
                                 <asp:Button ID="btnDDChangeSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit" OnClientClick="return confirm ('By submitting this form you confirm that all issues and concerns relating to Due Date Changes have been addressed with the customer.');"></asp:Button>
                             </td>
                         </tr>
