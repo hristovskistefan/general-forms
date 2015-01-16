@@ -149,6 +149,15 @@ Partial Public Class LossPrevention
     Protected WithEvents Requiredfieldvalidator38 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''revLocationID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revLocationID As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtnewaddy control.
     '''</summary>
     '''<remarks>
@@ -194,6 +203,15 @@ Partial Public Class LossPrevention
     Protected WithEvents rntnewPhone As Global.Telerik.Web.UI.RadNumericTextBox
 
     '''<summary>
+    '''revNewPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revNewPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtnewssn control.
     '''</summary>
     '''<remarks>
@@ -203,6 +221,15 @@ Partial Public Class LossPrevention
     Protected WithEvents txtnewssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revNewSSN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revNewSSN As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtnewdl control.
     '''</summary>
     '''<remarks>
@@ -210,6 +237,24 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtnewdl As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''revTxtNewDl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revTxtNewDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''lblSsnDlError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSsnDlError As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''cbD2d control.
@@ -392,6 +437,24 @@ Partial Public Class LossPrevention
     Protected WithEvents txtresphone As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''rfvResPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvResPhone As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revResPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revResPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtresssn control.
     '''</summary>
     '''<remarks>
@@ -401,6 +464,15 @@ Partial Public Class LossPrevention
     Protected WithEvents txtresssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revTxtResSnn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revTxtResSnn As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtresdl control.
     '''</summary>
     '''<remarks>
@@ -408,6 +480,24 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtresdl As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''revResDl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revResDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''lblResSsnDlError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblResSsnDlError As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtrescomm control.
@@ -536,6 +626,15 @@ Partial Public Class LossPrevention
     Protected WithEvents txtsusphone As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revSusPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revSusPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtsusssn control.
     '''</summary>
     '''<remarks>
@@ -545,6 +644,15 @@ Partial Public Class LossPrevention
     Protected WithEvents txtsusssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revSusSnn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revSusSnn As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtsusdl control.
     '''</summary>
     '''<remarks>
@@ -552,6 +660,24 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtsusdl As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''revSesDl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revSesDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''lblSusSsnDlError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSusSsnDlError As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''dropsusrequest control.
@@ -635,13 +761,22 @@ Partial Public Class LossPrevention
     Protected WithEvents ibtxtDnHouseNumber As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Requiredfieldvalidator6 control.
+    '''rfvDnHouseNumber control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Requiredfieldvalidator6 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents rfvDnHouseNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revDnHouseNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revDnHouseNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''txtdnaddy control.
@@ -716,6 +851,15 @@ Partial Public Class LossPrevention
     Protected WithEvents Requiredfieldvalidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''RegularExpressionValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtdnssn control.
     '''</summary>
     '''<remarks>
@@ -725,6 +869,15 @@ Partial Public Class LossPrevention
     Protected WithEvents txtdnssn As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''revDnSsn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revDnSsn As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtdndl control.
     '''</summary>
     '''<remarks>
@@ -732,6 +885,24 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtdndl As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''revDnDl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revDnDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''lblDnDlSsnDlError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDnDlSsnDlError As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtdncomm control.

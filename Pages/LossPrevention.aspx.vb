@@ -31,11 +31,9 @@ Public Class LossPrevention
             Me.pnlnew.Visible = False
             Me.pnlrestart.Visible = False
             Me.pnlfraud.Visible = False
-            'Me.pnllink.Visible = False
             Me.pnldn.Visible = False
             Me.pnlerror.Visible = False
             Me.pnlthx.Visible = False
-            'Me.droplink2.Enabled = False
             revresacct.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
             revsusacct.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
         End If
@@ -46,18 +44,13 @@ Public Class LossPrevention
         Me.pnlnew.Visible = False
         Me.pnlrestart.Visible = False
         Me.pnlfraud.Visible = False
-        'Me.pnllink.Visible = False
         Me.pnldn.Visible = False
 
         Select Case Me.radformsel.SelectedItem.Value
             Case "0"
                 Me.pnlnew.Visible = True
-                'Case "1"
-                '    Me.pnlrestart.Visible = True
             Case "2"
                 Me.pnlfraud.Visible = True
-                'Case "3"
-                '    Me.pnllink.Visible = True
             Case "4"
                 Me.pnldn.Visible = True
             Case Else
@@ -69,34 +62,21 @@ Public Class LossPrevention
     Public Sub ResetPanels(ByVal mypnl As String)
         Select Case mypnl
             Case "0"
-                'Call ResetResPanel()
                 Call ResetFraudPanel()
-                'Call ResetLinkPanel()
                 Call ResetDNPanel()
             Case "1"
                 Call ResetNewPanel()
                 Call ResetFraudPanel()
-                'Call ResetLinkPanel()
                 Call ResetDNPanel()
             Case "2"
                 Call ResetNewPanel()
-                'Call ResetResPanel()
-                'Call ResetLinkPanel()
                 Call ResetDNPanel()
-                'Case "3"
-                '    Call ResetNewPanel()
-                '    Call ResetResPanel()
-                '    Call ResetFraudPanel()
-                '    Call ResetDNPanel()
             Case "4"
                 Call ResetNewPanel()
                 Call ResetFraudPanel()
-                'Call ResetLinkPanel()
             Case Else
                 Call ResetNewPanel()
-                'Call ResetResPanel()
                 Call ResetFraudPanel()
-                'Call ResetLinkPanel()
                 Call ResetDNPanel()
         End Select
     End Sub
@@ -113,19 +93,6 @@ Public Class LossPrevention
         Me.txtnewcomm.Text = ""
     End Sub
 
-    'Public Sub ResetResPanel()
-    '    Me.txtresfirst.Text = ""
-    '    Me.txtreslast.Text = ""
-    '    Me.txtresacct.Text = ""
-    '    Me.txtresaddy.Text = ""
-    '    Me.txtrescity.Text = ""
-    '    Me.dropresstate.SelectedIndex = 0
-    '    Me.txtresphone.Text = ""
-    '    Me.txtresssn.Text = ""
-    '    Me.txtresdl.Text = ""
-    '    Me.txtrescomm.Text = ""
-    'End Sub
-
     Public Sub ResetFraudPanel()
         Me.txtsusfirst.Text = ""
         Me.txtsuslast.Text = ""
@@ -140,18 +107,6 @@ Public Class LossPrevention
         Me.txtsuscomm.Text = ""
     End Sub
 
-    'Public Sub ResetLinkPanel()
-    '    Me.txtlfname1.Text = ""
-    '    Me.txtllname1.Text = ""
-    '    Me.txtlacct1.Text = ""
-    '    Me.txtlfname2.Text = ""
-    '    Me.txtllname2.Text = ""
-    '    Me.txtlacct2.Text = ""
-    '    Me.droplink1.SelectedIndex = 0
-    '    Me.droplink2.SelectedIndex = 0
-    '    Me.txtlinkcomm.Text = ""
-    'End Sub
-
     Public Sub ResetDNPanel()
         Me.txtdnaddy.Text = ""
         Me.txtdncity.Text = ""
@@ -160,6 +115,21 @@ Public Class LossPrevention
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnnewsend.Click
+        'Remove dashes, spaces and periods from LocationID (house number), SSN, and Phone# textboxes
+        Dim pattern As String = "[- .]"
+        Dim replacement As String = ""
+        Dim rgx As New Regex(pattern)
+        txtLocationID.Text = rgx.Replace(txtLocationID.Text, replacement)
+        rntnewPhone.Text = rgx.Replace(rntnewPhone.Text, replacement)
+        txtnewssn.Text = rgx.Replace(txtnewssn.Text, replacement)
+        txtresphone.Text = rgx.Replace(txtresphone.Text, replacement)
+        txtresssn.Text = rgx.Replace(txtresssn.Text, replacement)
+        txtsusphone.Text = rgx.Replace(txtsusphone.Text, replacement)
+        txtsusssn.Text = rgx.Replace(txtsusssn.Text, replacement)
+        txtsusdl.Text = rgx.Replace(txtsusdl.Text, replacement)
+        txtDnHouseNumber.Text = rgx.Replace(txtDnHouseNumber.Text, replacement)
+        txtdnphone.Text = rgx.Replace(txtdnphone.Text, replacement)
+
         If Me.Page.IsValid Then
             Try
                 Me.pnlerror.Visible = False
@@ -177,11 +147,15 @@ Public Class LossPrevention
                 'GET E-MAIL STUFF PREPARED
                 '  Dim MailClient As New SmtpClient
                 Dim mailMsg As New MailMessage
-
                 mailMsg.From = New MailAddress(_employee.Email)
                 mailMsg.IsBodyHtml = False
                 Select Case o.id
                     Case "btnnewsend"
+                        'Check if a SSN or DL is entered
+                        If ((Me.txtnewssn.Text.Length() = 0) And (Me.txtnewdl.Text.Length() = 0)) Then
+                            Me.lblSsnDlError.Visible = True
+                            Exit Sub
+                        End If
                         'VERIFY ZIP CODE IS NUMERIC
                         If Not IsNumeric(Me.txtnewzip.Text) Then
                             Me.lblsuperr.Visible = True
@@ -278,12 +252,6 @@ Public Class LossPrevention
                             Me.lblsuperr.Text = "Comments must be less than 500 characters."
                             Exit Sub
                         End If
-                        'VERIFY House number is exactly 8 digits
-                        'If Me.txtLocationID.Text.Trim.Length <> 8 Then
-                        '    Me.lblsuperr.Visible = True
-                        '    Me.lblsuperr.Text = "The Location ID must be 8 digits."
-                        '    Exit Sub
-                        'End If
 
                         Me._mSubject = "Loss Prevention - New Start Request"
                         Me._mBody = "Loss Prevention - New Start Request" & vbCrLf & _
@@ -342,6 +310,11 @@ Public Class LossPrevention
                         Me.lblD2DConfirmation.Visible = True
                         Me.lblD2DConfirmation.Text = "Door To Door Confirmation Number is " & lpID.ToString & "."
                     Case "btnressend"
+                        'Check if a SSN or DL is entered
+                        If ((Me.txtresssn.Text.Length() = 0) And (Me.txtresdl.Text.Length() = 0)) Then
+                            Me.lblResSsnDlError.Visible = True
+                            Exit Sub
+                        End If
 
                         'VERIFY ZIP CODE IS NUMERIC
                         If Not IsNumeric(Me.txtreszip.Text) Then
@@ -491,6 +464,11 @@ Public Class LossPrevention
                         Me.pnlmain.Visible = False
                         Me.pnlthx.Visible = True
                     Case "btnsussend"
+                        'Check if a SSN or DL is entered
+                        If ((Me.txtsusssn.Text.Length() = 0) And (Me.txtsusdl.Text.Length() = 0)) Then
+                            Me.lblSusSsnDlError.Visible = True
+                            Exit Sub
+                        End If
                         'VERIFY ZIP IS 5 DIGITS
                         If Me.txtsuszip.Text.Length < 5 Then
                             Me.lblsuperr.Visible = True
@@ -639,6 +617,11 @@ Public Class LossPrevention
                         Me.pnlmain.Visible = False
                         Me.pnlthx.Visible = True
                     Case "btndnsend"
+                        'Check if a SSN or DL is entered
+                        If ((Me.txtdnssn.Text.Length() = 0) And (Me.txtdndl.Text.Length() = 0)) Then
+                            Me.lblSusSsnDlError.Visible = True
+                            Exit Sub
+                        End If
                         'VERIFY PHONE # IS NUMERIC
                         If Not IsNumeric(Me.txtdnphone.Text) Then
                             Me.lblsuperr.Visible = True
@@ -829,7 +812,9 @@ Public Class LossPrevention
         txtsuscity.Text = _myCustomer.Address.City
         txtsuszip.Text = _myCustomer.Address.Zip
         dropsusstate.ClearSelection()
-        dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
+        If _myCustomer.Address.State.ToString() <> "Null" Then
+            dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
+        End If
         txtsusphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
     End Sub
     Protected Sub ibResGo_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibResGo.Click
@@ -881,44 +866,6 @@ Public Class LossPrevention
         ibResGo_Click(sender, New ImageClickEventArgs(0, 0))
     End Sub
 
-    Private Sub ibHseNumber_Click(sender As Object, e As System.Web.UI.ImageClickEventArgs) Handles ibHseNumber.Click
-        Try
-            Using addressClient As New AddressService.AddressManagementClient
-                Try
-                    Dim addy As AddressService.AddressIcoms = addressClient.getAddressByLocation(txtLocationID.Text)
-                    If Not String.IsNullOrWhiteSpace(addy.Addr2) Then
-                        txtnewaddy.Text = addy.Addr1.Trim() & " " & addy.Addr2.Trim()
-                    Else
-                        txtnewaddy.Text = addy.Addr1.Trim()
-                    End If
-                    txtnewcity.Text = addy.City
-                    Try
-                        Dim fullState = String.Empty
-                        Select Case addy.State
-                            Case "GA"
-                                fullState = "Georgia"
-                            Case "OH"
-                                fullState = "Ohio"
-                            Case "IL"
-                                fullState = "Illinois"
-                            Case "IN"
-                                fullState = "Indiana"
-                            Case "MI"
-                                fullState = "Michigan"
-                        End Select
-                        dropnewstate.SelectedValue = Nothing
-                        dropnewstate.Items.FindByValue(fullState).Selected = True
-                    Catch ex As Exception
-                    End Try
-                    txtnewzip.Text = addy.Zip
-                Catch ex As Exception 'TO DISPOSE PROPERLY
-                End Try
-            End Using
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
     Private Sub cbD2D_CheckedChanged(sender As Object, e As System.EventArgs) Handles cbD2d.CheckedChanged
         lblD2D.Visible = cbD2d.Checked
         txtD2DEmail.Visible = cbD2d.Checked
@@ -926,6 +873,7 @@ Public Class LossPrevention
     End Sub
 
     Protected Sub ibtxtDnHouseNumber_Click(sender As Object, e As ImageClickEventArgs) Handles ibtxtDnHouseNumber.Click
+
         Try
             Using addressClient As New AddressService.AddressManagementClient
                 Try
@@ -955,6 +903,45 @@ Public Class LossPrevention
                     Catch ex As Exception
                     End Try
                     txtdnzip.Text = addy.Zip
+                Catch ex As Exception 'TO DISPOSE PROPERLY
+                End Try
+            End Using
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Protected Sub ibHseNumber_Click(sender As Object, e As ImageClickEventArgs) Handles ibHseNumber.Click
+        Me.revLocationID.Validate()
+        Try
+            Using addressClient As New AddressService.AddressManagementClient
+                Try
+                    Dim addy As AddressService.AddressIcoms = addressClient.getAddressByLocation(txtLocationID.Text)
+                    If Not String.IsNullOrWhiteSpace(addy.Addr2) Then
+                        txtnewaddy.Text = addy.Addr1.Trim() & " " & addy.Addr2.Trim()
+                    Else
+                        txtnewaddy.Text = addy.Addr1.Trim()
+                    End If
+                    txtnewcity.Text = addy.City
+                    Try
+                        Dim fullState = String.Empty
+                        Select Case addy.State
+                            Case "GA"
+                                fullState = "Georgia"
+                            Case "OH"
+                                fullState = "Ohio"
+                            Case "IL"
+                                fullState = "Illinois"
+                            Case "IN"
+                                fullState = "Indiana"
+                            Case "MI"
+                                fullState = "Michigan"
+                        End Select
+                        dropnewstate.SelectedValue = Nothing
+                        dropnewstate.Items.FindByValue(fullState).Selected = True
+                    Catch ex As Exception
+                    End Try
+                    txtnewzip.Text = addy.Zip
                 Catch ex As Exception 'TO DISPOSE PROPERLY
                 End Try
             End Using

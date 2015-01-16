@@ -30,6 +30,7 @@
             </div>
         </div>
         <div id="Container-Content" style="font-size: .9em;">
+
             <asp:Panel ID="pnlmain" runat="server">
                 <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
@@ -38,10 +39,12 @@
                                 Use this form if a customer is requesting a refund due to a duplicate payment, overpayment, or
                             bank fees. Account Research will not refund any delinquent amounts to the customer.<br />
                                 <br />
-                                Inquiries that are within the CCRs scope of customer assistance will be returned
-                            to the Supervisor for resolution.<br />
                                 <span style="color: Red; font-size: larger; font-style: italic;">All inquiries must
                                 be approved by your Supervisor prior to submission.</span>
+                                <br />
+                                Inquiries that are within the CCRs scope of customer assistance will be returned
+                            to the Supervisor for resolution.<br />
+
                             </div>
                         </td>
                     </tr>
@@ -53,7 +56,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Account Number:
+                        <td style="width: 120px;">Account Number:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtAcct" runat="server" Width="80" MaxLength="8" AutoPostBack="true"></asp:TextBox><asp:ImageButton
@@ -71,9 +74,16 @@
                             <asp:TextBox autocomplete="off" ID="txtstate" runat="server" ReadOnly="True" Width="160" Visible="False" />
                             <asp:Label ID="lblDivision" runat="server" ReadOnly="True" Width="1" Visible="False"></asp:Label>
                         </td>
+                        <td style="width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     </tr>
+                </table>
+
+            </asp:Panel>
+            <asp:Panel ID="pnlrefund" runat="server">
+                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>First Name:
+                        <td style="width: 120px;">First Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
@@ -81,7 +91,7 @@
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td>Last Name:
+                        <td style="width: 164px;">Last Name:
                         </td>
                         <td>
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
@@ -90,21 +100,30 @@
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
                     </tr>
-                </table>
-            </asp:Panel>
-            <asp:Panel ID="pnlrefund" runat="server">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td>Amount of Refund:
-                        <telerik:RadNumericTextBox ID="rntRefundAmount" Width="160" runat="server" EmptyMessage="Refund Amount"
-                            MaxValue="9999.99" MinValue="0.01" Type="Currency" />
+                        <td style="width: 120px;" class="bolder">Amount of Refund:</td>
+                        <td>
+                            <telerik:RadNumericTextBox ID="rntRefundAmount" Width="160" runat="server" EmptyMessage="Refund Amount"
+                                MaxValue="9999.99" MinValue="0.01" Type="Currency" />
                             <asp:RequiredFieldValidator ID="rfvRefundAmount" runat="server" Display="Dynamic"
                                 Text="X" Font-Bold="true" Font-Size="Medium" ErrorMessage="Amount of Refund Required"
                                 ControlToValidate="rntRefundAmount" />
                         </td>
+                        <td style="width: 164px;" class="bolder">Best Contact Phone Number:</td>
+
+                        <td>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPhoneNumber" ErrorMessage="A valid phone number is required." ControlToValidate="txtPhoneNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtPhoneNumber" />
+                        </td>
+
                     </tr>
                     <tr>
-                        <td>Reason:
+                        <td colspan="4"><span class="bolder">Reason:</span>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic"
                             Text="X" Font-Bold="true" Font-Size="Medium" ErrorMessage="Reason Required."
                             ControlToValidate="txtrefreason" /><br />
@@ -113,18 +132,20 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Comments:<br />
+                        <td colspan="4"><span class="bolder">Comments:</span><br />
                             <asp:TextBox autocomplete="off" ID="txtrefcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                 MaxLength="249"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="4">
                             <asp:Button ID="btnrefsend" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
                         </td>
                     </tr>
                 </table>
             </asp:Panel>
+
+
             <asp:Panel ID="pnlerror" runat="server">
                 <asp:Label Font-Size="11pt" ID="lblerror" runat="server" ForeColor="red" Font-Bold="True" />
             </asp:Panel>

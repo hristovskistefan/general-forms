@@ -88,10 +88,14 @@
                         <td>ICOMS House Number:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox autocomplete="off" ID="txtLocationID" runat="server" Width="160" MaxLength="14"></asp:TextBox>
-                            <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibHseNumber" runat="server" CausesValidation="false" />
+                            <asp:TextBox autocomplete="off" ID="txtLocationID" runat="server" Width="80" MaxLength="10"></asp:TextBox>
+                            <asp:ImageButton ImageUrl="/Images/SearchGo.gif" ID="ibHseNumber" runat="server" CausesValidation="false" />
                             <asp:RequiredFieldValidator ID="Requiredfieldvalidator38" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtLocationID" />
+                            <asp:RegularExpressionValidator ID="revLocationID" runat="server"
+                                ErrorMessage="<b>Invalid ICOMS House Number.</b><br />Verify this number matches the House Number from the 10 screen in ICOMS." ControlToValidate="txtLocationID"
+                                ValidationExpression="^[0-9]{8,10}$">
+                            </asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
@@ -134,14 +138,6 @@
                             <asp:RequiredFieldValidator ControlToValidate="txtnewzip" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                         </td>
-                        <%--<td>
-                        Location Number/House Number:
-                    </td>
-                    <td>
-                        <asp:TextBox autocomplete="off" ID="txtHouseNum" runat="server" Width="160" MaxLength="14"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="Requiredfieldvalidator38" runat="server" Text="X"
-                            Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtHouseNum" />
-                    </td>--%>
                     </tr>
                     <tr>
                         <td>Phone #:
@@ -149,22 +145,42 @@
                         <td colspan="3">
                             <telerik:RadNumericTextBox runat="server" ID="rntnewPhone" MaxLength="10" ShowSpinButtons="false"
                                 ShowButton="false" EmptyMessage="Enter Phone #" NumberFormat-DecimalDigits="0"
-                                NumberFormat-GroupSeparator="" Width="160px" />
+                                NumberFormat-GroupSeparator="" Width="160px" autocomplete="off" />
                             <asp:RequiredFieldValidator ControlToValidate="rntnewPhone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revNewPhone" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="rntnewPhone" />
                         </td>
                     </tr>
                     <tr>
-                        <td>SSN:
+                        <td valign="top">SSN:
                         </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="9" />
+                        <td valign="top">
+                            <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="11" />
+                            <asp:RegularExpressionValidator ID="revNewSSN" runat="server" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ControlToValidate="txtnewssn" />
+                            <%-- ^((?!000)(?!666)(?:[0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-2]))-((?!00)\d{2})-((?!0000)\d{4})$ --%>
+                            <%-- ^(?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$ --%>
+                            <%-- ^((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))(\s|\-)((?!00)\d{2})(\s|\-)((?!0000)\d{4})$ --%>
                         </td>
-                        <td>DL #:
+                        <td valign="top">DL #:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" />
+                            <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server"
+                                ErrorMessage="A valid Driver's License or SSN is required."
+                                ControlToValidate="txtnewdl"
+                                ValidationExpression="^{5,}$">
+                            </asp:RegularExpressionValidator>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:Label ID="lblSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="4">
@@ -310,22 +326,38 @@
                         </td>
                         <td colspan="3">
                             <asp:TextBox autocomplete="off" ID="txtresphone" runat="server" Width="160" MaxLength="10" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtresphone" runat="server" Text="X"
+                            <asp:RequiredFieldValidator ID="rfvResPhone" ControlToValidate="txtresphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                            <b>Format: 5555555555 - No spaces or special characters</b>
+                            <asp:RegularExpressionValidator ID="revResPhone" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtresphone" />
                         </td>
                     </tr>
                     <tr>
-                        <td>SSN:
+                        <td valign="top">SSN:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtresssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:RegularExpressionValidator ID="revTxtResSnn" runat="server" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ControlToValidate="txtresssn" />
                         </td>
-                        <td>DL #:
+                        <td valign="top">DL #:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtresdl" runat="server" Width="160" />
+                            <asp:RegularExpressionValidator ID="revResDl" runat="server"
+                                ErrorMessage="A valid Driver's License or SSN is required."
+                                ControlToValidate="txtresdl"
+                                ValidationExpression="^{5,}$">
+                            </asp:RegularExpressionValidator>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:Label ID="lblResSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
@@ -447,20 +479,36 @@
                             <asp:TextBox autocomplete="off" ID="txtsusphone" runat="server" Width="160" MaxLength="10" />
                             <asp:RequiredFieldValidator ControlToValidate="txtsusphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                            <b>Format: 5555555555 - No spaces or special characters</b>
+                            <asp:RegularExpressionValidator ID="revSusPhone" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtsusphone" />
                         </td>
                     </tr>
                     <tr>
-                        <td>SSN:
+                        <td valign="top">SSN:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:RegularExpressionValidator ID="revSusSnn" runat="server" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ControlToValidate="txtsusssn" />
                         </td>
-                        <td>DL #:
+                        <td valign="top">DL #:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" />
+                            <asp:RegularExpressionValidator ID="revSesDl" runat="server"
+                                ErrorMessage="A valid Driver's License or SSN is required."
+                                ControlToValidate="txtsusdl"
+                                ValidationExpression="^{5,}$">
+                            </asp:RegularExpressionValidator>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:Label ID="lblSusSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>
                     <tr>
                         <td>Request Services:
@@ -527,16 +575,20 @@
                         </td>
                     </tr>
                     <tr>
+
                         <td>ICOMS House Number:
                         </td>
                         <td colspan="3">
-                            <asp:TextBox autocomplete="off" ID="txtDnHouseNumber" runat="server" Width="160" MaxLength="14"></asp:TextBox>
-                            <asp:ImageButton ImageUrl="/Images/view.gif" ID="ibtxtDnHouseNumber" runat="server" CausesValidation="false" />
-                            <asp:RequiredFieldValidator ID="Requiredfieldvalidator6" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" ValidationGroup="vgDisconnected" />
+                            <asp:TextBox autocomplete="off" ID="txtDnHouseNumber" runat="server" Width="80" MaxLength="10"></asp:TextBox>
+                            <asp:ImageButton ImageUrl="/Images/SearchGo.gif" ID="ibtxtDnHouseNumber" runat="server" CausesValidation="false" />
+                            <asp:RequiredFieldValidator ID="rfvDnHouseNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtDnHouseNumber" />
+                            <asp:RegularExpressionValidator ID="revDnHouseNumber" runat="server"
+                                ErrorMessage="<b>Invalid ICOMS House Number.</b><br />Verify this number matches the House Number from the 10 screen in ICOMS."
+                                ControlToValidate="txtDnHouseNumber"
+                                ValidationExpression="^[0-9]{8,10}$">
+                            </asp:RegularExpressionValidator>
                         </td>
-
-
                     </tr>
                     <tr>
                         <td>Address:
@@ -589,20 +641,36 @@
                             <asp:RequiredFieldValidator ControlToValidate="txtdnphone" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ID="Requiredfieldvalidator4"
                                 ValidationGroup="vgDisconnected" />
-                            <b>Format: 5555555555 - No spaces or special characters</b>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtdnphone" />
                         </td>
                     </tr>
                     <tr>
-                        <td>SSN:
+                        <td valign="top">SSN:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:RegularExpressionValidator ID="revDnSsn" runat="server" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ControlToValidate="txtdnssn" />
                         </td>
-                        <td>DL #:
+                        <td valign="top">DL #:
                         </td>
-                        <td>
+                        <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" />
+                            <asp:RegularExpressionValidator ID="revDnDl" runat="server"
+                                ErrorMessage="A valid Driver's License or SSN is required."
+                                ControlToValidate="txtdndl"
+                                ValidationExpression="^{5,}$">
+                            </asp:RegularExpressionValidator>
                         </td>
+                    </tr>
+                                        <tr>
+                        <td colspan="4">
+                            <asp:Label ID="lblDnDlSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
