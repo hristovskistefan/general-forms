@@ -85,7 +85,7 @@
                         </td>
                         <td style="width: 80px;">Last Name:&nbsp;
                         </td>
-                        <td>
+                        <td align="left">
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
@@ -184,9 +184,6 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox autocomplete="off" ID="txtAltNum" runat="server" MaxLength="10"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="rfvAltNum" ErrorMessage="A valid alternate contact number is required."
-                                                    ControlToValidate="txtAltNum" runat="server" Text="X"
-                                                    Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                                                 <asp:RegularExpressionValidator ID="revAltNum" runat="server" Text="X" Font-Bold="true"
                                                     Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
                                                     ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
@@ -197,7 +194,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="4">
                                     <asp:Label ID="lblCertificate" Font-Bold="True" ForeColor="Red" runat="server"><br />Advise the customer to fax a copy of the death certificate with the WOW! Account Number to 1-888-268-5859.<br /></asp:Label>
                                     <br />
                                 </td>
@@ -218,14 +215,14 @@
                     </asp:Panel>
                     <asp:Panel ID="pnlNameCorr" runat="server" Visible="False">
                         <tr>
-                            <td>Current Customer Name:<br />
+                            <td colspan="4">Current Customer Name:<br />
                                 <asp:TextBox autocomplete="off" ID="txtCurrNameCorr" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvCurrNameCorr" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
                                     ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameCorr" />
                             </td>
                         </tr>
                         <tr>
-                            <td>Correct Spelling:<br />
+                            <td colspan="4">Correct Spelling:<br />
                                 <asp:TextBox autocomplete="off" ID="txtNewNameCorr" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvNewNameCorr" runat="server" Text="X"
                                     ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
@@ -246,14 +243,14 @@
                     </asp:Panel>
                     <asp:Panel ID="pnlLegal" runat="server" Visible="False">
                         <tr>
-                            <td>Current Customer Name:<br />
+                            <td colspan="4">Current Customer Name:<br />
                                 <asp:TextBox autocomplete="off" ID="txtCurrNameLegal" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvCurrNameLegal" runat="server" Text="X" Font-Bold="true" Font-Size="Medium"
                                     ErrorMessage="Current Customer Name is required." Display="Dynamic" ControlToValidate="txtCurrNameLegal" />
                             </td>
                         </tr>
                         <tr>
-                            <td>New Customer Name:<br />
+                            <td colspan="4">New Customer Name:<br />
                                 <asp:TextBox autocomplete="off" ID="txtNewNameLegal" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvNewNameLegal" runat="server" Text="X"
                                     ErrorMessage="Correct Spelling is required." Font-Bold="true" Font-Size="Medium"
@@ -261,11 +258,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Best Contact Phone Number:
+                            <td colspan="4">Best Contact Phone Number:<br />
                             </td>
-                            </tr>
+                        </tr>
                         <tr>
-                            <td>
+                            <td colspan="4">
                                 <asp:TextBox autocomplete="off" ID="txtLegalPhoneNumber" runat="server" />
                                 <asp:RequiredFieldValidator ID="rfvLegalPhoneNumber" ErrorMessage="A valid New Customer Phone Number is required."
                                     ControlToValidate="txtLegalPhoneNumber" runat="server" Text="X"
@@ -277,18 +274,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">Comments:<br />
+                            <td colspan="4">Comments:<br />
                                 <asp:TextBox autocomplete="off" ID="txtNameLegalComm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
                                     MaxLength="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="4">
                                 <asp:Label ID="lblLegal" Font-Bold="True" ForeColor="Red" runat="server"><br />Advise the customer to fax a copy of the legal documentation showing their name change, with the WOW! Account Number, to 1-888-268-5859.<br /></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="4">
                                 <asp:Button ID="btnNameLegalSubmit" OnClick="SendIt" runat="server" Width="150" Text="Submit"></asp:Button>
                             </td>
                         </tr>
