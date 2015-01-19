@@ -110,6 +110,7 @@ Public Class ARNameChange
         Dim rgx As New Regex(pattern)
         txtNewPhone.Text = rgx.Replace(txtNewPhone.Text, replacement)
         txtAltNum.Text = rgx.Replace(txtAltNum.Text, replacement)
+        txtLegalPhoneNumber.Text = rgx.Replace(txtLegalPhoneNumber.Text, replacement)
         If Page.IsValid Then
             Try
 
@@ -269,8 +270,8 @@ Public Class ARNameChange
         'Check if Ft. Gordon 30905/Harlem 30814/Grovetown 30813 (Division 58) account and if so, block submission of form
         If _myCustomer.Address.Division = "58" Then
             Me.hfAccountDivision.Value = "58"
-            'Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The Name Change form cannot be submitted for Fort Gordon accounts requesting a name change or correction.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-            'Exit Sub
+            Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The Name Change form cannot be submitted for Fort Gordon accounts requesting a name change or correction.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
+            Exit Sub
         End If
         txtclname.Text = _myCustomer.LName
         txtcfname.Text = _myCustomer.FName

@@ -518,6 +518,33 @@ Partial Public Class ARNameChange
     Protected WithEvents rfvNewNameLegal As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''txtLegalPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtLegalPhoneNumber As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''rfvLegalPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvLegalPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''revLegalPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revLegalPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''txtNameLegalComm control.
     '''</summary>
     '''<remarks>
