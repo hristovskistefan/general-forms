@@ -101,10 +101,10 @@
                     <asp:Panel ID="pnlRecordExists" runat="server" Visible="false">
                         <tr>
                             <td colspan="4">
-                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                <span style="color: red;">Please correct the following:</span>
+                                    <ul style="color: red;">
                                     <li>This ICOMS House Number has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
                                 </ul>
-                                </span>
                             </td>
                         </tr>
                     </asp:Panel>
@@ -282,10 +282,10 @@
                     <asp:Panel ID="pnlRecordExistsFraud" runat="server" Visible="false">
                         <tr>
                             <td colspan="4">
-                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                <span style="color: red;">Please correct the following:</span>
+                                    <ul style="color: red;">
                                     <li>This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
                                 </ul>
-                                </span>
                             </td>
                         </tr>
                     </asp:Panel>
@@ -453,10 +453,10 @@
                     <asp:Panel ID="pnlRecordExistsUnblock" runat="server" Visible="false">
                         <tr>
                             <td colspan="4">
-                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                <span style="color: red;">Please correct the following:</span>
+                                    <ul style="color: red;">
                                     <li>This ICOMS House Number has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
                                 </ul>
-                                </span>
                             </td>
                         </tr>
                     </asp:Panel>
