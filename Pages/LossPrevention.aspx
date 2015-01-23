@@ -37,9 +37,9 @@
                         <td>
                             <!-- Carl Rhoades 06/26/14 - Removed Restart, renamed Former - Unserviceable to Unblock Address -->
                             <asp:RadioButtonList runat="server" AutoPostBack="True" ID="radformsel" RepeatDirection="Horizontal">
-                                <asp:ListItem Value="0">New Start Request</asp:ListItem>
-                                <asp:ListItem Value="2">Suspected Fraud</asp:ListItem>
-                                <asp:ListItem Value="4">Unblock Address</asp:ListItem>
+                                <asp:ListItem Value="0" Text="New Start Request">New Start Request</asp:ListItem>
+                                <asp:ListItem Value="2" Text="Suspected Fraud">Suspected Fraud</asp:ListItem>
+                                <asp:ListItem Value="4" Text="Unblock Address">Unblock Address</asp:ListItem>
                             </asp:RadioButtonList>
                         </td>
                     </tr>
@@ -98,6 +98,16 @@
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
+                    <asp:Panel ID="pnlRecordExists" runat="server" Visible="false">
+                        <tr>
+                            <td colspan="4">
+                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                    <li>This ICOMS House Number has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
+                                </ul>
+                                </span>
+                            </td>
+                        </tr>
+                    </asp:Panel>
                     <tr>
                         <td>Address:
                         </td>
@@ -210,167 +220,7 @@
                     </tr>
                 </table>
             </asp:Panel>
-            <!--
----------------------
-    RESTART PANEL - No longer used, but left in case someone wants to use it in the future
----------------------
--->
-            <asp:Panel ID="pnlrestart" runat="server">
-                <div class="sectionTitle">
-                    Restart Request - ONLY USE THIS FORM FOR A PREVIOUS WOW CUSTOMER
-                </div>
-                <table class="input" width="600" cellspacing="0" cellpadding="2">
-                    <tr>
-                        <td colspan="4" class="green">
-                            <div class="infobox">
-                                Use this form if the person calling in has a previous account at the same address
-                            with an outstanding balance owed or if the person has paid the balance in full today.<br />
-                                <b>If you set up an install, place the order at least 5 calendar days out if the customer
-                                made a CC payment and at least 10 calendar days out if the customer made an EFT
-                                payment.</b>
-                                <br />
-                                This form may also be used if the previous information provided by the same person
-                            is not consistent with the new information that the person calling in is providing
-                            for the restart.
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>First Name:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtresfirst" runat="server" Width="160" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtresfirst" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                        </td>
-                        <td>Last Name:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtreslast" runat="server" Width="160" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtreslast" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Account Number:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtresacct" runat="server" Width="80" MaxLength="8"></asp:TextBox>
-                            <asp:ImageButton ID="ibResGo" CausesValidation="false" runat="server" ImageUrl="~/images/SearchGo.gif" />
-                            <asp:RegularExpressionValidator ID="revresacct" runat="server" Text="X" ControlToValidate="txtresacct"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" EnableClientScript="false"
-                                ErrorMessage="The account number entered is not valid" />
-                            <asp:RequiredFieldValidator ID="rfvresacct" runat="server" ControlToValidate="txtresacct"
-                                Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer Account Required"
-                                EnableClientScript="false" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Current Address:
-                        </td>
-                        <td colspan="3">
-                            <asp:TextBox autocomplete="off" ID="txtresaddy" runat="server" Width="300" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtresaddy" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>City:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtrescity" runat="server" Width="160" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtrescity" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                        </td>
-                        <td>State:
-                        </td>
-                        <td>
-                            <asp:DropDownList ID="dropresstate" runat="server" Width="160">
-                                <asp:ListItem Selected="True" Value="Select One" />
-                                <asp:ListItem Text="Illinois" Value="IL" />
-                                <asp:ListItem Text="Indiana" Value="IN" />
-                                <asp:ListItem Text="Michigan" Value="MI" />
-                                <asp:ListItem Text="Ohio" Value="OH" />
-                                <asp:ListItem Text="Georgia" Value="GA" />
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ControlToValidate="dropresstate" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Zip Code:
-                        </td>
-                        <td>
-                            <asp:TextBox autocomplete="off" ID="txtreszip" runat="server" Width="160" MaxLength="5" />
-                            <asp:RequiredFieldValidator ControlToValidate="txtreszip" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Same Address:
-                        </td>
-                        <td>
-                            <asp:DropDownList ID="dropsame" runat="server" Width="160">
-                                <asp:ListItem Selected="True" Value="Select One" />
-                                <asp:ListItem Value="Yes" />
-                                <asp:ListItem Value="No" />
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ControlToValidate="dropsame" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" InitialValue="Select One" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone #:
-                        </td>
-                        <td colspan="3">
-                            <asp:TextBox autocomplete="off" ID="txtresphone" runat="server" Width="160" MaxLength="10" />
-                            <asp:RequiredFieldValidator ID="rfvResPhone" ControlToValidate="txtresphone" runat="server" Text="X"
-                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
-                            <asp:RegularExpressionValidator ID="revResPhone" runat="server" Text="X" Font-Bold="true"
-                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
-                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
-                                ControlToValidate="txtresphone" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top">SSN:
-                        </td>
-                        <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtresssn" runat="server" Width="160" MaxLength="9" />
-                            <asp:RegularExpressionValidator ID="revTxtResSnn" runat="server" Font-Bold="true"
-                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
-                                ControlToValidate="txtresssn" />
-                        </td>
-                        <td valign="top">DL #:
-                        </td>
-                        <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtresdl" runat="server" Width="160" />
-                            <asp:RegularExpressionValidator ID="revResDl" runat="server"
-                                ErrorMessage="A valid Driver's License or SSN is required."
-                                ControlToValidate="txtresdl"
-                                ValidationExpression="^{5,}$">
-                            </asp:RegularExpressionValidator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <asp:Label ID="lblResSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
-                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtrescomm" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <asp:Button ID="btnressend" OnClick="SendIt" Text="Submit" runat="server" Width="150" />
-                        </td>
-                    </tr>
-                </table>
-            </asp:Panel>
+
             <!--
 ---------------------
     FRAUD PANEL
@@ -429,6 +279,16 @@
                                 EnableClientScript="false" />
                         </td>
                     </tr>
+                    <asp:Panel ID="pnlRecordExistsFraud" runat="server" Visible="false">
+                        <tr>
+                            <td colspan="4">
+                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                    <li>This account has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
+                                </ul>
+                                </span>
+                            </td>
+                        </tr>
+                    </asp:Panel>
                     <tr>
                         <td>Address:
                         </td>
@@ -590,6 +450,16 @@
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
+                    <asp:Panel ID="pnlRecordExistsUnblock" runat="server" Visible="false">
+                        <tr>
+                            <td colspan="4">
+                                <span style="color: red; font-weight: bold;">Please correct the following:<ul>
+                                    <li>This ICOMS House Number has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
+                                </ul>
+                                </span>
+                            </td>
+                        </tr>
+                    </asp:Panel>
                     <tr>
                         <td>Address:
                         </td>
@@ -668,7 +538,7 @@
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
-                                        <tr>
+                    <tr>
                         <td colspan="4">
                             <asp:Label ID="lblDnDlSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>

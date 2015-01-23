@@ -158,6 +158,15 @@ Partial Public Class LossPrevention
     Protected WithEvents revLocationID As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
+    '''pnlRecordExists control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlRecordExists As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtnewaddy control.
     '''</summary>
     '''<remarks>
@@ -320,204 +329,6 @@ Partial Public Class LossPrevention
     Protected WithEvents btnnewsend As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''pnlrestart control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlrestart As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
-    '''txtresfirst control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresfirst As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtreslast control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtreslast As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtresacct control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresacct As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''ibResGo control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ibResGo As Global.System.Web.UI.WebControls.ImageButton
-
-    '''<summary>
-    '''revresacct control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents revresacct As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
-    '''rfvresacct control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvresacct As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtresaddy control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresaddy As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtrescity control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtrescity As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''dropresstate control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dropresstate As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''txtreszip control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtreszip As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''dropsame control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dropsame As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''txtresphone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresphone As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''rfvResPhone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvResPhone As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''revResPhone control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents revResPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
-    '''txtresssn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresssn As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''revTxtResSnn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents revTxtResSnn As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
-    '''txtresdl control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtresdl As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''revResDl control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents revResDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
-    '''lblResSsnDlError control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblResSsnDlError As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtrescomm control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtrescomm As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnressend control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnressend As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''pnlfraud control.
     '''</summary>
     '''<remarks>
@@ -579,6 +390,15 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvsusacct As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''pnlRecordExistsFraud control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlRecordExistsFraud As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtsusaddy control.
@@ -777,6 +597,15 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revDnHouseNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''pnlRecordExistsUnblock control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlRecordExistsUnblock As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtdnaddy control.
