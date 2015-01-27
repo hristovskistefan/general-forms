@@ -96,7 +96,7 @@
                             <td>
                                 <asp:TextBox autocomplete="off" ID="txtmanpayphone" runat="server" Width="100" MaxLength="13"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvManPayPhone" runat="server" Text="X" Font-Bold="true"
-                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Alternate Phone Number is Required"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="Best Contact Phone Number is Required"
                                     ControlToValidate="txtmanpayphone" />
                                 <asp:RegularExpressionValidator ID="revManPayPhone" runat="server" Text="X" Font-Bold="true"
                                     Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"

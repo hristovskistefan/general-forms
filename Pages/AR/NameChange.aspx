@@ -264,7 +264,7 @@
                         <tr>
                             <td colspan="4">
                                 <asp:TextBox autocomplete="off" ID="txtLegalPhoneNumber" runat="server" />
-                                <asp:RequiredFieldValidator ID="rfvLegalPhoneNumber" ErrorMessage="A valid New Customer Phone Number is required."
+                                <asp:RequiredFieldValidator ID="rfvLegalPhoneNumber" ErrorMessage="Best Contact Phone Number is required."
                                     ControlToValidate="txtLegalPhoneNumber" runat="server" Text="X"
                                     Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                                 <asp:RegularExpressionValidator ID="revLegalPhoneNumber" runat="server" Text="X" Font-Bold="true"
