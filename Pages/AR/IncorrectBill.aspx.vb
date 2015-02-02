@@ -73,7 +73,7 @@ Public Class ARIncorrectBill
                 Dim cmd As DbCommand
 
                 cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Month,Reason,Comments,Division) VALUES " _
-                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Month,@Reason,@Comments,@Division)")
+                & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Month,@Reason,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Incorrect Bill")

@@ -60,7 +60,7 @@ Public Class ARCustomerRefunds
                 ' CUSTOMER REFUND
                 '***************************************
                 cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,RefundReason,Comments,Division) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Amount,@RefundReason,@Comments,@Division)")
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@RefundReason,@Comments,@Division)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Customer Refund")

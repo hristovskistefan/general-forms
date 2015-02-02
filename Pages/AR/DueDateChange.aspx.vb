@@ -58,7 +58,7 @@ Public Class ARDueDateChange
                 '***************************************
 
                 cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Comments,ODueDate,NDueDate,Division,IssueType) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@Division,@IssueType)")
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Comments,@ODueDate,@NDueDate,@Division,@IssueType)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")

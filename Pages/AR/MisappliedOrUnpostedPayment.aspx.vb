@@ -111,7 +111,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - PERSONAL CHECK
                         '***************************************
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division) VALUES " _
-                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division)")
+                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -142,7 +142,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division)")
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -172,7 +172,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,PCAcctNum,IsTerminalID,TerminalID,Amount,PaymentDate,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@PCAcctNum,@IsTerminalID,@TerminalID,@Amount,@PaymentDate,@Comments,@Division)")
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@PCAcctNum,@IsTerminalID,@TerminalID,@Amount,@PaymentDate,@Comments,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -203,7 +203,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CardNum,ExpireDate,Amount,DateCleared,Comments,BatchNum,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@CardNum,@ExpireDate,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CardNum,@ExpireDate,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -239,7 +239,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,RoutingNum,EFTAcctNum,Amount,DateCleared,Comments,BatchNum,Division) VALUES " _
-                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@RoutingNum,@EFTAcctNum,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
+                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@RoutingNum,@EFTAcctNum,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -270,7 +270,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,PaymentLoc,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Amount,@PaymentDate,@PaymentLoc,@Comments,@Division)")
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@PaymentLoc,@Comments,@Division)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
