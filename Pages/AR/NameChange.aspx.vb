@@ -30,31 +30,18 @@ Public Class ARNameChange
         pnlNameCorr.Visible = False
         Select Case rblNameCorrChange.SelectedValue
             Case "Divorce"
-                'Check if Ft. Gordon 30905/Harlem 30814/Grovetown 30813 (Division 58) account and if so, block submission of form
-                If Me.hfAccountDivision.Value = "58" Then
-                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Divorce.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-                    Exit Sub
-                End If
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the divorce certificate with the WOW! Account Number to 1-888-268-5859.<br />"
                 pnlLegal.Visible = False
             Case "Marriage"
-                If Me.hfAccountDivision.Value = "58" Then
-                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Marriage.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-                    Exit Sub
-                End If
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
                 lblCertificate.Text = "<br />Advise the customer to fax a copy of the marriage certificate with the WOW! Account Number to 1-888-268-5859.<br />"
                 pnlLegal.Visible = False
             Case "Death"
-                If Me.hfAccountDivision.Value = "58" Then
-                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a name change for Death.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-                    Exit Sub
-                End If
                 pnlNameChange.Visible = True
                 rblfamilyRelation.Visible = True
                 pnlFamilyRelation.Visible = True
@@ -66,10 +53,6 @@ Public Class ARNameChange
                 pnlNameCorr.Visible = True
                 pnlLegal.Visible = False
             Case "Legal"
-                If Me.hfAccountDivision.Value = "58" Then
-                    Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The form cannot be submitted for Fort Gordon accounts requesting a Legal Name Change.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
-                    Exit Sub
-                End If
                 pnlNameChange.Visible = False
                 pnlLegal.Visible = True
                 lblLegal.Text = "<br />Advise the customer to fax a copy of the court approved Petition to Change Name form showing the name change, with the WOW! Account number, to 1-888-268-5859.<br />"
@@ -98,19 +81,11 @@ Public Class ARNameChange
             txtclname.Text = Replace(txtclname.Text.Trim.ToUpper, " ", "")
             txtstate.Text = GeneralFormsCommon.getStateFromDivision(CInt(lblDivision.Text))
             pnlerror.Visible = False
-            txtAcct.ReadOnly = True
             pnlNameChangeMain.Visible = True
         End If
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnNameChangeSubmit.Click, btnNameCorrSubmit.Click
-        'Removed dashes, spaces, and periods from phone number fields
-        Dim pattern As String = "[- .]"
-        Dim replacement As String = ""
-        Dim rgx As New Regex(pattern)
-        txtNewPhone.Text = rgx.Replace(txtNewPhone.Text, replacement)
-        txtAltNum.Text = rgx.Replace(txtAltNum.Text, replacement)
-        txtLegalPhoneNumber.Text = rgx.Replace(txtLegalPhoneNumber.Text, replacement)
         If Page.IsValid Then
             Try
 
@@ -122,7 +97,7 @@ Public Class ARNameChange
                 Select Case o.ID
 
                     Case "btnNameCorrSubmit"
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
                            & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
@@ -134,7 +109,6 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
                         db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
                         db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
-                        db.AddInParameter(cmd, "PhoneNum", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                         db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                         db.AddInParameter(cmd, "Comments", DbType.String, txtNameCorrComm.Text)
@@ -142,11 +116,11 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "OName", DbType.String, txtCurrNameCorr.Text)
                         db.AddInParameter(cmd, "NName", DbType.String, txtNewNameCorr.Text)
                         db.AddInParameter(cmd, "NewSSN", DbType.String, "")
-                        db.AddInParameter(cmd, "NewPhone", DbType.String, txtAltNum.Text)
+                        db.AddInParameter(cmd, "NewPhone", DbType.String, "")
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
                     Case "btnNameLegalSubmit"
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,Division) VALUES " _
                            & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
@@ -158,7 +132,6 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
                         db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
                         db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
-                        db.AddInParameter(cmd, "PhoneNum", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                         db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                         db.AddInParameter(cmd, "Comments", DbType.String, txtNameLegalComm.Text)
@@ -166,11 +139,11 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "OName", DbType.String, txtCurrNameLegal.Text)
                         db.AddInParameter(cmd, "NName", DbType.String, txtNewNameLegal.Text)
                         db.AddInParameter(cmd, "NewSSN", DbType.String, "")
-                        db.AddInParameter(cmd, "NewPhone", DbType.String, txtAltNum.Text)
+                        db.AddInParameter(cmd, "NewPhone", DbType.String, "")
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
                     Case "btnNameChangeSubmit"
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason,Division) VALUES " _
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,State,Kickback,Comments,IssueType,OName,NName,NewSSN,NewPhone,NameChangeReason,Division) VALUES " _
                             & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@State,@Kickback,@Comments,@IssueType,@OName,@NName,@NewSSN,@NewPhone,@NameChangeReason,@Division)")
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Name/Due Date Change")
@@ -182,18 +155,17 @@ Public Class ARNameChange
                         db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
                         db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
                         db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
-                        db.AddInParameter(cmd, "PhoneNum", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
                         db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
                         db.AddInParameter(cmd, "Comments", DbType.String, txtNameChangeComm.Text & Environment.NewLine & "Relationship: " & txtRelationship.Text & Environment.NewLine & "Alternate Phone Number: " & txtAltNum.Text)
                         db.AddInParameter(cmd, "IssueType", DbType.String, "Name Change")
                         db.AddInParameter(cmd, "OName", DbType.String, txtCurrName.Text)
                         db.AddInParameter(cmd, "NName", DbType.String, txtNewName.Text)
-                        db.AddInParameter(cmd, "NewSSN", DbType.String, txtNewSSN.Text)
-                        db.AddInParameter(cmd, "NewPhone", DbType.String, txtAltNum.Text)
+                        db.AddInParameter(cmd, "NewSSN", DbType.String, Crypto.Encrypt(txtNewSSN.Text, True))
+                        db.AddInParameter(cmd, "NewPhone", DbType.String, txtNewPhone.Text)
                         db.AddInParameter(cmd, "NameChangeReason", DbType.String, rblNameCorrChange.SelectedValue)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
-                        db.ExecuteNonQuery(cmd)
+                       db.ExecuteNonQuery(cmd)
                 End Select
                 Reset()
             Catch mailex As Exception
@@ -269,7 +241,6 @@ Public Class ARNameChange
         End If
         'Check if Ft. Gordon 30905/Harlem 30814/Grovetown 30813 (Division 58) account and if so, block submission of form
         If _myCustomer.Address.Division = "58" Then
-            Me.hfAccountDivision.Value = "58"
             Me.MB.ShowMessage("A Fort Gordon account was entered.<br />The Name Change form cannot be submitted for Fort Gordon accounts requesting a name change or correction.<br />Please advise customer to visit the local office to make changes to the name on the account.<br />See Gooroo for more information.")
             Exit Sub
         End If

@@ -433,6 +433,7 @@
   <ItemGroup>
     <Compile Include="Classes\AD.vb" />
     <Compile Include="Classes\CheckAccessHelper.vb" />
+    <Compile Include="Classes\Crypto.vb" />
     <Compile Include="Classes\EmailProxy.vb" />
     <Compile Include="Classes\Enums.vb" />
     <Compile Include="Classes\GeneralFormsCommon.vb" />
@@ -758,7 +759,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
