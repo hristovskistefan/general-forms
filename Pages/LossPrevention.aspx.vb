@@ -792,26 +792,26 @@ Public Class LossPrevention
                         dropnewstate.SelectedValue = Nothing
                         dropnewstate.Items.FindByValue(fullState).Selected = True
 
-                        'Connection for checking if an existing record exists
-                        _conn = New System.Data.SqlClient.SqlConnection
-                        _conn.ConnectionString = "Server=CS-REPORTDB\REPORTS;UID=sa;PWD=w0wc$1#@;database=BillingDB;"
+                        ''Connection for checking if an existing record exists
+                        '_conn = New System.Data.SqlClient.SqlConnection
+                        '_conn.ConnectionString = "Server=CS-REPORTDB\REPORTS;UID=sa;PWD=w0wc$1#@;database=BillingDB;"
 
-                        _sqlCheckExistingCmd = New System.Data.SqlClient.SqlCommand
-                        _sqlCheckExistingCmd.Connection = _conn
+                        '_sqlCheckExistingCmd = New System.Data.SqlClient.SqlCommand
+                        '_sqlCheckExistingCmd.Connection = _conn
 
-                        'Check for an existing record, display message and exit if found.
-                        _sqlCheckExistingStr = "SELECT DBID FROM Skip_Trace WHERE HouseNum = '" & Me.txtLocationID.Text & "' AND RequestType = '" & Me.radformsel.SelectedItem.Text & "' AND Kickback = 0"
-                        _sqlCheckExistingCmd.CommandText = _sqlCheckExistingStr
-                        _conn.Open()
-                        Dim idExisting As Integer = CInt(_sqlCheckExistingCmd.ExecuteScalar())
-                        If Not idExisting Then
-                            Me.pnlRecordExists.Visible = True
-                            _conn.Close()
-                            Me._conn.Dispose()
-                            Me._sqlCheckExistingCmd.Dispose()
-                            Me.btnnewsend.Visible = False
-                            Exit Sub
-                        End If
+                        ''Check for an existing record, display message and exit if found.
+                        '_sqlCheckExistingStr = "SELECT DBID FROM Skip_Trace WHERE HouseNum = '" & Me.txtLocationID.Text & "' AND RequestType = '" & Me.radformsel.SelectedItem.Text & "' AND Kickback = 0"
+                        '_sqlCheckExistingCmd.CommandText = _sqlCheckExistingStr
+                        '_conn.Open()
+                        'Dim idExisting As Integer = CInt(_sqlCheckExistingCmd.ExecuteScalar())
+                        'If Not idExisting Then
+                        '    Me.pnlRecordExists.Visible = True
+                        '    _conn.Close()
+                        '    Me._conn.Dispose()
+                        '    Me._sqlCheckExistingCmd.Dispose()
+                        '    Me.btnnewsend.Visible = False
+                        '    Exit Sub
+                        'End If
 
                     Catch ex As Exception
                         Me.MB.ShowMessage("An error occurred. If the error persists, see a Supervisor. " & ex.Message)
