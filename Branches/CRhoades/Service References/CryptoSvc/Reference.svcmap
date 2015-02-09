@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c9bf4b3-e19e-407d-b2e9-29c51db97ddc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://cccservices/ccccrypto/ccccrypto.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CCCCrypto.xsd" MetadataType="Schema" ID="1215ba74-12b6-4e55-8cde-e487b8fb449f" SourceId="1" SourceUrl="http://cccservices/CCCCrypto/CCCCrypto.svc?xsd=xsd0" />
+    <MetadataFile FileName="CCCCrypto.disco" MetadataType="Disco" ID="913c564f-fe61-4851-ad4a-f7da7b9bc118" SourceId="1" SourceUrl="http://cccservices/CCCCrypto/CCCCrypto.svc?disco" />
+    <MetadataFile FileName="CCCCrypto1.xsd" MetadataType="Schema" ID="ae7ad168-6e22-44bc-9fb3-ad012fea7e89" SourceId="1" SourceUrl="http://cccservices/CCCCrypto/CCCCrypto.svc?xsd=xsd1" />
+    <MetadataFile FileName="CCCCrypto.wsdl" MetadataType="Wsdl" ID="d3ab282d-2a74-4d0d-b2b8-430c2354ea66" SourceId="1" SourceUrl="http://cccservices/CCCCrypto/CCCCrypto.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
