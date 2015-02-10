@@ -147,4 +147,31 @@ Partial Public Class RateGuaranteeFinder
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents reMIrates As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
+    '''lblGuaranteeFG control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGuaranteeFG As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblGuaranteeDateFG control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblGuaranteeDateFG As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''reFGrates control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents reFGrates As Global.System.Web.UI.WebControls.Repeater
 End Class
