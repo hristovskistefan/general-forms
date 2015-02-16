@@ -40,17 +40,21 @@ Partial Public Class RateGuaranteeFinder
             Exit Sub
         End If
         Dim db As Database = DatabaseFactory.CreateDatabase("GeneralForms")
-        Dim cmd As DbCommand = db.GetSqlStringCommand("SELECT DBID, PkgCode, PkgDescription, GuaranteeDate, CurrentRate, NextYearRate, RateIncrease, CategoryCode, MidMichiganCurrentRate, MidMichiganNextYearRate, MidMichiganIncrease FROM " & My.Settings.PackageCodeTable & " where PkgCode = '" & rcbRateCodes.SelectedValue & "'")
+        Dim cmd As DbCommand = db.GetSqlStringCommand("SELECT DBID, PkgCode, PkgDescription, GuaranteeDate, CurrentRate, NextYearRate, RateIncrease, CategoryCode, MidMichiganCurrentRate, MidMichiganNextYearRate, MidMichiganIncrease, FortGordonCurrentRate, FortGordonNextYearRate, FortGordonIncrease FROM " & My.Settings.PackageCodeTable & " where PkgCode = '" & rcbRateCodes.SelectedValue & "'")
         Dim ds As DataTable = db.ExecuteDataSet(cmd).Tables(0)
         Dim int As Integer
         Dim reRatesDisp As Boolean = False
         Dim reMIRatesDisp As Boolean = False
+        Dim reFGRatesDisp As Boolean = False
         For Each item As DataRow In ds.Rows
             If item("CurrentRate").ToString <> "" Then
                 reRatesDisp = True
             End If
             If item("MidMichiganCurrentRate").ToString <> "" Then
                 reMIRatesDisp = True
+            End If
+            If item("FortGordonCurrentRate").ToString <> "" Then
+                reFGRatesDisp = True
             End If
         Next
 
@@ -78,12 +82,26 @@ Partial Public Class RateGuaranteeFinder
             lblGuaranteeMidMich.Visible = False
         End If
 
+        If reFGRatesDisp = True Then
+            reFGrates.DataSource = ds
+            reFGrates.DataBind()
+            reFGrates.Visible = True
+            lblGuaranteeDateFG.Visible = True
+            lblGuaranteeFG.Visible = True
+        Else
+            reFGrates.Visible = False
+            lblGuaranteeDateFG.Visible = False
+            lblGuaranteeFG.Visible = False
+        End If
+
         lblPackageCode.Text = rcbRateCodes.SelectedItem.Text
 
 
         For Each Row As DataRow In ds.Rows
             If Row("GuaranteeDate").ToString.Contains("Michigan") Then
                 lblGuaranteeDateMidMich.Text = Row("GuaranteeDate").ToString
+            ElseIf Row("GuaranteeDate").ToString.Contains("Fort Gordon") Then
+                lblGuaranteeDateFG.Text = Row("GuaranteeDate").ToString
             Else
                 lblGuaranteeDate.Text = Row("GuaranteeDate").ToString
             End If

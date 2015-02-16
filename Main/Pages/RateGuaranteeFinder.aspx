@@ -143,6 +143,41 @@
                     </ItemTemplate>
                     <FooterTemplate></table></FooterTemplate>
                 </asp:Repeater>
+                <br />
+                <asp:Label ID="lblGuaranteeFG" runat="server" style="font-weight: bold;">Guarantee Date Fort Gordon:</asp:Label>
+                <asp:Label runat="server" ID="lblGuaranteeDateFG" /><br />
+                <asp:Repeater ID="reFGrates" runat="server">
+                    <HeaderTemplate>
+                        <table class="RateInfo">
+                            <tr>
+                                <th colspan="3">
+                                    Rate Information:
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>2014
+                                </td>
+                                <td>2015
+                                </td>
+                                <td>Increase
+                                </td>
+                            </tr>
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td>
+                                <%#Eval("FortGordonCurrentRate", "{0:C}")%>
+                            </td>
+                            <td>
+                                <%#Eval("FortGordonNextYearRate", "{0:C}")%>
+                            </td>
+                            <td>
+                                <%#Eval("FortGordonIncrease", "{0:C}")%>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                    <FooterTemplate></table></FooterTemplate>
+                </asp:Repeater>
             </asp:Panel>
         </div>
     </form>
