@@ -36,7 +36,7 @@
                         <td align="center" colspan="4">
                             <div class="infobox bolder">
                                 Use when a ledger appears to have incorrect charges or debits on the account. This
-                            may also be used for billing disputes involving credits and debits.<br />
+                            may also be used for billing disputes.<br />
                                 <br />
                                 <span style="color: Red; font-size: larger; font-style: italic;">All inquiries must
                                 be approved by your Supervisor prior to submission.</span>
