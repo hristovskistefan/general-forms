@@ -287,7 +287,11 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropnewstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtnewzip.Text)
                         _sqlcmd.Parameters.AddWithValue("@phnum", Me.rntnewPhone.Text)
-                        _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtnewssn.Text, True))
+                        If Me.txtnewssn.Text.Trim.Length > 0 Then
+                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtnewssn.Text, True))
+                        Else
+                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
+                        End If
                         _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtnewdl.Text)
                         _sqlcmd.Parameters.AddWithValue("@housenum", Me.txtLocationID.Text)
                         _sqlcmd.Parameters.AddWithValue("@comm", Me.txtnewcomm.Text)
@@ -449,7 +453,11 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropsusstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtsuszip.Text)
                         _sqlcmd.Parameters.AddWithValue("@phnum", Me.txtsusphone.Text)
-                        _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtsusssn.Text, True))
+                        If Me.txtsusssn.Text.Trim.Length > 0 Then
+                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtsusssn.Text, True))
+                        Else
+                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
+                        End If
                         _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtsusdl.Text)
                         _sqlcmd.Parameters.AddWithValue("@resserv", Me.dropsusrequest.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@comm", Me.txtsuscomm.Text)
@@ -581,7 +589,11 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@city", Me.txtdncity.Text)
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropdnstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtdnzip.Text)
-                        _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtdnssn.Text, True))
+                        If Me.txtdnssn.Text.Trim.Length > 0 Then
+                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtdnssn.Text.Trim, True))
+                        Else
+                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
+                        End If
                         _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtdndl.Text)
                         _sqlcmd.Parameters.AddWithValue("@comm", Me.txtdncomm.Text)
                         _conn.Open()
