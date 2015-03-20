@@ -1,0 +1,70 @@
+﻿#Container-Controls
+{
+	float: left;
+	border: solid 1px #777777;
+	vertical-align: middle;
+	font-family: Arial, Sans-Serif;
+	background-image: url(images/formback.jpg);
+	background-repeat: repeat-x;
+	padding: 3px;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+.DateSelectContainer
+{
+	padding: 3px;
+	width: 130px;
+	float: left;
+}
+#Container-Scorecards
+{
+	float: left;
+	padding: 3px;
+}
+#Container-QA
+{
+	float: left;
+	padding: 3px;
+}
+.datetitle
+{
+	text-align: center;
+	font-weight: bolder;
+	font-style: italic;
+}
+.daterow
+{
+	text-align: right;
+	vertical-align: top;
+	white-space: nowrap;
+	width: 100%;
+}
+.buttons
+{
+	float: left;	
+	margin-left: 1px;
+	margin-top: 2px;
+}
+.clearfix:after
+{
+	content: ".";
+	display: block;
+	height: 0;
+	font-size: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix
+{
+	display: inline-block;
+}
+/* mac hide \*/
+* html .clearfix
+{
+	height: 1%;
+}
+.clearfix
+{
+	display: block;
+}
+/* End hide */

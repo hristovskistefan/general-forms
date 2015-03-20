@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://iwservices/Email/Operations.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://iwservices/Email/Operations.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Email" />
+      <xsd:import schemaLocation="http://iwservices/Email/Operations.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://iwservices/Email/Operations.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOperations_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="IOperations_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOperations_SendEmail_UnhandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Email" name="detail" element="q1:UnhandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IOperations_SendEmail_HandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Email" name="detail" element="q2:HandledServiceFault" />
+  </wsdl:message>
+  <wsdl:portType name="IOperations">
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="urn:IOperations/SendEmail" message="IOperations_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IOperations/SendEmailResponse" message="IOperations_SendEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="urn:IOperations/SendEmailUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="IOperations_SendEmail_UnhandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="urn:IOperations/SendEmailHandledServiceFaultFault" name="HandledServiceFaultFault" message="IOperations_SendEmail_HandledServiceFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

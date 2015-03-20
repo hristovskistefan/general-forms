@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://wowway.com/services/BillingSystem/CreateOrder" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://wowway.com/services/BillingSystem/CreateOrder" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://wowway.com/services/BillingSystem/CreateOrder/Imports">
+      <xsd:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?xsd=xsd0" namespace="http://wowway.com/services/BillingSystem/CreateOrder" />
+      <xsd:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?xsd=xsd3" namespace="http://wowway.com/services/" />
+      <xsd:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICreateOrder_NewInstall_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewInstall" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_NewInstall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewInstallResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_NewInstall_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://wowway.com/services/" name="detail" element="q1:ValidationException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_NewInstall_BillingSystemExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://wowway.com/services/" name="detail" element="q2:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_ChangeOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_ChangeOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_ChangeOrder_BillingSystemExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://wowway.com/services/" name="detail" element="q3:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_ChangeOrder_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://wowway.com/services/" name="detail" element="q4:ValidationException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_OfficeOnly_InputMessage">
+    <wsdl:part name="parameters" element="tns:OfficeOnly" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_OfficeOnly_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OfficeOnlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://wowway.com/services/" name="detail" element="q5:ValidationException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_OfficeOnly_BillingSystemExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://wowway.com/services/" name="detail" element="q6:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_SpecialRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SpecialRequest" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_SpecialRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SpecialRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_SpecialRequest_ValidationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://wowway.com/services/" name="detail" element="q7:ValidationException" />
+  </wsdl:message>
+  <wsdl:message name="ICreateOrder_SpecialRequest_BillingSystemExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://wowway.com/services/" name="detail" element="q8:BillingSystemException" />
+  </wsdl:message>
+  <wsdl:portType name="ICreateOrder">
+    <wsdl:operation name="NewInstall">
+      <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/NewInstall" message="tns:ICreateOrder_NewInstall_InputMessage" />
+      <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/NewInstallResponse" message="tns:ICreateOrder_NewInstall_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/NewInstallValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_NewInstall_ValidationExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/NewInstallBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:ICreateOrder_NewInstall_BillingSystemExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrder">
+      <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrder" message="tns:ICreateOrder_ChangeOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderResponse" message="tns:ICreateOrder_ChangeOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:ICreateOrder_ChangeOrder_BillingSystemExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrderValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_ChangeOrder_ValidationExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OfficeOnly">
+      <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnly" message="tns:ICreateOrder_OfficeOnly_InputMessage" />
+      <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyResponse" message="tns:ICreateOrder_OfficeOnly_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_OfficeOnly_ValidationExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnlyBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:ICreateOrder_OfficeOnly_BillingSystemExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SpecialRequest">
+      <wsdl:input wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequest" message="tns:ICreateOrder_SpecialRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequestResponse" message="tns:ICreateOrder_SpecialRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequestValidationExceptionFault" name="ValidationExceptionFault" message="tns:ICreateOrder_SpecialRequest_ValidationExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequestBillingSystemExceptionFault" name="BillingSystemExceptionFault" message="tns:ICreateOrder_SpecialRequest_BillingSystemExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
