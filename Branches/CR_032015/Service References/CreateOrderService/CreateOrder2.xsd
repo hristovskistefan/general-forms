@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://wowway.com/services/BillingSystem/CreateOrder" elementFormDefault="qualified" targetNamespace="http://wowway.com/services/BillingSystem/CreateOrder" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" />
+  <xs:element name="NewInstall">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="request" nillable="true" type="q1:NewInstallRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewInstallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="NewInstallResult" nillable="true" type="q2:CreateOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="request" nillable="true" type="q3:ChangeOrderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="ChangeOrderResult" nillable="true" type="q4:CreateOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OfficeOnly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="request" nillable="true" type="q5:OfficeOnlyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OfficeOnlyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="OfficeOnlyResult" nillable="true" type="q6:CreateOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecialRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="request" nillable="true" type="q7:SpecialRequestRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpecialRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="SpecialRequestResult" nillable="true" type="q8:CreateOrderResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
