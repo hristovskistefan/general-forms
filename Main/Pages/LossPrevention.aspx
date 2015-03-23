@@ -181,10 +181,10 @@
                         </td>
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" />
-                            <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server"
-                                ErrorMessage="A valid Driver's License or SSN is required."
+                            <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server" 
+                                ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtnewdl"
-                                ValidationExpression="^{5,}$">
+                                ValidationExpression="^[a-zA-Z0-9]{5,}$">
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
@@ -359,10 +359,10 @@
                         </td>
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" />
-                            <asp:RegularExpressionValidator ID="revSesDl" runat="server"
-                                ErrorMessage="A valid Driver's License or SSN is required."
+                            <asp:RegularExpressionValidator ID="revSusDl" runat="server"
+                                ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtsusdl"
-                                ValidationExpression="^{5,}$">
+                                ValidationExpression="^[a-zA-Z0-9]{5,}$">
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
@@ -531,16 +531,16 @@
                         </td>
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" />
-                            <asp:RegularExpressionValidator ID="revDnDl" runat="server"
-                                ErrorMessage="A valid Driver's License or SSN is required."
+                            <asp:RegularExpressionValidator ID="revDnDl" runat="server" 
+                                ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtdndl"
-                                ValidationExpression="^{5,}$">
+                                ValidationExpression="^[a-zA-Z0-9]{5,}$">
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:Label ID="lblDnDlSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
+                            <asp:Label ID="lblDnDlSsnError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
@@ -549,7 +549,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button OnClick="SendIt" ID="btndnsend" runat="server" Text="Submit" Width="150" ValidationGroup="vgDisconnected" />
+                            <asp:Button OnClick="SendIt" ID="btndnsend" runat="server" Text="Submit" Width="150" />
                         </td>
                     </tr>
                 </table>
