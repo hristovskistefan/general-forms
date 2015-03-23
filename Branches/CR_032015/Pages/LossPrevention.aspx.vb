@@ -104,10 +104,17 @@ Public Class LossPrevention
     End Sub
 
     Public Sub ResetDNPanel()
+        Me.txtdnfname.Text = ""
+        Me.txtdnlname.Text = ""
+        Me.txtDnHouseNumber.Text = ""
         Me.txtdnaddy.Text = ""
         Me.txtdncity.Text = ""
         Me.dropdnstate.SelectedIndex = 0
         Me.txtdnzip.Text = ""
+        Me.txtdnphone.Text = ""
+        Me.txtdnssn.Text = ""
+        Me.txtdndl.Text = ""
+        Me.txtdncomm.Text = ""
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnnewsend.Click
@@ -123,8 +130,6 @@ Public Class LossPrevention
         txtsusdl.Text = rgx.Replace(txtsusdl.Text, replacement)
         txtDnHouseNumber.Text = rgx.Replace(txtDnHouseNumber.Text, replacement)
         txtdnphone.Text = rgx.Replace(txtdnphone.Text, replacement)
-
-
 
         If Me.Page.IsValid Then
             Try
@@ -150,7 +155,7 @@ Public Class LossPrevention
                 Select Case o.id
                     Case "btnnewsend"
                         'Check if a SSN or DL is entered
-                        If ((Me.txtnewssn.Text.Length() = 0) And (Me.txtnewdl.Text.Length() = 0)) Then
+                        If ((Me.txtnewssn.Text.Length = 0) And (Me.txtnewdl.Text.Length = 0)) Then
                             Me.lblSsnDlError.Visible = True
                             Exit Sub
                         End If
@@ -314,7 +319,7 @@ Public Class LossPrevention
 
                     Case "btnsussend"
                         'Check if a SSN or DL is entered
-                        If ((Me.txtsusssn.Text.Length() = 0) And (Me.txtsusdl.Text.Length() = 0)) Then
+                        If ((Me.txtsusssn.Text.Length = 0) And (Me.txtsusdl.Text.Length = 0)) Then
                             Me.lblSusSsnDlError.Visible = True
                             Exit Sub
                         End If
@@ -471,8 +476,8 @@ Public Class LossPrevention
                         Me.pnlthx.Visible = True
                     Case "btndnsend"
                         'Check if a SSN or DL is entered
-                        If ((Me.txtdnssn.Text.Length() = 0) And (Me.txtdndl.Text.Length() = 0)) Then
-                            Me.lblSusSsnDlError.Visible = True
+                        If ((Me.txtdnssn.Text.Length = 0) And (Me.txtdndl.Text.Length = 0)) Then
+                            Me.lblDnDlSsnError.Visible = True
                             Exit Sub
                         End If
                         'VERIFY PHONE # IS NUMERIC

@@ -482,13 +482,13 @@ Partial Public Class LossPrevention
     Protected WithEvents txtsusdl As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''revSesDl control.
+    '''revSusDl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents revSesDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents revSusDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''lblSusSsnDlError control.
@@ -725,13 +725,13 @@ Partial Public Class LossPrevention
     Protected WithEvents revDnDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''lblDnDlSsnDlError control.
+    '''lblDnDlSsnError control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblDnDlSsnDlError As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblDnDlSsnError As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtdncomm control.
