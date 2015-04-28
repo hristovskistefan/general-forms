@@ -230,6 +230,7 @@
     <Content Include="Pages\Reschedule.aspx" />
     <Content Include="Pages\PageTemplate.aspx" />
     <Content Include="Pages\LossPrevention.aspx" />
+    <Content Include="WOW.Data.dll" />
     <EntityDeploy Include="Entities\ICOMS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ICOMS.Designer.vb</LastGenOutput>
@@ -759,7 +760,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
