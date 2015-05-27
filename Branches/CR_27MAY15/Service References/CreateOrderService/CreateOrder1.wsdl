@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://wowway.com/services/BillingSystem/CreateOrder" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateOrder" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://wowway.com/services/BillingSystem/CreateOrder" location="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_ICreateOrder" type="i0:ICreateOrder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NewInstall">
+      <soap:operation soapAction="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/NewInstall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="BillingSystemExceptionFault">
+        <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrder">
+      <soap:operation soapAction="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/ChangeOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="BillingSystemExceptionFault">
+        <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OfficeOnly">
+      <soap:operation soapAction="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/OfficeOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="BillingSystemExceptionFault">
+        <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SpecialRequest">
+      <soap:operation soapAction="http://wowway.com/services/BillingSystem/CreateOrder/ICreateOrder/SpecialRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ValidationExceptionFault">
+        <soap:fault use="literal" name="ValidationExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="BillingSystemExceptionFault">
+        <soap:fault use="literal" name="BillingSystemExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreateOrder">
+    <wsdl:port name="BasicHttpBinding_ICreateOrder" binding="tns:BasicHttpBinding_ICreateOrder">
+      <soap:address location="http://10.20.10.102/WOW.BillingSystem.CreateOrder/CreateOrder.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

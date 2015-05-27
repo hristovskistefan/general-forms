@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwservices/Employee/Management.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Employee" />
+  <xs:element name="GetBasicInfoByEmpID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByEmpIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetBasicInfoByEmpIDResult" nillable="true" type="q1:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByICOMSUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByICOMSUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetBasicInfoByICOMSUserIDResult" nillable="true" type="q2:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByICOMSSalesID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSSalesID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByICOMSSalesIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetBasicInfoByICOMSSalesIDResult" nillable="true" type="q3:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByNTLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NTLogin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByNTLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetBasicInfoByNTLoginResult" nillable="true" type="q4:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByInfoValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InfoValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InfoTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBasicInfoByInfoValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetBasicInfoByInfoValueResult" nillable="true" type="q5:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByEmpID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByEmpIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetAdvancedInfoByEmpIDResult" nillable="true" type="q6:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByICOMSUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByICOMSUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetAdvancedInfoByICOMSUserIDResult" nillable="true" type="q7:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByICOMSSalesID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSSalesID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByICOMSSalesIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetAdvancedInfoByICOMSSalesIDResult" nillable="true" type="q8:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByNTLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NTLogin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByNTLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetAdvancedInfoByNTLoginResult" nillable="true" type="q9:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByInfoValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InfoValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InfoTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdvancedInfoByInfoValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetAdvancedInfoByInfoValueResult" nillable="true" type="q10:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByEmpID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="empID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByEmpIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetFullInfoByEmpIDResult" nillable="true" type="q11:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByICOMSUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByICOMSUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetFullInfoByICOMSUserIDResult" nillable="true" type="q12:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByICOMSSalesID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ICOMSSalesID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByICOMSSalesIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetFullInfoByICOMSSalesIDResult" nillable="true" type="q13:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByNTLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NTLogin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByNTLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetFullInfoByNTLoginResult" nillable="true" type="q14:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByInfoValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InfoValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InfoTypeID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullInfoByInfoValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Employee" minOccurs="0" name="GetFullInfoByInfoValueResult" nillable="true" type="q15:EmpInstance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildHierarchy">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildHierarchyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
