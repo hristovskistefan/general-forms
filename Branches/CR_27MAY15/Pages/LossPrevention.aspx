@@ -346,7 +346,7 @@
                         <td valign="top">SSN:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="11" />
                             <asp:RegularExpressionValidator ID="revSusSnn" runat="server" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
                                 ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
@@ -518,7 +518,7 @@
                         <td valign="top">SSN:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="11" />
                             <asp:RegularExpressionValidator ID="revDnSsn" runat="server" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
                                 ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
