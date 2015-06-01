@@ -171,11 +171,8 @@
                             <asp:TextBox autocomplete="off" ID="txtnewssn" runat="server" Width="160" MaxLength="11" />
                             <asp:RegularExpressionValidator ID="revNewSSN" runat="server" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
-                                ControlToValidate="txtnewssn" />
-                            <%-- ^((?!000)(?!666)(?:[0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-2]))-((?!00)\d{2})-((?!0000)\d{4})$ --%>
-                            <%-- ^(?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$ --%>
-                            <%-- ^((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))(\s|\-)((?!00)\d{2})(\s|\-)((?!0000)\d{4})$ --%>
+                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                ControlToValidate="txtnewssn" />                            
                         </td>
                         <td valign="top">DL #:
                         </td>
@@ -349,10 +346,10 @@
                         <td valign="top">SSN:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtsusssn" runat="server" Width="160" MaxLength="11" />
                             <asp:RegularExpressionValidator ID="revSusSnn" runat="server" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
                                 ControlToValidate="txtsusssn" />
                         </td>
                         <td valign="top">DL #:
@@ -521,10 +518,10 @@
                         <td valign="top">SSN:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="9" />
+                            <asp:TextBox autocomplete="off" ID="txtdnssn" runat="server" Width="160" MaxLength="11" />
                             <asp:RegularExpressionValidator ID="revDnSsn" runat="server" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!219-09-9999|078-05-1120)[- .]?((?!000)(?!666)([0-6]\d{2}|7[0-2][0-9]|73[0-3]|7[5-6][0-9]|77[0-1]))[- .]?((?!00)\d{2})[- .]?((?!0000)\d{4})$"
+                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
                                 ControlToValidate="txtdnssn" />
                         </td>
                         <td valign="top">DL #:
