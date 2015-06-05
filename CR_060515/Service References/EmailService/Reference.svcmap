@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1edc6e65-1836-4278-bfb9-39172789c75d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://iwservices/email/operations.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Operations.xsd" MetadataType="Schema" ID="1a0e7308-8368-45d4-8921-c262cea3d6ad" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?xsd=xsd2" />
+    <MetadataFile FileName="Operations.wsdl" MetadataType="Wsdl" ID="efba0b22-9334-461d-b37a-0ca588151ebe" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?wsdl" />
+    <MetadataFile FileName="Operations1.xsd" MetadataType="Schema" ID="3b3f44c9-0821-4eaf-a1d6-977bf7fa8d98" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?xsd=xsd1" />
+    <MetadataFile FileName="Operations2.xsd" MetadataType="Schema" ID="b33ed279-a466-4bc3-ac2e-b3857aaf4b38" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?xsd=xsd0" />
+    <MetadataFile FileName="Operations1.wsdl" MetadataType="Wsdl" ID="e1b5c3df-a1c7-4b7b-8860-b39b12e8bf08" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Operations3.xsd" MetadataType="Schema" ID="c93c6814-11a0-4cc9-9ccc-6fccb0d57a84" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?xsd=xsd3" />
+    <MetadataFile FileName="Operations.disco" MetadataType="Disco" ID="5d6abf86-85b4-4aab-9f12-3cb51ea68be9" SourceId="1" SourceUrl="http://iwservices/Email/Operations.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

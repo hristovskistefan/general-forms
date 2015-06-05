@@ -1,0 +1,63 @@
+﻿.QueuePanel {
+	float: left;
+	padding: 2px;
+}
+.RepName {
+	text-align: center;
+	background-color: #56768D;
+	color: #FFFFFF;
+	border: solid 1px #DDDDDD;
+	width: 100%;
+}
+.box-InProgress {
+	border: solid 1px #B8CA85;
+	background: #E9FFA7;
+	color: #222222;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: left;
+	font-size: smaller;
+}
+.box-FollowUp {
+	border: solid 1px #DEDEDE;
+	background: #EFEFEF;
+	color: #222222;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: left;
+	font-size: smaller;
+}
+.box-NewItem {
+	border: solid 1px #5CB28A;
+	background: #77ECB5;
+	color: #222222;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: left;
+	font-size: smaller;
+}
+.box-RedRecord {
+	border: solid 1px #EE2222;
+	background: #FF9999;
+	color: #222222;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: left;
+	font-size: inherit;
+}
+.box-OtherRecord {
+	border: 1px solid #0066FF;
+	background: #66CCFF;
+	color: #222222;
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: left;
+	font-size: smaller;
+}
+.Locked {
+	float: right;
+	width: 16px;
+	height: 16px;
+	background-image: url(images/16-security-lock.png);
+	background-repeat:no-repeat
+}
