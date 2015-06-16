@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwservices/Customer/CustomerManagement.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Customer" />
+  <xs:element name="getByCustomerID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="custID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByCustomerIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Customer" minOccurs="0" name="getByCustomerIDResult" nillable="true" type="q1:Cust" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByPhoneNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByPhoneNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Customer" minOccurs="0" name="getByPhoneNumberResult" nillable="true" type="q2:Cust" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Customer" minOccurs="0" name="getByNameResult" nillable="true" type="q3:Cust" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
