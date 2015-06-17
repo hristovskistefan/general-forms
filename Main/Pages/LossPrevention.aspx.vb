@@ -178,13 +178,13 @@ Public Class LossPrevention
                         'VERIFY PHONE # IS NUMERIC
                         If Not IsNumeric(Me.rntnewPhone.Text) Then
                             Me.lblsuperr.Visible = True
-                            Me.lblsuperr.Text = "The Phone # is not numeric. Please verify the Phone # and try again."
+                            Me.lblsuperr.Text = "The phone # is not numeric. Please verify the phone # and try again."
                             Exit Sub
                         End If
                         'VERIFY PHONE # IS 10 DIGITS
                         If Me.rntnewPhone.Text.Length < 10 Then
                             Me.lblsuperr.Visible = True
-                            Me.lblsuperr.Text = "The Phone # must be ten digits. Please try again."
+                            Me.lblsuperr.Text = "The phone # must be ten digits. Please try again."
                             Exit Sub
                         End If
                         'VERIFY COMMENTS ARE NOT TOO LONG
@@ -483,7 +483,7 @@ Public Class LossPrevention
                         'VERIFY PHONE # IS NUMERIC
                         If Not IsNumeric(Me.txtdnphone.Text) Then
                             Me.lblsuperr.Visible = True
-                            Me.lblsuperr.Text = "The phone # is not numeric. Please verify the Phone # and try again."
+                            Me.lblsuperr.Text = "The phone # is not numeric. Please verify the Account # and try again."
                             Exit Sub
                         End If
                         'VERIFY PHONE # IS 10 DIGITS
