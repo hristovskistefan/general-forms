@@ -139,6 +139,8 @@ Public Class LossPrevention
                 _conn = New System.Data.SqlClient.SqlConnection
                 _conn.ConnectionString = "Server=CS-REPORTDB\REPORTS;UID=sa;PWD=w0wc$1#@;database=BillingDB;"
 
+                '_conn.ConnectionString = DatabaseFactory.CreateDatabase("Billing").ToString
+
                 _sqlcmd = New System.Data.SqlClient.SqlCommand
                 _sqlcmd.Connection = _conn
 
@@ -153,6 +155,9 @@ Public Class LossPrevention
                 mailMsg.From = New MailAddress(_employee.Email)
                 mailMsg.IsBodyHtml = False
                 Select Case o.id
+                    ''''''''''''''''''''''''''
+                    ' New Start
+                    ''''''''''''''''''''''''''
                     Case "btnnewsend"
                         'Check if a SSN or DL is entered
                         If ((Me.txtnewssn.Text.Length = 0) And (Me.txtnewdl.Text.Length = 0)) Then
@@ -256,6 +261,20 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
+
+                        'Encrypt Comments, SSN, and DL fields
+                        Dim newComments As String = Me.txtnewcomm.Text.Trim
+                        newComments = Crypto.Encrypt(newComments, True)
+                        Dim newSsn As String = Me.txtnewssn.Text.Trim
+                        If newSsn.Length > 0 Then
+                            newSsn = Crypto.Encrypt(newSsn, True)
+                        End If
+                        Dim newDl As String = Me.txtnewdl.Text.Trim
+                        If newDl.Length > 0 Then
+                            newDl = Crypto.Encrypt(newDl, True)
+                        End If
+
+
                         Me._mSubject = "Loss Prevention - New Start Request"
                         Me._mBody = "Loss Prevention - New Start Request" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
@@ -268,7 +287,7 @@ Public Class LossPrevention
                             "City:" & vbTab & vbTab & Me.txtnewcity.Text & vbCrLf & _
                             "State:" & vbTab & Me.dropnewstate.SelectedItem.Value & vbCrLf & _
                             "Phone #:" & vbTab & Me.rntnewPhone.Text & vbCrLf & _
-                            "SSN:" & vbTab & vbTab & Me.txtnewssn.Text & vbCrLf & _
+                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf & _
                             "DL #:" & vbTab & vbTab & Me.txtnewdl.Text & vbCrLf & _
                             "Comments: " & vbCrLf & Me.txtnewcomm.Text
 
@@ -292,14 +311,10 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropnewstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtnewzip.Text)
                         _sqlcmd.Parameters.AddWithValue("@phnum", Me.rntnewPhone.Text)
-                        If Me.txtnewssn.Text.Trim.Length > 0 Then
-                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtnewssn.Text, True))
-                        Else
-                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
-                        End If
-                        _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtnewdl.Text)
+                        _sqlcmd.Parameters.AddWithValue("@ssn", newSsn)
+                        _sqlcmd.Parameters.AddWithValue("@dlnum", newDl)
                         _sqlcmd.Parameters.AddWithValue("@housenum", Me.txtLocationID.Text)
-                        _sqlcmd.Parameters.AddWithValue("@comm", Me.txtnewcomm.Text)
+                        _sqlcmd.Parameters.AddWithValue("@comm", newComments)
                         _sqlcmd.Parameters.AddWithValue("@d2dReq", cbD2d.Checked)
                         If cbD2d.Checked Then
                             _sqlcmd.Parameters.AddWithValue("@d2dEmail", txtD2DEmail.Text)
@@ -317,6 +332,9 @@ Public Class LossPrevention
                         Me.lblD2DConfirmation.Visible = True
                         Me.lblD2DConfirmation.Text = "Door To Door Confirmation Number is " & lpID.ToString & "."
 
+                        ''''''''''''''''''''''''''
+                        ' Suspected Fraud
+                        ''''''''''''''''''''''''''
                     Case "btnsussend"
                         'Check if a SSN or DL is entered
                         If ((Me.txtsusssn.Text.Length = 0) And (Me.txtsusdl.Text.Length = 0)) Then
@@ -420,6 +438,20 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
+
+                        'Encrypt Comments, SSN, and DL fields
+                        Dim susComments As String = Me.txtsuscomm.Text.Trim
+                        susComments = Crypto.Encrypt(susComments, True)
+                        Dim susSsn As String = Me.txtsusssn.Text.Trim
+                        If susSsn.Length > 0 Then
+                            susSsn = Crypto.Encrypt(susSsn, True)
+                        End If
+                        Dim susDl As String = Me.txtsusdl.Text.Trim
+                        If susDl.Length > 0 Then
+                            susDl = Crypto.Encrypt(susDl, True)
+                        End If
+
+
                         Me._mSubject = "Loss Prevention - Suspected Fraud"
                         Me._mBody = "Loss Prevention - Suspected Fraud" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
@@ -432,7 +464,7 @@ Public Class LossPrevention
                             "City:" & vbTab & vbTab & Me.txtsuscity.Text & vbCrLf & _
                             "State:" & vbTab & Me.dropsusstate.SelectedItem.Value & vbCrLf & _
                             "Phone #:" & vbTab & Me.txtsusphone.Text & vbCrLf & _
-                            "SSN:" & vbTab & vbTab & Me.txtsusssn.Text & vbCrLf & _
+                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf & _
                             "DL #:" & vbTab & vbTab & Me.txtsusdl.Text & vbCrLf & _
                             "Comments: " & vbCrLf & Me.txtsuscomm.Text
 
@@ -458,14 +490,10 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropsusstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtsuszip.Text)
                         _sqlcmd.Parameters.AddWithValue("@phnum", Me.txtsusphone.Text)
-                        If Me.txtsusssn.Text.Trim.Length > 0 Then
-                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtsusssn.Text, True))
-                        Else
-                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
-                        End If
-                        _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtsusdl.Text)
+                        _sqlcmd.Parameters.AddWithValue("@ssn", susSsn)
+                        _sqlcmd.Parameters.AddWithValue("@dlnum", susDl)
                         _sqlcmd.Parameters.AddWithValue("@resserv", Me.dropsusrequest.SelectedItem.Value)
-                        _sqlcmd.Parameters.AddWithValue("@comm", Me.txtsuscomm.Text)
+                        _sqlcmd.Parameters.AddWithValue("@comm", susComments)
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
@@ -474,6 +502,10 @@ Public Class LossPrevention
                         Me.pnlfraud.Visible = False
                         Me.pnlmain.Visible = False
                         Me.pnlthx.Visible = True
+
+                        ''''''''''''''''''''''''''
+                        'Unblock Address
+                        ''''''''''''''''''''''''''
                     Case "btndnsend"
                         'Check if a SSN or DL is entered
                         If ((Me.txtdnssn.Text.Length = 0) And (Me.txtdndl.Text.Length = 0)) Then
@@ -558,6 +590,20 @@ Public Class LossPrevention
                             Exit Sub
                         End If
 
+
+                        'Encrypt Comments, SSN, and DL fields
+                        Dim uaComments As String = Me.txtdncomm.Text.Trim
+                        uaComments = Crypto.Encrypt(uaComments, True)
+                        Dim uaSsn As String = Me.txtdnssn.Text.Trim
+                        If uaSsn.Length > 0 Then
+                            uaSsn = Crypto.Encrypt(uaSsn, True)
+                        End If
+                        Dim uaDl As String = Me.txtdndl.Text.Trim
+                        If uaDl.Length > 0 Then
+                            uaDl = Crypto.Encrypt(uaDl, True)
+                        End If
+
+
                         Me._mSubject = "Loss Prevention - Unblock Address"
                         Me._mBody = "Loss Prevention - Unblock Address" & vbCrLf & _
                             "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
@@ -594,13 +640,9 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@city", Me.txtdncity.Text)
                         _sqlcmd.Parameters.AddWithValue("@state", Me.dropdnstate.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@zip", Me.txtdnzip.Text)
-                        If Me.txtdnssn.Text.Trim.Length > 0 Then
-                            _sqlcmd.Parameters.AddWithValue("@ssn", Crypto.Encrypt(Me.txtdnssn.Text.Trim, True))
-                        Else
-                            _sqlcmd.Parameters.AddWithValue("@ssn", "")
-                        End If
-                        _sqlcmd.Parameters.AddWithValue("@dlnum", Me.txtdndl.Text)
-                        _sqlcmd.Parameters.AddWithValue("@comm", Me.txtdncomm.Text)
+                        _sqlcmd.Parameters.AddWithValue("@ssn", uaSsn)
+                        _sqlcmd.Parameters.AddWithValue("@dlnum", uaDl)
+                        _sqlcmd.Parameters.AddWithValue("@comm", uaComments)
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
