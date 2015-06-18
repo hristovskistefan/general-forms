@@ -179,6 +179,7 @@
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server"
+                                Display="dynamic"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtnewdl"
                                 ValidationExpression="^[a-zA-Z0-9]{5,}$">
@@ -372,6 +373,7 @@
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revSusDl" runat="server"
+                                Display="Dynamic" 
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtsusdl"
                                 ValidationExpression="^[a-zA-Z0-9]{5,}$">
@@ -560,6 +562,7 @@
                         <td valign="top">
                             <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revDnDl" runat="server"
+                                Display="Dynamic" 
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtdndl"
                                 ValidationExpression="^[a-zA-Z0-9]{5,}$">

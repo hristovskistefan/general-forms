@@ -141,11 +141,13 @@ Public Class LossPrevention
                 _sdomain = InStr(_suser, "\")
                 _suser = Mid(_suser, (_sdomain + 1), (Len(_suser) - _sdomain))
                 _suser = LCase(_suser)
+
                 'GET E-MAIL STUFF PREPARED
                 '  Dim MailClient As New SmtpClient
                 Dim mailMsg As New MailMessage
                 mailMsg.From = New MailAddress(_employee.Email)
                 mailMsg.IsBodyHtml = False
+
                 Select Case o.id
                     ''''''''''''''''''''''''''
                     ' New Start
@@ -650,7 +652,7 @@ Public Class LossPrevention
                         _sqlstr = _sqlstr & "CLName,Kickback,PhoneNum,Address,City,State,Zip,SSN,"
                         _sqlstr = _sqlstr & "DLNum,Comments,AdditionalSsn) VALUES "
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
-                        _sqlstr = _sqlstr & "@phnum,@addy,@city,@state,@zip,@ssn,@dlnum,@comm)"
+                        _sqlstr = _sqlstr & "@phnum,@addy,@city,@state,@zip,@ssn,@dlnum,@comm,@additionalSsn)"
                         _sqlcmd.CommandText = _sqlstr
                         _sqlcmd.Parameters.AddWithValue("@type", "Unblock Address")
                         _sqlcmd.Parameters.AddWithValue("@user", _suser)
