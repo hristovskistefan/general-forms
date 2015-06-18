@@ -177,7 +177,7 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtnewdl"
@@ -370,7 +370,7 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revSusDl" runat="server"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtsusdl"
@@ -558,7 +558,7 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" />
+                            <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" Maxlength="20" />
                             <asp:RegularExpressionValidator ID="revDnDl" runat="server"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtdndl"
