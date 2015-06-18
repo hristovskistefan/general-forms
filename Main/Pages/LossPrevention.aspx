@@ -94,7 +94,7 @@
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtLocationID" />
                             <asp:RegularExpressionValidator ID="revLocationID" runat="server"
                                 ErrorMessage="<b>Invalid ICOMS House Number.</b><br />Verify this number matches the House Number from the 10 screen in ICOMS." ControlToValidate="txtLocationID"
-                                ValidationExpression="^[0-9]{8,10}$">
+                                ValidationExpression="^[0-9]{7,10}$">
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
