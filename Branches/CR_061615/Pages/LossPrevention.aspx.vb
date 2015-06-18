@@ -12,6 +12,8 @@ Public Class LossPrevention
     Private _employee As EmployeeService.EmpInstance
     Private _myCustomer As CustomerService.Cust
 
+    Private Shared ReadOnly billingConnectionString As String = ConfigurationManager.ConnectionStrings("Billing").ConnectionString
+
     Private Sub LoadEmployeeInfo()
         ' load employee
         _employee = GeneralFormsCommon.getEmployee()
@@ -118,18 +120,10 @@ Public Class LossPrevention
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnnewsend.Click
-        'Remove dashes, spaces and periods from LocationID (house number), SSN, and Phone# textboxes
+        'Used in each case below to remove dashes, spaces, and periods from SSN, DL, and Phone# textboxes
         Dim pattern As String = "[- .]"
         Dim replacement As String = ""
         Dim rgx As New Regex(pattern)
-        txtLocationID.Text = rgx.Replace(txtLocationID.Text, replacement)
-        rntnewPhone.Text = rgx.Replace(rntnewPhone.Text, replacement)
-        txtnewssn.Text = rgx.Replace(txtnewssn.Text, replacement)
-        txtsusphone.Text = rgx.Replace(txtsusphone.Text, replacement)
-        txtsusssn.Text = rgx.Replace(txtsusssn.Text, replacement)
-        txtsusdl.Text = rgx.Replace(txtsusdl.Text, replacement)
-        txtDnHouseNumber.Text = rgx.Replace(txtDnHouseNumber.Text, replacement)
-        txtdnphone.Text = rgx.Replace(txtdnphone.Text, replacement)
 
         If Me.Page.IsValid Then
             Try
@@ -137,9 +131,7 @@ Public Class LossPrevention
                 Me.pnlmain.Visible = True
                 'GET DB STUFF PREPARED
                 _conn = New System.Data.SqlClient.SqlConnection
-                _conn.ConnectionString = "Server=CS-REPORTDB\REPORTS;UID=sa;PWD=w0wc$1#@;database=BillingDB;"
-
-                '_conn.ConnectionString = DatabaseFactory.CreateDatabase("Billing").ToString
+                _conn.ConnectionString = billingConnectionString
 
                 _sqlcmd = New System.Data.SqlClient.SqlCommand
                 _sqlcmd.Connection = _conn
@@ -159,6 +151,13 @@ Public Class LossPrevention
                     ' New Start
                     ''''''''''''''''''''''''''
                     Case "btnnewsend"
+                        'Remove dashes, spaces and periods from SSN, DL, and Phone# textboxes
+                        txtLocationID.Text = rgx.Replace(txtLocationID.Text, replacement)
+                        rntnewPhone.Text = rgx.Replace(rntnewPhone.Text, replacement)
+                        txtnewssn.Text = rgx.Replace(txtnewssn.Text, replacement)
+                        txtNewAdditionalSsn.Text = rgx.Replace(txtNewAdditionalSsn.Text, replacement)
+                        txtnewdl.Text = rgx.Replace(txtnewdl.Text, replacement)
+
                         'Check if a SSN or DL is entered
                         If ((Me.txtnewssn.Text.Length = 0) And (Me.txtnewdl.Text.Length = 0)) Then
                             Me.lblSsnDlError.Visible = True
@@ -262,12 +261,16 @@ Public Class LossPrevention
                         End If
 
 
-                        'Encrypt Comments, SSN, and DL fields
+                        'Encrypt Comments, SSN, Additional SSN, and DL fields
                         Dim newComments As String = Me.txtnewcomm.Text.Trim
                         newComments = Crypto.Encrypt(newComments, True)
                         Dim newSsn As String = Me.txtnewssn.Text.Trim
                         If newSsn.Length > 0 Then
                             newSsn = Crypto.Encrypt(newSsn, True)
+                        End If
+                        Dim newAdditionalSsn As String = Me.txtNewAdditionalSsn.Text.Trim
+                        If newAdditionalSsn.Length > 0 Then
+                            newAdditionalSsn = Crypto.Encrypt(newAdditionalSsn, True)
                         End If
                         Dim newDl As String = Me.txtnewdl.Text.Trim
                         If newDl.Length > 0 Then
@@ -293,9 +296,9 @@ Public Class LossPrevention
 
                         _sqlstr = "INSERT INTO Skip_Trace "
                         _sqlstr = _sqlstr & "(RequestType,CCCUser,DateSub,CCRName,CSGOpCode,Supervisor,CFName,"
-                        _sqlstr = _sqlstr & "CLName,Kickback,Address,City,State,Zip,PhoneNum,SSN,DLNUM,HouseNum,Comments, d2dRequest, d2dEmail) VALUES "
+                        _sqlstr = _sqlstr & "CLName,Kickback,Address,City,State,Zip,PhoneNum,SSN,DLNUM,HouseNum,Comments, d2dRequest, d2dEmail, AdditionalSSN) VALUES "
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
-                        _sqlstr = _sqlstr & "@addy,@city,@state,@zip,@phnum,@ssn,@dlnum,@housenum,@comm,@d2dReq,@d2dEmail) SELECT @@IDENTITY"
+                        _sqlstr = _sqlstr & "@addy,@city,@state,@zip,@phnum,@ssn,@dlnum,@housenum,@comm,@d2dReq,@d2dEmail,@additionalSsn) SELECT @@IDENTITY"
                         _sqlcmd.CommandText = _sqlstr
                         _sqlcmd.Parameters.AddWithValue("@type", "New Start Request")
                         _sqlcmd.Parameters.AddWithValue("@user", _suser)
@@ -321,6 +324,8 @@ Public Class LossPrevention
                         Else
                             _sqlcmd.Parameters.AddWithValue("@d2dEmail", DBNull.Value)
                         End If
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", newAdditionalSsn)
+
                         _conn.Open()
                         Dim lpID As Integer = CInt(_sqlcmd.ExecuteScalar())
                         _conn.Close()
@@ -336,6 +341,12 @@ Public Class LossPrevention
                         ' Suspected Fraud
                         ''''''''''''''''''''''''''
                     Case "btnsussend"
+                        'Remove dashes, spaces and periods from SSN, DL, and Phone# textboxes
+                        txtsusphone.Text = rgx.Replace(txtsusphone.Text, replacement)
+                        txtsusssn.Text = rgx.Replace(txtsusssn.Text, replacement)
+                        txtSusAdditionalSsn.Text = rgx.Replace(txtSusAdditionalSsn.Text, replacement)
+                        txtsusdl.Text = rgx.Replace(txtsusdl.Text, replacement)
+
                         'Check if a SSN or DL is entered
                         If ((Me.txtsusssn.Text.Length = 0) And (Me.txtsusdl.Text.Length = 0)) Then
                             Me.lblSusSsnDlError.Visible = True
@@ -446,6 +457,10 @@ Public Class LossPrevention
                         If susSsn.Length > 0 Then
                             susSsn = Crypto.Encrypt(susSsn, True)
                         End If
+                        Dim susAdditionalSsn As String = Me.txtSusAdditionalSsn.Text.Trim
+                        If susAdditionalSsn.Length > 0 Then
+                            susAdditionalSsn = Crypto.Encrypt(susAdditionalSsn, True)
+                        End If
                         Dim susDl As String = Me.txtsusdl.Text.Trim
                         If susDl.Length > 0 Then
                             susDl = Crypto.Encrypt(susDl, True)
@@ -471,9 +486,9 @@ Public Class LossPrevention
                         _sqlstr = "INSERT INTO Skip_Trace "
                         _sqlstr = _sqlstr & "(RequestType,CCCUser,DateSub,CCRName,CSGOpCode,Supervisor,CFName,"
                         _sqlstr = _sqlstr & "CLName,Kickback,AcctNum,Address,City,State,Zip,PhoneNum,SSN,DLNUM,"
-                        _sqlstr = _sqlstr & "RequestServices,Comments) VALUES "
+                        _sqlstr = _sqlstr & "RequestServices,Comments,AdditionalSSN) VALUES "
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
-                        _sqlstr = _sqlstr & "@anum,@addy,@city,@state,@zip,@phnum,@ssn,@dlnum,@resserv,@comm)"
+                        _sqlstr = _sqlstr & "@anum,@addy,@city,@state,@zip,@phnum,@ssn,@dlnum,@resserv,@comm,@additionalSsn)"
                         _sqlcmd.CommandText = _sqlstr
                         _sqlcmd.Parameters.AddWithValue("@type", "Suspected Fraud")
                         _sqlcmd.Parameters.AddWithValue("@user", _suser)
@@ -494,6 +509,7 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@dlnum", susDl)
                         _sqlcmd.Parameters.AddWithValue("@resserv", Me.dropsusrequest.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@comm", susComments)
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", susAdditionalSsn)
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
@@ -507,6 +523,12 @@ Public Class LossPrevention
                         'Unblock Address
                         ''''''''''''''''''''''''''
                     Case "btndnsend"
+                        'Remove dashes, spaces and periods from SSN, DL, and Phone# textboxes
+                        txtdnssn.Text = rgx.Replace(txtdnssn.Text, replacement)
+                        txtDnAdditionalSsn.Text = rgx.Replace(txtDnAdditionalSsn.Text, replacement)
+                        txtdnphone.Text = rgx.Replace(txtdnphone.Text, replacement)
+                        txtdndl.Text = rgx.Replace(txtdndl.Text, replacement)
+
                         'Check if a SSN or DL is entered
                         If ((Me.txtdnssn.Text.Length = 0) And (Me.txtdndl.Text.Length = 0)) Then
                             Me.lblDnDlSsnError.Visible = True
@@ -598,6 +620,10 @@ Public Class LossPrevention
                         If uaSsn.Length > 0 Then
                             uaSsn = Crypto.Encrypt(uaSsn, True)
                         End If
+                        Dim uaAdditionalSsn As String = Me.txtDnAdditionalSsn.Text.Trim
+                        If uaAdditionalSsn.Length > 0 Then
+                            uaAdditionalSsn = Crypto.Encrypt(uaAdditionalSsn, True)
+                        End If
                         Dim uaDl As String = Me.txtdndl.Text.Trim
                         If uaDl.Length > 0 Then
                             uaDl = Crypto.Encrypt(uaDl, True)
@@ -622,7 +648,7 @@ Public Class LossPrevention
                         _sqlstr = "INSERT INTO Skip_Trace "
                         _sqlstr = _sqlstr & "(RequestType,CCCUser,DateSub,CCRName,CSGOpCode,Supervisor,CFName,"
                         _sqlstr = _sqlstr & "CLName,Kickback,PhoneNum,Address,City,State,Zip,SSN,"
-                        _sqlstr = _sqlstr & "DLNum,Comments) VALUES "
+                        _sqlstr = _sqlstr & "DLNum,Comments,AdditionalSsn) VALUES "
                         _sqlstr = _sqlstr & "(@type,@user,@date,@ccr,@csg,@sup,@cfname,@clname,@kb,"
                         _sqlstr = _sqlstr & "@phnum,@addy,@city,@state,@zip,@ssn,@dlnum,@comm)"
                         _sqlcmd.CommandText = _sqlstr
@@ -643,6 +669,7 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@ssn", uaSsn)
                         _sqlcmd.Parameters.AddWithValue("@dlnum", uaDl)
                         _sqlcmd.Parameters.AddWithValue("@comm", uaComments)
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", uaAdditionalSsn)
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
