@@ -1,0 +1,1 @@
+<asp:ImageButton runat="server" SkinID="ibSearch" ImageUrl="images/search_icon.gif" />

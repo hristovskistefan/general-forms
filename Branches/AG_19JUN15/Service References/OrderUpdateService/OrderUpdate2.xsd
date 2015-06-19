@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://wowway.com/services/BillingSystem/OrderUpdate" elementFormDefault="qualified" targetNamespace="http://wowway.com/services/BillingSystem/OrderUpdate" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.20.10.102/WOW.BillingSystem.OrderUpdate/OrderUpdate.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" />
+  <xs:element name="AddServiceCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:OrderUpdateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OrderUpdateRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExternalUsername" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WOW.BillingSystem.Contracts" minOccurs="0" name="OccurrenceList" nillable="true" type="q1:ArrayOfOccurrence" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderUpdateRequest" nillable="true" type="tns:OrderUpdateRequest" />
+  <xs:element name="AddServiceCodeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:ScheduleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ScheduleRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesRep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeSlot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrderType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleRequest" nillable="true" type="tns:ScheduleRequest" />
+  <xs:element name="ScheduleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Unlock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:UnlockRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UnlockRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExternalUsername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SiteId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnlockRequest" nillable="true" type="tns:UnlockRequest" />
+  <xs:element name="UnlockResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
