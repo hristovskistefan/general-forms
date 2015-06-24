@@ -1,3 +1,6 @@
+Imports System.Diagnostics.Eventing.Reader
+Imports GeneralForms.Classes
+
 Public Class ARMisappliedOrUnpostedPayment
     Inherits System.Web.UI.Page
 
@@ -67,25 +70,28 @@ Public Class ARMisappliedOrUnpostedPayment
         Select Case radmisapp.SelectedItem.Value
             Case "0" 'Personal Check
                 pnlpctr.Visible = False : pnlchk.Visible = True : pnleft.Visible = False
-                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
             Case "1" 'Money Order
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
-                pnlmonord.Visible = True : pnlcash.Visible = False : pnlcred.Visible = False
+                pnlmonord.Visible = True : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
             Case "2" 'Payment Center
                 pnlpctr.Visible = True : pnlchk.Visible = False : pnleft.Visible = False
-                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
             Case "3" 'Credit/Debit Card
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
-                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = True
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = True : pnlAch.Visible = False
             Case "4" 'EFT Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = True
-                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
             Case "5" 'Cash Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
-                pnlmonord.Visible = False : pnlcash.Visible = True : pnlcred.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = True : pnlcred.Visible = False : pnlAch.Visible = False
+            Case "6" 'ACH (Business Only)
+                pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = True
             Case Else
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
-                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False
+                pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
         End Select
     End Sub
 
@@ -370,9 +376,32 @@ Public Class ARMisappliedOrUnpostedPayment
         End If
 
         Try
-            Using customerClient As New CustomerService.CustomerManagementClient
-                _myCustomer = customerClient.getByCustomerID(tempAccount)
-            End Using
+            'Using customerClient As New CustomerService.CustomerManagementClient
+            '    _myCustomer = customerClient.getByCustomerID(tempAccount)
+            'End Using
+            Dim icomsAccount = New IcomsAccount(tempAccount)
+            If Not icomsAccount.IsAccountValid Then
+                Me.MB.ShowMessage("Account number does not exist. Please try again.")
+                txtAcct.Text = ""
+                Exit Sub
+            End If
+
+            txtclname.Text = icomsAccount.LastName
+            txtcfname.Text = icomsAccount.FirstName
+            lblDivision.Text = icomsAccount.Division
+
+            If icomsAccount.IsCommercial Then
+                Dim liAch As ListItem = radmisapp.Items.FindByText("ACH (Business Customers ONLY)")
+                If liAch Is Nothing Then
+                    radmisapp.Items.Add(New ListItem("ACH (Business Customers ONLY)", 6))
+                End If
+            Else
+                Dim liAch As ListItem = radmisapp.Items.FindByText("ACH (Business Customers ONLY)")
+                If Not liAch Is Nothing Then
+                    radmisapp.Items.Remove(liAch)
+                End If
+            End If
+
         Catch ex As Exception
             Dim errorAccount = ex.Message
             If errorAccount = "Customer Database Object is nothing." Then
@@ -382,20 +411,21 @@ Public Class ARMisappliedOrUnpostedPayment
             End If
         End Try
 
-        If _myCustomer Is Nothing Then
-            Me.MB.ShowMessage("Lookup timed out.")
-            Exit Sub
-        End If
-        If IsNothing(_myCustomer.IcomsCustomerID) Then
-            Me.MB.ShowMessage("Lookup returned nothing.")
-            ResetMain()
-            txtclname.Text = String.Empty
-            txtcfname.Text = String.Empty
-            Exit Sub
-        End If
-        txtclname.Text = _myCustomer.LName
-        txtcfname.Text = _myCustomer.FName
-        lblDivision.Text = _myCustomer.Address.Division
+        'If _myCustomer Is Nothing Then
+        '    Me.MB.ShowMessage("Lookup timed out.")
+        '    Exit Sub
+        'End If
+        'If IsNothing(_myCustomer.IcomsCustomerID) Then
+        '    Me.MB.ShowMessage("Lookup returned nothing.")
+        '    ResetMain()
+        '    txtclname.Text = String.Empty
+        '    txtcfname.Text = String.Empty
+        '    Exit Sub
+        'End If
+
+        'txtclname.Text = _myCustomer.LName
+        'txtcfname.Text = _myCustomer.FName
+        'lblDivision.Text = _myCustomer.Address.Division
         GetForm()
 
     End Sub

@@ -127,7 +127,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td valign="top" style="width: 168px;" >
+                        <td valign="top" colspan="2" >
                             <asp:RadioButtonList ID="radmisapp" runat="server" AutoPostBack="True" RepeatDirection="Vertical">
                                 <asp:ListItem Value="0" Text="Personal Check" />
                                 <asp:ListItem Value="1" Text="Money Order" />
@@ -458,6 +458,45 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" Text="X"
                                                 ErrorMessage="Payment Location is required." Font-Bold="true" Font-Size="Medium"
                                                 Display="Dynamic" ControlToValidate="dropcash" InitialValue="Select One" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </asp:Panel>
+                            <!-- ACH (Business Only) -->
+                             <asp:Panel ID="pnlAch" runat="server">
+                                <table>
+                                    <tr>
+                                        <td width="150">Payment Amount:
+                                        </td>
+                                        <td>
+                                            <telerik:RadNumericTextBox ID="rntAch" Width="160" runat="server" MaxValue="9999.99"
+                                                MinValue="0.01" Type="Currency" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Text="X" ErrorMessage="Payment Amount is required."
+                                                Font-Bold="true" Font-Size="Medium" Display="Dynamic" ControlToValidate="rntAch" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Payment Date:
+                                        </td>
+                                        <td>
+                                            <telerik:RadDatePicker runat="server" ID="rdpAch" Calendar-ShowRowHeaders="false" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="X" Font-Bold="true"
+                                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Payment Date is required."
+                                                ControlToValidate="rdpAch" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name As It Appears on the Bank Account:
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtAchAccountName" runat="server"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Invoice Number:
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtAchInvoiceNumber" runat="server"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>

@@ -434,10 +434,12 @@
     <Compile Include="Classes\AD.vb" />
     <Compile Include="Classes\CheckAccessHelper.vb" />
     <Compile Include="Classes\Crypto.vb" />
+    <Compile Include="Classes\DbFunctions.vb" />
     <Compile Include="Classes\EmailProxy.vb" />
     <Compile Include="Classes\Enums.vb" />
     <Compile Include="Classes\GeneralFormsCommon.vb" />
     <Compile Include="Classes\GenFormsData.vb" />
+    <Compile Include="Classes\IcomsAccount.vb" />
     <Compile Include="Classes\OrderFunctions.vb" />
     <Compile Include="Classes\UpsMailingAccount.vb" />
     <Compile Include="Entities\ICOMS.Designer.vb">
@@ -759,7 +761,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
