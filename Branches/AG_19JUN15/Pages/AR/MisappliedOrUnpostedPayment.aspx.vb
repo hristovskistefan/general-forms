@@ -71,27 +71,36 @@ Public Class ARMisappliedOrUnpostedPayment
             Case "0" 'Personal Check
                 pnlpctr.Visible = False : pnlchk.Visible = True : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "1" 'Money Order
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = True : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "2" 'Payment Center
                 pnlpctr.Visible = True : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "3" 'Credit/Debit Card
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = True : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "4" 'EFT Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = True
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "5" 'Cash Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = True : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
             Case "6" 'ACH (Business Only)
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = True
+                pnlAchExtraAccounts.Visible = True
+
             Case Else
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
+                pnlAchExtraAccounts.Visible = False
         End Select
     End Sub
 
@@ -299,6 +308,43 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.ExecuteNonQuery(cmd)
 
+                    Case "6" 'ACH (Business Only)
+                        '***************************************
+                        ' MUP - ACH
+                        '***************************************
+
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,Comments,Division) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@Comments,@Division);SELECT @@IDENTITY")
+                        Database.ClearParameterCache()
+                        db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
+                        db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
+                        db.AddInParameter(cmd, "IssueType", DbType.String, "ACH")
+                        db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
+                        db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstLast)
+                        db.AddInParameter(cmd, "CSGOpCode", DbType.String, _employee.IcomsUserID)
+                        db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
+                        db.AddInParameter(cmd, "Supervisor", DbType.String, _employee.SupNameFirstLast)
+                        db.AddInParameter(cmd, "CFName", DbType.String, txtcfname.Text)
+                        db.AddInParameter(cmd, "CLName", DbType.String, txtclname.Text)
+                        db.AddInParameter(cmd, "AcctNum", DbType.String, txtAcct.Text)
+                        db.AddInParameter(cmd, "PhoneNum", DbType.String, txtPhoneNumber.Text)
+                        db.AddInParameter(cmd, "State", DbType.String, txtstate.Text)
+                        db.AddInParameter(cmd, "Kickback", DbType.Int32, "0")
+                        db.AddInParameter(cmd, "Amount", DbType.String, rntAch.Value)
+                        db.AddInParameter(cmd, "PaymentDate", DbType.String, rdpAch.SelectedDate)
+                        db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
+                        db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        Dim billingId As Int32 = db.ExecuteScalar(cmd)
+                        Dim achId As Integer = MisappliedPayment.AddAchInfo(billingId, txtAchAccountName.Text, txtAchInvoiceNumber.Text)
+                        For i As Integer = 1 To 10
+                            Dim txtAchAccount As TextBox = Page.FindControl("txtAchAccount" + i.ToString)
+                            Dim txtAchAmount As TextBox = Page.FindControl("txtAchAmount" + i.ToString)
+                            If Not String.IsNullOrWhiteSpace(txtAchAccount.Text) AndAlso Not String.IsNullOrWhiteSpace(txtAchAmount.Text) Then
+                                MisappliedPayment.AddAchExtraAccounts(achId, txtAchAccount.Text, Convert.ToDecimal(txtAchAmount.Text))
+                            End If
+
+                        Next
+
                 End Select
 
                 Reset()
@@ -328,6 +374,8 @@ Public Class ARMisappliedOrUnpostedPayment
         pnlmonord.Visible = False
         pnlpctr.Visible = False
         pnlpctr.Visible = False
+        pnlAch.Visible = False
+        pnlAchExtraAccounts.Visible = False
     End Sub
 
     Protected Sub cvCreditCard_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles cvCreditCard.ServerValidate
@@ -443,6 +491,9 @@ Public Class ARMisappliedOrUnpostedPayment
         pnlmonord.Visible = False
         pnlpctr.Visible = False
         pnlpctr.Visible = False
+        pnlAch.Visible = False
+        pnlAchExtraAccounts.Visible = False
+
     End Sub
 
     Protected Sub txtcacct_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles txtAcct.TextChanged

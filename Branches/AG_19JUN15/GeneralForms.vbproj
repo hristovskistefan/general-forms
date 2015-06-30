@@ -211,6 +211,7 @@
     <Content Include="App_Themes\WOWMain\_vti_cnf\Layout.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\StyleSheet.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\Winback.css" />
+    <Compile Include="Classes\MisappliedPayment.vb" />
     <Content Include="Controls\WOWAuthCntrl.dll" />
     <Content Include="images\SearchGo.gif" />
     <Content Include="Pages\AR\NameChange.aspx" />
@@ -761,7 +762,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
