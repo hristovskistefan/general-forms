@@ -211,6 +211,7 @@
     <Content Include="App_Themes\WOWMain\_vti_cnf\Layout.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\StyleSheet.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\Winback.css" />
+    <Compile Include="Classes\MisappliedPayment.vb" />
     <Content Include="Controls\WOWAuthCntrl.dll" />
     <Content Include="images\SearchGo.gif" />
     <Content Include="Pages\AR\NameChange.aspx" />
@@ -434,10 +435,12 @@
     <Compile Include="Classes\AD.vb" />
     <Compile Include="Classes\CheckAccessHelper.vb" />
     <Compile Include="Classes\Crypto.vb" />
+    <Compile Include="Classes\DbFunctions.vb" />
     <Compile Include="Classes\EmailProxy.vb" />
     <Compile Include="Classes\Enums.vb" />
     <Compile Include="Classes\GeneralFormsCommon.vb" />
     <Compile Include="Classes\GenFormsData.vb" />
+    <Compile Include="Classes\IcomsAccount.vb" />
     <Compile Include="Classes\OrderFunctions.vb" />
     <Compile Include="Classes\UpsMailingAccount.vb" />
     <Compile Include="Entities\ICOMS.Designer.vb">
