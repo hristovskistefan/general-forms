@@ -197,6 +197,127 @@
                                                 ControlToValidate="rdpPersonalCheckDateCleared" />
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <br />
+                                            <br />
+                                            <span class="bolder">Extra Personal Check Accounts</span>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">Account Number
+                                        </td>
+                                        <td style="text-align: center">Amount
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <hr />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount1" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount1" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount1"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount2" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount2" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount2"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount3" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount3" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator15" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount3"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount4" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount4" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator16" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount4"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount5" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount5" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator17" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount5"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount6" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount6" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator18" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount6"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount7" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount7" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator19" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount7"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount8" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount8" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator20" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount8"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount9" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount9" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator21" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount9"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAccount10" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtCheckAmount10" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator22" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtCheckAmount10"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
                                 </table>
                             </asp:Panel>
                             <!--Money Order -->
@@ -229,6 +350,127 @@
                                             <asp:RequiredFieldValidator ID="rfvmonord3" runat="server" Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="Date Mailed is required."
                                                 ControlToValidate="rdpmonord3" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <br />
+                                            <br />
+                                            <span class="bolder">Extra ACH Accounts</span>
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center">Account Number
+                                        </td>
+                                        <td style="text-align: center">Amount
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <hr />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount1" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount1" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator23" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount1"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount2" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount2" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator24" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount2"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount3" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount3" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator25" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount3"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount4" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount4" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator26" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount4"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount5" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount5" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator27" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount5"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount6" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount6" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator28" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount6"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount7" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount7" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator29" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount7"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount8" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount8" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator30" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount8"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount9" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount9" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator31" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount9"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAccount10" runat="server"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtMoAmount10" runat="server"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator32" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtMoAmount10"
+                                                ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
@@ -536,7 +778,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount2" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount2"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount2"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -546,7 +788,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount3" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount3"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount3"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -556,7 +798,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount4" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount4"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount4"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -566,7 +808,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount5" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount5"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount5"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -576,7 +818,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount6" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount6"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount6"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -586,7 +828,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount7" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount7"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount7"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -596,7 +838,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount8" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount8"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount8"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -606,7 +848,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount9" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator11" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount9"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator11" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount9"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -616,7 +858,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtAchAmount10" runat="server"></asp:TextBox>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount10"
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ErrorMessage="X" Font-Bold="True" ControlToValidate="txtAchAmount10"
                                                 ValidationExpression="^-?\d+(\.\d{2})?$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
@@ -624,8 +866,6 @@
                             </asp:Panel>
                         </td>
                     </tr>
-                    <asp:Panel ID="pnlAchExtraAccounts" runat="server">
-                    </asp:Panel>
                     <tr>
                         <td colspan="2"><span class="bolder">Comments:</span> <i>(Max 500 Characters)</i><br />
                             <asp:TextBox autocomplete="off" ID="txtmisappcomm" runat="server" Columns="50" Rows="5" TextMode="MultiLine"
