@@ -116,7 +116,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
-    <Reference Include="WOW.Data">
+    <Reference Include="WOW.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>.\WOW.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -762,7 +763,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
