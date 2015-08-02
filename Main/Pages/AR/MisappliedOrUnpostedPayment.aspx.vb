@@ -71,41 +71,42 @@ Public Class ARMisappliedOrUnpostedPayment
             Case "0" 'Personal Check
                 pnlpctr.Visible = False : pnlchk.Visible = True : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "1" 'Money Order
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = True : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "2" 'Payment Center
                 pnlpctr.Visible = True : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "3" 'Credit/Debit Card
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = True : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "4" 'EFT Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = True
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "5" 'Cash Payment
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = True : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
             Case "6" 'ACH (Business Only)
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = True
-                pnlAchExtraAccounts.Visible = True
+
 
             Case Else
                 pnlpctr.Visible = False : pnlchk.Visible = False : pnleft.Visible = False
                 pnlmonord.Visible = False : pnlcash.Visible = False : pnlcred.Visible = False : pnlAch.Visible = False
-                pnlAchExtraAccounts.Visible = False
+
         End Select
     End Sub
 
     Public Sub SendIt(ByVal o As Object, ByVal e As EventArgs) Handles btnmisappsend.Click
         'Removed dashes, spaces, and periods from phone number fields
+        pnlerror.Visible = False
         Dim pattern As String = "[- .]"
         Dim replacement As String = ""
         Dim rgx As New Regex(pattern)
@@ -126,7 +127,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - PERSONAL CHECK
                         '***************************************
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division) VALUES " _
-                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division)")
+                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -149,7 +150,15 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateCleared", DbType.String, rdpPersonalCheckDateCleared.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
-                        db.ExecuteNonQuery(cmd)
+                        Dim billingId As Int32 = db.ExecuteScalar(cmd)
+                        For i As Integer = 1 To 10
+                            Dim txtAchAccount As TextBox = Page.FindControl("txtCheckAccount" + i.ToString)
+                            Dim txtAchAmount As TextBox = Page.FindControl("txtCheckAmount" + i.ToString)
+                            If Not String.IsNullOrWhiteSpace(txtAchAccount.Text) AndAlso Not String.IsNullOrWhiteSpace(txtAchAmount.Text) Then
+                                MisappliedPayment.AddExtraAccounts(billingId, txtAchAccount.Text, Convert.ToDecimal(txtAchAmount.Text))
+                            End If
+
+                        Next
 
                     Case "1" 'MONEY ORDER
                         '***************************************
@@ -157,7 +166,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
 
                         cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division)")
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -179,7 +188,15 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateMailed", DbType.String, rdpmonord3.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
-                        db.ExecuteNonQuery(cmd)
+                        Dim billingId As Int32 = db.ExecuteScalar(cmd)
+                        For i As Integer = 1 To 10
+                            Dim txtAchAccount As TextBox = Page.FindControl("txtMoAccount" + i.ToString)
+                            Dim txtAchAmount As TextBox = Page.FindControl("txtMoAmount" + i.ToString)
+                            If Not String.IsNullOrWhiteSpace(txtAchAccount.Text) AndAlso Not String.IsNullOrWhiteSpace(txtAchAmount.Text) Then
+                                MisappliedPayment.AddExtraAccounts(billingId, txtAchAccount.Text, Convert.ToDecimal(txtAchAmount.Text))
+                            End If
+
+                        Next
 
                     Case "2" 'PAYMENT CENTER
                         '***************************************
@@ -335,12 +352,12 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
-                        Dim achId As Integer = MisappliedPayment.AddAchInfo(billingId, txtAchAccountName.Text, txtAchInvoiceNumber.Text)
+                        MisappliedPayment.AddAchInfo(billingId, txtAchAccountName.Text, txtAchInvoiceNumber.Text)
                         For i As Integer = 1 To 10
                             Dim txtAchAccount As TextBox = Page.FindControl("txtAchAccount" + i.ToString)
                             Dim txtAchAmount As TextBox = Page.FindControl("txtAchAmount" + i.ToString)
                             If Not String.IsNullOrWhiteSpace(txtAchAccount.Text) AndAlso Not String.IsNullOrWhiteSpace(txtAchAmount.Text) Then
-                                MisappliedPayment.AddAchExtraAccounts(achId, txtAchAccount.Text, Convert.ToDecimal(txtAchAmount.Text))
+                                MisappliedPayment.AddExtraAccounts(billingId, txtAchAccount.Text, Convert.ToDecimal(txtAchAmount.Text))
                             End If
 
                         Next
@@ -349,7 +366,7 @@ Public Class ARMisappliedOrUnpostedPayment
 
                 Reset()
             Catch mailex As Exception
-                lblerror.Visible = True
+                pnlerror.Visible = True
                 lblerror.Text = "<br /><b>Error Message:</b> " & mailex.Message & "<br />" & _
                             "<b>Error Source:</b> " & mailex.Source & "<br />" & _
                             "<b>Stack Trace:</b> " & mailex.StackTrace & "<br />"
@@ -375,7 +392,6 @@ Public Class ARMisappliedOrUnpostedPayment
         pnlpctr.Visible = False
         pnlpctr.Visible = False
         pnlAch.Visible = False
-        pnlAchExtraAccounts.Visible = False
     End Sub
 
     Protected Sub cvCreditCard_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles cvCreditCard.ServerValidate
@@ -492,7 +508,6 @@ Public Class ARMisappliedOrUnpostedPayment
         pnlpctr.Visible = False
         pnlpctr.Visible = False
         pnlAch.Visible = False
-        pnlAchExtraAccounts.Visible = False
 
     End Sub
 

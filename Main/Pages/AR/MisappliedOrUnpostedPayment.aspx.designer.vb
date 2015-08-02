@@ -347,6 +347,276 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     Protected WithEvents RequiredFieldValidator5 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''txtCheckAccount1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator13 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator13 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator14 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator14 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator15 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator15 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator16 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator16 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator17 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator17 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator18 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator18 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator19 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator19 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount8 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount8 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator20 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator20 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount9 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount9 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator21 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator21 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtCheckAccount10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAccount10 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCheckAmount10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCheckAmount10 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator22 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator22 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''pnlmonord control.
     '''</summary>
     '''<remarks>
@@ -408,6 +678,276 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvmonord3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''txtMoAccount1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator23 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator23 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator24 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator24 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator25 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator25 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator26 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator26 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount5 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator27 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator27 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount6 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator28 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator28 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount7 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator29 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator29 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount8 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount8 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator30 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator30 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount9 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount9 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator31 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator31 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''txtMoAccount10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAccount10 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtMoAmount10 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMoAmount10 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RegularExpressionValidator32 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator32 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''pnlpctr control.
@@ -1146,15 +1686,6 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator12 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
-    '''<summary>
-    '''pnlAchExtraAccounts control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlAchExtraAccounts As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtmisappcomm control.
