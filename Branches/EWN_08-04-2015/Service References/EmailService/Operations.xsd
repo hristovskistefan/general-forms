@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Email" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Email" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://iwservices/Email/Operations.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="EmailMessage">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BCC" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element name="Body" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CC" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBodyHtml" type="xs:boolean" />
+      <xs:element name="Priority" type="tns:MailPriority" />
+      <xs:element name="Subject" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="To" nillable="true" type="q3:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailMessage" nillable="true" type="tns:EmailMessage" />
+  <xs:simpleType name="MailPriority">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Low" />
+      <xs:enumeration value="High" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MailPriority" nillable="true" type="tns:MailPriority" />
+  <xs:complexType name="UnhandledServiceFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnhandledServiceFault" nillable="true" type="tns:UnhandledServiceFault" />
+  <xs:complexType name="HandledServiceFault">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Args" nillable="true" type="q4:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HandledServiceFault" nillable="true" type="tns:HandledServiceFault" />
+</xs:schema>
