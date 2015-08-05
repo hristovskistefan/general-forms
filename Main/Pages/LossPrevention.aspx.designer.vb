@@ -257,6 +257,15 @@ Partial Public Class LossPrevention
     Protected WithEvents revTxtNewDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
+    '''pnlNewAdditionalSsn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlNewAdditionalSsn As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtNewAdditionalSsn control.
     '''</summary>
     '''<remarks>
@@ -509,6 +518,15 @@ Partial Public Class LossPrevention
     Protected WithEvents revSusDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
+    '''pnlSusAdditionalSsn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlSusAdditionalSsn As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''txtSusAdditionalSsn control.
     '''</summary>
     '''<remarks>
@@ -759,6 +777,15 @@ Partial Public Class LossPrevention
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revDnDl As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''pnlDnAdditionalSsn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlDnAdditionalSsn As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''txtDnAdditionalSsn control.
