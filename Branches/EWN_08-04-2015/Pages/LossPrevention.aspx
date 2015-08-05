@@ -177,7 +177,7 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" Maxlength="20" />
+                            <asp:TextBox autocomplete="off" ID="txtnewdl" runat="server" Width="160" MaxLength="20" />
                             <asp:RegularExpressionValidator ID="revTxtNewDl" runat="server"
                                 Display="dynamic"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
@@ -186,21 +186,21 @@
                             </asp:RegularExpressionValidator>
                         </td>
                     </tr>
-
+                    <%--yyz--%>
                     <tr>
-                        <td valign="top">Additional SSN:</td>
-                        <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtNewAdditionalSsn" runat="server" Width="160" MaxLength="11" />
-                            <asp:RegularExpressionValidator ID="revNewAdditionalSSN" runat="server" Font-Bold="true"
-                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
-                                ControlToValidate="txtNewAdditionalSsn" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <asp:Panel ID="pnlNewAdditionalSsn" runat="server">
+                            <td valign="top">Additional SSN:</td>
+                            <td valign="top">
+                                <asp:TextBox autocomplete="off" ID="txtNewAdditionalSsn" runat="server" Width="160" MaxLength="11" />
+                                <asp:RegularExpressionValidator ID="revNewAdditionalSSN" runat="server" Font-Bold="true"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                    ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                    ControlToValidate="txtNewAdditionalSsn" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </asp:Panel>
                     </tr>
-
-
                     <tr>
                         <td colspan="4">
                             <asp:Label ID="lblSsnDlError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
@@ -371,9 +371,9 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" Maxlength="20" />
+                            <asp:TextBox autocomplete="off" ID="txtsusdl" runat="server" Width="160" MaxLength="20" />
                             <asp:RegularExpressionValidator ID="revSusDl" runat="server"
-                                Display="Dynamic" 
+                                Display="Dynamic"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtsusdl"
                                 ValidationExpression="^[a-zA-Z0-9]{5,}$">
@@ -381,18 +381,20 @@
                         </td>
                     </tr>
 
-
+                    <%--yyz--%>
                     <tr>
-                        <td valign="top">Additional SSN:</td>
-                        <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtSusAdditionalSsn" runat="server" Width="160" MaxLength="11" />
-                            <asp:RegularExpressionValidator ID="revSusAdditionalSsn" runat="server" Font-Bold="true"
-                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
-                                ControlToValidate="txtSusAdditionalSsn" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <asp:Panel ID="pnlSusAdditionalSsn" runat="server">
+                            <td valign="top">Additional SSN:</td>
+                            <td valign="top">
+                                <asp:TextBox autocomplete="off" ID="txtSusAdditionalSsn" runat="server" Width="160" MaxLength="11" />
+                                <asp:RegularExpressionValidator ID="revSusAdditionalSsn" runat="server" Font-Bold="true"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                    ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                    ControlToValidate="txtSusAdditionalSsn" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </asp:Panel>
                     </tr>
 
 
@@ -560,9 +562,9 @@
                         <td valign="top">DL #:
                         </td>
                         <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" Maxlength="20" />
+                            <asp:TextBox autocomplete="off" ID="txtdndl" runat="server" Width="160" MaxLength="20" />
                             <asp:RegularExpressionValidator ID="revDnDl" runat="server"
-                                Display="Dynamic" 
+                                Display="Dynamic"
                                 ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
                                 ControlToValidate="txtdndl"
                                 ValidationExpression="^[a-zA-Z0-9]{5,}$">
@@ -570,18 +572,20 @@
                         </td>
                     </tr>
 
-
+                    <%--yyz--%>
                     <tr>
-                        <td valign="top">Additional SSN:</td>
-                        <td valign="top">
-                            <asp:TextBox autocomplete="off" ID="txtDnAdditionalSsn" runat="server" Width="160" MaxLength="11" />
-                            <asp:RegularExpressionValidator ID="revDnAdditionalSsn" runat="server" Font-Bold="true"
-                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
-                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
-                                ControlToValidate="txtDnAdditionalSsn" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <asp:Panel ID="pnlDnAdditionalSsn" runat="server">
+                            <td valign="top">Additional SSN:</td>
+                            <td valign="top">
+                                <asp:TextBox autocomplete="off" ID="txtDnAdditionalSsn" runat="server" Width="160" MaxLength="11" />
+                                <asp:RegularExpressionValidator ID="revDnAdditionalSsn" runat="server" Font-Bold="true"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                    ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                    ControlToValidate="txtDnAdditionalSsn" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </asp:Panel>
                     </tr>
 
 

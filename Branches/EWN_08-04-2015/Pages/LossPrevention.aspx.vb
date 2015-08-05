@@ -28,6 +28,7 @@ Public Class LossPrevention
     Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadEmployeeInfo()
 
+
         'Put user code to initialize the page here
         If Not Page.IsPostBack Then
             Me.pnlnew.Visible = False
@@ -36,8 +37,14 @@ Public Class LossPrevention
             Me.pnlerror.Visible = False
             Me.pnlthx.Visible = False
             revsusacct.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
-        End If
 
+            'Hide Additional SSN controls if the employee DeptID != 1
+            If Not _employee.DeptID = 1 Then
+                pnlNewAdditionalSsn.Visible = False
+                pnlDnAdditionalSsn.Visible = False
+                pnlSusAdditionalSsn.Visible = False
+            End If
+        End If
     End Sub
 
     Public Sub GetPanel(ByVal o As Object, ByVal e As EventArgs) Handles radformsel.SelectedIndexChanged
@@ -326,7 +333,7 @@ Public Class LossPrevention
                         Else
                             _sqlcmd.Parameters.AddWithValue("@d2dEmail", DBNull.Value)
                         End If
-                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", newAdditionalSsn)
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", If(newAdditionalSsn = String.Empty, DBNull.Value, newAdditionalSsn))
 
                         _conn.Open()
                         Dim lpID As Integer = CInt(_sqlcmd.ExecuteScalar())
@@ -511,7 +518,8 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@dlnum", susDl)
                         _sqlcmd.Parameters.AddWithValue("@resserv", Me.dropsusrequest.SelectedItem.Value)
                         _sqlcmd.Parameters.AddWithValue("@comm", susComments)
-                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", susAdditionalSsn)
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", If(susAdditionalSsn = String.Empty, DBNull.Value, susAdditionalSsn))
+
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
@@ -671,7 +679,8 @@ Public Class LossPrevention
                         _sqlcmd.Parameters.AddWithValue("@ssn", uaSsn)
                         _sqlcmd.Parameters.AddWithValue("@dlnum", uaDl)
                         _sqlcmd.Parameters.AddWithValue("@comm", uaComments)
-                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", uaAdditionalSsn)
+                        _sqlcmd.Parameters.AddWithValue("@additionalSsn", If(uaAdditionalSsn = String.Empty, DBNull.Value, uaAdditionalSsn))
+
                         _conn.Open()
                         _sqlcmd.ExecuteNonQuery()
                         _conn.Close()
@@ -746,10 +755,17 @@ Public Class LossPrevention
         txtsuscity.Text = _myCustomer.Address.City
         txtsuszip.Text = _myCustomer.Address.Zip
         dropsusstate.ClearSelection()
-        If _myCustomer.Address.State.ToString() <> "Null" Then
+
+        If Not dropsusstate.Items.FindByValue(_myCustomer.Address.State) Is Nothing Then
             dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
         End If
+
+        'If _myCustomer.Address.State.ToString() <> "Null" Then
+        '    dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
+        'End If
+
         txtsusphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
+
     End Sub
 
     Private Sub cbD2D_CheckedChanged(sender As Object, e As System.EventArgs) Handles cbD2d.CheckedChanged
@@ -784,6 +800,14 @@ Public Class LossPrevention
                             Case "MI"
                                 fullState = "Michigan"
                         End Select
+
+                        If Not dropnewstate.Items.FindByValue(fullState) Is Nothing Then
+                            dropnewstate.SelectedValue = Nothing
+                            dropnewstate.Items.FindByValue(fullState).Selected = True
+                        Else
+                            Throw New Exception(String.Format("State code ({0}) does not exist in the state list.", addy.State))
+                        End If
+
                         dropdnstate.SelectedValue = Nothing
                         dropdnstate.Items.FindByValue(fullState).Selected = True
                     Catch ex As Exception
@@ -830,8 +854,17 @@ Public Class LossPrevention
                             Case "MI"
                                 fullState = "Michigan"
                         End Select
+
+                        If Not dropnewstate.Items.FindByValue(fullState) Is Nothing Then
+                            dropnewstate.SelectedValue = Nothing
+                            dropnewstate.Items.FindByValue(fullState).Selected = True
+                        Else
+                            Throw New Exception(String.Format("State code ({0}) does not exist in the state list.", addy.State))
+                        End If
+
                         dropnewstate.SelectedValue = Nothing
                         dropnewstate.Items.FindByValue(fullState).Selected = True
+
                     Catch ex As Exception
                         Me.MB.ShowMessage("An error occurred. If the error persists, see a Supervisor. " & ex.Message)
                         Exit Sub
