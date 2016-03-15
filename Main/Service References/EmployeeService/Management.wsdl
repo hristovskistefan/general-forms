@@ -14,11 +14,11 @@
   <wsdl:message name="IManagement_GetBasicInfoByEmpID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByEmpIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetBasicInfoByEmpID_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q1:UnhandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByEmpID_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q2:HandledServiceFault" />
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q1:HandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetBasicInfoByEmpID_UnhandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q2:UnhandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByICOMSUserID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByICOMSUserID" />
@@ -26,11 +26,11 @@
   <wsdl:message name="IManagement_GetBasicInfoByICOMSUserID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByICOMSUserIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetBasicInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q3:UnhandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q4:HandledServiceFault" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q3:HandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetBasicInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q4:UnhandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByICOMSSalesID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByICOMSSalesID" />
@@ -38,11 +38,11 @@
   <wsdl:message name="IManagement_GetBasicInfoByICOMSSalesID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByICOMSSalesIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetBasicInfoByICOMSSalesID_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q5:HandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByICOMSSalesID_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q6:UnhandledServiceFault" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q5:UnhandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetBasicInfoByICOMSSalesID_HandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q6:HandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetBasicInfoByNTLogin_InputMessage">
     <wsdl:part name="parameters" element="tns:GetBasicInfoByNTLogin" />
@@ -86,11 +86,11 @@
   <wsdl:message name="IManagement_GetAdvancedInfoByICOMSUserID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdvancedInfoByICOMSUserIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetAdvancedInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q13:HandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetAdvancedInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q14:UnhandledServiceFault" />
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q13:UnhandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetAdvancedInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q14:HandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetAdvancedInfoByICOMSSalesID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAdvancedInfoByICOMSSalesID" />
@@ -110,11 +110,11 @@
   <wsdl:message name="IManagement_GetAdvancedInfoByNTLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAdvancedInfoByNTLoginResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetAdvancedInfoByNTLogin_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q17:HandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetAdvancedInfoByNTLogin_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q18:UnhandledServiceFault" />
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q17:UnhandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetAdvancedInfoByNTLogin_HandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q18:HandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetAdvancedInfoByInfoValue_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAdvancedInfoByInfoValue" />
@@ -146,11 +146,11 @@
   <wsdl:message name="IManagement_GetFullInfoByICOMSUserID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFullInfoByICOMSUserIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_GetFullInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q23:HandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_GetFullInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q24:UnhandledServiceFault" />
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q23:UnhandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_GetFullInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q24:HandledServiceFault" />
   </wsdl:message>
   <wsdl:message name="IManagement_GetFullInfoByICOMSSalesID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFullInfoByICOMSSalesID" />
@@ -194,30 +194,30 @@
   <wsdl:message name="IManagement_BuildHierarchy_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuildHierarchyResponse" />
   </wsdl:message>
-  <wsdl:message name="IManagement_BuildHierarchy_UnhandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q31:UnhandledServiceFault" />
-  </wsdl:message>
   <wsdl:message name="IManagement_BuildHierarchy_HandledServiceFaultFault_FaultMessage">
-    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q32:HandledServiceFault" />
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q31:HandledServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="IManagement_BuildHierarchy_UnhandledServiceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/Employee" name="detail" element="q32:UnhandledServiceFault" />
   </wsdl:message>
   <wsdl:portType name="IManagement">
     <wsdl:operation name="GetBasicInfoByEmpID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByEmpID" message="tns:IManagement_GetBasicInfoByEmpID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByEmpIDResponse" message="tns:IManagement_GetBasicInfoByEmpID_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByEmpIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByEmpID_UnhandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByEmpIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByEmpID_HandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByEmpIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByEmpID_UnhandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByICOMSUserID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSUserID" message="tns:IManagement_GetBasicInfoByICOMSUserID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSUserIDResponse" message="tns:IManagement_GetBasicInfoByICOMSUserID_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSUserIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSUserIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSUserIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByICOMSSalesID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSSalesID" message="tns:IManagement_GetBasicInfoByICOMSSalesID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSSalesIDResponse" message="tns:IManagement_GetBasicInfoByICOMSSalesID_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSSalesIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSSalesID_HandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSSalesIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSSalesID_UnhandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByICOMSSalesIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetBasicInfoByICOMSSalesID_HandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByNTLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetBasicInfoByNTLogin" message="tns:IManagement_GetBasicInfoByNTLogin_InputMessage" />
@@ -240,8 +240,8 @@
     <wsdl:operation name="GetAdvancedInfoByICOMSUserID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSUserID" message="tns:IManagement_GetAdvancedInfoByICOMSUserID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSUserIDResponse" message="tns:IManagement_GetAdvancedInfoByICOMSUserID_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSUserIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSUserIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSUserIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAdvancedInfoByICOMSSalesID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByICOMSSalesID" message="tns:IManagement_GetAdvancedInfoByICOMSSalesID_InputMessage" />
@@ -252,8 +252,8 @@
     <wsdl:operation name="GetAdvancedInfoByNTLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByNTLogin" message="tns:IManagement_GetAdvancedInfoByNTLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByNTLoginResponse" message="tns:IManagement_GetAdvancedInfoByNTLogin_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByNTLoginHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByNTLogin_HandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByNTLoginUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByNTLogin_UnhandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByNTLoginHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetAdvancedInfoByNTLogin_HandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAdvancedInfoByInfoValue">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetAdvancedInfoByInfoValue" message="tns:IManagement_GetAdvancedInfoByInfoValue_InputMessage" />
@@ -270,8 +270,8 @@
     <wsdl:operation name="GetFullInfoByICOMSUserID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSUserID" message="tns:IManagement_GetFullInfoByICOMSUserID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSUserIDResponse" message="tns:IManagement_GetFullInfoByICOMSUserID_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSUserIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetFullInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSUserIDUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_GetFullInfoByICOMSUserID_UnhandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSUserIDHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_GetFullInfoByICOMSUserID_HandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetFullInfoByICOMSSalesID">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/GetFullInfoByICOMSSalesID" message="tns:IManagement_GetFullInfoByICOMSSalesID_InputMessage" />
@@ -294,8 +294,8 @@
     <wsdl:operation name="BuildHierarchy">
       <wsdl:input wsaw:Action="http://tempuri.org/IManagement/BuildHierarchy" message="tns:IManagement_BuildHierarchy_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IManagement/BuildHierarchyResponse" message="tns:IManagement_BuildHierarchy_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/BuildHierarchyUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_BuildHierarchy_UnhandledServiceFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/BuildHierarchyHandledServiceFaultFault" name="HandledServiceFaultFault" message="tns:IManagement_BuildHierarchy_HandledServiceFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IManagement/BuildHierarchyUnhandledServiceFaultFault" name="UnhandledServiceFaultFault" message="tns:IManagement_BuildHierarchy_UnhandledServiceFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IManagement" type="tns:IManagement">
@@ -308,11 +308,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="UnhandledServiceFaultFault">
-        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="HandledServiceFaultFault">
         <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnhandledServiceFaultFault">
+        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByICOMSUserID">
@@ -323,11 +323,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="UnhandledServiceFaultFault">
-        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="HandledServiceFaultFault">
         <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnhandledServiceFaultFault">
+        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByICOMSSalesID">
@@ -338,11 +338,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="HandledServiceFaultFault">
-        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="UnhandledServiceFaultFault">
         <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="HandledServiceFaultFault">
+        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetBasicInfoByNTLogin">
@@ -398,11 +398,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="HandledServiceFaultFault">
-        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="UnhandledServiceFaultFault">
         <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="HandledServiceFaultFault">
+        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetAdvancedInfoByICOMSSalesID">
@@ -428,11 +428,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="HandledServiceFaultFault">
-        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="UnhandledServiceFaultFault">
         <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="HandledServiceFaultFault">
+        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetAdvancedInfoByInfoValue">
@@ -473,11 +473,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="HandledServiceFaultFault">
-        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="UnhandledServiceFaultFault">
         <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="HandledServiceFaultFault">
+        <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetFullInfoByICOMSSalesID">
@@ -533,11 +533,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="UnhandledServiceFaultFault">
-        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="HandledServiceFaultFault">
         <soap:fault use="literal" name="HandledServiceFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnhandledServiceFaultFault">
+        <soap:fault use="literal" name="UnhandledServiceFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

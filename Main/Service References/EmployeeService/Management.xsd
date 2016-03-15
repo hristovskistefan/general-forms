@@ -59,13 +59,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LookupInstance" nillable="true" type="tns:LookupInstance" />
-  <xs:complexType name="UnhandledServiceFault">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UnhandledServiceFault" nillable="true" type="tns:UnhandledServiceFault" />
   <xs:complexType name="HandledServiceFault">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Args" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
@@ -73,4 +66,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="HandledServiceFault" nillable="true" type="tns:HandledServiceFault" />
+  <xs:complexType name="UnhandledServiceFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnhandledServiceFault" nillable="true" type="tns:UnhandledServiceFault" />
 </xs:schema>
