@@ -65,7 +65,7 @@ Public Class ARNameChange
             lblFamilyRelation.Visible = True
         Else
             pnlNameChangeData.Visible = True
-            lblCertificate.Text = "<br />Advise the customer to fax a copy of the death certificate with the WOW! Account Number to 1-888-268-5859.<br />"
+            lblCertificate.Text = "<br />Advise the customer to fax a copy of the death certificate with the WOW! Account Number to 1-888-268-5859, by email to wow_billing@wideopenwest.com, or by mail to WOW! Account Research P.O. Box 4350, Carol Stream, IL 60197-4350.<br />"
             lblFamilyRelation.Visible = False
         End If
     End Sub
