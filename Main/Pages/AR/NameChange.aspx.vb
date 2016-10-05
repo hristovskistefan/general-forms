@@ -33,13 +33,13 @@ Public Class ARNameChange
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
-                lblCertificate.Text = "<br />Advise the customer to fax a copy of the divorce certificate with the WOW! Account Number to 1-888-268-5859.<br />"
+                lblCertificate.Text = "<br />Advise the customer to fax a copy of the divorce certificate with the WOW! Account Number to 1-888-268-5859, by email to wow_billing@wideopenwest.com, or by mail to WOW! Account Research P.O. Box 4350, Carol Stream, IL 60197-4350.<br />"
                 pnlLegal.Visible = False
             Case "Marriage"
                 pnlNameChange.Visible = True
                 pnlFamilyRelation.Visible = False
                 pnlNameChangeData.Visible = True
-                lblCertificate.Text = "<br />Advise the customer to fax a copy of the marriage certificate with the WOW! Account Number to 1-888-268-5859.<br />"
+                lblCertificate.Text = "<br />Advise the customer to fax a copy of the marriage certificate with the WOW! Account Number to 1-888-268-5859, by email to wow_billing@wideopenwest.com, or by mail to WOW! Account Research P.O. Box 4350, Carol Stream, IL 60197-4350.<br />"
                 pnlLegal.Visible = False
             Case "Death"
                 pnlNameChange.Visible = True
@@ -55,7 +55,7 @@ Public Class ARNameChange
             Case "Legal"
                 pnlNameChange.Visible = False
                 pnlLegal.Visible = True
-                lblLegal.Text = "<br />Advise the customer to fax a copy of the court approved Petition to Change Name form showing the name change, with the WOW! Account number, to 1-888-268-5859.<br />"
+                lblLegal.Text = "<br />Advise the customer to fax a copy of the court approved Petition to Change Name form showing the name change, with the WOW! Account number, to 1-888-268-5859, by email to wow_billing@wideopenwest.com, or by mail to WOW! Account Research P.O. Box 4350, Carol Stream, IL 60197-4350.<br />"
         End Select
     End Sub
 
