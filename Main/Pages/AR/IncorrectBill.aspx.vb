@@ -40,7 +40,7 @@ Public Class ARIncorrectBill
         If ddl.ID = "dropincbillmonth" Then
             ddl.Items.Add("Phone Scam")
             ddl.Items.Add("Delete MOP")
-            ddl.Items.Add("ETF Dispute")
+            ddl.Items.Add("Paper Statement Fee Exemption")
         End If
     End Sub
 
