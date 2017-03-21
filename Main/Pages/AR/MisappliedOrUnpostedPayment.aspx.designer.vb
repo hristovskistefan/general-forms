@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ARMisappliedOrUnpostedPayment
-
+    
     '''<summary>
     '''Head1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Head1 As Global.System.Web.UI.HtmlControls.HtmlHead
-
+    
     '''<summary>
     '''Form1 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''RadScriptManager1 control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
-
+    
     '''<summary>
     '''lblhDate control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhName control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhIcomsID control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhIcomsID As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlmain control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtAcct control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAcct As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''ibGo control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ibGo As Global.System.Web.UI.WebControls.ImageButton
-
+    
     '''<summary>
     '''revAccount control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revAccount As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''rfvAccount control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''cvAccount control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cvAccount As Global.System.Web.UI.WebControls.CustomValidator
-
+    
     '''<summary>
     '''txtstate control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtstate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''lblDivision control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlmisapp control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmisapp As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtcfname control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtcfname As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator39 control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator39 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtclname control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtclname As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator3 control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtPhoneNumber control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhoneNumber As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvPhoneNumber control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revPhoneNumber control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''RequiredFieldValidator6 control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator6 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''radmisapp control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents radmisapp As Global.System.Web.UI.WebControls.RadioButtonList
-
+    
     '''<summary>
     '''pnlchk control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlchk As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtPersonalCheckNumber control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPersonalCheckNumber As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvPersonalCheckNumber control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPersonalCheckNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revPersonalCheckNumber control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revPersonalCheckNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtPersonalCheckRTN control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPersonalCheckRTN As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvPersonalCheckRTN control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPersonalCheckRTN As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revPersonalCheckRTN control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revPersonalCheckRTN As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtPersonalCheckAccount control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPersonalCheckAccount As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvPersonalCheckAccount control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPersonalCheckAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rntPersonalCheckAmount control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntPersonalCheckAmount As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''rfvPersonalCheckAmount control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPersonalCheckAmount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpPersonalCheckDateCleared control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpPersonalCheckDateCleared As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''RequiredFieldValidator5 control.
     '''</summary>
@@ -345,7 +345,25 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator5 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
+    '''<summary>
+    '''rdpPersonalCheckDateMailed control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rdpPersonalCheckDateMailed As Global.Telerik.Web.UI.RadDatePicker
+    
+    '''<summary>
+    '''RequiredFieldValidator4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldValidator4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''txtCheckAccount1 control.
     '''</summary>
@@ -354,7 +372,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount1 control.
     '''</summary>
@@ -363,7 +381,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator13 control.
     '''</summary>
@@ -372,7 +390,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator13 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount2 control.
     '''</summary>
@@ -381,7 +399,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount2 control.
     '''</summary>
@@ -390,7 +408,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator14 control.
     '''</summary>
@@ -399,7 +417,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator14 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount3 control.
     '''</summary>
@@ -408,7 +426,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount3 control.
     '''</summary>
@@ -417,7 +435,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator15 control.
     '''</summary>
@@ -426,7 +444,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator15 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount4 control.
     '''</summary>
@@ -435,7 +453,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount4 control.
     '''</summary>
@@ -444,7 +462,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator16 control.
     '''</summary>
@@ -453,7 +471,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator16 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount5 control.
     '''</summary>
@@ -462,7 +480,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount5 control.
     '''</summary>
@@ -471,7 +489,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator17 control.
     '''</summary>
@@ -480,7 +498,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator17 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount6 control.
     '''</summary>
@@ -489,7 +507,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount6 control.
     '''</summary>
@@ -498,7 +516,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator18 control.
     '''</summary>
@@ -507,7 +525,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator18 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount7 control.
     '''</summary>
@@ -516,7 +534,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount7 control.
     '''</summary>
@@ -525,7 +543,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator19 control.
     '''</summary>
@@ -534,7 +552,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator19 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount8 control.
     '''</summary>
@@ -543,7 +561,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount8 control.
     '''</summary>
@@ -552,7 +570,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator20 control.
     '''</summary>
@@ -561,7 +579,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator20 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount9 control.
     '''</summary>
@@ -570,7 +588,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount9 control.
     '''</summary>
@@ -579,7 +597,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator21 control.
     '''</summary>
@@ -588,7 +606,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator21 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtCheckAccount10 control.
     '''</summary>
@@ -597,7 +615,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAccount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtCheckAmount10 control.
     '''</summary>
@@ -606,7 +624,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCheckAmount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator22 control.
     '''</summary>
@@ -615,7 +633,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator22 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''pnlmonord control.
     '''</summary>
@@ -624,7 +642,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmonord As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtmonord1 control.
     '''</summary>
@@ -633,7 +651,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtmonord1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator12 control.
     '''</summary>
@@ -642,7 +660,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator12 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rntMonord2 control.
     '''</summary>
@@ -651,7 +669,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntMonord2 As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''rfvMonord2 control.
     '''</summary>
@@ -660,7 +678,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvMonord2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpmonord3 control.
     '''</summary>
@@ -669,7 +687,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpmonord3 As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''rfvmonord3 control.
     '''</summary>
@@ -678,7 +696,43 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvmonord3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
+    '''<summary>
+    '''rdpmonordcash control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rdpmonordcash As Global.Telerik.Web.UI.RadDatePicker
+    
+    '''<summary>
+    '''rfvmonordcash control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvmonordcash As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''dropmonordtype control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dropmonordtype As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''rfvmonordtype control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvmonordtype As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''txtMoAccount1 control.
     '''</summary>
@@ -687,7 +741,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount1 control.
     '''</summary>
@@ -696,7 +750,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator23 control.
     '''</summary>
@@ -705,7 +759,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator23 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount2 control.
     '''</summary>
@@ -714,7 +768,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount2 control.
     '''</summary>
@@ -723,7 +777,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator24 control.
     '''</summary>
@@ -732,7 +786,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator24 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount3 control.
     '''</summary>
@@ -741,7 +795,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount3 control.
     '''</summary>
@@ -750,7 +804,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator25 control.
     '''</summary>
@@ -759,7 +813,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator25 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount4 control.
     '''</summary>
@@ -768,7 +822,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount4 control.
     '''</summary>
@@ -777,7 +831,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator26 control.
     '''</summary>
@@ -786,7 +840,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator26 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount5 control.
     '''</summary>
@@ -795,7 +849,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount5 control.
     '''</summary>
@@ -804,7 +858,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator27 control.
     '''</summary>
@@ -813,7 +867,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator27 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount6 control.
     '''</summary>
@@ -822,7 +876,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount6 control.
     '''</summary>
@@ -831,7 +885,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator28 control.
     '''</summary>
@@ -840,7 +894,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator28 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount7 control.
     '''</summary>
@@ -849,7 +903,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount7 control.
     '''</summary>
@@ -858,7 +912,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator29 control.
     '''</summary>
@@ -867,7 +921,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator29 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount8 control.
     '''</summary>
@@ -876,7 +930,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount8 control.
     '''</summary>
@@ -885,7 +939,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator30 control.
     '''</summary>
@@ -894,7 +948,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator30 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount9 control.
     '''</summary>
@@ -903,7 +957,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount9 control.
     '''</summary>
@@ -912,7 +966,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator31 control.
     '''</summary>
@@ -921,7 +975,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator31 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtMoAccount10 control.
     '''</summary>
@@ -930,7 +984,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAccount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtMoAmount10 control.
     '''</summary>
@@ -939,7 +993,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMoAmount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator32 control.
     '''</summary>
@@ -948,7 +1002,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator32 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''pnlpctr control.
     '''</summary>
@@ -957,7 +1011,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlpctr As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtpctr1 control.
     '''</summary>
@@ -966,7 +1020,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtpctr1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator15 control.
     '''</summary>
@@ -975,7 +1029,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator15 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''RegularExpressionValidator2 control.
     '''</summary>
@@ -984,7 +1038,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''droptermid control.
     '''</summary>
@@ -993,7 +1047,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents droptermid As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldValidator16 control.
     '''</summary>
@@ -1002,7 +1056,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator16 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''pnlTermID control.
     '''</summary>
@@ -1011,7 +1065,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlTermID As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lbltermid control.
     '''</summary>
@@ -1020,7 +1074,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lbltermid As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtpctr2 control.
     '''</summary>
@@ -1029,7 +1083,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtpctr2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvpctr2 control.
     '''</summary>
@@ -1038,7 +1092,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvpctr2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revpctr2 control.
     '''</summary>
@@ -1047,7 +1101,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revpctr2 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''rntPctr3 control.
     '''</summary>
@@ -1056,7 +1110,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntPctr3 As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator18 control.
     '''</summary>
@@ -1065,7 +1119,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator18 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdppctr4 control.
     '''</summary>
@@ -1074,7 +1128,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdppctr4 As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''rfvpctr4 control.
     '''</summary>
@@ -1083,7 +1137,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvpctr4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''pnlcred control.
     '''</summary>
@@ -1092,7 +1146,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlcred As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtCCCardNumber control.
     '''</summary>
@@ -1101,7 +1155,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCCCardNumber As Global.Telerik.Web.UI.RadMaskedTextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator20 control.
     '''</summary>
@@ -1110,7 +1164,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator20 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''cvCreditCard control.
     '''</summary>
@@ -1119,7 +1173,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cvCreditCard As Global.System.Web.UI.WebControls.CustomValidator
-
+    
     '''<summary>
     '''rmypCCExp control.
     '''</summary>
@@ -1128,7 +1182,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rmypCCExp As Global.Telerik.Web.UI.RadMonthYearPicker
-
+    
     '''<summary>
     '''RequiredFieldValidator21 control.
     '''</summary>
@@ -1137,7 +1191,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator21 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rntCred3 control.
     '''</summary>
@@ -1146,7 +1200,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntCred3 As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''rfvcred3 control.
     '''</summary>
@@ -1155,7 +1209,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvcred3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpcred4 control.
     '''</summary>
@@ -1164,7 +1218,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpcred4 As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''rfvcred4 control.
     '''</summary>
@@ -1173,7 +1227,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvcred4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtcredauth control.
     '''</summary>
@@ -1182,7 +1236,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtcredauth As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''pnleft control.
     '''</summary>
@@ -1191,7 +1245,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnleft As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txteft1 control.
     '''</summary>
@@ -1200,7 +1254,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txteft1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvtxteft1 control.
     '''</summary>
@@ -1209,7 +1263,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvtxteft1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revtxteft1 control.
     '''</summary>
@@ -1218,7 +1272,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revtxteft1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txteft2 control.
     '''</summary>
@@ -1227,7 +1281,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txteft2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator24 control.
     '''</summary>
@@ -1236,7 +1290,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator24 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''RegularExpressionValidator9 control.
     '''</summary>
@@ -1245,7 +1299,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator9 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''rntEft3 control.
     '''</summary>
@@ -1254,7 +1308,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntEft3 As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''rfveft3 control.
     '''</summary>
@@ -1263,7 +1317,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfveft3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpeft4 control.
     '''</summary>
@@ -1272,7 +1326,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpeft4 As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''rfveft4 control.
     '''</summary>
@@ -1281,7 +1335,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfveft4 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txteftAuth control.
     '''</summary>
@@ -1290,7 +1344,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txteftAuth As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''pnlcash control.
     '''</summary>
@@ -1299,7 +1353,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlcash As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''rntCash1 control.
     '''</summary>
@@ -1308,7 +1362,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntCash1 As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''rfvcash1 control.
     '''</summary>
@@ -1317,7 +1371,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvcash1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpcash2 control.
     '''</summary>
@@ -1326,7 +1380,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpcash2 As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''rfvcash2 control.
     '''</summary>
@@ -1335,7 +1389,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvcash2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''dropcash control.
     '''</summary>
@@ -1344,7 +1398,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropcash As Global.System.Web.UI.WebControls.DropDownList
-
+    
     '''<summary>
     '''RequiredFieldValidator29 control.
     '''</summary>
@@ -1353,7 +1407,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator29 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''pnlAch control.
     '''</summary>
@@ -1362,7 +1416,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlAch As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''rntAch control.
     '''</summary>
@@ -1371,7 +1425,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rntAch As Global.Telerik.Web.UI.RadNumericTextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator1 control.
     '''</summary>
@@ -1380,7 +1434,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''rdpAch control.
     '''</summary>
@@ -1389,7 +1443,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rdpAch As Global.Telerik.Web.UI.RadDatePicker
-
+    
     '''<summary>
     '''RequiredFieldValidator2 control.
     '''</summary>
@@ -1398,7 +1452,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtAchAccountName control.
     '''</summary>
@@ -1407,7 +1461,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccountName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchInvoiceNumber control.
     '''</summary>
@@ -1416,7 +1470,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchInvoiceNumber As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAccount1 control.
     '''</summary>
@@ -1425,7 +1479,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount1 control.
     '''</summary>
@@ -1434,7 +1488,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount1 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator1 control.
     '''</summary>
@@ -1443,7 +1497,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount2 control.
     '''</summary>
@@ -1452,7 +1506,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount2 control.
     '''</summary>
@@ -1461,7 +1515,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount2 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator3 control.
     '''</summary>
@@ -1470,7 +1524,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount3 control.
     '''</summary>
@@ -1479,7 +1533,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount3 control.
     '''</summary>
@@ -1488,7 +1542,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount3 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator4 control.
     '''</summary>
@@ -1497,7 +1551,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator4 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount4 control.
     '''</summary>
@@ -1506,7 +1560,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount4 control.
     '''</summary>
@@ -1515,7 +1569,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount4 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator5 control.
     '''</summary>
@@ -1524,7 +1578,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator5 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount5 control.
     '''</summary>
@@ -1533,7 +1587,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount5 control.
     '''</summary>
@@ -1542,7 +1596,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount5 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator6 control.
     '''</summary>
@@ -1551,7 +1605,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator6 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount6 control.
     '''</summary>
@@ -1560,7 +1614,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount6 control.
     '''</summary>
@@ -1569,7 +1623,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount6 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator7 control.
     '''</summary>
@@ -1578,7 +1632,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator7 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount7 control.
     '''</summary>
@@ -1587,7 +1641,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount7 control.
     '''</summary>
@@ -1596,7 +1650,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount7 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator8 control.
     '''</summary>
@@ -1605,7 +1659,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator8 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount8 control.
     '''</summary>
@@ -1614,7 +1668,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount8 control.
     '''</summary>
@@ -1623,7 +1677,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount8 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator10 control.
     '''</summary>
@@ -1632,7 +1686,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator10 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount9 control.
     '''</summary>
@@ -1641,7 +1695,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount9 control.
     '''</summary>
@@ -1650,7 +1704,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount9 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator11 control.
     '''</summary>
@@ -1659,7 +1713,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator11 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAchAccount10 control.
     '''</summary>
@@ -1668,7 +1722,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAccount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtAchAmount10 control.
     '''</summary>
@@ -1677,7 +1731,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAchAmount10 As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RegularExpressionValidator12 control.
     '''</summary>
@@ -1686,7 +1740,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RegularExpressionValidator12 As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtmisappcomm control.
     '''</summary>
@@ -1695,7 +1749,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtmisappcomm As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''cvComments control.
     '''</summary>
@@ -1704,7 +1758,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cvComments As Global.System.Web.UI.WebControls.CustomValidator
-
+    
     '''<summary>
     '''btnmisappsend control.
     '''</summary>
@@ -1713,7 +1767,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnmisappsend As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''pnlerror control.
     '''</summary>
@@ -1722,7 +1776,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlerror As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblerror control.
     '''</summary>
@@ -1731,7 +1785,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblerror As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlthx control.
     '''</summary>
@@ -1740,7 +1794,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlthx As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''btnthx control.
     '''</summary>
@@ -1749,7 +1803,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnthx As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''ValidationSummary control.
     '''</summary>
@@ -1758,7 +1812,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''ValidationSummary1 control.
     '''</summary>
@@ -1767,7 +1821,7 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary1 As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''MB control.
     '''</summary>

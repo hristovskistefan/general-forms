@@ -126,8 +126,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
                         ' MUP - PERSONAL CHECK
                         '***************************************
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division) VALUES " _
-                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division); SELECT @@IDENTITY")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division,DateMailed) VALUES " _
+                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division,@DateMailed); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -150,6 +150,7 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateCleared", DbType.String, rdpPersonalCheckDateCleared.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "DateMailed", DbType.String, rdpPersonalCheckDateMailed.SelectedDate)
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
                         For i As Integer = 1 To 10
                             Dim txtAchAccount As TextBox = Page.FindControl("txtCheckAccount" + i.ToString)
@@ -165,8 +166,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - MONEY ORDER
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division); SELECT @@IDENTITY")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division,PaymentDate,MoneyOrderType) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division,@PaymentDate,@MoneyOrderType); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -188,6 +189,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "DateMailed", DbType.String, rdpmonord3.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "PaymentDate", DbType.String, rdpmonordcash.SelectedDate)
+                        db.AddInParameter(cmd, "MoneyOrderType", DbType.String, dropmonordtype.SelectedItem.Value)
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
                         For i As Integer = 1 To 10
                             Dim txtAchAccount As TextBox = Page.FindControl("txtMoAccount" + i.ToString)

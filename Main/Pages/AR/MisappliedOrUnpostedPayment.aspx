@@ -114,9 +114,7 @@
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
                                 ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
                                 ControlToValidate="txtPhoneNumber" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        </td>                       
                     </tr>
 
                     <tr>
@@ -195,6 +193,16 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ErrorMessage="Date Cleared is required."
                                                 ControlToValidate="rdpPersonalCheckDateCleared" />
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>Date Mailed:
+                                        </td>
+                                        <td>
+                                            <telerik:RadDatePicker runat="server" ID="rdpPersonalCheckDateMailed" Calendar-ShowRowHeaders="false" />
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="X" Font-Bold="true"
+                                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Date Mailed is required."
+                                                ControlToValidate="rdpPersonalCheckDateMailed" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -350,6 +358,31 @@
                                             <asp:RequiredFieldValidator ID="rfvmonord3" runat="server" Text="X" Font-Bold="true"
                                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="Date Mailed is required."
                                                 ControlToValidate="rdpmonord3" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date Cashed:
+                                        </td>
+                                        <td>
+                                            <telerik:RadDatePicker runat="server" ID="rdpmonordcash" Calendar-ShowRowHeaders="false" />
+                                            <asp:RequiredFieldValidator ID="rfvmonordcash" runat="server" Text="X" Font-Bold="true"
+                                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Date Cashed is required."
+                                                ControlToValidate="rdpmonordcash" />
+                                        </td>
+                                    </tr>
+                                      <tr>
+                                        <td>Money Order Type:
+                                        </td>
+                                        <td>
+                                            <asp:DropDownList ID="dropmonordtype" runat="server" Width="160" AutoPostBack="True">
+                                                <asp:ListItem Value="Select One" />
+                                                <asp:ListItem Value="Western Union" />
+                                                <asp:ListItem Value="MoneyGram" />
+                                                <asp:ListItem Value="Merchants Express" />
+                                            </asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfvmonordtype" runat="server" Text="X"
+                                                Font-Bold="true" Font-Size="Medium" Display="Dynamic" ErrorMessage="Money Order Type is required."
+                                                ControlToValidate="dropmonordtype" InitialValue="Select One" />
                                         </td>
                                     </tr>
                                     <tr>
