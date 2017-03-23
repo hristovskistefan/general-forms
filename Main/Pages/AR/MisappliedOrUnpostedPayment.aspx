@@ -379,6 +379,7 @@
                                                 <asp:ListItem Value="Western Union" />
                                                 <asp:ListItem Value="MoneyGram" />
                                                 <asp:ListItem Value="Merchants Express" />
+                                                <asp:ListItem Value="Other" />
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="rfvmonordtype" runat="server" Text="X"
                                                 Font-Bold="true" Font-Size="Medium" Display="Dynamic" ErrorMessage="Money Order Type is required."
