@@ -45,7 +45,7 @@
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
                 <asp:ListItem Value="0" Text="Change Long Distance/International Provider Back to WOW!" />
                 <asp:ListItem Value="1" Text="Phone INP Error/TN is Invalid or Unavailable Error" />
-                <asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />
+              <%--<asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />--%> 
                 <asp:ListItem Value="3" Text="WOW! Phone Customer Voicemail Password Reset" />
                 <asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />
             </asp:RadioButtonList>
@@ -211,7 +211,7 @@
                     <asp:Button ID="btnInpError" runat="server" CausesValidation="true" ValidationGroup="vgPhoneINP" Text="Submit" Width="150" />
                 </div>
             </asp:Panel>
-            <!-- 3PV PANEL -->
+            <!-- 3PV PANEL is removed 3/30/2017 -->
             <asp:Panel ID="pnl3pv" runat="server" Visible="false">
                 <div class="sectionTitle">
                     3PV Password/New Requests/Reset

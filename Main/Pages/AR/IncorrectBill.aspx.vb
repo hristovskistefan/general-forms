@@ -39,7 +39,7 @@ Public Class ARIncorrectBill
         ddl.Items.Add("Last 6 Months")
         If ddl.ID = "dropincbillmonth" Then
             ddl.Items.Add("Phone Scam")
-            ddl.Items.Add("Delete MOP")
+            'ddl.Items.Add("Delete MOP") Delete MOP is removed on 3/30/2017
             ddl.Items.Add("Paper Statement Fee Exemption")
         End If
     End Sub

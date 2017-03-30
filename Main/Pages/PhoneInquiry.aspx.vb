@@ -80,6 +80,7 @@ Partial Public Class PhoneInquiry
             Case "1"
                 makeAllInvisible()
                 Me.pnlInpError.Visible = True
+            '3PV panel is removed
             Case "2"
                 makeAllInvisible()
                 Me.pnl3pv.Visible = True
