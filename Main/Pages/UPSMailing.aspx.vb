@@ -153,7 +153,7 @@ Partial Class UPSMailingForm
             lblIcomsId.ForeColor = Drawing.Color.Black
             lblSalesId.ForeColor = Drawing.Color.Black
         End If
-
+        btnsend.Enabled = True
 
 
 
@@ -223,6 +223,8 @@ Partial Class UPSMailingForm
                 totalBoxes += Convert.ToInt32(dropccard.SelectedValue)
                 totalBoxes += Convert.ToInt32(ddlUTVGateway.SelectedValue)
                 totalBoxes += Convert.ToInt32(ddlUTVMedia.SelectedValue)
+                totalBoxes += Convert.ToInt32(ddlHUB.SelectedValue)
+                totalBoxes += Convert.ToInt32(ddlSWIVEL.SelectedValue)
 
                 If totalBoxes = 0 Then
                     Throw New InvalidOperationException("No items have been selected.")
@@ -239,12 +241,12 @@ Partial Class UPSMailingForm
 
                 Dim orderNumber As String = upsMailingAccount.CreateOrder(ConfigurationManager.AppSettings("ExternalUsername"), lblSalesId.Text)
 
-                upsMailingAccount.AddInformationToDatabase(lblIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text, _
+                upsMailingAccount.AddInformationToDatabase(lblIcomsId.Text, orderNumber, txtFName.Text + " " + txtLName.Text,
                                                            txtAcct.Text, txtphone.Text, address, city, state, zip,
-                                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue, _
-                                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue, _
-                                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue, _
-                                                           ddlUTVMedia.SelectedValue)
+                                                           dropdigi.SelectedValue, dropdvr.SelectedValue, drophd.SelectedValue,
+                                                            drophddvr.SelectedValue, ddlDTA.SelectedValue, dropcable.SelectedValue,
+                                                            dropphone.SelectedValue, dropccard.SelectedValue, ddlUTVGateway.SelectedValue,
+                                                           ddlUTVMedia.SelectedValue, ddlHUB.SelectedValue, ddlSWIVEL.SelectedValue)
 
 
 
@@ -258,9 +260,9 @@ Partial Class UPSMailingForm
 
                 Dim dbFormCollection As Database = DatabaseFactory.CreateDatabase("Form_Collection")
                 Me._sql = "INSERT INTO UPS (DateSub,CCRUser,CName,AcctNum,PhoneNum,Address,State,City,Zip,"
-                Me._sql = Me._sql & "AR,DR,DVRR,HDR,HDDVR,CM,PM,CCards,DTA,UTVGateway,UTVMediaPlayer) VALUES "
+                Me._sql = Me._sql & "AR,DR,DVRR,HDR,HDDVR,CM,PM,CCards,DTA,UTVGateway,UTVMediaPlayer,OnHubRouter,SwivelReceiver) VALUES "
                 Me._sql = Me._sql & "(@date,@user,@cust,@acct,@phn,@addy,@state,@city,@zip,"
-                Me._sql = Me._sql & "@ar,@dr,@dvrr,@hdr,@hddvr,@cm,@pm,@cc,@DTA,@UTVG,@UTVM)"
+                Me._sql = Me._sql & "@ar,@dr,@dvrr,@hdr,@hddvr,@cm,@pm,@cc,@DTA,@UTVG,@UTVM,@ONHUB,@SWIVEL)"
                 Dim cmdInsert As DbCommand = dbFormCollection.GetSqlStringCommand(Me._sql)
                 dbFormCollection.AddInParameter(cmdInsert, "@date", DbType.DateTime, Date.Now)
                 dbFormCollection.AddInParameter(cmdInsert, "@user", DbType.String, Session("AuthUser"))
@@ -282,6 +284,8 @@ Partial Class UPSMailingForm
                 dbFormCollection.AddInParameter(cmdInsert, "@DTA", DbType.Int32, CInt(Me.ddlDTA.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVG", DbType.Int32, CInt(Me.ddlUTVGateway.SelectedItem.Value))
                 dbFormCollection.AddInParameter(cmdInsert, "@UTVM", DbType.Int32, CInt(Me.ddlUTVMedia.SelectedItem.Value))
+                dbFormCollection.AddInParameter(cmdInsert, "@ONHUB", DbType.Int32, CInt(Me.ddlHUB.SelectedItem.Value))
+                dbFormCollection.AddInParameter(cmdInsert, "@SWIVEL", DbType.Int32, CInt(Me.ddlSWIVEL.SelectedItem.Value))
 
 
                 dbFormCollection.ExecuteNonQuery(cmdInsert)

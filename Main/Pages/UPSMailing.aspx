@@ -334,6 +334,42 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
+                                    <tr>
+                                    <td>OnHub Router:
+                                    </td>
+                                    <td>
+                                        <asp:DropDownList ID="ddlHUB" runat="server">
+                                            <asp:ListItem Value="0" Selected="True" />
+                                            <asp:ListItem Value="1" />
+                                            <asp:ListItem Value="2" />
+                                            <asp:ListItem Value="3" />
+                                            <asp:ListItem Value="4" />
+                                            <asp:ListItem Value="5" />
+                                            <asp:ListItem Value="6" />
+                                            <asp:ListItem Value="7" />
+                                            <asp:ListItem Value="8" />
+                                            <asp:ListItem Value="9" />
+                                            <asp:ListItem Value="10" />
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td>Swivel Receiver:
+                                    </td>
+                                    <td>
+                                        <asp:DropDownList ID="ddlSWIVEL" runat="server">
+                                            <asp:ListItem Value="0" Selected="True" />
+                                            <asp:ListItem Value="1" />
+                                            <asp:ListItem Value="2" />
+                                            <asp:ListItem Value="3" />
+                                            <asp:ListItem Value="4" />
+                                            <asp:ListItem Value="5" />
+                                            <asp:ListItem Value="6" />
+                                            <asp:ListItem Value="7" />
+                                            <asp:ListItem Value="8" />
+                                            <asp:ListItem Value="9" />
+                                            <asp:ListItem Value="10" />
+                                        </asp:DropDownList>
+                                    </td>                                  
+                                </tr>
                                 <asp:Panel id="pnlUltraTV" runat="server">
                                 <tr>
                                     <td>Ultra TV Gateway:

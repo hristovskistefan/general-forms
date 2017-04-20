@@ -159,17 +159,17 @@ Public Class UpsMailingAccount
 
     End Function
 
-    Public Sub AddInformationToDatabase(ByVal username As String, ByVal orderNumber As String, ByVal customerName As String, _
-                                           ByVal accountNumber As String, ByVal phoneNumber As String, ByVal address As String, _
-                                           ByVal city As String, ByVal state As String, ByVal zip As String, _
-                                           ByVal digitalReceivers As Integer, ByVal dvrReceivers As Integer, _
-                                           ByVal hdReceivers As Integer, hdDvrReceivers As Integer, ByVal dtaReceivers As Integer, _
-                                           ByVal cableModems As Integer, ByVal phoneModems As Integer, ByVal cableCards As Integer, _
-                                           ByVal ultraTvGateways As Integer, ByVal ultraTvMediaPlayer As Integer)
-        Dim total As Integer = digitalReceivers + hdReceivers + hdDvrReceivers + dtaReceivers + cableModems + phoneModems + cableCards + ultraTvGateways + ultraTvMediaPlayer
+    Public Sub AddInformationToDatabase(ByVal username As String, ByVal orderNumber As String, ByVal customerName As String,
+                                           ByVal accountNumber As String, ByVal phoneNumber As String, ByVal address As String,
+                                           ByVal city As String, ByVal state As String, ByVal zip As String,
+                                           ByVal digitalReceivers As Integer, ByVal dvrReceivers As Integer,
+                                           ByVal hdReceivers As Integer, hdDvrReceivers As Integer, ByVal dtaReceivers As Integer,
+                                           ByVal cableModems As Integer, ByVal phoneModems As Integer, ByVal cableCards As Integer,
+                                           ByVal ultraTvGateways As Integer, ByVal ultraTvMediaPlayer As Integer, ByVal onHubRouter As Integer, ByVal swivelReceiver As Integer)
+        Dim total As Integer = digitalReceivers + hdReceivers + hdDvrReceivers + dtaReceivers + cableModems + phoneModems + cableCards + ultraTvGateways + ultraTvMediaPlayer + onHubRouter + swivelReceiver
 
         Dim baseDb = New BaseDB(_upsConnString)
-        Dim parameters(19) As SqlParameter
+        Dim parameters(21) As SqlParameter
         parameters(0) = New SqlParameter("@ENTERED_BY", username)
         parameters(1) = New SqlParameter("@ORDER_NUMBER", orderNumber)
         parameters(2) = New SqlParameter("@CUSTOMER_NAME", customerName)
@@ -190,6 +190,8 @@ Public Class UpsMailingAccount
         parameters(17) = New SqlParameter("@HD_RECEIVERS", hdReceivers)
         parameters(18) = New SqlParameter("@ULTRA_TV_MEDIA_PLAYER", ultraTvMediaPlayer)
         parameters(19) = New SqlParameter("@TOTAL_BOXES_NEEDED", total)
+        parameters(20) = New SqlParameter("@inOnHubRouter", onHubRouter)
+        parameters(21) = New SqlParameter("@inSwivelReceiver", swivelReceiver)
 
         baseDb.ExecuteProcedure("Warehouse.Insert_Into_UPS_BOX_SEND", parameters)
 
