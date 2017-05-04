@@ -153,7 +153,6 @@ Partial Class UPSMailingForm
             lblIcomsId.ForeColor = Drawing.Color.Black
             lblSalesId.ForeColor = Drawing.Color.Black
         End If
-        btnsend.Enabled = True
 
 
 
