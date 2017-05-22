@@ -1,4 +1,6 @@
 ﻿Imports System.Linq
+Imports System.Net.Security
+Imports System.Security.Cryptography.X509Certificates
 Public Class GeneralFormsCommon
 
     Friend Shared Function getEmployee() As EmployeeService.EmpInstance
@@ -11,7 +13,7 @@ Public Class GeneralFormsCommon
                 Dim emplogin As String = System.Web.HttpContext.Current.Request.ServerVariables("AUTH_USER").Split("\"c)(1)
                 'If emplogin.ToLower = "a_gulbranson" Then
                 '    emplogin = "stl_bpace"
-                'End If
+                'End If          
                 employee = es.GetBasicInfoByNTLogin(emplogin)
                 System.Web.HttpContext.Current.Session("EmployeeGF") = employee
             End Using
@@ -115,5 +117,39 @@ Public Class GeneralFormsCommon
         Discover
         Amex
     End Enum
+#End Region
+
+#Region "PaperlessStatements"
+    Friend Shared Function IsPaperLess(ByVal accountNumber As String) As Boolean
+        Dim customerCareClient As New CustomerCare.CustomerClient
+        Try
+            customerCareClient.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings("UserNameApi")
+            customerCareClient.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings("PasswordApi")
+            Net.ServicePointManager.ServerCertificateValidationCallback = AddressOf CertificateValidationCallBack
+            Dim customerCareService() As CustomerCare.Service = {CustomerCare.Service.Billing}
+            Dim strDeliveryMethod As String
+
+            Dim customerDetailsRequest As New CustomerCare.CustomerDetailsByAccountNumberRequest
+            customerDetailsRequest.AccountNumber = accountNumber
+            customerDetailsRequest.BillingSystem = CustomerCare.BillingSystem.Icoms
+            customerDetailsRequest.Services = customerCareService
+            customerDetailsRequest.UserName = "testuser"
+            Dim customerDetailsResponse As New CustomerCare.CustomerDetailsResponse
+            customerDetailsResponse = customerCareClient.CustomerDetailsByAccountNumber(customerDetailsRequest)
+            strDeliveryMethod = customerDetailsResponse.Billing.DeliveryMethod
+            If strDeliveryMethod.ToUpper() = "EBILL" Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            customerCareClient.Abort()
+            Throw New Exception("There was an error retrieving account information about statements.")
+        End Try
+
+    End Function
+    Private Shared Function CertificateValidationCallBack(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As SslPolicyErrors) As Boolean
+        Return True
+    End Function
 #End Region
 End Class

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="46f7b4aa-0bb8-4bdc-9a1e-2f5e9d7c4b24" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Customer.wsdl" MetadataType="Wsdl" ID="00f3a0f9-1812-4dac-96ab-de30d440ed58" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?wsdl" />
+    <MetadataFile FileName="Customer.xsd" MetadataType="Schema" ID="d85b2982-c57e-4e33-8af6-f0da9ff3cadc" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd5" />
+    <MetadataFile FileName="Customer1.xsd" MetadataType="Schema" ID="ecb4365f-6208-4da7-87d6-d00699040a13" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd0" />
+    <MetadataFile FileName="Customer2.xsd" MetadataType="Schema" ID="aa912b27-d100-4552-aa5c-89425a130602" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd1" />
+    <MetadataFile FileName="Customer3.xsd" MetadataType="Schema" ID="80094c0e-40ba-4cb4-9e02-e6afa59a8368" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd2" />
+    <MetadataFile FileName="Customer4.xsd" MetadataType="Schema" ID="f4b1bd7a-b24a-4999-8d0d-24f85fd33410" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd3" />
+    <MetadataFile FileName="Customer5.xsd" MetadataType="Schema" ID="a888bbc9-6964-40a3-94b5-848fd59fd32a" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?xsd=xsd4" />
+    <MetadataFile FileName="Customer.disco" MetadataType="Disco" ID="cde0acf2-509a-4b0f-b74d-8e1a59177460" SourceId="1" SourceUrl="https://apiexternaldev.wideopenwest.com/Enterprise/CareQuery/Customer.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

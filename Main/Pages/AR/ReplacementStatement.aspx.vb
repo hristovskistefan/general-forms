@@ -107,7 +107,7 @@ Public Class ARReplacementStatement
                         db.AddInParameter(cmd, "RequestType", DbType.String, "Replacement/Itemized Letter")
                         db.AddInParameter(cmd, "IssueType", DbType.String, "Replacement Letter")
                         db.AddInParameter(cmd, "Username", DbType.String, _employee.NTLogin)
-                        db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstlast)
+                        db.AddInParameter(cmd, "CCRName", DbType.String, _employee.FullNameFirstLast)
                         db.AddInParameter(cmd, "CSGOpCode", DbType.String, _employee.IcomsUserID)
                         db.AddInParameter(cmd, "SalesID", DbType.String, _employee.IcomsID)
                         db.AddInParameter(cmd, "Supervisor", DbType.String, _employee.SupNameFirstLast)
@@ -155,8 +155,8 @@ Public Class ARReplacementStatement
                 Reset()
             Catch mailex As Exception
                 lblerror.Visible = True
-                lblerror.Text = "<br /><b>Error Message:</b> " & mailex.Message & "<br />" & _
-                            "<b>Error Source:</b> " & mailex.Source & "<br />" & _
+                lblerror.Text = "<br /><b>Error Message:</b> " & mailex.Message & "<br />" &
+                            "<b>Error Source:</b> " & mailex.Source & "<br />" &
                             "<b>Stack Trace:</b> " & mailex.StackTrace & "<br />"
             End Try
         End If
@@ -204,6 +204,16 @@ Public Class ARReplacementStatement
             Me.MB.ShowMessage("Invalid account number format or account number missing.")
             Exit Sub
         End If
+        Try
+            If GeneralFormsCommon.IsPaperLess(tempAccount) Then
+                Me.MB.ShowMessage("Customer on Paperless statements, request cannot be processed for replacement statement.")
+                Exit Sub
+            End If
+        Catch ex As Exception
+            Me.MB.ShowMessage(ex.Message)
+            Exit Sub
+        End Try
+
 
         Try
             Using customerClient As New CustomerService.CustomerManagementClient
