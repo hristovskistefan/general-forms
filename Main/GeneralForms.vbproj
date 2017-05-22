@@ -294,11 +294,64 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <None Include="Service References\CustomerCare\Customer.wsdl" />
+    <None Include="Service References\CustomerCare\Customer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerCare\Customer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerCare\Customer2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerCare\Customer3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerCare\Customer4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerCare\Customer5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.BillingPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.CollectionsDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.CustomerDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.CustomerSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.MemoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.PersonalIdentityInfoByAccountNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.PostedPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.ProductLineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CustomerCare\GeneralForms.CustomerCare.RetriveNetworkForAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CustomerService\CustomerManagement1.disco" />
     <None Include="Service References\CreateOrderService\CreateOrder.disco" />
     <None Include="Service References\CreateOrderService\configuration91.svcinfo" />
     <None Include="Service References\CreateOrderService\configuration.svcinfo" />
     <None Include="Service References\CreateOrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\CustomerCare\Customer.disco" />
+    <None Include="Service References\CustomerCare\configuration91.svcinfo" />
+    <None Include="Service References\CustomerCare\configuration.svcinfo" />
+    <None Include="Service References\CustomerCare\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -402,9 +455,7 @@
     <Content Include="Pages\WOWSuggestion.aspx" />
     <Content Include="report_style.css" />
     <Content Include="Web References\PortPS\portps.disco" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web References\PortPS\portps.wsdl" />
     <Content Include="Web References\PortPS\PortPSResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -430,7 +481,9 @@
     <Content Include="web.dev.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.prod.config" />
+    <Content Include="Web.prod.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AD.vb" />
@@ -583,6 +636,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CustomerCare\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\CustomerService\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -712,6 +770,7 @@
     <WCFMetadataStorage Include="Service References\AddressService\" />
     <WCFMetadataStorage Include="Service References\CreateOrderService\" />
     <WCFMetadataStorage Include="Service References\CryptoSvc\" />
+    <WCFMetadataStorage Include="Service References\CustomerCare\" />
     <WCFMetadataStorage Include="Service References\CustomerService\" />
     <WCFMetadataStorage Include="Service References\EmailService\" />
     <WCFMetadataStorage Include="Service References\EmployeeService\" />
@@ -763,7 +822,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
+      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
