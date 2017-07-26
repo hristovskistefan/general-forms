@@ -417,7 +417,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">If unable to schedule for originial due date what is an alternative date and time?:
+                        <td colspan="2">If unable to schedule for original due date what is an alternative date and time?:
                         </td>
                     </tr>
                     <tr>
