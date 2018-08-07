@@ -764,7 +764,7 @@ Public Class LossPrevention
         '    dropsusstate.Items.FindByValue(_myCustomer.Address.State).Selected = True
         'End If
 
-        txtsusphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
+        'txtsusphone.Text = _myCustomer.PrimaryPhone.PhoneOnly
 
     End Sub
 
