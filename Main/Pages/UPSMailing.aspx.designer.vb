@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class UPSMailingForm
-    
+
     '''<summary>
     '''Form1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''lblhDate control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhDate As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblhName control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhName As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblhIcomsID control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhIcomsID As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''pnlmain control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''lblIcomsId control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblIcomsId As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''lblSalesId control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblSalesId As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''txtAcct control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAcct As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''ibGo control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ibGo As Global.System.Web.UI.WebControls.ImageButton
-    
+
     '''<summary>
     '''revAccount control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revAccount As Global.System.Web.UI.WebControls.RegularExpressionValidator
-    
+
     '''<summary>
     '''rfvAccount control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''txtphone control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtphone As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldValidator7 control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator7 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''txtFName control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtFName As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldValidator39 control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator39 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''txtLName control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLName As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''RequiredFieldValidator6 control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator6 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''chkmoved control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkmoved As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''pnlin control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlin As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''txtaddy control.
     '''</summary>
@@ -192,7 +192,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtaddy As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Requiredfieldvalidator1 control.
     '''</summary>
@@ -201,7 +201,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''dropstate control.
     '''</summary>
@@ -210,7 +210,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropstate As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropcity control.
     '''</summary>
@@ -219,7 +219,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropcity As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropzip control.
     '''</summary>
@@ -228,7 +228,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropzip As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''pnlout control.
     '''</summary>
@@ -237,7 +237,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlout As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''txtaddyout control.
     '''</summary>
@@ -246,7 +246,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtaddyout As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Requiredfieldvalidator2 control.
     '''</summary>
@@ -255,7 +255,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator2 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''txtcity control.
     '''</summary>
@@ -264,7 +264,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtcity As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Requiredfieldvalidator3 control.
     '''</summary>
@@ -273,7 +273,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-    
+
     '''<summary>
     '''txtstate control.
     '''</summary>
@@ -282,7 +282,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtstate As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''txtzip control.
     '''</summary>
@@ -291,7 +291,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtzip As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''dropdigi control.
     '''</summary>
@@ -300,7 +300,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropdigi As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropdvr control.
     '''</summary>
@@ -309,7 +309,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropdvr As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''drophd control.
     '''</summary>
@@ -318,7 +318,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents drophd As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''drophddvr control.
     '''</summary>
@@ -327,7 +327,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents drophddvr As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropcable control.
     '''</summary>
@@ -336,7 +336,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropcable As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropphone control.
     '''</summary>
@@ -345,7 +345,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropphone As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''dropccard control.
     '''</summary>
@@ -354,7 +354,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dropccard As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''ddlDTA control.
     '''</summary>
@@ -363,7 +363,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlDTA As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''ddlHUB control.
     '''</summary>
@@ -372,7 +372,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlHUB As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''ddlSWIVEL control.
     '''</summary>
@@ -381,7 +381,25 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlSWIVEL As Global.System.Web.UI.WebControls.DropDownList
-    
+
+    '''<summary>
+    '''ddlWiFiBeacon control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlWiFiBeacon As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlWiFiBase control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlWiFiBase As Global.System.Web.UI.WebControls.DropDownList
+
     '''<summary>
     '''pnlUltraTV control.
     '''</summary>
@@ -390,7 +408,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlUltraTV As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''ddlUTVGateway control.
     '''</summary>
@@ -399,7 +417,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlUTVGateway As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''ddlUTVMedia control.
     '''</summary>
@@ -408,7 +426,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlUTVMedia As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''lblerr control.
     '''</summary>
@@ -417,7 +435,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblerr As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''btnsend control.
     '''</summary>
@@ -426,7 +444,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnsend As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''pnlthx control.
     '''</summary>
@@ -435,7 +453,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlthx As Global.System.Web.UI.WebControls.Panel
-    
+
     '''<summary>
     '''btncont control.
     '''</summary>
@@ -444,7 +462,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btncont As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''lblHouseNumber control.
     '''</summary>
@@ -453,7 +471,7 @@ Partial Public Class UPSMailingForm
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblHouseNumber As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''MB control.
     '''</summary>

@@ -165,11 +165,11 @@ Public Class UpsMailingAccount
                                            ByVal digitalReceivers As Integer, ByVal dvrReceivers As Integer,
                                            ByVal hdReceivers As Integer, hdDvrReceivers As Integer, ByVal dtaReceivers As Integer,
                                            ByVal cableModems As Integer, ByVal phoneModems As Integer, ByVal cableCards As Integer,
-                                           ByVal ultraTvGateways As Integer, ByVal ultraTvMediaPlayer As Integer, ByVal onHubRouter As Integer, ByVal swivelReceiver As Integer)
-        Dim total As Integer = digitalReceivers + hdReceivers + hdDvrReceivers + dtaReceivers + cableModems + phoneModems + cableCards + ultraTvGateways + ultraTvMediaPlayer + onHubRouter + swivelReceiver
+                                           ByVal ultraTvGateways As Integer, ByVal ultraTvMediaPlayer As Integer, ByVal onHubRouter As Integer, ByVal swivelReceiver As Integer, ByVal whBeacon As Integer, ByVal whBase As Integer)
+        Dim total As Integer = digitalReceivers + hdReceivers + hdDvrReceivers + dtaReceivers + cableModems + phoneModems + cableCards + ultraTvGateways + ultraTvMediaPlayer + onHubRouter + swivelReceiver + whBeacon + whBase
 
         Dim baseDb = New BaseDB(_upsConnString)
-        Dim parameters(21) As SqlParameter
+        Dim parameters(23) As SqlParameter
         parameters(0) = New SqlParameter("@ENTERED_BY", username)
         parameters(1) = New SqlParameter("@ORDER_NUMBER", orderNumber)
         parameters(2) = New SqlParameter("@CUSTOMER_NAME", customerName)
@@ -192,6 +192,8 @@ Public Class UpsMailingAccount
         parameters(19) = New SqlParameter("@TOTAL_BOXES_NEEDED", total)
         parameters(20) = New SqlParameter("@inOnHubRouter", onHubRouter)
         parameters(21) = New SqlParameter("@inSwivelReceiver", swivelReceiver)
+        parameters(22) = New SqlParameter("@inWiFiBeacon", whBeacon)
+        parameters(23) = New SqlParameter("@inWiFiBase", whBase)
 
         baseDb.ExecuteProcedure("Warehouse.Insert_Into_UPS_BOX_SEND", parameters)
 
