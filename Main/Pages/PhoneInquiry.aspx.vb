@@ -77,10 +77,11 @@ Partial Public Class PhoneInquiry
             Case "0"
                 makeAllInvisible()
                 Me.pnlChangeLdIntl.Visible = True
+                'pnlChangeLdIntl is removed
             Case "1"
                 makeAllInvisible()
                 Me.pnlInpError.Visible = True
-            '3PV panel is removed
+                '3PV panel is removed
             Case "2"
                 makeAllInvisible()
                 Me.pnl3pv.Visible = True
@@ -90,6 +91,7 @@ Partial Public Class PhoneInquiry
             Case "4"
                 makeAllInvisible()
                 Me.pnlIncAddress.Visible = True
+                'pnlIncAddress is removed
         End Select
     End Sub
 
@@ -152,7 +154,7 @@ Partial Public Class PhoneInquiry
                             "     Phone #:                      " & Me.txtPhoneINP.Text & vbCrLf & vbCrLf & _
                             "Comments:" & vbCrLf & _
                             "" & Me.txtComments.Text
-            EmailProxy.Send(mailMsg)
+            'EmailProxy.Send(mailMsg)
 
             ResetPage()
             Me.pnlThanks.Visible = True

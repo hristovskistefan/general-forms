@@ -43,11 +43,11 @@
             </div>
             <%--<asp:ListItem Value="0" Text="General Phone Inquiry" />--%>
             <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True">
-                <asp:ListItem Value="0" Text="Change Long Distance/International Provider Back to WOW!" />
+                <%--<asp:ListItem Value="0" Text="Change Long Distance/International Provider Back to WOW!" />--%>
                 <asp:ListItem Value="1" Text="Phone INP Error/TN is Invalid or Unavailable Error" />
-              <%--<asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />--%> 
+                <%--<asp:ListItem Value="2" Text="3PV Passwords/New Requests/Reset" />--%> 
                 <asp:ListItem Value="3" Text="WOW! Phone Customer Voicemail Password Reset" />
-                <asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />
+                <%--<asp:ListItem Value="4" Text="Scheduled/Installed at Incorrect Address" />--%>
             </asp:RadioButtonList>
             <br />
 
