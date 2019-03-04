@@ -690,6 +690,25 @@ Public Class LossPrevention
                         Me.pnlmain.Visible = False
                         Me.pnlthx.Visible = True
                 End Select
+                mailMsg.Subject = Me._mSubject
+                mailMsg.Body = Me._mBody
+
+                Dim lossPreventionEmail As String = ConfigurationManager.AppSettings("LossPreventionEmailList")
+                If Not String.IsNullOrEmpty(lossPreventionEmail) Then
+                    Dim emails As String() = ConfigurationManager.AppSettings("LossPreventionEmailList").Split(",")
+                    If emails.Length > 0 Then
+                        For Each email As String In emails
+                            If email.Contains("@") Then
+                                Dim emailTrim As String = email.Trim()
+                                mailMsg.To.Add(emailTrim)
+                            End If
+                        Next
+                        If mailMsg.To.Count > 0 Then
+                            EmailProxy.Send(mailMsg)
+                        End If
+                    End If
+                End If
+
             Catch mailex As Exception
                 Me.lblerr.Text = "<br /><b>Error Message:</b> " & mailex.Message & "<br />" & _
                         "<b>Error Source:</b> " & mailex.Source & "<br />" & _
