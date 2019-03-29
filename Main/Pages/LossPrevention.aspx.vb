@@ -11,6 +11,7 @@ Public Class LossPrevention
     Private _stracct, _stracct1 As String
     Private _employee As EmployeeService.EmpInstance
     Private _myCustomer As CustomerService.Cust
+    Private _customerCare As CustomerCare.CustomerSearchResponse
 
     Private Shared ReadOnly billingConnectionString As String = ConfigurationManager.ConnectionStrings("Billing").ConnectionString
 
@@ -36,6 +37,7 @@ Public Class LossPrevention
             Me.pnldn.Visible = False
             Me.pnlerror.Visible = False
             Me.pnlthx.Visible = False
+            Me.pnlNewRequestUsha.Visible = False
             revsusacct.ValidationExpression = GeneralFormsCommon.buildAccountValidatorExpression
 
             'Hide Additional SSN controls if the employee DeptID != 1
@@ -43,6 +45,7 @@ Public Class LossPrevention
                 pnlNewAdditionalSsn.Visible = False
                 pnlDnAdditionalSsn.Visible = False
                 pnlSusAdditionalSsn.Visible = False
+                pnlUshaAdditionalSSn1.Visible = False
             End If
         End If
     End Sub
@@ -51,7 +54,7 @@ Public Class LossPrevention
         Me.pnlnew.Visible = False
         Me.pnlfraud.Visible = False
         Me.pnldn.Visible = False
-
+        Me.pnlNewRequestUsha.Visible = False
         Select Case Me.radformsel.SelectedItem.Value
             Case "0"
                 Me.pnlnew.Visible = True
@@ -59,6 +62,8 @@ Public Class LossPrevention
                 Me.pnlfraud.Visible = True
             Case "4"
                 Me.pnldn.Visible = True
+            Case "5"
+                Me.pnlNewRequestUsha.Visible = True
             Case Else
                 Me.pnlnew.Visible = True
         End Select
@@ -288,19 +293,19 @@ Public Class LossPrevention
 
 
                         Me._mSubject = "Loss Prevention - New Start Request"
-                        Me._mBody = "Loss Prevention - New Start Request" & vbCrLf & _
-                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
-                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
-                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
-                            "----------------------------------------------------" & vbCrLf & vbCrLf & _
-                            "First Name:" & vbTab & Me.txtnewfirst.Text & vbCrLf & _
-                            "Last Name:" & vbTab & Me.txtnewlast.Text & vbCrLf & _
-                            "Address:" & vbTab & Me.txtnewaddy.Text & vbCrLf & _
-                            "City:" & vbTab & vbTab & Me.txtnewcity.Text & vbCrLf & _
-                            "State:" & vbTab & Me.dropnewstate.SelectedItem.Value & vbCrLf & _
-                            "Phone #:" & vbTab & Me.rntnewPhone.Text & vbCrLf & _
-                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf & _
-                            "DL #:" & vbTab & vbTab & Me.txtnewdl.Text & vbCrLf & _
+                        Me._mBody = "Loss Prevention - New Start Request" & vbCrLf &
+                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf &
+                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf &
+                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf &
+                            "----------------------------------------------------" & vbCrLf & vbCrLf &
+                            "First Name:" & vbTab & Me.txtnewfirst.Text & vbCrLf &
+                            "Last Name:" & vbTab & Me.txtnewlast.Text & vbCrLf &
+                            "Address:" & vbTab & Me.txtnewaddy.Text & vbCrLf &
+                            "City:" & vbTab & vbTab & Me.txtnewcity.Text & vbCrLf &
+                            "State:" & vbTab & Me.dropnewstate.SelectedItem.Value & vbCrLf &
+                            "Phone #:" & vbTab & Me.rntnewPhone.Text & vbCrLf &
+                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf &
+                            "DL #:" & vbTab & vbTab & Me.txtnewdl.Text & vbCrLf &
                             "Comments: " & vbCrLf & Me.txtnewcomm.Text
 
                         _sqlstr = "INSERT INTO Skip_Trace "
@@ -477,19 +482,19 @@ Public Class LossPrevention
 
 
                         Me._mSubject = "Loss Prevention - Suspected Fraud"
-                        Me._mBody = "Loss Prevention - Suspected Fraud" & vbCrLf & _
-                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
-                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
-                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
-                            "----------------------------------------------------" & vbCrLf & vbCrLf & _
-                            "First Name:" & vbTab & Me.txtsusfirst.Text & vbCrLf & _
-                            "Last Name:" & vbTab & Me.txtsuslast.Text & vbCrLf & _
-                            "Address:" & vbTab & Me.txtsusaddy.Text & vbCrLf & _
-                            "City:" & vbTab & vbTab & Me.txtsuscity.Text & vbCrLf & _
-                            "State:" & vbTab & Me.dropsusstate.SelectedItem.Value & vbCrLf & _
-                            "Phone #:" & vbTab & Me.txtsusphone.Text & vbCrLf & _
-                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf & _
-                            "DL #:" & vbTab & vbTab & Me.txtsusdl.Text & vbCrLf & _
+                        Me._mBody = "Loss Prevention - Suspected Fraud" & vbCrLf &
+                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf &
+                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf &
+                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf &
+                            "----------------------------------------------------" & vbCrLf & vbCrLf &
+                            "First Name:" & vbTab & Me.txtsusfirst.Text & vbCrLf &
+                            "Last Name:" & vbTab & Me.txtsuslast.Text & vbCrLf &
+                            "Address:" & vbTab & Me.txtsusaddy.Text & vbCrLf &
+                            "City:" & vbTab & vbTab & Me.txtsuscity.Text & vbCrLf &
+                            "State:" & vbTab & Me.dropsusstate.SelectedItem.Value & vbCrLf &
+                            "Phone #:" & vbTab & Me.txtsusphone.Text & vbCrLf &
+                            "SSN:" & vbTab & vbTab & "XXX-XX-XXXX" & vbCrLf &
+                            "DL #:" & vbTab & vbTab & Me.txtsusdl.Text & vbCrLf &
                             "Comments: " & vbCrLf & Me.txtsuscomm.Text
 
                         _sqlstr = "INSERT INTO Skip_Trace "
@@ -641,18 +646,18 @@ Public Class LossPrevention
 
 
                         Me._mSubject = "Loss Prevention - Unblock Address"
-                        Me._mBody = "Loss Prevention - Unblock Address" & vbCrLf & _
-                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf & _
-                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf & _
-                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf & _
-                            "----------------------------------------------------" & vbCrLf & vbCrLf & _
-                            "First Name:" & vbTab & Me.txtdnfname.Text & vbCrLf & _
-                            "Last Name:" & vbTab & Me.txtdnlname.Text & vbCrLf & _
-                            "Phone #:" & vbTab & Me.txtdnphone.Text & vbCrLf & _
-                            "Address:" & vbTab & Me.txtdnaddy.Text & vbCrLf & _
-                            "City:" & vbTab & Me.txtdncity.Text & vbCrLf & _
-                            "State:" & vbTab & Me.dropdnstate.SelectedItem.Value & vbCrLf & _
-                            "Zip:" & vbTab & vbTab & Me.txtdnzip.Text & vbCrLf & _
+                        Me._mBody = "Loss Prevention - Unblock Address" & vbCrLf &
+                            "CCR Name:" & vbTab & _employee.FullNameFirstLast & vbCrLf &
+                            "ICOMS ID:" & vbTab & _employee.IcomsUserID & vbCrLf &
+                            "Supervisor: " & _employee.SupNameFirstLast & vbCrLf &
+                            "----------------------------------------------------" & vbCrLf & vbCrLf &
+                            "First Name:" & vbTab & Me.txtdnfname.Text & vbCrLf &
+                            "Last Name:" & vbTab & Me.txtdnlname.Text & vbCrLf &
+                            "Phone #:" & vbTab & Me.txtdnphone.Text & vbCrLf &
+                            "Address:" & vbTab & Me.txtdnaddy.Text & vbCrLf &
+                            "City:" & vbTab & Me.txtdncity.Text & vbCrLf &
+                            "State:" & vbTab & Me.dropdnstate.SelectedItem.Value & vbCrLf &
+                            "Zip:" & vbTab & vbTab & Me.txtdnzip.Text & vbCrLf &
                             "Comments:" & vbTab & Me.txtdncomm.Text
 
                         _sqlstr = "INSERT INTO Skip_Trace "
@@ -689,7 +694,35 @@ Public Class LossPrevention
                         Me.pnldn.Visible = False
                         Me.pnlmain.Visible = False
                         Me.pnlthx.Visible = True
+
+                    Case "btnSubmitUsha"
+                        'Check if a SSN or DL is entered
+                        If ((Me.txtUshaSsn.Text.Length = 0) And (Me.txtDLUsha.Text.Length = 0)) Then
+                            Me.lblUshaDnDlSsnError.Visible = True
+                            Exit Sub
+                        End If
+
+                        Dim ushaSsn As String = Me.txtUshaSsn.Text.Trim
+                        If ushaSsn.Length > 0 Then
+                            ushaSsn = Crypto.Encrypt(ushaSsn, True)
+                        End If
+
+                        Dim ushaDL As String = Me.txtDLUsha.Text.Trim
+                        If ushaDL.Length > 0 Then
+                            ushaDL = Crypto.Encrypt(ushaDL, True)
+                        End If
+                        Dim newAdditionalUshaSsn As String = Me.txtUshaAdditionalSsn.Text.Trim
+                        If newAdditionalUshaSsn.Length > 0 Then
+                            newAdditionalUshaSsn = Crypto.Encrypt(newAdditionalUshaSsn, True)
+                        End If
+
+                        InsertUshaRecord(ushaSsn, ushaDL, newAdditionalUshaSsn)
+
+                        Me.pnlNewRequestUsha.Visible = False
+                        Me.pnlmain.Visible = False
+                        Me.pnlthx.Visible = True
                 End Select
+
                 mailMsg.Subject = Me._mSubject
                 mailMsg.Body = Me._mBody
 
@@ -898,5 +931,69 @@ Public Class LossPrevention
             Me.MB.ShowMessage("An error occurred. If the error persists, see a Supervisor. " & ex.Message)
             Exit Sub
         End Try
+    End Sub
+
+    Protected Sub goHouseNumberUsha_Click(sender As Object, e As ImageClickEventArgs) Handles goHouseNumberUsha.Click
+        Me.rvHouseNumber.Validate()
+        Try
+            If Not String.IsNullOrEmpty(txtHouseNumberUsha.Text) Then
+                Dim customerSearch As New CustomerCare.CustomerSearchResponse
+                customerSearch = GeneralFormsCommon.SearchByHouseNumber(txtHouseNumberUsha.Text)
+
+                If customerSearch.Customers Is Nothing Then
+                    Me.MB.ShowMessage("Invalid House Number. Please verify the House Number in USHA.")
+                    Exit Sub
+                End If
+                If customerSearch.Customers.Length > 0 Then
+                    Dim zipArr As String() = customerSearch.Customers(0).Zip.Split("-")
+
+                    txtAddressUsha.Text = customerSearch.Customers(0).StreetAddress
+                    txtCityUsha.Text = customerSearch.Customers(0).City
+                    txtStateUsha.Text = customerSearch.Customers(0).State
+                    txtZipUsha.Text = zipArr(0)
+                End If
+            End If
+        Catch ex As Exception
+            Me.MB.ShowMessage("An error occurred. If the error persists, see a Supervisor. " & ex.Message)
+            Exit Sub
+        End Try
+
+
+    End Sub
+    Private Sub chBoxD2DUsha_CheckedChanged(sender As Object, e As System.EventArgs) Handles chBoxD2DUsha.CheckedChanged
+        lblD2DEmailUsha.Visible = chBoxD2DUsha.Checked
+        txtD2DEmailUsha.Visible = chBoxD2DUsha.Checked
+        rvD2DEmailUsha.Enabled = chBoxD2DUsha.Checked
+    End Sub
+    Public Sub InsertUshaRecord(ssn As String, driverLicense As String, addSSN As String)
+
+        Dim lpInsert As New LPInsertModel
+        lpInsert.RequestType = "New Start Request"
+        lpInsert.CCCUser = _suser
+        lpInsert.DateSub = Date.Now
+        lpInsert.CCRName = _employee.FullNameFirstLast
+        lpInsert.CSGOpCode = _employee.IcomsUserID
+        lpInsert.Supervisor = _employee.SupNameFirstLast
+        lpInsert.CFName = txtFirstNameUsha.Text
+        lpInsert.CLName = txtLastNameUsha.Text
+        lpInsert.Kickback = 0
+        lpInsert.Address = txtAddressUsha.Text
+        lpInsert.City = txtCityUsha.Text
+        lpInsert.State = txtStateUsha.Text
+        lpInsert.Zip = txtZipUsha.Text
+        lpInsert.PhoneNum = txtPhoneUsha.Text
+        lpInsert.SSN = ssn
+        lpInsert.DLNum = driverLicense
+        lpInsert.HouseNum = txtHouseNumberUsha.Text
+        lpInsert.Comments = Crypto.Encrypt(txtCommentUsha.Text, True)
+        lpInsert.d2dRequest = chBoxD2DUsha.Checked
+        lpInsert.d2dEmail = txtD2DEmailUsha.Text
+        lpInsert.AdditionalSSN = addSSN
+
+        Dim recordCreated As Boolean = LossPreventionDB.DBCreateNewStartRequest(lpInsert)
+        If Not recordCreated Then
+            Me.MB.ShowMessage("The information you submitted has not been sent successfully. Please try again.")
+            Exit Sub
+        End If
     End Sub
 End Class

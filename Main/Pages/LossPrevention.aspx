@@ -40,6 +40,7 @@
                                 <asp:ListItem Value="0" Text="New Start Request">New Start Request</asp:ListItem>
                                 <asp:ListItem Value="2" Text="Suspected Fraud">Suspected Fraud</asp:ListItem>
                                 <asp:ListItem Value="4" Text="Unblock Address">Unblock Address</asp:ListItem>
+                                <asp:ListItem Value="5" Text="New Start Request USHA">New Start Request USHA</asp:ListItem>
                             </asp:RadioButtonList>
                         </td>
                     </tr>
@@ -601,6 +602,189 @@
                     <tr>
                         <td colspan="2">
                             <asp:Button OnClick="SendIt" ID="btndnsend" runat="server" Text="Submit" Width="150" />
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <!--
+            ---------------------
+    NEW REQUEST PANEL USHA
+---------------------
+-->
+            <br />
+            <asp:Panel ID="pnlNewRequestUsha" runat="server">
+                <div class="sectionTitle">
+                    New Start Request USHA
+                </div>
+                <table class="input" width="600" cellspacing="0" cellpadding="2">
+                    <tr>
+                        <td colspan="4" class="green">
+                            <div class="infobox">
+                                <b>Do Not set up an install if you are submitting this form.</b> Use this form if
+                            the customer is providing information that cannot be validated through Accurint
+                            or if there are previous charged off accounts at the address the customer is requesting
+                            new service for.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>First Name:
+                        </td>
+                        <td>
+                            <asp:TextBox autocomplete="off" ID="txtFirstNameUsha" runat="server" Width="160" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtFirstNameUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                        </td>
+                        <td>Last Name:
+                        </td>
+                        <td>
+                            <asp:TextBox autocomplete="off" ID="txtLastNameUsha" runat="server" Width="160" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtLastNameUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>USHA House Number:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox autocomplete="off" ID="txtHouseNumberUsha" runat="server" Width="80" MaxLength="10"></asp:TextBox>
+                            <asp:ImageButton ImageUrl="/Images/SearchGo.gif" ID="goHouseNumberUsha" runat="server" CausesValidation="false" />
+                            <asp:RequiredFieldValidator ID="rvHouseNumber" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtHouseNumberUsha" />
+                            <asp:RegularExpressionValidator ID="revHouseNumberUsha" runat="server"
+                                ErrorMessage="<b>Invalid USHA House Number.</b>" ControlToValidate="txtHouseNumberUsha"
+                                ValidationExpression="^[0-9]{1,10}$">
+                            </asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+                    <asp:Panel ID="Panel2" runat="server" Visible="false">
+                        <tr>
+                            <td colspan="4">
+                                <span style="color: red;">Please correct the following:</span>
+                                <ul style="color: red;">
+                                    <li>This Usha House Number has already been submitted for review on this issue type and has an active issue open for review. You may not submit another request for this account and issue type until the current issue has been resolved.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </asp:Panel>
+                    <tr>
+                        <td>Address:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox autocomplete="off" ID="txtAddressUsha" runat="server" Width="300" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtAddressUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>City:
+                        </td>
+                        <td>
+                            <asp:TextBox autocomplete="off" ID="txtCityUsha" runat="server" Width="160" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtCityUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                        </td>
+                        <td>State:
+                        </td>
+                        <td>
+                            <asp:TextBox autocomplete="off" ID="txtStateUsha" runat="server" Width="160" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtStateUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox autocomplete="off" ID="txtZipUsha" runat="server" Width="160" MaxLength="5" />
+                            <asp:RequiredFieldValidator ControlToValidate="txtZipUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="revZipNumeric" ControlToValidate="txtZipUsha" runat="server"
+                                ErrorMessage="Only Numbers allowed"
+                                ValidationExpression="\d+">
+                            </asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone #:
+                        </td>
+                        <td colspan="3">
+                            <asp:TextBox runat="server" ID="txtPhoneUsha" MaxLength="10" 
+                                ShowButton="false" EmptyMessage="Enter Phone #" NumberFormat-DecimalDigits="0"
+                                NumberFormat-GroupSeparator="" Width="160px" autocomplete="off" />
+                           <asp:RequiredFieldValidator ControlToValidate="txtPhoneUsha" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid Phone Number"
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtPhoneUsha" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">SSN:
+                        </td>
+                        <td valign="top">
+                            <asp:TextBox autocomplete="off" ID="txtUshaSsn" runat="server" Width="160" MaxLength="11" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                ControlToValidate="txtUshaSsn" />
+                        </td>
+                        <td valign="top">DL #:
+                        </td>
+                        <td valign="top">
+                            <asp:TextBox autocomplete="off" ID="txtDLUsha" runat="server" Width="160" MaxLength="20" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server"
+                                Display="dynamic"
+                                ErrorMessage="Driver's License must be at least 5 characters, or contains an invalid character"
+                                ControlToValidate="txtDLUsha"
+                                ValidationExpression="^[a-zA-Z0-9]{5,}$">
+                            </asp:RegularExpressionValidator>
+                        </td>
+                    </tr>
+                    <%--yyz--%>
+                    <tr>
+                        <asp:Panel ID="pnlUshaAdditionalSSn1" runat="server">
+                            <td valign="top">Additional SSN:</td>
+                            <td valign="top">
+                                <asp:TextBox autocomplete="off" ID="txtUshaAdditionalSsn" runat="server" Width="160" MaxLength="11" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" Font-Bold="true"
+                                    Font-Size="Medium" Display="Dynamic" ErrorMessage="<br />Invalid SSN."
+                                    ValidationExpression="^(?!000)\d{3}[- .]?\d{2}[- .]?\d{4}$"
+                                    ControlToValidate="txtUshaAdditionalSsn" />
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </asp:Panel>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:Label ID="lblUshaDnDlSsnError" runat="server" Visible="false"><span style="color: red; font-weight: bold;">A valid SSN or Driver's License number is required.</span></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:CheckBox runat="server" ID="chBoxD2DUsha" Checked="false" CausesValidation="false"
+                                AutoPostBack="true" Text="Door-To-Door" />
+                            <br />
+                            <asp:Label runat="server" ID="lblD2DEmailUsha" Text="D2D E-Mail  " Visible="false" />
+                            <asp:TextBox autocomplete="off" runat="server" ID="txtD2DEmailUsha" Visible="false" />
+                            <asp:RequiredFieldValidator runat="server" ID="rvD2DEmailUsha" ControlToValidate="txtD2DEmailUsha"
+                                Display="Dynamic" Text="X" Font-Bold="true" Enabled="false" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Comments: <i>(Max 500 characters)</i><br />
+                            <asp:TextBox autocomplete="off" TextMode="MultiLine" Columns="50" Rows="5" runat="server" ID="txtCommentUsha"
+                                Font-Size="Medium" MaxLength="500" />
+                            <asp:RequiredFieldValidator ID="Requiredfieldvalidator8" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic" ControlToValidate="txtCommentUsha" />
+                            <br />
+                            <b>Comments are required, and should detail why the LP form is being submitted</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:Button ID="btnSubmitUsha" Text="Submit" OnClick="SendIt" runat="server" Width="150" />
                         </td>
                     </tr>
                 </table>

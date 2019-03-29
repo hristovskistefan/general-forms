@@ -152,4 +152,29 @@ Public Class GeneralFormsCommon
         Return True
     End Function
 #End Region
+#Region "Usha lost prevention"
+    Friend Shared Function SearchByHouseNumber(ByVal houseNumber As String) As CustomerCare.CustomerSearchResponse
+        Dim customerCareClient As New CustomerCare.CustomerClient
+        Try
+            customerCareClient.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings("UserNameApi")
+            customerCareClient.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings("PasswordApi")
+            Net.ServicePointManager.ServerCertificateValidationCallback = AddressOf CertificateValidationCallBack
+            Dim customerCareService() As CustomerCare.Service = {CustomerCare.Service.Billing}
+
+            Dim customerDetailsRequest As New CustomerCare.CustomerSearchByHouseNumberRequest
+            customerDetailsRequest.HouseNumber = houseNumber
+            customerDetailsRequest.BillingSystem = CustomerCare.BillingSystem.Usha
+
+            customerDetailsRequest.UserName = "lpform"
+            Dim customerDetailsResponse As New CustomerCare.CustomerSearchResponse
+            customerDetailsResponse = customerCareClient.CustomerSearchByHouseNumber(customerDetailsRequest)
+            Return customerDetailsResponse
+
+        Catch ex As Exception
+            customerCareClient.Abort()
+            'Throw New Exception("There was an error retrieving account information by house number.")
+            Return Nothing
+        End Try
+    End Function
+#End Region
 End Class

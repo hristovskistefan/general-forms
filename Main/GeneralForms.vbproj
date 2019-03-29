@@ -212,6 +212,8 @@
     <Content Include="App_Themes\WOWMain\_vti_cnf\Layout.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\StyleSheet.css" />
     <Content Include="App_Themes\WOWMain\_vti_cnf\Winback.css" />
+    <Compile Include="Classes\LossPreventionDB.vb" />
+    <Compile Include="Classes\LPInsertModel.vb" />
     <Compile Include="Classes\MisappliedPayment.vb" />
     <Content Include="Controls\WOWAuthCntrl.dll" />
     <Content Include="images\SearchGo.gif" />
