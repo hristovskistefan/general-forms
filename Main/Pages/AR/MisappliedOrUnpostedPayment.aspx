@@ -44,7 +44,8 @@
                                 Use this form if the customer has made a payment but it has not posted to their account
                                  or has posted for the incorrect amount.<br />
                                  Ensure the customer has confirmed with the bank that the payment has cleared before a request 
-                                 to research the payment is submitted. Customers must provide supporting documentation to the 
+                                 to research the payment is submitted.<br />
+                                Customers must provide supporting documentation to the 
                                 Account Research Department at wow_billing@wowinc.com.<br />
                                 This form is also used if the customer states that a payment has posted to their account and 
                                 that he/she did not make the payment.<br />
