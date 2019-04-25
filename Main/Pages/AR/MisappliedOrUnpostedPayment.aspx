@@ -41,17 +41,16 @@
                     <tr>
                         <td align="center" colspan="2">
                             <div class="infobox bolder">
-                                Use this form if the customer has made a payment but it has not posted to their
-                            account or has posted for the incorrect amount.<br />
-                                Customers must be prepared to fax supporting documentation to the Account Research
-                            Department at 1-888-268-5859.<br />
-                                This form is also used if the customer states that a payment has posted to their
-                            account and that he/she did not make the payment.<br />
+                                Use this form if the customer has made a payment but it has not posted to their account
+                                 or has posted for the incorrect amount.<br />
+                                 Ensure the customer has confirmed with the bank that the payment has cleared before a request 
+                                 to research the payment is submitted. Customers must provide supporting documentation to the 
+                                Account Research Department at wow_billing@wowinc.com.<br />
+                                This form is also used if the customer states that a payment has posted to their account and 
+                                that he/she did not make the payment.<br />
                                 <br />
                                 Inquiries that are within the CCRs scope of customer assistance will be returned
                             to the Supervisor for resolution.<br />
-                                <span style="color: Red; font-size: larger; font-style: italic;">All inquiries must
-                                be approved by your Supervisor prior to submission.</span>
                             </div>
                         </td>
                     </tr>
