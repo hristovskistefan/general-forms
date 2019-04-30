@@ -62,10 +62,8 @@
                     <tr>
                         <td colspan="4" class="green">
                             <div class="infobox">
-                                <b>Do Not set up an install if you are submitting this form.</b> Use this form if
-                            the customer is providing information that cannot be validated through Accurint
-                            or if there are previous charged off accounts at the address the customer is requesting
-                            new service for.
+                                <b>Do Not set up an install if you are submitting this form.</b> Use this form if 
+                                the Credit Check module advised to submit a loss prevention form.
                             </div>
                         </td>
                     </tr>
@@ -620,10 +618,8 @@
                     <tr>
                         <td colspan="4" class="green">
                             <div class="infobox">
-                                <b>Do Not set up an install if you are submitting this form.</b> Use this form if
-                            the customer is providing information that cannot be validated through Accurint
-                            or if there are previous charged off accounts at the address the customer is requesting
-                            new service for.
+                                <b>Do Not set up an install if you are submitting this form.</b> Use this form if 
+                                the Credit Check module advised to submit a loss prevention form.
                             </div>
                         </td>
                     </tr>

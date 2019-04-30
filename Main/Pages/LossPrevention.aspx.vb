@@ -940,6 +940,10 @@ Public Class LossPrevention
                 Dim customerSearch As New CustomerCare.CustomerSearchResponse
                 customerSearch = GeneralFormsCommon.SearchByHouseNumber(txtHouseNumberUsha.Text)
 
+                If customerSearch Is Nothing Then
+                    Me.MB.ShowMessage("Invalid House Number. Please verify the House Number in USHA.")
+                    Exit Sub
+                End If
                 If customerSearch.Customers Is Nothing Then
                     Me.MB.ShowMessage("Invalid House Number. Please verify the House Number in USHA.")
                     Exit Sub
