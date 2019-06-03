@@ -107,16 +107,37 @@
                     <tr>
                         <td style="width: 168px;" class="bolder">Best Contact Phone Number:</td>
                         <td>
-                            <asp:TextBox ID="txtPhoneNumber" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPhoneNumber" runat="server"  Enabled="false"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPhoneNumber" ErrorMessage="A valid phone number is required." ControlToValidate="txtPhoneNumber" runat="server" Text="X"
                                 Font-Bold="True" Font-Size="Medium" Display="Dynamic" />
                             <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
                                 Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
                                 ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
                                 ControlToValidate="txtPhoneNumber" />
-                        </td>                       
+                        </td>   
+                        <td style="width: 168px;" class="bolder">Alternate Phone Number:</td>
+                        <td>
+                            <asp:TextBox ID="txtAltPhoneNumber" runat="server" Enabled="false"></asp:TextBox>                            
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator33" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtAltPhoneNumber" />
+                        </td>                        
                     </tr>
-
+                    <tr>
+                        <td style="width: 168px;" class="bolder">Email:</td>
+                        <td>
+                            <asp:TextBox ID="txtEmail" runat="server" Enabled="false"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvEmail" ErrorMessage="No email address in Gooey." ControlToValidate="txtEmail" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic"/>
+                             <asp:RegularExpressionValidator ID="revEmail" runat="server"
+                            ErrorMessage="Email address is not valid."
+                            ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
+                            ControlToValidate="txtEmail"
+                            Display="Dynamic">
+                        </asp:RegularExpressionValidator>
+                        </td> 
+                     </tr>
                     <tr>
                         <td colspan="4">
                             <b>Type of Payment</b>

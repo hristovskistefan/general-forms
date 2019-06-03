@@ -27,6 +27,8 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -266,6 +268,55 @@
     <None Include="Service References\AddressService\AddressManagement33.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CareService\Customer.wsdl" />
+    <None Include="Service References\CareService\Customer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CareService\GeneralForms.CareService.BillingPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.CollectionsDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.CustomerDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.CustomerSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.MemoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.PersonalIdentityInfoByAccountNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.PhoneDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.PostedPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.ProductLineResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CareService\GeneralForms.CareService.RetriveNetworkForAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\CreateOrderService\CreateOrder.wsdl" />
     <None Include="Service References\CreateOrderService\CreateOrder.xsd">
       <SubType>Designer</SubType>
@@ -279,6 +330,13 @@
     </None>
     <None Include="Service References\CreateOrderService\CreateOrder3.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CareService\Customer.disco" />
+    <None Include="Service References\CareService\configuration91.svcinfo" />
+    <None Include="Service References\CareService\configuration.svcinfo" />
+    <None Include="Service References\CareService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <Content Include="Service References\CreateOrderService\GeneralForms.CreateOrderService.CreateOrderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -457,7 +515,9 @@
     <Content Include="Pages\WOWSuggestion.aspx" />
     <Content Include="report_style.css" />
     <Content Include="Web References\PortPS\portps.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web References\PortPS\portps.wsdl" />
     <Content Include="Web References\PortPS\PortPSResponse.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -628,6 +688,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\CareService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\CreateOrderService\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -770,6 +835,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AddressService\" />
+    <WCFMetadataStorage Include="Service References\CareService\" />
     <WCFMetadataStorage Include="Service References\CreateOrderService\" />
     <WCFMetadataStorage Include="Service References\CryptoSvc\" />
     <WCFMetadataStorage Include="Service References\CustomerCare\" />

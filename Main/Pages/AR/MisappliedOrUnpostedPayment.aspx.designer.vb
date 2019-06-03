@@ -212,6 +212,51 @@ Partial Public Class ARMisappliedOrUnpostedPayment
     Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
+    '''txtAltPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAltPhoneNumber As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RegularExpressionValidator33 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator33 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''txtEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''rfvEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''revEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
     '''RequiredFieldValidator6 control.
     '''</summary>
     '''<remarks>

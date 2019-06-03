@@ -126,8 +126,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         '***************************************
                         ' MUP - PERSONAL CHECK
                         '***************************************
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division,DateMailed) VALUES " _
-                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division,@DateMailed); SELECT @@IDENTITY")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CheckNum,RoutingNum,BankAcctNum,Amount,DateCleared,Comments,Division,DateMailed,AlternativePhoneNum,Email) VALUES " _
+                                                                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CheckNum,@RoutingNum,@BankAcctNum,@Amount,@DateCleared,@Comments,@Division,@DateMailed,@AlternativePhoneNum,@Email); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -151,6 +151,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.AddInParameter(cmd, "DateMailed", DbType.String, rdpPersonalCheckDateMailed.SelectedDate)
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
                         For i As Integer = 1 To 10
                             Dim txtAchAccount As TextBox = Page.FindControl("txtCheckAccount" + i.ToString)
@@ -166,8 +168,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - MONEY ORDER
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division,PaymentDate,MoneyOrderType) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division,@PaymentDate,@MoneyOrderType); SELECT @@IDENTITY")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,OrderNumAcct,OrderNum,Amount,DateMailed,Comments,Division,PaymentDate,MoneyOrderType,AlternativePhoneNum,Email) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@OrderNumAcct,@OrderNum,@Amount,@DateMailed,@Comments,@Division,@PaymentDate,@MoneyOrderType,@AlternativePhoneNum,@Email); SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -191,6 +193,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
                         db.AddInParameter(cmd, "PaymentDate", DbType.String, rdpmonordcash.SelectedDate)
                         db.AddInParameter(cmd, "MoneyOrderType", DbType.String, dropmonordtype.SelectedItem.Value)
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
                         For i As Integer = 1 To 10
                             Dim txtAchAccount As TextBox = Page.FindControl("txtMoAccount" + i.ToString)
@@ -206,8 +210,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - PAYMENT CENTER
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,PCAcctNum,IsTerminalID,TerminalID,Amount,PaymentDate,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@PCAcctNum,@IsTerminalID,@TerminalID,@Amount,@PaymentDate,@Comments,@Division)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,PCAcctNum,IsTerminalID,TerminalID,Amount,PaymentDate,Comments,Division,AlternativePhoneNum,Email) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@PCAcctNum,@IsTerminalID,@TerminalID,@Amount,@PaymentDate,@Comments,@Division,@AlternativePhoneNum,@Email)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -230,6 +234,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "PaymentDate", DbType.String, rdppctr4.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         db.ExecuteNonQuery(cmd)
 
                     Case "3" 'CREDIT/DEBIT CARD
@@ -237,8 +243,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - CREDIT/DEBIT CARD
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CardNum,ExpireDate,Amount,DateCleared,Comments,BatchNum,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CardNum,@ExpireDate,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,CardNum,ExpireDate,Amount,DateCleared,Comments,BatchNum,Division,AlternativePhoneNum,Email) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@CardNum,@ExpireDate,@Amount,@DateCleared,@Comments,@BatchNum,@Division,@AlternativePhoneNum,@Email)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -266,6 +272,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "BatchNum", DbType.String, If(txtcredauth.Text.Length > 0, txtcredauth.Text, "*****"))
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         db.ExecuteNonQuery(cmd)
 
                     Case "4" 'EFT PAYMENT
@@ -273,8 +281,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - EFT PAYMENT
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,RoutingNum,EFTAcctNum,Amount,DateCleared,Comments,BatchNum,Division) VALUES " _
-                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@RoutingNum,@EFTAcctNum,@Amount,@DateCleared,@Comments,@BatchNum,@Division)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,RoutingNum,EFTAcctNum,Amount,DateCleared,Comments,BatchNum,Division,AlternativePhoneNum,Email) VALUES " _
+                        & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@RoutingNum,@EFTAcctNum,@Amount,@DateCleared,@Comments,@BatchNum,@Division,@AlternativePhoneNum,@Email)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -297,6 +305,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "BatchNum", DbType.String, If(txteftAuth.Text.Length > 0, txteftAuth.Text, "*****"))
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         db.ExecuteNonQuery(cmd)
 
                     Case "5" 'CASH PAYMENT
@@ -304,8 +314,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - CASH PAYMENT
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,PaymentLoc,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@PaymentLoc,@Comments,@Division)")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,PaymentLoc,Comments,Division,AlternativePhoneNum,Email) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@PaymentLoc,@Comments,@Division,@AlternativePhoneNum,@Email)")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -326,6 +336,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "PaymentLoc", DbType.String, dropcash.SelectedItem.Value)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         db.ExecuteNonQuery(cmd)
 
                     Case "6" 'ACH (Business Only)
@@ -333,8 +345,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         ' MUP - ACH
                         '***************************************
 
-                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,Comments,Division) VALUES " _
-                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@Comments,@Division);SELECT @@IDENTITY")
+                        cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,IssueType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,PaymentDate,Comments,Division,AlternativePhoneNum,Email) VALUES " _
+                         & "(@DateSub,@RequestType,@IssueType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@PaymentDate,@Comments,@Division,@AlternativePhoneNum,@Email);SELECT @@IDENTITY")
                         Database.ClearParameterCache()
                         db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                         db.AddInParameter(cmd, "RequestType", DbType.String, "MUP")
@@ -354,6 +366,8 @@ Public Class ARMisappliedOrUnpostedPayment
                         db.AddInParameter(cmd, "PaymentDate", DbType.String, rdpAch.SelectedDate)
                         db.AddInParameter(cmd, "Comments", DbType.String, txtmisappcomm.Text)
                         db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                        db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhoneNumber.Text)
+                        db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                         Dim billingId As Int32 = db.ExecuteScalar(cmd)
                         MisappliedPayment.AddAchInfo(billingId, txtAchAccountName.Text, txtAchInvoiceNumber.Text)
                         For i As Integer = 1 To 10
@@ -456,6 +470,12 @@ Public Class ARMisappliedOrUnpostedPayment
             txtclname.Text = icomsAccount.LastName
             txtcfname.Text = icomsAccount.FirstName
             lblDivision.Text = icomsAccount.Division
+
+            Dim customerDetails = GeneralFormsCommon.getCustomerDetails(tempAccount)
+
+            txtEmail.Text = customerDetails.Account.ContactEmail
+            txtPhoneNumber.Text = customerDetails.Account.DaytimePhoneNumber
+            txtAltPhoneNumber.Text = customerDetails.Account.EveningPhoneNumber
 
             If icomsAccount.IsCommercial Then
                 Dim liAch As ListItem = radmisapp.Items.FindByText("ACH (Business Customers ONLY)")

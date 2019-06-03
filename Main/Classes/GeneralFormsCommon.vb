@@ -13,7 +13,7 @@ Public Class GeneralFormsCommon
                 Dim emplogin As String = System.Web.HttpContext.Current.Request.ServerVariables("AUTH_USER").Split("\"c)(1)
                 'If emplogin.ToLower = "a_gulbranson" Then
                 '    emplogin = "stl_bpace"
-                'End If          
+                'End If
                 employee = es.GetBasicInfoByNTLogin(emplogin)
                 System.Web.HttpContext.Current.Session("EmployeeGF") = employee
             End Using
@@ -177,4 +177,30 @@ Public Class GeneralFormsCommon
         End Try
     End Function
 #End Region
+
+#Region "GetCustomerDetails"
+    Friend Shared Function getCustomerDetails(account As String) As CareService.CustomerDetailsResponse
+        Dim customerDetailsResponse As New CareService.CustomerDetailsResponse
+        Try
+            Using careClient As New CareService.CustomerClient
+                careClient.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings("UserNameApi")
+                careClient.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings("PasswordApi")
+                Net.ServicePointManager.ServerCertificateValidationCallback = AddressOf CertificateValidationCallBack
+                Dim customerCareService() As CareService.Service = {CareService.Service.Account}
+
+                Dim customerDetailsRequest As New CareService.CustomerDetailsByAccountNumberRequest
+
+                customerDetailsRequest.AccountNumber = account
+                customerDetailsRequest.Services = customerCareService
+                customerDetailsRequest.UserName = "InquiryEntryForm"
+
+                customerDetailsResponse = careClient.CustomerDetailsByAccountNumber(customerDetailsRequest)
+            End Using
+            Return customerDetailsResponse
+        Catch
+            customerDetailsResponse = Nothing
+        End Try
+    End Function
+#End Region
+
 End Class
