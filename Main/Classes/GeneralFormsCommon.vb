@@ -192,7 +192,7 @@ Public Class GeneralFormsCommon
 
                 customerDetailsRequest.AccountNumber = account
                 customerDetailsRequest.Services = customerCareService
-                customerDetailsRequest.UserName = "InquiryEntryForm"
+                customerDetailsRequest.UserName = "GeneralForms"
 
                 customerDetailsResponse = careClient.CustomerDetailsByAccountNumber(customerDetailsRequest)
             End Using

@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ARNameChange
-
+    
     '''<summary>
     '''Head1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Head1 As Global.System.Web.UI.HtmlControls.HtmlHead
-
+    
     '''<summary>
     '''Form1 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''RadScriptManager1 control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
-
+    
     '''<summary>
     '''lblhDate control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhName control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhIcomsID control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhIcomsID As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlmain control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''hfAccountDivision control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hfAccountDivision As Global.System.Web.UI.WebControls.HiddenField
-
+    
     '''<summary>
     '''txtAcct control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAcct As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''ibGo control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ibGo As Global.System.Web.UI.WebControls.ImageButton
-
+    
     '''<summary>
     '''revAccount control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revAccount As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''rfvAccount control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''cvAccount control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cvAccount As Global.System.Web.UI.WebControls.CustomValidator
-
+    
     '''<summary>
     '''txtstate control.
     '''</summary>
@@ -138,7 +138,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtstate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''lblDivision control.
     '''</summary>
@@ -147,7 +147,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlNameChangeMain control.
     '''</summary>
@@ -156,7 +156,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlNameChangeMain As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtcfname control.
     '''</summary>
@@ -165,7 +165,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtcfname As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator39 control.
     '''</summary>
@@ -174,7 +174,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator39 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtclname control.
     '''</summary>
@@ -183,7 +183,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtclname As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''RequiredFieldValidator3 control.
     '''</summary>
@@ -192,7 +192,70 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
+    '''<summary>
+    '''txtBestPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBestPhone As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''revBestPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revBestPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''txtAltPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAltPhone As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''revPhoneNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''txtEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''rfvEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''revEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
     '''<summary>
     '''rblNameCorrChange control.
     '''</summary>
@@ -201,7 +264,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rblNameCorrChange As Global.System.Web.UI.WebControls.RadioButtonList
-
+    
     '''<summary>
     '''pnlNameChange control.
     '''</summary>
@@ -210,7 +273,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlNameChange As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''pnlFamilyRelation control.
     '''</summary>
@@ -219,7 +282,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlFamilyRelation As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''rblfamilyRelation control.
     '''</summary>
@@ -228,7 +291,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rblfamilyRelation As Global.System.Web.UI.WebControls.RadioButtonList
-
+    
     '''<summary>
     '''lblFamilyRelation control.
     '''</summary>
@@ -237,7 +300,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblFamilyRelation As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlNameChangeData control.
     '''</summary>
@@ -246,7 +309,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlNameChangeData As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtCurrName control.
     '''</summary>
@@ -255,7 +318,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCurrName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Requiredfieldvalidator32 control.
     '''</summary>
@@ -264,7 +327,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator32 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtNewName control.
     '''</summary>
@@ -273,7 +336,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewName As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Requiredfieldvalidator33 control.
     '''</summary>
@@ -282,7 +345,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator33 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtRelationship control.
     '''</summary>
@@ -291,7 +354,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtRelationship As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvRelationship control.
     '''</summary>
@@ -300,7 +363,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvRelationship As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtNewSSN control.
     '''</summary>
@@ -309,7 +372,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewSSN As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''Requiredfieldvalidator34 control.
     '''</summary>
@@ -318,7 +381,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Requiredfieldvalidator34 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revSSN control.
     '''</summary>
@@ -327,7 +390,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revSSN As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtNewPhone control.
     '''</summary>
@@ -336,7 +399,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewPhone As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvNewPhone control.
     '''</summary>
@@ -345,7 +408,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvNewPhone As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revNewPhone control.
     '''</summary>
@@ -354,7 +417,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revNewPhone As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtAltNum control.
     '''</summary>
@@ -363,16 +426,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAltNum As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''rfvAltNum control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rfvAltNum As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revAltNum control.
     '''</summary>
@@ -381,7 +435,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revAltNum As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''lblCertificate control.
     '''</summary>
@@ -390,7 +444,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblCertificate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''txtNameChangeComm control.
     '''</summary>
@@ -399,7 +453,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNameChangeComm As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''btnNameChangeSubmit control.
     '''</summary>
@@ -408,7 +462,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnNameChangeSubmit As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''pnlNameCorr control.
     '''</summary>
@@ -417,7 +471,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlNameCorr As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtCurrNameCorr control.
     '''</summary>
@@ -426,7 +480,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCurrNameCorr As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvCurrNameCorr control.
     '''</summary>
@@ -435,7 +489,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvCurrNameCorr As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtNewNameCorr control.
     '''</summary>
@@ -444,7 +498,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewNameCorr As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvNewNameCorr control.
     '''</summary>
@@ -453,7 +507,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvNewNameCorr As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtNameCorrComm control.
     '''</summary>
@@ -462,7 +516,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNameCorrComm As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''btnNameCorrSubmit control.
     '''</summary>
@@ -471,7 +525,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnNameCorrSubmit As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''pnlLegal control.
     '''</summary>
@@ -480,7 +534,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlLegal As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtCurrNameLegal control.
     '''</summary>
@@ -489,7 +543,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtCurrNameLegal As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvCurrNameLegal control.
     '''</summary>
@@ -498,7 +552,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvCurrNameLegal As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtNewNameLegal control.
     '''</summary>
@@ -507,7 +561,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNewNameLegal As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvNewNameLegal control.
     '''</summary>
@@ -516,7 +570,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvNewNameLegal As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtLegalPhoneNumber control.
     '''</summary>
@@ -525,7 +579,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtLegalPhoneNumber As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvLegalPhoneNumber control.
     '''</summary>
@@ -534,7 +588,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvLegalPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revLegalPhoneNumber control.
     '''</summary>
@@ -543,7 +597,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revLegalPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''txtNameLegalComm control.
     '''</summary>
@@ -552,7 +606,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNameLegalComm As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''lblLegal control.
     '''</summary>
@@ -561,7 +615,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblLegal As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''btnNameLegalSubmit control.
     '''</summary>
@@ -570,7 +624,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnNameLegalSubmit As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''pnlerror control.
     '''</summary>
@@ -579,7 +633,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlerror As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblerror control.
     '''</summary>
@@ -588,7 +642,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblerror As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlthx control.
     '''</summary>
@@ -597,7 +651,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlthx As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''btnthx control.
     '''</summary>
@@ -606,7 +660,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnthx As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''ValidationSummary control.
     '''</summary>
@@ -615,7 +669,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''ValidationSummary1 control.
     '''</summary>
@@ -624,7 +678,7 @@ Partial Public Class ARNameChange
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary1 As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''MB control.
     '''</summary>

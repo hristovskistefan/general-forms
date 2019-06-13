@@ -31,7 +31,7 @@
         </div>
         <div id="Container-Content" style="font-size: .9em;">
             <asp:Panel ID="pnlmain" runat="server">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
+                <table class="input" cellspacing="0" cellpadding="0">
                     <tr>
                         <td align="center" colspan="4">
                             <div class="infobox bolder">
@@ -73,23 +73,56 @@
                 </table>
             </asp:Panel>
             <asp:Panel ID="pnlNameChangeMain" runat="server">
-                <table class="input" cellspacing="0" cellpadding="0" width="100%">
+                <table class="input" cellspacing="0" cellpadding="0" style="border-spacing:10px">
                     <tr>
-                        <td style="width: 168px;">First Name:
+                        <td >First Name:
                         </td>
-                        <td style="width: 200px;">
+                        <td align="left" >
                             <asp:TextBox autocomplete="off" ID="txtcfname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator39" runat="server" ControlToValidate="txtcfname"
                                 Display="Dynamic" Text="X" Font-Bold="True" Font-Size="Medium" ErrorMessage="Customer First Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
                         </td>
-                        <td style="width: 80px;">Last Name:&nbsp;
+                        <td>Last Name:&nbsp;
                         </td>
                         <td align="left">
                             <asp:TextBox autocomplete="off" ID="txtclname" runat="server" Width="160"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtclname"
                                 Display="Dynamic" Font-Bold="True" Font-Size="Medium" Text="X" ErrorMessage="Customer Last Name Required"
                                 EnableClientScript="false" ValidationGroup="vgAcctInfo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Best Phone:
+                        </td>
+                        <td align="left">
+                            <asp:TextBox autocomplete="off" ID="txtBestPhone" runat="server" Width="160" Enabled="false"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="revBestPhone" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtBestPhone" />
+                        </td>
+                        <td>Alternative Phone:&nbsp;
+                        </td>
+                        <td align="left"> 
+                            <asp:TextBox autocomplete="off" ID="txtAltPhone" runat="server" Width="160" Enabled="false"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="revPhoneNumber" runat="server" Text="X" Font-Bold="true"
+                                Font-Size="Medium" Display="Dynamic" ErrorMessage="Invalid phone number."
+                                ValidationExpression="^[- .]?(((?!\(000\))(?!\(111\))(?!\(222\))(?!\(333\))(?!\(444\))(?!\(555\))(?!\(666\))(?!\(777\))(?!\(900\))\(\d{3}\) ?)|(?!000)(?!111)(?!222)(?!333)(?!444)(?!555)(?!666)(?!777)(?!900)([2-9]\d{2}\)|[2-9]\d{2}))[- .]?\d{3}[- .]?\d{4}$"
+                                ControlToValidate="txtAltPhone" />
+                        </td>
+                         <td>Email:
+                        </td>
+                        <td align="left">
+                            <asp:TextBox autocomplete="off" ID="txtEmail" runat="server" Width="160" Enabled="false"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvEmail" ErrorMessage="No email address in Gooey." ControlToValidate="txtEmail" runat="server" Text="X"
+                                Font-Bold="True" Font-Size="Medium" Display="Dynamic"/>
+                             <asp:RegularExpressionValidator ID="revEmail" runat="server"
+                            ErrorMessage="Email address is not valid."
+                            ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
+                            ControlToValidate="txtEmail"
+                            Display="Dynamic">
+                        </asp:RegularExpressionValidator>
                         </td>
                     </tr>
                     <tr>
