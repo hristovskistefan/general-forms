@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class ARCustomerRefunds
-
+    
     '''<summary>
     '''Head1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Head1 As Global.System.Web.UI.HtmlControls.HtmlHead
-
+    
     '''<summary>
     '''Form1 control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''RadScriptManager1 control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RadScriptManager1 As Global.Telerik.Web.UI.RadScriptManager
-
+    
     '''<summary>
     '''lblhDate control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhDate As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhName control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhName As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''lblhIcomsID control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblhIcomsID As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlmain control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlmain As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''txtAcct control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtAcct As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''ibGo control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ibGo As Global.System.Web.UI.WebControls.ImageButton
-
+    
     '''<summary>
     '''revAccount control.
     '''</summary>
@@ -102,7 +102,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revAccount As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
     '''<summary>
     '''rfvAccount control.
     '''</summary>
@@ -111,7 +111,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvAccount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''cvAccount control.
     '''</summary>
@@ -120,7 +120,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cvAccount As Global.System.Web.UI.WebControls.CustomValidator
-
+    
     '''<summary>
     '''txtstate control.
     '''</summary>
@@ -129,7 +129,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtstate As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''lblDivision control.
     '''</summary>
@@ -138,43 +138,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDivision As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtcfname control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtcfname As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''RequiredFieldValidator39 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator39 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''txtclname control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtclname As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''RequiredFieldValidator3 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''pnlrefund control.
     '''</summary>
@@ -183,25 +147,43 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlrefund As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
-    '''rntRefundAmount control.
+    '''txtcfname control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rntRefundAmount As Global.Telerik.Web.UI.RadNumericTextBox
-
+    Protected WithEvents txtcfname As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''rfvRefundAmount control.
+    '''RequiredFieldValidator39 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvRefundAmount As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    Protected WithEvents RequiredFieldValidator39 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''txtclname control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtclname As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RequiredFieldValidator3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RequiredFieldValidator3 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''txtPhoneNumber control.
     '''</summary>
@@ -210,7 +192,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPhoneNumber As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''rfvPhoneNumber control.
     '''</summary>
@@ -219,7 +201,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rfvPhoneNumber As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''revPhoneNumber control.
     '''</summary>
@@ -228,7 +210,70 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents revPhoneNumber As Global.System.Web.UI.WebControls.RegularExpressionValidator
-
+    
+    '''<summary>
+    '''txtAltPhone control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtAltPhone As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''RegularExpressionValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''txtEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtEmail As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''rfvEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvEmail As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''revEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents revEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''rntRefundAmount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rntRefundAmount As Global.Telerik.Web.UI.RadNumericTextBox
+    
+    '''<summary>
+    '''rfvRefundAmount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rfvRefundAmount As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''RequiredFieldValidator1 control.
     '''</summary>
@@ -237,7 +282,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
+    
     '''<summary>
     '''txtrefreason control.
     '''</summary>
@@ -246,7 +291,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtrefreason As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtrefcomm control.
     '''</summary>
@@ -255,7 +300,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtrefcomm As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''btnrefsend control.
     '''</summary>
@@ -264,7 +309,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnrefsend As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''pnlerror control.
     '''</summary>
@@ -273,7 +318,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlerror As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''lblerror control.
     '''</summary>
@@ -282,7 +327,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblerror As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''pnlthx control.
     '''</summary>
@@ -291,7 +336,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pnlthx As Global.System.Web.UI.WebControls.Panel
-
+    
     '''<summary>
     '''btnthx control.
     '''</summary>
@@ -300,7 +345,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnthx As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''ValidationSummary control.
     '''</summary>
@@ -309,7 +354,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''ValidationSummary1 control.
     '''</summary>
@@ -318,7 +363,7 @@ Partial Public Class ARCustomerRefunds
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ValidationSummary1 As Global.System.Web.UI.WebControls.ValidationSummary
-
+    
     '''<summary>
     '''MB control.
     '''</summary>

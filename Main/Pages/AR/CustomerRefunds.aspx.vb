@@ -59,8 +59,8 @@ Public Class ARCustomerRefunds
                 '***************************************
                 ' CUSTOMER REFUND
                 '***************************************
-                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,RefundReason,Comments,Division) VALUES " _
-                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@RefundReason,@Comments,@Division)")
+                cmd = db.GetSqlStringCommand("INSERT INTO Billing (DateSub,RequestType,Username,CCRName,CSGOpCode,SalesID,Supervisor,CFName,CLName,AcctNum,PhoneNum,State,Kickback,Amount,RefundReason,Comments,Division,AlternativePhoneNum,Email) VALUES " _
+                 & "(@DateSub,@RequestType,@Username,@CCRName,@CSGOpCode,@SalesID,@Supervisor,@CFName,@CLName,@AcctNum,@PhoneNum,@State,@Kickback,@Amount,@RefundReason,@Comments,@Division,@AlternativePhoneNum,@Email)")
                 Database.ClearParameterCache()
                 db.AddInParameter(cmd, "DateSub", DbType.DateTime, Date.Now)
                 db.AddInParameter(cmd, "RequestType", DbType.String, "Customer Refund")
@@ -79,6 +79,8 @@ Public Class ARCustomerRefunds
                 db.AddInParameter(cmd, "RefundReason", DbType.String, txtrefreason.Text)
                 db.AddInParameter(cmd, "Comments", DbType.String, txtrefcomm.Text)
                 db.AddInParameter(cmd, "Division", DbType.Int32, CInt(lblDivision.Text))
+                db.AddInParameter(cmd, "AlternativePhoneNum", DbType.String, txtAltPhone.Text)
+                db.AddInParameter(cmd, "Email", DbType.String, txtEmail.Text)
                 db.ExecuteNonQuery(cmd)
                 Reset()
             Catch mailex As Exception
@@ -156,6 +158,12 @@ Public Class ARCustomerRefunds
             txtcfname.Text = String.Empty
             Exit Sub
         End If
+
+        Dim customerDetails = GeneralFormsCommon.getCustomerDetails(tempAccount)
+        txtEmail.Text = customerDetails.Account.ContactEmail
+        txtPhoneNumber.Text = customerDetails.Account.DaytimePhoneNumber
+        txtAltPhone.Text = customerDetails.Account.EveningPhoneNumber
+
         txtclname.Text = _myCustomer.LName
         txtcfname.Text = _myCustomer.FName
         lblDivision.Text = _myCustomer.Address.Division
