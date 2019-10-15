@@ -18,15 +18,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://iwservices/employee/management.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://iwservicesdev/employee/management.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Management.disco" MetadataType="Disco" ID="c24af020-e4a9-4832-bc68-c37d436c5724" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?disco" />
-    <MetadataFile FileName="Management.wsdl" MetadataType="Wsdl" ID="548a29e6-d000-4cbd-a866-3aa0e1fda8d3" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?wsdl" />
-    <MetadataFile FileName="Management.xsd" MetadataType="Schema" ID="c25d166d-706b-4762-8a26-8c2b1678bb77" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?xsd=xsd2" />
-    <MetadataFile FileName="Management1.xsd" MetadataType="Schema" ID="3053c653-dbed-4ffa-8e5e-3d52cd1e04ae" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?xsd=xsd3" />
-    <MetadataFile FileName="Management2.xsd" MetadataType="Schema" ID="93fa936e-6f8e-4b7d-9422-8a4956cde826" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?xsd=xsd0" />
-    <MetadataFile FileName="Management3.xsd" MetadataType="Schema" ID="b6a0e511-492f-4cf7-97f8-e01794b29a30" SourceId="1" SourceUrl="http://iwservices/Employee/Management.svc?xsd=xsd1" />
+    <MetadataFile FileName="Management4.xsd" MetadataType="Schema" ID="f6facf1d-3f6f-4790-91fc-f6ec63989bd4" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?xsd=xsd3" />
+    <MetadataFile FileName="Management1.disco" MetadataType="Disco" ID="35bbad46-036a-4f20-88af-8667ba994930" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?disco" />
+    <MetadataFile FileName="Management41.xsd" MetadataType="Schema" ID="71a05259-131c-4abc-b488-d1e2b6a93234" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?xsd=xsd2" />
+    <MetadataFile FileName="Management42.xsd" MetadataType="Schema" ID="5c06455a-4467-4c05-a5c8-915b569bc8f9" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?xsd=xsd1" />
+    <MetadataFile FileName="Management43.xsd" MetadataType="Schema" ID="b98919fc-b18a-4f82-bcc5-46f9364654b1" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?xsd=xsd0" />
+    <MetadataFile FileName="Management1.wsdl" MetadataType="Wsdl" ID="1ea2d0bd-3d07-4715-8c04-5252734c72e4" SourceId="1" SourceUrl="http://iwservicesdev/Employee/Management.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

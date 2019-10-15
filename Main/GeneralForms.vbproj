@@ -470,24 +470,23 @@
     <Content Include="Service References\EmployeeService\GeneralForms.EmployeeService.EmpInstance.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\EmployeeService\Management.wsdl" />
-    <None Include="Service References\EmployeeService\Management.xsd">
+    <None Include="Service References\EmployeeService\Management1.wsdl" />
+    <None Include="Service References\EmployeeService\Management4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeService\Management1.xsd">
+    <None Include="Service References\EmployeeService\Management41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeService\Management2.xsd">
+    <None Include="Service References\EmployeeService\Management42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeService\Management3.xsd">
+    <None Include="Service References\EmployeeService\Management43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EmployeeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
-    <None Include="Service References\EmployeeService\Management.disco" />
     <None Include="Service References\OrderUpdateService\OrderUpdate.disco" />
     <None Include="Service References\OrderUpdateService\configuration91.svcinfo" />
     <None Include="Service References\OrderUpdateService\configuration.svcinfo" />
@@ -495,6 +494,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
+    <None Include="Service References\EmployeeService\Management1.disco" />
     <Content Include="Unauthorized.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="images\Cancel.gif" />
@@ -890,7 +890,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="False" UseJQuerySupport="False" />
+      <UserProperties UseJQuerySupport="False" UseAjaxifiedTemplates="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
